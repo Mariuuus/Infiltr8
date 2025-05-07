@@ -6,18 +6,32 @@ namespace __ProjectMain.Scripts.Managers
 {
     public class LevelManager : MonoBehaviour
     {
+        // Singleton instance
+        public static LevelManager Instance { get; private set; }
+
         private LevelFileManager _levelFileManager;
-        
+
         [Header("Tilemaps")]
-        public Tilemap groundTilemap; 
+        public Tilemap uiTilemap;
+        public Tilemap groundTilemap;
         public Tilemap wallsTilemap;
-        
+
         [Header("Tilemap GameObjects")]
         public GameObject wallObject;
         public GameObject groundObject;
 
         private void Awake()
         {
+            // Singleton pattern enforcement
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+
             _levelFileManager = GetComponent<LevelFileManager>();
             _levelFileManager.Init();
             UpdateMap();
@@ -37,7 +51,7 @@ namespace __ProjectMain.Scripts.Managers
                     PlaceObjectAtTile(new Vector3Int(x, y, 0), groundTilemap, groundObject);
                 }
             }
-            
+
             // create outer walls
             for (int y = _levelFileManager.levelData.leftUpperWall.y;
                  y < _levelFileManager.levelData.rightBottomWall.y;
@@ -57,13 +71,17 @@ namespace __ProjectMain.Scripts.Managers
                 }
             }
         }
-        
+
+        /*public GameObject GetTypeOfTile(Vector2Int pos, Tilemap tilemap)
+        {
+            return 
+        }*/
+
         public void PlaceObjectAtTile(Vector3Int cellPosition, Tilemap tilemap, GameObject prefabToPlace)
         {
             Vector3 worldPos = tilemap.GetCellCenterWorld(cellPosition);
             GameObject instance = Instantiate(prefabToPlace, worldPos, Quaternion.identity);
             instance.transform.SetParent(tilemap.transform);
         }
-
     }
 }
