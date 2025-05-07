@@ -3,7 +3,7 @@
 namespace __ProjectMain.Scripts.Managers.States
 {
     [System.Serializable]
-    public class SubnetworkState
+    public class SubnetLevelData
     {
         public Vector2Int leftUpperWall;
         public Vector2Int rightBottomWall;
