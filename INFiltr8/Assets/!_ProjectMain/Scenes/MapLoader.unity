@@ -577,6 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAtText: {fileID: 1162081455}
   grid: {fileID: 1365826446}
+  hoverActivated: 0
   hoverTile: {fileID: 11400000, guid: 29686d863a4e3d44ba016793457e1271, type: 2}
   levelCornerTile: {fileID: 11400000, guid: be9b9d3fa8534364cb57bbaabc4ac289, type: 2}
   spawnPointTile: {fileID: 0}
