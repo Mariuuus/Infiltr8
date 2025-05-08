@@ -1,18 +1,38 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
 using __ProjectMain.Scripts.Managers.States;
 
 namespace __ProjectMain.Scripts.Managers
 {  
     public class LevelFileManager : MonoBehaviour
     {
+        // Singleton instance
+        public static LevelFileManager Instance { get; private set; }
+        
         public string levelName;
         public LevelData levelData;
+
         
+        private void Awake()
+        {
+            Debug.Log("LevelFileManager::Awake");
+
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         public void Init()
         {
+            Instance = this;
+            Debug.Log("LevelFileManager::Init");
             if (levelName != "" && levelData != null)
             {
                 try

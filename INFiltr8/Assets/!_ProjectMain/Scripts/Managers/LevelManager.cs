@@ -1,4 +1,5 @@
 ﻿using System;
+using __ProjectMain.Scripts.Managers.LevelMaker;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,7 +10,10 @@ namespace __ProjectMain.Scripts.Managers
         // Singleton instance
         public static LevelManager Instance { get; private set; }
 
+        public bool Active { get; private set; } = false;
+
         private LevelFileManager _levelFileManager;
+        private LevelUIManager _levelUIManager;
 
         [Header("Tilemaps")]
         public Tilemap uiTilemap;
@@ -22,7 +26,7 @@ namespace __ProjectMain.Scripts.Managers
 
         private void Awake()
         {
-            // Singleton pattern enforcement
+            Active = false;
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
@@ -31,40 +35,45 @@ namespace __ProjectMain.Scripts.Managers
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
+            Debug.Log("LevelManager::Init");
+
+            Active = true;
 
             _levelFileManager = GetComponent<LevelFileManager>();
             _levelFileManager.Init();
+            _levelUIManager = GetComponent<LevelUIManager>();
+            _levelUIManager.Init();
+
             UpdateMap();
         }
 
         public void UpdateMap()
         {
-            // fill ground
-            for (int y = _levelFileManager.levelData.leftUpperWall.y;
-                 y < _levelFileManager.levelData.rightBottomWall.y;
+            for (int y = _levelFileManager.levelData.wallPointOne.y;
+                 y <= _levelFileManager.levelData.wallPointTwo.y;
                  y++)
             {
-                for (int x = _levelFileManager.levelData.leftUpperWall.x;
-                     x < _levelFileManager.levelData.rightBottomWall.x;
+                for (int x = _levelFileManager.levelData.wallPointOne.x;
+                     x <= _levelFileManager.levelData.wallPointTwo.x;
                      x++)
                 {
                     PlaceObjectAtTile(new Vector3Int(x, y, 0), groundTilemap, groundObject);
                 }
             }
 
-            // create outer walls
-            for (int y = _levelFileManager.levelData.leftUpperWall.y;
-                 y < _levelFileManager.levelData.rightBottomWall.y;
+            for (int y = _levelFileManager.levelData.wallPointOne.y;
+                 y <= _levelFileManager.levelData.wallPointTwo.y;
                  y++)
             {
-                for (int x = _levelFileManager.levelData.leftUpperWall.x;
-                     x < _levelFileManager.levelData.rightBottomWall.x;
+                for (int x = _levelFileManager.levelData.wallPointOne.x;
+                     x <= _levelFileManager.levelData.wallPointTwo.x;
                      x++)
                 {
-                    if (x == _levelFileManager.levelData.leftUpperWall.x ||
-                        x == _levelFileManager.levelData.rightBottomWall.x - 1 ||
-                        y == _levelFileManager.levelData.leftUpperWall.y ||
-                        y == _levelFileManager.levelData.rightBottomWall.y - 1)
+                    if (x == _levelFileManager.levelData.wallPointOne.x ||
+                        x == _levelFileManager.levelData.wallPointTwo.x ||
+                        y == _levelFileManager.levelData.wallPointOne.y ||
+                        y == _levelFileManager.levelData.wallPointTwo.y)
                     {
                         PlaceObjectAtTile(new Vector3Int(x, y, 0), wallsTilemap, wallObject);
                     }
