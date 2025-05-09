@@ -21,15 +21,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        Vector3 playerPos = transform.position;
         Vector2 moveValue = moveAction.ReadValue<Vector2>();
         
-        rb.MovePosition(transform.position + new Vector3(moveValue.x, 0, moveValue.y).normalized * Time.deltaTime * Speed);
-        
-        InputSystem.onEvent +=
-            (eventPtr, device) =>
+        rb.MovePosition(playerPos + new Vector3(moveValue.x, 0, moveValue.y).normalized * Time.deltaTime * Speed);
+
+        Collider[] hitColliders = Physics.OverlapSphere(playerPos, 2.5f);
+
+        foreach (var collider in hitColliders)
+        {
+            if (collider.CompareTag("grabbable"))
             {
-              //  Debug.Log($"Received event for {device}");
-            };
+                Debug.Log("grabbable object in radius");
+            }
+        }
     }
 }
