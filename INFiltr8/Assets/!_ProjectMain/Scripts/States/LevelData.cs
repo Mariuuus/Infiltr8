@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Serialization;
+﻿using System.Collections.Generic;
+using __ProjectMain.Scripts.States.Components;
+using UnityEngine;
 
-namespace __ProjectMain.Scripts.Managers.States
+namespace __ProjectMain.Scripts.States
 {
     [System.Serializable]
     public class LevelData
@@ -13,7 +12,7 @@ namespace __ProjectMain.Scripts.Managers.States
         public Vector2Int wallPointTwo;
         public Vector2Int spawnPoint;
         
-        public List<SubnetLevelData> subnetworkStates;
+        public List<LevelComponent> Components;
         
         public Vector2Int flag;
 
@@ -22,7 +21,7 @@ namespace __ProjectMain.Scripts.Managers.States
             wallPointOne = new Vector2Int (0, 0);
             wallPointTwo = new Vector2Int (20, 20);
             spawnPoint = new Vector2Int (1, 1);
-            subnetworkStates = new List<SubnetLevelData> ();
+            Components =  new List<LevelComponent>();
             flag = new Vector2Int (10,10);
         }
         

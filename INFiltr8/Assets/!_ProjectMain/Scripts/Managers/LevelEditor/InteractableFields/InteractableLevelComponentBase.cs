@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using __ProjectMain.Scripts.Managers.States;
+using __ProjectMain.Scripts.States;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace __ProjectMain.Scripts.Managers.LevelMaker
+namespace __ProjectMain.Scripts.Managers.LevelEditor.InteractableFields
 {
     public abstract class InteractableLevelComponentBase
     {

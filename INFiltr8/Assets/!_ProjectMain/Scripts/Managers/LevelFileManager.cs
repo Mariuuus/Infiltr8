@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using __ProjectMain.Scripts.States;
 using UnityEngine;
-using __ProjectMain.Scripts.Managers.States;
 
 namespace __ProjectMain.Scripts.Managers
 {  
@@ -106,6 +106,11 @@ namespace __ProjectMain.Scripts.Managers
             Debug.Log("Loaded level successfully");
             
             return levelData;
+        }
+
+        public void QuickSave()
+        {
+            SaveFile(levelData, true);
         }
     }
 }
