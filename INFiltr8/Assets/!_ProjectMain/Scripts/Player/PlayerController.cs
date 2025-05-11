@@ -25,15 +25,5 @@ public class PlayerController : MonoBehaviour
         Vector2 moveValue = moveAction.ReadValue<Vector2>();
         
         rb.MovePosition(playerPos + new Vector3(moveValue.x, 0, moveValue.y).normalized * Time.deltaTime * Speed);
-
-        Collider[] hitColliders = Physics.OverlapSphere(playerPos, 2.5f);
-
-        foreach (var collider in hitColliders)
-        {
-            if (collider.CompareTag("grabbable"))
-            {
-                Debug.Log("grabbable object in radius");
-            }
-        }
     }
 }
