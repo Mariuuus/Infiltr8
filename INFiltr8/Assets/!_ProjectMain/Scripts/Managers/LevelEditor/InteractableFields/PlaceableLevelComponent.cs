@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using __ProjectMain.Scripts.States.Components;
 using __ProjectMain.Scripts.Utilities.Exceptions;
 using UnityEngine;
@@ -6,17 +7,30 @@ using UnityEngine.Tilemaps;
 
 namespace __ProjectMain.Scripts.Managers.LevelEditor.InteractableFields
 {
-    [CreateAssetMenu(fileName = "PlaceableLevelComponent", menuName = "LevelEditor/PlaceableLevelComponent")]
-    public class PlaceableLevelComponents : ScriptableObject
+    [CreateAssetMenu(fileName = "NewPlaceableLevelComponent", menuName = "LevelEditor/PlaceableLevelComponent")]
+    public class PlaceableLevelComponent : ScriptableObject    
     {
         public Tile TileRepresentation;
         public GameObject InGameRepresentation;
         public GameObject LevelEditorRepresentation;
         public bool TwoPointObject = false;
         public Sprite BuildMenuIcon;
-
-        public void PlaceWall()
+        
+        public string OnBuildFunction;
+        
+        public void Build()
         {
+            if (GetType().GetMethod(OnBuildFunction) != null)
+            {
+                MethodInfo method = GetType().GetMethod(OnBuildFunction);
+                method.Invoke(this, new object[] {});
+            }
+        }
+
+
+        public static void PlaceWall()
+        {
+            Debug.Log("Place wall");
             try
             {
                 WallComponent newWall = new WallComponent(
@@ -30,15 +44,24 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor.InteractableFields
                         ),
                     LevelFileManager.Instance.levelData
                     );
-                LevelFileManager.Instance.levelData.Components.Add(newWall);
+                LevelFileManager.Instance.levelData.components.Add(newWall);
                 LevelUIManager.Instance.UpdateUI();
                 LevelFileManager.Instance.QuickSave();
             }
             catch (InvalidLevelEditorException e)
             {
                 //TODO: display Errors!
-                Console.WriteLine(e);
+                Debug.LogError(e.Message);
             }
         }
+        
+        public void AnotherFunction()
+        {
+            Debug.Log("AnotherFunction called");
+        }
+        
+        
     }
+    
+    
 }

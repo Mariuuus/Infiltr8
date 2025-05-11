@@ -31,7 +31,7 @@ namespace __ProjectMain.Scripts.States.Components
                 this.endPosition = endPosition;
             }
             
-            if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.Components, startPosition, endPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
+            if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.components, startPosition, endPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
             
         }
 

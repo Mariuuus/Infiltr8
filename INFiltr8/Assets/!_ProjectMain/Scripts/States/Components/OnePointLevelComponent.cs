@@ -13,7 +13,7 @@ namespace __ProjectMain.Scripts.States.Components
         public OnePointLevelComponent(Vector2Int startPosition, LevelData levelData)
         {
             this.position = startPosition;
-            if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.Components, startPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
+            if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.components, startPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
         }
     }
 }

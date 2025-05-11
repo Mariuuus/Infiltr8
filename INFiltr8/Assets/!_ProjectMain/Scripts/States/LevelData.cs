@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using __ProjectMain.Scripts.States.Components;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace __ProjectMain.Scripts.States
 {
@@ -12,7 +13,7 @@ namespace __ProjectMain.Scripts.States
         public Vector2Int wallPointTwo;
         public Vector2Int spawnPoint;
         
-        public List<LevelComponent> Components;
+        public List<LevelComponent> components;
         
         public Vector2Int flag;
 
@@ -21,7 +22,7 @@ namespace __ProjectMain.Scripts.States
             wallPointOne = new Vector2Int (0, 0);
             wallPointTwo = new Vector2Int (20, 20);
             spawnPoint = new Vector2Int (1, 1);
-            Components =  new List<LevelComponent>();
+            components =  new List<LevelComponent>();
             flag = new Vector2Int (10,10);
         }
         

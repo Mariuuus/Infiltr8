@@ -17,3 +17,4 @@ MonoBehaviour:
   LevelEditorRepresentation: {fileID: 8636374853563838326, guid: 0bd132a142531f14e941eb533719208d, type: 3}
   TwoPointObject: 1
   BuildMenuIcon: {fileID: 21300000, guid: 0cf7529d6435c244abad5268ee58d556, type: 3}
+  OnBuildFunction: PlaceWall

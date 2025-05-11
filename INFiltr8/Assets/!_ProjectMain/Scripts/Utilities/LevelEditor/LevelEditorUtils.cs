@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using __ProjectMain.Scripts.States;
 using __ProjectMain.Scripts.States.Components;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace __ProjectMain.Scripts.Utilities.LevelEditor
 {
@@ -35,6 +36,7 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
 
         public static bool IsPositionBlocked(List<LevelComponent> components, Vector2Int position)
         {
+            //Debug.Log(components);
             foreach (var component in components)
             {
                 if (component.GetType() == typeof(OnePointLevelComponent))
@@ -115,9 +117,65 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
             return true;
         }
 
+        public static List<Vector3Int> ReduceToInBoundsVectors(List<Vector3Int> positions, LevelData level)
+        {
+            List<Vector3Int> reducedPositions = new List<Vector3Int>();
+            int bottomBoundaryX = Mathf.Min(level.wallPointOne.x, level.wallPointTwo.x);
+            int upperBoundaryX = Mathf.Max(level.wallPointOne.x, level.wallPointTwo.x);
+            int bottomBoundaryY = Mathf.Min(level.wallPointOne.y, level.wallPointTwo.y);
+            int upperBoundaryY = Mathf.Max(level.wallPointOne.y, level.wallPointTwo.y);
+            foreach (var pos in positions)
+            {
+                if (pos.x >= bottomBoundaryX && pos.x <= upperBoundaryX && pos.y >= bottomBoundaryY &&
+                    pos.y <= upperBoundaryY)
+                {
+                    reducedPositions.Add(pos);
+                } 
+            }
+            return reducedPositions;
+        }
+        public static List<Vector3Int> ReduceToInBoundsVectors(List<Vector2Int> positions, LevelData level)
+        {
+            return ReduceToInBoundsVectors(ExpandToThreeDimensions(positions), level);
+        }
+
+        public static Vector2Int ReduceToTwoDimensions(Vector3Int position)
+        {
+            return new Vector2Int(position.x, position.y);
+        }
+        
+        public static Vector2Int ReduceToTwoDimensions(Vector3 position)
+        {
+            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y));
+        }
+        
+        public static Vector3Int ExpandToThreeDimensions(Vector2Int position)
+        {
+            return new Vector3Int(position.x, position.y);
+        }
+        
+        public static List<Vector3Int> ExpandToThreeDimensions(List<Vector2Int> position)
+        {
+            var result = new List<Vector3Int>();
+            foreach (var pos in position)
+            {
+                result.Add(ExpandToThreeDimensions(pos));
+            }
+            return result;
+        }
+
+        public static void ClearTilemap(Tilemap tilemap, LevelData level)
+        {
+            foreach (var pos in GetPointsInBetween(level.wallPointOne, level.wallPointTwo))
+            {
+                tilemap.SetTile(ExpandToThreeDimensions(pos), null);
+            }
+        }
+
         private static bool IsPositionInField(LevelData level, Vector2Int position)
         {
             return position.x > level.wallPointOne.x && position.y < level.wallPointOne.y;
         }
+        
     }
 }

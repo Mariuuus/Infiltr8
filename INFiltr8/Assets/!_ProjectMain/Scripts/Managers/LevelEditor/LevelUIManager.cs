@@ -6,6 +6,7 @@ using __ProjectMain.Scripts.Managers.LevelEditor.InteractableFields;
 using __ProjectMain.Scripts.States;
 using __ProjectMain.Scripts.States.Components;
 using __ProjectMain.Scripts.Utilities.Exceptions;
+using __ProjectMain.Scripts.Utilities.LevelEditor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,8 +19,8 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
     {
         public static LevelUIManager Instance { get; private set; }
         public LevelEditorMode LevelEditorMode { get; private set; }
-        public Vector3Int LatestCellClicked { get; private set; }
-        public Vector3Int PreviousCellClicked { get; private set; }
+        public Vector3Int LatestCellClicked;
+        public Vector3Int PreviousCellClicked;
 
         public int currentSelectedBuildComponent = 0;
         
@@ -27,7 +28,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public TMP_Text lookAtText;
         public Grid grid;
         public bool hoverActivated = false;
-        public PlaceableComponentWithCallback[] BuildComponents;        
+        public PlaceableLevelComponent[] BuildComponents;        
         public GameObject BuildButton;        
         public GameObject BuildUIContainer;        
         public GameObject BuildModeOptions;        
@@ -90,59 +91,53 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         {
             Vector3Int mousePos = GetMousePosition();
             lookAtText.text = mousePos.ToString();
-            if (!hoverActivated) return;
-            if (!mousePos.Equals(_previousMousePos)) {
-                LevelManager.Instance.uiTilemap.SetTile(_previousMousePos, null);
-                LevelManager.Instance.uiTilemap.SetTile(mousePos, hoverTile);
-                _previousMousePos = mousePos;
+
+            switch (LevelEditorMode)
+            {
+                case LevelEditorMode.Spectate:
+                    break;
+                case LevelEditorMode.PlaceOneClick:
+                    if (!mousePos.Equals(_previousMousePos)) {
+                        LevelManager.Instance.uiTilemap.SetTile(_previousMousePos, null);
+                        LevelManager.Instance.uiTilemap.SetTile(mousePos, hoverTile);
+                        _previousMousePos = mousePos;
+                    }
+                    break;
+                case LevelEditorMode.PlaceTwoClick:
+                    LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+                    foreach (var pos in LevelEditorUtils.ReduceToInBoundsVectors(LevelEditorUtils.GetPointsInBetween(
+                                 LevelEditorUtils.ReduceToTwoDimensions(LatestCellClicked),
+                                 LevelEditorUtils.ReduceToTwoDimensions(mousePos)), LevelFileManager.Instance.levelData))
+                    {
+                        LevelManager.Instance.uiTilemap.SetTile(pos, hoverTile);
+                    }
+                    _previousMousePos = mousePos;
+                    break;
             }
+            if (!hoverActivated) return;
+
         }
 
         private void Build()
         {
-            InvokeSelectedMethod(BuildComponents[currentSelectedBuildComponent]);
+            BuildComponents[currentSelectedBuildComponent].Build();
         }   
-        
-        /*
-         * Generated Methode
-         */
-        private void InvokeSelectedMethod(PlaceableComponentWithCallback item)
-        {
-            if (item.component == null || string.IsNullOrEmpty(item.selectedMethodName))
-            {
-                Debug.LogWarning("Component or method name is null");
-                return;
-            }
-
-            var method = item.component.GetType().GetMethod(item.selectedMethodName,
-                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-
-            if (method != null)
-            {
-                method.Invoke(item.component, null);
-            }
-            else
-            {
-                Debug.LogWarning($"Method {item.selectedMethodName} not found on {item.component.name}");
-            }
-        }
         
         public void OnClick(InputAction.CallbackContext ctx)
         {
-            Debug.Log("OnClick in action");
-            if (ctx.started)
+            if (ctx.performed)
             {
                 if (LevelEditorMode == LevelEditorMode.PlaceOneClick)
                 {
-                    Debug.Log("OnClick in place one click");
                     LatestCellClicked = GetMousePosition();
                     Build();
                 } else if (LevelEditorMode == LevelEditorMode.PlaceTwoClick)
                 {
-                    Debug.Log("OnClick in place one click");
                     PreviousCellClicked = LatestCellClicked;
                     LatestCellClicked = GetMousePosition();
                     Build();
+                    LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+
                 }
             }
         }

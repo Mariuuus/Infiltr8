@@ -1127,13 +1127,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3229e8754e44aa5807d8d6b0a24e2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LatestCellClicked: {x: 0, y: 0, z: 0}
+  PreviousCellClicked: {x: 0, y: 0, z: 0}
   currentSelectedBuildComponent: 0
   lookAtText: {fileID: 1162081455}
   grid: {fileID: 1365826446}
   hoverActivated: 0
   BuildComponents:
-  - component: {fileID: 11400000, guid: 8bda1f92628dbe2f1bfd9a6e18f3d3d1, type: 2}
-    selectedMethodName: 
+  - {fileID: 11400000, guid: 8bda1f92628dbe2f1bfd9a6e18f3d3d1, type: 2}
   BuildButton: {fileID: 687987127773362928, guid: 54471d3f0d2938f4689c7abfcea5fa35, type: 3}
   BuildUIContainer: {fileID: 1847209039}
   BuildModeOptions: {fileID: 0}
