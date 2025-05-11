@@ -1,3 +1,5 @@
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +10,12 @@ public class GrabController : MonoBehaviour
     private float grabRange = 5.0f;
     private InputAction grabAction;
     private bool isGrabbing = false;
+
+    [SerializeField] 
+    private GameObject interactionImage;
+
+    private GameObject _interactionInstance;
+    
     void Start()
     {
         grabAction = InputSystem.actions.FindAction("Interact");
@@ -19,12 +27,12 @@ public class GrabController : MonoBehaviour
         Vector3 playerPos = transform.position;
         Collider[] hitColliders = Physics.OverlapSphere(playerPos, grabRange);
         
-        
         if (closestObject != null)
         {
             if ((closestObject.transform.position - playerPos).magnitude > grabRange)
             {
                 closestObject = null;
+                Destroy(_interactionInstance);
             }
             
             if (grabAction.WasPressedThisFrame() && closestObject != null)
@@ -41,6 +49,7 @@ public class GrabController : MonoBehaviour
                         }
                         else
                         {
+                            Destroy(_interactionInstance);
                             isGrabbing = true;
                         }
                     }
@@ -48,6 +57,7 @@ public class GrabController : MonoBehaviour
                 }
                 else
                 {
+                    setInteractionUI();
                     isGrabbing = false;
                 }
             }
@@ -70,11 +80,13 @@ public class GrabController : MonoBehaviour
                     if (newDistance < oldDistance)
                     {
                         closestObject = collider;
+                        setInteractionUI();
                     }
                 }
                 else
                 {
                     closestObject = collider;
+                    setInteractionUI();
                 }
                 
                 RaycastHit hit;
@@ -84,6 +96,16 @@ public class GrabController : MonoBehaviour
                 }
             }
         }
+    }
+
+    void setInteractionUI()
+    {
+        if (_interactionInstance != null)
+        {
+            Destroy(_interactionInstance);    
+        }
+        _interactionInstance = Instantiate(interactionImage, closestObject.transform.position + new Vector3(0, 1, 0),
+            Quaternion.Euler(40, 0, 0));
     }
 }
 
