@@ -19,8 +19,8 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
     {
         public static LevelUIManager Instance { get; private set; }
         public LevelEditorMode LevelEditorMode { get; private set; }
-        public Vector3Int LatestCellClicked;
-        public Vector3Int PreviousCellClicked;
+        public Vector3Int LatestCellClicked = new Vector3Int(-1,-1,-1);
+        public Vector3Int PreviousCellClicked = new Vector3Int(-1,-1,-1);
 
         public int currentSelectedBuildComponent = 0;
         
@@ -85,13 +85,17 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                     LevelManager.Instance.uiTilemap.SetTile(position, ilComponent.GetUITileRepresentation());
                 }
             }
+
+            LevelManager.Instance.UpdateMap();
         }
 
         private void Update()
         {
             Vector3Int mousePos = GetMousePosition();
             lookAtText.text = mousePos.ToString();
-
+            
+            if (LatestCellClicked.Equals(new Vector3Int(-1,-1,-1))) return;
+            
             switch (LevelEditorMode)
             {
                 case LevelEditorMode.Spectate:
@@ -106,7 +110,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 case LevelEditorMode.PlaceTwoClick:
                     LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
                     foreach (var pos in LevelEditorUtils.ReduceToInBoundsVectors(LevelEditorUtils.GetPointsInBetween(
-                                 LevelEditorUtils.ReduceToTwoDimensions(LatestCellClicked),
+                                 LevelEditorUtils.ReduceToTwoDimensions((Vector3Int)LatestCellClicked),
                                  LevelEditorUtils.ReduceToTwoDimensions(mousePos)), LevelFileManager.Instance.levelData))
                     {
                         LevelManager.Instance.uiTilemap.SetTile(pos, hoverTile);
@@ -114,7 +118,6 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                     _previousMousePos = mousePos;
                     break;
             }
-            if (!hoverActivated) return;
 
         }
 
@@ -141,6 +144,17 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 }
             }
         }
+        
+        public void OnEsc(InputAction.CallbackContext ctx)
+        {
+            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+            if (ctx.performed)
+            {
+                LatestCellClicked = new Vector3Int(-1,-1,-1);
+                PreviousCellClicked = new Vector3Int(-1,-1,-1);
+            }
+        }
+
 
         public void ChangeOnBuildModeSelection(Int32 modeIndex)
         {

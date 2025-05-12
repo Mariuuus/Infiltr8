@@ -1076,12 +1076,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d08501595ed4517bd097df15e431a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: TestLevel12
+  levelName: TestLevel1
   levelData:
     levelName: 
     wallPointOne: {x: 0, y: 0}
     wallPointTwo: {x: 0, y: 0}
     spawnPoint: {x: 0, y: 0}
+    components: []
     flag: {x: 0, y: 0}
 --- !u!4 &698467852
 Transform:
@@ -2776,6 +2777,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e1aa74b9-f684-4623-96c4-6d0b14062092
     m_ActionName: 'Gameplay/Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 698467854}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.Managers.LevelEditor.LevelUIManager,
+          Assembly-CSharp
+        m_MethodName: OnEsc
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fca55f90-f9ae-4b98-9af8-23e1b6622aa3
+    m_ActionName: 'Gameplay/Escape[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

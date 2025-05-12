@@ -1,5 +1,7 @@
 ﻿using System;
 using __ProjectMain.Scripts.Managers.LevelEditor;
+using __ProjectMain.Scripts.States.Components;
+using __ProjectMain.Scripts.Utilities.LevelEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -79,6 +81,18 @@ namespace __ProjectMain.Scripts.Managers
                     }
                 }
             }
+
+            foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(WallComponent)))
+            {
+                var component = (WallComponent)levelComponent;
+                foreach (var point in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.GetPointsInBetween(component.startPosition,
+                             component.endPosition)))
+                {
+                    PlaceObjectAtTile(point, wallsTilemap, wallObject);
+
+                }
+            }
+
         }
 
         /*public GameObject GetTypeOfTile(Vector2Int pos, Tilemap tilemap)
