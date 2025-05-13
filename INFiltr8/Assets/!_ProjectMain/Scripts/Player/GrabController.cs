@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class GrabController : MonoBehaviour
     private Collider closestObject = null;
     private float grabRange = 5.0f;
     private InputAction grabAction;
+    private InputAction moveAction;
     private bool isGrabbing = false;
 
     [SerializeField] 
@@ -19,6 +21,7 @@ public class GrabController : MonoBehaviour
     void Start()
     {
         grabAction = InputSystem.actions.FindAction("Interact");
+        moveAction = InputSystem.actions.FindAction("Move");
     }
 
     // Update is called once per frame
@@ -59,13 +62,27 @@ public class GrabController : MonoBehaviour
                 {
                     setInteractionUI();
                     isGrabbing = false;
+                    closestObject.GetComponent<Rigidbody>().mass = 1;
                 }
             }
         }
 
         if (isGrabbing && closestObject != null)
         {
-            closestObject.transform.position = playerPos + new Vector3(1, 0, 1);
+            closestObject.GetComponent<Rigidbody>().mass = 0;
+            Vector2 moveDir = moveAction.ReadValue<Vector2>();
+            Vector3 grabVector;
+
+            if (moveDir.x == 0 && moveDir.y == 0)
+            {
+                grabVector = new Vector3(0, 0, 1.5f);
+            }
+            else
+            {
+                grabVector = new Vector3(moveDir.x * 1.75f, 0, moveDir.y * 1.75f);
+            }
+            
+            closestObject.transform.position = playerPos + grabVector;
         }
         
         foreach (var collider in hitColliders)
@@ -80,19 +97,20 @@ public class GrabController : MonoBehaviour
                     if (newDistance < oldDistance)
                     {
                         closestObject = collider;
-                        setInteractionUI();
                     }
                 }
                 else
                 {
                     closestObject = collider;
-                    setInteractionUI();
                 }
                 
                 RaycastHit hit;
                 if (Physics.Raycast(playerPos, (closestObject.transform.position - playerPos), out hit, grabRange))
                 {
-                    Debug.DrawRay(transform.position, (closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
+                     if (!hit.collider.CompareTag("Wall")) {
+                        setInteractionUI();
+                     } 
+                     Debug.DrawRay(transform.position, (closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
                 }
             }
         }
@@ -104,6 +122,9 @@ public class GrabController : MonoBehaviour
         {
             Destroy(_interactionInstance);    
         }
+        
+        if (closestObject == null) return;
+        
         _interactionInstance = Instantiate(interactionImage, closestObject.transform.position + new Vector3(0, 1, 0),
             Quaternion.Euler(40, 0, 0));
     }
