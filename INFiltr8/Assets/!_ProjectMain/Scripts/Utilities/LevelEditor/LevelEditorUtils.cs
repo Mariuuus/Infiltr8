@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using __ProjectMain.Scripts.LevelEditor;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Debug = UnityEngine.Debug;
 
 namespace __ProjectMain.Scripts.Utilities.LevelEditor
 {
@@ -20,6 +22,37 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
                 }
             }
             return filteredList;
+        }
+
+        public static LevelComponent ReceiveComponentAtPosition(List<LevelComponent> components, Vector3Int cellPosition)
+        {   
+            foreach (var component in components)
+            {
+                if (ReceiveComponentPoints(component).Contains(ReduceToTwoDimensions(cellPosition)))
+                {
+                    return component;
+                }
+            }
+            return null;
+        }
+
+        public static List<Vector2Int> ReceiveComponentPoints(LevelComponent component)
+        {
+            List<Vector2Int> points = new List<Vector2Int>();
+            if (component is TwoPointsLevelComponent)
+            {
+                foreach (var pos in GetPointsInBetween(((TwoPointsLevelComponent)component).startPosition,
+                             ((TwoPointsLevelComponent)component).endPosition))
+                {
+                    points.Add(pos);
+                }
+            }
+            else
+            {
+                points.Add(((OnePointLevelComponent)component).position);
+            }
+
+            return points;
         }
 
         public static bool IsPointInWall(List<LevelComponent> components, Vector2Int position)
@@ -39,7 +72,7 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
             //Debug.Log(components);
             foreach (var component in components)
             {
-                if (component.GetType() == typeof(OnePointLevelComponent))
+                if (component is OnePointLevelComponent)
                 {
                     if(((OnePointLevelComponent)component).position.Equals(position)) return true;
                 }
@@ -84,7 +117,7 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
 
         public static bool IsComponentOnField(LevelData level, LevelComponent component)
         {
-            if (component.GetType() == typeof(OnePointLevelComponent))
+            if (component is OnePointLevelComponent)
             {
                 var onePosComponent = component as OnePointLevelComponent;
                 return IsPositionInField(level, onePosComponent!.position);
@@ -101,7 +134,7 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
         {
             foreach (var component in components)
             {
-                if (component.GetType() == typeof(OnePointLevelComponent))
+                if (component is OnePointLevelComponent)
                 {
                     var onePosComponent = component as OnePointLevelComponent;
                     if (!IsPositionInField(level, onePosComponent!.position)) return false;

@@ -36,7 +36,6 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         public override void Update()
         {
 
-            base.Update();
             Vector3Int mousePos = LevelEditorManager.Instance.GetMousePosition();
             if (LatestCellClicked.Equals(new Vector3Int(-1,-1,-1))) return;
             
@@ -48,7 +47,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
                 LevelManager.Instance.uiTilemap.SetTile(pos, LevelEditorManager.Instance.hoverTile);
             }
             
-            PreviousMousePos = mousePos;
+            base.Update();
         }
 
         public override void OnClick(InputAction.CallbackContext ctx)
@@ -66,8 +65,6 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
             catch (InvalidLevelEditorException e)
             {
                 Debug.LogException(e);
-                Debug.Log(LatestCellClicked);
-                Debug.Log(PreviousCellClicked);
                 throw e;
             }
         }

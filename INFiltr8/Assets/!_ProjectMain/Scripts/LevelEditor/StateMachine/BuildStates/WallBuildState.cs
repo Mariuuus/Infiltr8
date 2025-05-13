@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
 {
-    public class WallBuildState : TwoPointsBuildState
+    public class WallBuildState : TwoPointsBuildState, ISelectableState
     {
         protected override bool Build(Vector3Int pos1, Vector3Int pos2)
         {
@@ -26,12 +26,12 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
             LevelFileManager.Instance.levelData.components.Add(newWall);
         }
 
-        public override Sprite GetIcon()
+        public Sprite GetIcon()
         {
-            return LevelEditorManager.Instance.WallBuildSprite;
+            return LevelEditorManager.Instance.wallBuildSprite;
         }
 
-        public override string GetName()
+        public string GetName()
         {
             return "Wall";
         }

@@ -3,6 +3,7 @@ using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 namespace __ProjectMain.Scripts.Managers.LevelEditor
@@ -10,7 +11,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
     public class LevelEditorManager : MonoBehaviour
     {
         public static LevelEditorManager Instance { get; private set; }
-        public BuildState[] _buildStates { get; private set; }
+        private ISelectableState[] _selectableStates;
         
         private LevelEditorStateMachine _levelEditorStateMachine;
         
@@ -23,9 +24,11 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         
         [Header("Tiles")]
         public Tile hoverTile;
+        public Tile deleteTile;
 
         [Header("Build Menu Sprites")]
-        public Sprite WallBuildSprite;
+        public Sprite wallBuildSprite;
+        public Sprite deleteComponentsSprite;
 
         private void Awake()
         {
@@ -44,7 +47,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             _levelEditorStateMachine.ChangeState(_levelEditorStateMachine.SpectateState);
         }
         
-        public void ChangeBuildMode(BuildState buildState) => _levelEditorStateMachine.ChangeState(buildState);
+        public void SelectEditorState(ISelectableState selectableState) => _levelEditorStateMachine.ChangeState((ILevelEditorState)selectableState);
         public void ChangeToSpectator() => _levelEditorStateMachine.ChangeState(_levelEditorStateMachine.SpectateState);
         public void Init()
         {
@@ -53,15 +56,16 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             Debug.Log("LevelUIManager::Init");
             
             _levelEditorStateMachine = new LevelEditorStateMachine();
-            _buildStates = new BuildState[]
+            _selectableStates = new ISelectableState[]
             {
                 _levelEditorStateMachine.WallBuildState,
+                _levelEditorStateMachine.DeleteComponentsState,
             };
             
-            foreach (var state in _buildStates)
+            foreach (var state in _selectableStates)
             {
                 var newObject = Instantiate(buildButton, buildUIContainer.transform, false);
-                newObject.GetComponent<BuildButton>().Init(state);
+                newObject.GetComponent<LevelEditorButton>().Init(state);
             }
             
             UpdateUI();

@@ -53,6 +53,7 @@ namespace __ProjectMain.Scripts.Managers
 
         public void UpdateMap()
         {
+            Debug.Log("3");
             for (int y = _levelFileManager.levelData.wallPointOne.y;
                  y <= _levelFileManager.levelData.wallPointTwo.y;
                  y++)
@@ -64,6 +65,8 @@ namespace __ProjectMain.Scripts.Managers
                     PlaceObjectAtTile(new Vector3Int(x, y, 0), groundTilemap, groundObject);
                 }
             }
+
+            ClearMap(wallsTilemap);
 
             for (int y = _levelFileManager.levelData.wallPointOne.y;
                  y <= _levelFileManager.levelData.wallPointTwo.y;
@@ -100,6 +103,13 @@ namespace __ProjectMain.Scripts.Managers
             Vector3 worldPos = tilemap.GetCellCenterWorld(cellPosition);
             GameObject instance = Instantiate(prefabToPlace, worldPos, Quaternion.identity);
             instance.transform.SetParent(tilemap.transform);
+        }
+        
+        public void ClearMap(Tilemap tilemap)
+        {
+            foreach (Transform child in tilemap.transform) {
+                GameObject.Destroy(child.gameObject);
+            }
         }
     }
 }

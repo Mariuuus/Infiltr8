@@ -1,16 +1,14 @@
 ﻿using __ProjectMain.Scripts.Managers;
 using __ProjectMain.Scripts.Managers.LevelEditor;
-using __ProjectMain.Scripts.Utilities.Exceptions;
 using __ProjectMain.Scripts.Utilities.LevelEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
+namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 {
-    public abstract class BuildState : ILevelEditorState
+    public abstract class EditState : ILevelEditorState
     {
-        protected Vector3Int PreviousMousePos = new Vector3Int(-1,-1,-1);
-
+        protected Vector3Int LookAtTile = new Vector3Int(-1,-1,-1);
         public virtual void Enter()
         {
             LevelEditorManager.Instance.currentStateText.text = "Current Mode:" + GetType().Name;
@@ -24,12 +22,13 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         {
             Vector3Int mousePos = LevelEditorManager.Instance.GetMousePosition();
             LevelEditorManager.Instance.lookAtText.text = "Mouse at: " + mousePos;
-            PreviousMousePos = mousePos;
+            LookAtTile = mousePos;
         }
         
 
         public virtual void OnClick(InputAction.CallbackContext ctx)
         {
+            Debug.Log("2");
             LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
             LevelEditorManager.Instance.UpdateUI();
             LevelFileManager.Instance.QuickSave();

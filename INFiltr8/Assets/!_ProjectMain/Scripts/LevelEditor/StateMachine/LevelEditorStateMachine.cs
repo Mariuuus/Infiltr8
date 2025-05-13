@@ -1,4 +1,5 @@
 ﻿using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
+using __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates;
 using __ProjectMain.Scripts.Utilities.Exceptions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,18 +8,12 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
 {
     public class LevelEditorStateMachine : Patterns.State.StateMachine
     {
-        public WallBuildState WallBuildState { get; }
-        public SpectateState SpectateState { get; }
-        public ChangePointsState ChangePointsState { get; }
+        public WallBuildState WallBuildState { get; } = new();
+        public SpectateState SpectateState { get; } = new();
+        public ChangePointsState ChangePointsState { get; } = new();
 
-        public LevelEditorStateMachine()
-        {
-            WallBuildState = new WallBuildState();
-            SpectateState = new SpectateState();
-            ChangePointsState = new ChangePointsState();
-            
-        }
-        
+        public DeleteComponentsState DeleteComponentsState { get; } = new();
+
         /*
          * This works for overwriting the "normal" State Machine
          */
