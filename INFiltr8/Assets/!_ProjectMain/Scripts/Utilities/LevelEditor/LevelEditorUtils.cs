@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using __ProjectMain.Scripts.States;
-using __ProjectMain.Scripts.States.Components;
+using __ProjectMain.Scripts.LevelEditor;
+using __ProjectMain.Scripts.LevelEditor.Components;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 

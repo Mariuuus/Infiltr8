@@ -1,4 +1,4 @@
-using __ProjectMain.Scripts.Managers.LevelEditor.InteractableFields;
+using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,20 +6,17 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
 {
     public class BuildButton : MonoBehaviour
     {
-        private int _index;
-        private PlaceableLevelComponent _component;
+        private BuildState _buildState;
         public Image image;
         public void OnClick()
         {
-            LevelUIManager.Instance.currentSelectedBuildComponent = this._index;
+            LevelEditorManager.Instance.ChangeBuildMode(_buildState);
         }
         
-        public void Init(int index, PlaceableLevelComponent component)
+        public void Init(BuildState buildState)
         {
-            this._component = component;
-            this._index = index;
-
-            image.sprite = _component.BuildMenuIcon;
+            this._buildState = buildState;
+            image.sprite = _buildState.GetIcon();
         }
     }
 }

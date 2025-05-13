@@ -1,10 +1,8 @@
 using __ProjectMain.Scripts.Managers;
 using __ProjectMain.Scripts.Utilities.Exceptions;
 using __ProjectMain.Scripts.Utilities.LevelEditor;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
-namespace __ProjectMain.Scripts.States.Components
+namespace __ProjectMain.Scripts.LevelEditor.Components
 {   
     [System.Serializable]
     public class LevelComponent

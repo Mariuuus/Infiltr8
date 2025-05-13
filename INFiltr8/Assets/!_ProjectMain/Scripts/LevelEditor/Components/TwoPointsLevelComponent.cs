@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using __ProjectMain.Scripts.Managers;
-using __ProjectMain.Scripts.Managers.LevelEditor;
 using __ProjectMain.Scripts.Utilities.Exceptions;
 using __ProjectMain.Scripts.Utilities.LevelEditor;
 using UnityEngine;
 
-namespace __ProjectMain.Scripts.States.Components
+namespace __ProjectMain.Scripts.LevelEditor.Components
 {
     [System.Serializable]
     public class TwoPointsLevelComponent : LevelComponent

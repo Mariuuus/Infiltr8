@@ -1,6 +1,7 @@
 ﻿using System;
+using __ProjectMain.Scripts.LevelEditor.Components;
+using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
 using __ProjectMain.Scripts.Managers.LevelEditor;
-using __ProjectMain.Scripts.States.Components;
 using __ProjectMain.Scripts.Utilities.LevelEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -15,8 +16,8 @@ namespace __ProjectMain.Scripts.Managers
         public bool Active { get; private set; } = false;
 
         private LevelFileManager _levelFileManager;
-        private LevelUIManager _levelUIManager;
-
+        private LevelEditorManager _levelEditorManager;
+        
         [Header("Tilemaps")]
         public Tilemap uiTilemap;
         public Tilemap groundTilemap;
@@ -44,8 +45,8 @@ namespace __ProjectMain.Scripts.Managers
 
             _levelFileManager = GetComponent<LevelFileManager>();
             _levelFileManager.Init();
-            _levelUIManager = GetComponent<LevelUIManager>();
-            _levelUIManager.Init();
+            _levelEditorManager = GetComponent<LevelEditorManager>();
+            _levelEditorManager.Init();
 
             UpdateMap();
         }
@@ -94,12 +95,6 @@ namespace __ProjectMain.Scripts.Managers
             }
 
         }
-
-        /*public GameObject GetTypeOfTile(Vector2Int pos, Tilemap tilemap)
-        {
-            return 
-        }*/
-
         public void PlaceObjectAtTile(Vector3Int cellPosition, Tilemap tilemap, GameObject prefabToPlace)
         {
             Vector3 worldPos = tilemap.GetCellCenterWorld(cellPosition);

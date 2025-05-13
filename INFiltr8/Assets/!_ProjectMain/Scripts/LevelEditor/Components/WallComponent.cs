@@ -1,7 +1,7 @@
 ﻿using __ProjectMain.Scripts.Utilities.Exceptions;
 using UnityEngine;
 
-namespace __ProjectMain.Scripts.States.Components
+namespace __ProjectMain.Scripts.LevelEditor.Components
 {
     [System.Serializable]
     public class WallComponent : TwoPointsLevelComponent

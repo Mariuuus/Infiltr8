@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using __ProjectMain.Scripts.States.Components;
+using __ProjectMain.Scripts.LevelEditor.Components;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace __ProjectMain.Scripts.States
+namespace __ProjectMain.Scripts.LevelEditor
 {
     [System.Serializable]
     public class LevelData

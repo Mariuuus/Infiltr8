@@ -3,7 +3,7 @@ using __ProjectMain.Scripts.Utilities.Exceptions;
 using __ProjectMain.Scripts.Utilities.LevelEditor;
 using UnityEngine;
 
-namespace __ProjectMain.Scripts.States.Components
+namespace __ProjectMain.Scripts.LevelEditor.Components
 {
     [System.Serializable]
     public class OnePointLevelComponent : LevelComponent
