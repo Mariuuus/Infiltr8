@@ -10,10 +10,17 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
     {
         public Vector2Int position;
 
-        public OnePointLevelComponent(Vector2Int startPosition, LevelData levelData)
+        public OnePointLevelComponent(Vector2Int position, LevelData levelData)
         {
-            this.position = startPosition;
-            if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.components, startPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
+            this.position = position;
+            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, position)) throw new InvalidLevelEditorException("This is outside of the Level!");
+            Debug.Log(LevelFileManager.Instance.levelData.components);            
+            if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.components, position)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
+        }
+        
+        public OnePointLevelComponent()
+        {
+            // just for deserialization
         }
     }
 }

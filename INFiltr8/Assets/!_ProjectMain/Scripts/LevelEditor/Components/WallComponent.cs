@@ -11,5 +11,10 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
             // check if wall is vertical or horizontal
             if (!(wallStart.x == wallEnd.x || wallStart.y == wallEnd.y)) throw new InvalidLevelEditorException("Invalid wall points (should be horizontal or vertical)!");
         }
+        
+        public WallComponent()
+        {
+            // just for deserialization
+        }
     }
 }

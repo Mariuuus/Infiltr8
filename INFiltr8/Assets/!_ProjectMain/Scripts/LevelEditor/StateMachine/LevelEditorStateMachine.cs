@@ -11,6 +11,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         public WallBuildState WallBuildState { get; } = new();
         public SpectateState SpectateState { get; } = new();
         public ChangePointsState ChangePointsState { get; } = new();
+        public SpawnPointBuildState SpawnPointBuildState { get; } = new();
 
         public DeleteComponentsState DeleteComponentsState { get; } = new();
 

@@ -30,10 +30,13 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
                 this.endPosition = endPosition;
             }
             
+            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, startPosition)) throw new InvalidLevelEditorException("This is outside of the Level!");
+            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, endPosition)) throw new InvalidLevelEditorException("This is outside of the Level!");
             if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.components, startPosition, endPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
-            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, startPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
-            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, endPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
-
+        }
+        public TwoPointsLevelComponent()
+        {
+            // just for deserialization
         }
 
         public bool IsPointInside(Vector2Int position)

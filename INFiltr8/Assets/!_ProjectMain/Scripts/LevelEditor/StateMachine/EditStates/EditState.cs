@@ -28,7 +28,6 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 
         public virtual void OnClick(InputAction.CallbackContext ctx)
         {
-            Debug.Log("2");
             LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
             LevelEditorManager.Instance.UpdateUI();
             LevelFileManager.Instance.QuickSave();

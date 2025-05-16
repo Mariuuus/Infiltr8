@@ -34,7 +34,6 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
             if (currentLookAtComponent != null)
             {
                 LevelFileManager.Instance.levelData.components.Remove(currentLookAtComponent);
-                Debug.Log("1");
                 base.OnClick(ctx);
             }
         }

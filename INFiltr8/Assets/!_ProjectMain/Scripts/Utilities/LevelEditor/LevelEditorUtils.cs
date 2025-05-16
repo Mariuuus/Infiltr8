@@ -207,6 +207,7 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
 
         public static bool IsPositionInField(LevelData level, Vector2Int position)
         {
+            //Debug.Log(level.wallPointOne.x + " " + level.wallPointTwo.x + " " + level.wallPointOne.y + " " + level.wallPointTwo.y);
             return position.x > level.wallPointOne.x && 
                    position.y > level.wallPointOne.y && 
                    position.x < level.wallPointTwo.x && 

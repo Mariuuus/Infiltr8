@@ -20,6 +20,7 @@ namespace __ProjectMain.Scripts.Managers
         
         [Header("Tilemaps")]
         public Tilemap uiTilemap;
+        public Tilemap levelEditorRepresentationTilemap;
         public Tilemap groundTilemap;
         public Tilemap wallsTilemap;
 
@@ -53,7 +54,6 @@ namespace __ProjectMain.Scripts.Managers
 
         public void UpdateMap()
         {
-            Debug.Log("3");
             for (int y = _levelFileManager.levelData.wallPointOne.y;
                  y <= _levelFileManager.levelData.wallPointTwo.y;
                  y++)

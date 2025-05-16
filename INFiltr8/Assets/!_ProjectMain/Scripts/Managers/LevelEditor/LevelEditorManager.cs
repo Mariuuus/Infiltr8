@@ -1,5 +1,7 @@
-﻿using __ProjectMain.Scripts.LevelEditor.StateMachine;
+﻿using __ProjectMain.Scripts.LevelEditor.Components;
+using __ProjectMain.Scripts.LevelEditor.StateMachine;
 using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
+using __ProjectMain.Scripts.Utilities.LevelEditor;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,9 +27,11 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         [Header("Tiles")]
         public Tile hoverTile;
         public Tile deleteTile;
+        public Tile spawnTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
+        public Sprite spawnPointSprite;
         public Sprite deleteComponentsSprite;
 
         private void Awake()
@@ -60,6 +64,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             {
                 _levelEditorStateMachine.WallBuildState,
                 _levelEditorStateMachine.DeleteComponentsState,
+                _levelEditorStateMachine.SpawnPointBuildState,
             };
             
             foreach (var state in _selectableStates)
@@ -74,6 +79,18 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public void UpdateUI()
         {
             LevelManager.Instance.UpdateMap();
+            ShowRepresentationInTilemap();
+        }
+
+        public void ShowRepresentationInTilemap()
+        {
+            LevelEditorUtils.ClearTilemap(LevelManager.Instance.levelEditorRepresentationTilemap, LevelFileManager.Instance.levelData);
+
+            foreach (var component in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(SpawnPointComponent)))
+            {
+                var spawnPoint = ((SpawnPointComponent)component);
+                LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(spawnPoint.position), spawnTile);
+            }
         }
 
         private void Update()
