@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace __ProjectMain.Scripts.LevelEditor.Components
 {
+    [System.Serializable]
     public class SpawnPointComponent : OnePointLevelComponent
     {
         public SpawnPointComponent()

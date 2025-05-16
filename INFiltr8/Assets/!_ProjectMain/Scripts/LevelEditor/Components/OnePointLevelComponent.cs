@@ -14,7 +14,6 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         {
             this.position = position;
             if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, position)) throw new InvalidLevelEditorException("This is outside of the Level!");
-            Debug.Log(LevelFileManager.Instance.levelData.components);            
             if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.components, position)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
         }
         

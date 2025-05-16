@@ -82,7 +82,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             ShowRepresentationInTilemap();
         }
 
-        public void ShowRepresentationInTilemap()
+        private void ShowRepresentationInTilemap()
         {
             LevelEditorUtils.ClearTilemap(LevelManager.Instance.levelEditorRepresentationTilemap, LevelFileManager.Instance.levelData);
 
