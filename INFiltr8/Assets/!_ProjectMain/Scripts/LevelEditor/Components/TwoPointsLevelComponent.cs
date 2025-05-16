@@ -31,7 +31,9 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
             }
             
             if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.components, startPosition, endPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
-            
+            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, startPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
+            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, endPosition)) throw new InvalidLevelEditorException("There is something in the way. Please reconsider your placement!");
+
         }
 
         public bool IsPointInside(Vector2Int position)

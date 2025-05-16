@@ -37,7 +37,10 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
 
         public virtual void OnEsc(InputAction.CallbackContext ctx)
         {
-            if (ctx.performed) LevelEditorManager.Instance.ChangeToSpectator();
+            if (ctx.performed)
+            {
+                LevelEditorManager.Instance.ChangeToSpectator();
+            }
         }
     }
 }

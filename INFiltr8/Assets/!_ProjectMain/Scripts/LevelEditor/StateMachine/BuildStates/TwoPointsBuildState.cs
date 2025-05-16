@@ -64,6 +64,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
             }
             catch (InvalidLevelEditorException e)
             {
+                ClearPointer(); 
+                LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
                 Debug.LogException(e);
                 throw e;
             }
@@ -73,6 +75,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         {
             if (ctx.performed)
             {
+                LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
                 if(LatestCellClicked.Equals(new Vector3Int(-1, -1, -1)) && PreviousCellClicked.Equals(new Vector3Int(-1, -1, -1))) base.OnEsc(ctx);
                 ClearPointer();
             }

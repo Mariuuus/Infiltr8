@@ -205,9 +205,9 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
             }
         }
 
-        private static bool IsPositionInField(LevelData level, Vector2Int position)
+        public static bool IsPositionInField(LevelData level, Vector2Int position)
         {
-            return position.x > level.wallPointOne.x && position.y < level.wallPointOne.y;
+            return position.x > level.wallPointOne.x || position.y < level.wallPointOne.y;
         }
         
     }
