@@ -1,6 +1,7 @@
 ﻿using System;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.Types;
+using __ProjectMain.Scripts.Managers;
 using __ProjectMain.Scripts.Utilities.Exceptions;
 using TMPro;
 using UnityEngine;
@@ -45,10 +46,16 @@ namespace __ProjectMain.Scripts.UI
         public void AddRequirement()
         {
             if (_formAmount <= 0) throw new InvalidLevelEditorActionException("Invalid Amount!");
-            //Debug.Log(_formAmount);
-            //Debug.Log(_formHackColor);
             _fireWallComponent.AddRequirement(new HackStatusAmount(_formHackColor, _formAmount));
             RenderRequirements();
+            LevelFileManager.Instance.QuickSave();
+        }
+
+        public void ClearRequirements()
+        {
+            _fireWallComponent.ResetRequirements();
+            RenderRequirements();
+            LevelFileManager.Instance.QuickSave();
         }
 
         private void RenderRequirements()
@@ -64,6 +71,5 @@ namespace __ProjectMain.Scripts.UI
                 newElement.GetComponent<FireWallRequirementsList>().Init(hamounts.hackStatus.ToString().Replace("Hacked", ""), hamounts.amount.ToString());
             }
         }
-
     }
 }

@@ -5,7 +5,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Types
     [System.Serializable]
     public enum HackStatus
     {
-        UnHacked, RedHacked, GreenHacked, BlueHacked, YellowHacked
+        RedHacked, GreenHacked, BlueHacked, YellowHacked
     }
     
     [System.Serializable]

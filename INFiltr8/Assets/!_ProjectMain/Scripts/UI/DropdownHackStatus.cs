@@ -14,10 +14,6 @@ namespace __ProjectMain.Scripts.UI
             var options = new List<TMP_Dropdown.OptionData>();
             foreach (var val in Enum.GetValues(typeof(HackStatus)))
             {
-                if(val is HackStatus.UnHacked)
-                {
-                    continue;
-                }
                 options.Add(new TMP_Dropdown.OptionData(val.ToString().Replace("Hacked", "")));
             }
             GetComponent<TMP_Dropdown>().options.AddRange(options);
