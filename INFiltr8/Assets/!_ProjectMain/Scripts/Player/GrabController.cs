@@ -54,6 +54,7 @@ public class GrabController : MonoBehaviour
                         {
                             Destroy(_interactionInstance);
                             isGrabbing = true;
+                            closestObject.GetComponent<Rigidbody>().useGravity = false;
                         }
                     }
                   
@@ -62,14 +63,13 @@ public class GrabController : MonoBehaviour
                 {
                     setInteractionUI();
                     isGrabbing = false;
-                    closestObject.GetComponent<Rigidbody>().mass = 1;
+                    closestObject.GetComponent<Rigidbody>().useGravity = true;
                 }
             }
         }
 
         if (isGrabbing && closestObject != null)
         {
-            closestObject.GetComponent<Rigidbody>().mass = 0;
             Vector2 moveDir = moveAction.ReadValue<Vector2>();
             Vector3 grabVector;
 
@@ -82,7 +82,7 @@ public class GrabController : MonoBehaviour
                 grabVector = new Vector3(moveDir.x * 1.75f, 0, moveDir.y * 1.75f);
             }
             
-            closestObject.transform.position = playerPos + grabVector;
+            closestObject.transform.position = Vector3.Slerp(closestObject.transform.position, playerPos + grabVector, 0.45f);
         }
         
         foreach (var collider in hitColliders)
