@@ -1120,6 +1120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationDoor: {fileID: 1487322899}
+  deviceLimit: 2
+  limitText: {fileID: 2545514629069030438, guid: 9a06eda40adacba45abf130b8561bfc9, type: 3}
 --- !u!1 &1349050110
 GameObject:
   m_ObjectHideFlags: 0
