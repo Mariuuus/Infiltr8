@@ -1,6 +1,7 @@
 ﻿using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.StateMachine;
 using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
+using __ProjectMain.Scripts.UI;
 using __ProjectMain.Scripts.Utilities.LevelEditor;
 using TMPro;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Grid grid;
         public GameObject buildButton;        
         public GameObject buildUIContainer;    
+        public FireWallSettings fireWallSettings;    
         
         [Header("Tiles")]
         public Tile hoverTile;
@@ -34,7 +36,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite fireWallBuildSprite;
         public Sprite spawnPointSprite;
         public Sprite deleteComponentsSprite;
-
+        public Sprite adjustComponentsSprite;
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -67,6 +69,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.DeleteComponentsState,
                 _levelEditorStateMachine.SpawnPointBuildState,
                 _levelEditorStateMachine.FireWallBuildState,
+                _levelEditorStateMachine.AdjustComponentState,
             };
             
             foreach (var state in _selectableStates)

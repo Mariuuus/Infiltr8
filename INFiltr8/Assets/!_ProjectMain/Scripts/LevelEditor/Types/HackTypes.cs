@@ -10,6 +10,11 @@ namespace __ProjectMain.Scripts.LevelEditor.Types
     
     [System.Serializable]
     public struct HackStatusAmount {
+        public HackStatusAmount(HackStatus status, int amount)
+        {
+            hackStatus = status;
+            this.amount = amount;
+        }
         public HackStatus hackStatus;
         public int amount;
     }

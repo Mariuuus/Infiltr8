@@ -15,7 +15,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         public SpawnPointBuildState SpawnPointBuildState { get; } = new();
 
         public DeleteComponentsState DeleteComponentsState { get; } = new();
-
+        public AdjustComponentState AdjustComponentState { get; } = new();
         /*
          * This works for overwriting the "normal" State Machine
          */

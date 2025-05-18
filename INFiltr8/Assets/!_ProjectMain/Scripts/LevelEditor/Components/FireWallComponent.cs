@@ -1,31 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using __ProjectMain.Scripts.LevelEditor.StateMachine;
 using __ProjectMain.Scripts.LevelEditor.Types;
 using __ProjectMain.Scripts.Managers;
+using __ProjectMain.Scripts.Managers.LevelEditor;
 using __ProjectMain.Scripts.Utilities.Exceptions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace __ProjectMain.Scripts.LevelEditor.Components
 {
     [System.Serializable]
-    public class FireWallComponent : TwoPointsLevelComponent, IConnectedComponent
+    public class FireWallComponent : TwoPointsLevelComponent, IConnectedComponent, IAdjustableComponent
     {
-        public List<ActivationComponent> ActivationPlates { get; }
-        public List<HackStatusAmount> DoorUnlockRequirements { get; }
+        public List<ActivationComponent> activationPlates;
+        public List<HackStatusAmount> doorUnlockRequirements;
+
+        
+        public FireWallComponent()
+        {
+            // just for deserialization
+        }
 
         public FireWallComponent(List<ActivationComponent> activationPlates, List<HackStatusAmount> doorUnlockRequirements, Vector2Int wallStart, Vector2Int wallEnd, LevelData level) : base(wallStart, wallEnd, level)
         {
-            this.ActivationPlates = activationPlates;
-            this.DoorUnlockRequirements = doorUnlockRequirements;
+            this.activationPlates = activationPlates;
+            this.doorUnlockRequirements = doorUnlockRequirements;
             // check if firewall is vertical or horizontal
             if (!(wallStart.x == wallEnd.x || wallStart.y == wallEnd.y)) throw new InvalidLevelEditorActionException("Invalid wall points (should be horizontal or vertical)!");
         }
         
         public FireWallComponent( List<HackStatusAmount> doorUnlockRequirements, Vector2Int wallStart, Vector2Int wallEnd, LevelData level) : base(wallStart, wallEnd, level)
         {
-            ActivationPlates = new List<ActivationComponent>();
-            this.DoorUnlockRequirements = doorUnlockRequirements;
+            activationPlates = new List<ActivationComponent>();
+            this.doorUnlockRequirements = doorUnlockRequirements;
             // check if firewall is vertical or horizontal
             if (!(wallStart.x == wallEnd.x || wallStart.y == wallEnd.y)) throw new InvalidLevelEditorActionException("Invalid wall points (should be horizontal or vertical)!");
         }
@@ -35,8 +42,8 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
          */
         public FireWallComponent(Vector2Int wallStart, Vector2Int wallEnd, LevelData level) : base(wallStart, wallEnd, level)
         {
-            ActivationPlates = new List<ActivationComponent>();
-            DoorUnlockRequirements = new List<HackStatusAmount>();
+            activationPlates = new List<ActivationComponent>();
+            doorUnlockRequirements = new List<HackStatusAmount>();
             // check if firewall is vertical or horizontal
             if (!(wallStart.x == wallEnd.x || wallStart.y == wallEnd.y)) throw new InvalidLevelEditorActionException("Invalid wall points (should be horizontal or vertical)!");
         }
@@ -49,11 +56,11 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         public void AddRequirement(HackStatusAmount requirement)
         {
             var status = requirement.hackStatus;
-            foreach (var req in DoorUnlockRequirements)
+            foreach (var req in doorUnlockRequirements)
             {
                 if (req.hackStatus == status) throw new InvalidLevelEditorActionException("This Hackcolor is already a requirement, please delete it first!");
             }
-            DoorUnlockRequirements.Add(requirement);
+            doorUnlockRequirements.Add(requirement);
         }
         
         /// <summary>
@@ -63,8 +70,8 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         /// <exception cref="InvalidLevelEditorActionException"></exception>
         public void RemoveRequirement(int i)
         {
-            if(i < 0 || i >= DoorUnlockRequirements.Count) throw new InvalidLevelEditorActionException("Index of requirement is out of range!");
-            DoorUnlockRequirements.RemoveAt(i);
+            if(i < 0 || i >= doorUnlockRequirements.Count) throw new InvalidLevelEditorActionException("Index of requirement is out of range!");
+            doorUnlockRequirements.RemoveAt(i);
         }
         
         /// <summary>
@@ -72,7 +79,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         /// </summary>
         public void ResetRequirements()
         {
-            DoorUnlockRequirements.Clear();
+            doorUnlockRequirements.Clear();
         }
 
         /// <summary>
@@ -80,11 +87,11 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         /// </summary>
         public void OnRemove()
         {
-            foreach (var plate in ActivationPlates)
+            foreach (var plate in activationPlates)
             {
                 LevelFileManager.Instance.levelData.components.Remove(plate);
             }
-            ActivationPlates.Clear();
+            activationPlates.Clear();
         }
         
         
@@ -92,8 +99,18 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         public List<LevelComponent> GetAllLevelComponents()
         {
             var levelComponents = new List<LevelComponent> { this };
-            levelComponents.AddRange(ActivationPlates);
+            levelComponents.AddRange(activationPlates);
             return levelComponents;
+        }
+
+        public void OnAdjust()
+        {
+            LevelEditorManager.Instance.fireWallSettings.Show(this);
+        }
+        
+        public void OnExitAdjust()
+        {
+            LevelEditorManager.Instance.fireWallSettings.Hide();
         }
     }
 }
