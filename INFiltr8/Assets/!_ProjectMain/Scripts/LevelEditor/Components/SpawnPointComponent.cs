@@ -13,7 +13,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         }
         public SpawnPointComponent(Vector2Int position, LevelData levelData) : base(position, levelData)
         {
-            if (LevelEditorUtils.FilterComponents(levelData.components, typeof(SpawnPointComponent)).Count != 0) throw new InvalidLevelEditorException("There is already a spawn point!");
+            if (LevelEditorUtils.FilterComponents(levelData.components, typeof(SpawnPointComponent)).Count != 0) throw new InvalidLevelEditorActionException("There is already a spawn point!");
         }
     }
 }

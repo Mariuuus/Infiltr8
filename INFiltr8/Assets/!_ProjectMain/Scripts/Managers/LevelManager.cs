@@ -26,6 +26,7 @@ namespace __ProjectMain.Scripts.Managers
 
         [Header("Tilemap GameObjects")]
         public GameObject wallObject;
+        public GameObject fireWallObject;
         public GameObject groundObject;
 
         private void Awake()
@@ -54,6 +55,17 @@ namespace __ProjectMain.Scripts.Managers
 
         public void UpdateMap()
         {
+            InitiateGround();
+
+            ClearMap(wallsTilemap);
+
+            InitiateOuterLevelWalls();
+            InitiateWalls();
+            InitiateFireWalls();
+        }
+
+        private void InitiateGround()
+        {
             for (int y = _levelFileManager.levelData.wallPointOne.y;
                  y <= _levelFileManager.levelData.wallPointTwo.y;
                  y++)
@@ -65,9 +77,10 @@ namespace __ProjectMain.Scripts.Managers
                     PlaceObjectAtTile(new Vector3Int(x, y, 0), groundTilemap, groundObject);
                 }
             }
+        }
 
-            ClearMap(wallsTilemap);
-
+        private void InitiateOuterLevelWalls()
+        {
             for (int y = _levelFileManager.levelData.wallPointOne.y;
                  y <= _levelFileManager.levelData.wallPointTwo.y;
                  y++)
@@ -85,7 +98,23 @@ namespace __ProjectMain.Scripts.Managers
                     }
                 }
             }
+        }
 
+        private void InitiateFireWalls()
+        {
+            foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(FireWallComponent)))
+            {
+                var component = (FireWallComponent)levelComponent;
+                foreach (var point in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.GetPointsInBetween(component.startPosition,
+                             component.endPosition)))
+                {
+                    PlaceObjectAtTile(point, wallsTilemap, fireWallObject);
+                }
+            }
+        }
+
+        private void InitiateWalls()
+        {
             foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(WallComponent)))
             {
                 var component = (WallComponent)levelComponent;
@@ -93,11 +122,10 @@ namespace __ProjectMain.Scripts.Managers
                              component.endPosition)))
                 {
                     PlaceObjectAtTile(point, wallsTilemap, wallObject);
-
                 }
             }
-
         }
+
         public void PlaceObjectAtTile(Vector3Int cellPosition, Tilemap tilemap, GameObject prefabToPlace)
         {
             Vector3 worldPos = tilemap.GetCellCenterWorld(cellPosition);

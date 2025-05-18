@@ -9,6 +9,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
     public class LevelEditorStateMachine : Patterns.State.StateMachine
     {
         public WallBuildState WallBuildState { get; } = new();
+        public FireWallBuildState FireWallBuildState { get; } = new();
         public SpectateState SpectateState { get; } = new();
         public ChangePointsState ChangePointsState { get; } = new();
         public SpawnPointBuildState SpawnPointBuildState { get; } = new();
@@ -23,7 +24,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
             {
                 ((ILevelEditorState)currentState).OnClick(ctx);
             }
-            catch (InvalidLevelEditorException e)
+            catch (InvalidLevelEditorActionException e)
             {
                 //TODO: display Errors!
                 Debug.LogError(e.Message);

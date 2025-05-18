@@ -51,7 +51,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
                     if (!Build(LatestCellClicked)) return;
                     base.OnClick(ctx);
                 }
-                catch (InvalidLevelEditorException e)
+                catch (InvalidLevelEditorActionException e)
                 {
                     LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
                     Debug.LogException(e);

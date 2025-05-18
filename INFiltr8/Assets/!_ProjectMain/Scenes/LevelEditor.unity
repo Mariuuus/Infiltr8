@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d08501595ed4517bd097df15e431a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: TestLevel8
+  levelName: TestLevel9
   levelData:
     levelName: 
     wallPointOne: {x: 0, y: 0}
@@ -710,6 +710,7 @@ MonoBehaviour:
   groundTilemap: {fileID: 731978576}
   wallsTilemap: {fileID: 1128955940}
   wallObject: {fileID: 8636374853563838326, guid: 0bd132a142531f14e941eb533719208d, type: 3}
+  fireWallObject: {fileID: 4384313278463460572, guid: fa97ad4340a5af94e97f256d971b67e4, type: 3}
   groundObject: {fileID: 8636374853563838326, guid: 7a0fb5b8045881243afc6dc77b73ad49, type: 3}
 --- !u!114 &698467854
 MonoBehaviour:
@@ -732,6 +733,7 @@ MonoBehaviour:
   deleteTile: {fileID: 11400000, guid: be9b9d3fa8534364cb57bbaabc4ac289, type: 2}
   spawnTile: {fileID: 11400000, guid: 0a38f88ea1e058941b14155bbd31bcc7, type: 2}
   wallBuildSprite: {fileID: 21300000, guid: c80beb8dd61a54c48bc257b7e29aa5b4, type: 3}
+  fireWallBuildSprite: {fileID: 21300000, guid: ef05a94fd79e6034bb32734df9cc2b40, type: 3}
   spawnPointSprite: {fileID: 21300000, guid: 0000f14e62003df4a8132eebafcab80b, type: 3}
   deleteComponentsSprite: {fileID: 21300000, guid: f3e5cceef2fe5ed45ae9330b0a3e506c, type: 3}
 --- !u!1 &731978573
@@ -1087,7 +1089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.8813, y: -23.8754}
+  m_AnchoredPosition: {x: 133.88135, y: -23.875427}
   m_SizeDelta: {x: 267.7626, y: 47.7507}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162081455

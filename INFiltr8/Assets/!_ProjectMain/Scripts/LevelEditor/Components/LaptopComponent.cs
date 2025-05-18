@@ -1,11 +1,11 @@
 ﻿namespace __ProjectMain.Scripts.LevelEditor.Components
 {
     [System.Serializable]
-    public class Laptop : Device
+    public class LaptopComponent : DeviceComponent
     {
         // currently nothing to add here (might come soon)
 
-        public Laptop()
+        public LaptopComponent()
         {
             // just for deserialization
         }

@@ -31,6 +31,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
+        public Sprite fireWallBuildSprite;
         public Sprite spawnPointSprite;
         public Sprite deleteComponentsSprite;
 
@@ -65,6 +66,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.WallBuildState,
                 _levelEditorStateMachine.DeleteComponentsState,
                 _levelEditorStateMachine.SpawnPointBuildState,
+                _levelEditorStateMachine.FireWallBuildState,
             };
             
             foreach (var state in _selectableStates)

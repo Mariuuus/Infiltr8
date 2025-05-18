@@ -62,7 +62,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
                 base.OnClick(ctx);
                 ClearPointer(); 
             }
-            catch (InvalidLevelEditorException e)
+            catch (InvalidLevelEditorActionException e)
             {
                 ClearPointer(); 
                 LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
