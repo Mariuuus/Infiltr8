@@ -30,6 +30,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile hoverTile;
         public Tile deleteTile;
         public Tile spawnTile;
+        public Tile activationPlateTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
@@ -95,6 +96,17 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             {
                 var spawnPoint = ((SpawnPointComponent)component);
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(spawnPoint.position), spawnTile);
+            }
+            
+            foreach (var component in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(ActivationComponent)))
+            {
+                var activation = ((ActivationComponent)component);
+
+                foreach (var pos in activation.GetPointsInBetween())
+                {
+                    LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), activationPlateTile);
+                }
+                
             }
         }
 

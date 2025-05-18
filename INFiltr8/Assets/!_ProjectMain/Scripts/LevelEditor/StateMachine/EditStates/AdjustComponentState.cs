@@ -9,6 +9,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 {
     public class AdjustComponentState : EditState, ISelectableState
     {
+
+        private IAdjustableComponent _selectedComponent = null;
         
         public override void Update()
         {
@@ -35,6 +37,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
             if (currentLookAtComponent is IAdjustableComponent component)
             {
                 component.OnAdjust();
+                _selectedComponent = component;
                 base.OnClick(ctx);
             }
         }
@@ -50,8 +53,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 
         public override void Exit()
         {
-            //TODO: check how some could handle the close of this window
-            base.Exit();
+            _selectedComponent.OnExitAdjust();
         }
     }
 }

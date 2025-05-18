@@ -15,12 +15,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         {
             if (ctx.performed)
             {
-                if(LatestCellClicked.Equals(new Vector3Int(-1,-1,-1)))
-                {
-                    base.OnClick(ctx);
-                } else {
-                    LatestCellClicked = new Vector3Int(-1,-1,-1);
-                }
+                base.OnClick(ctx);
             }
         }
 
