@@ -1143,7 +1143,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 491145199}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1056220170}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.FireWallSettings, Assembly-CSharp
+        m_MethodName: AddActivationPlate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &491145199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1663,25 +1675,25 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: -1.70577e-40
+      e00: -1.7761677e-19
       e01: 0
       e02: 1e-45
-      e03: 2.4394838e-19
-      e10: 5.56e-43
+      e03: 1.9327386e+10
+      e10: 1.89e-43
       e11: 0
       e12: 0
-      e13: 5.54e-43
-      e20: 14276576
-      e21: 2.4394838e-19
-      e22: -1.70577e-40
-      e23: -9.263174e-19
-      e30: 4.5907e-41
-      e31: 5.54e-43
-      e32: 5.56e-43
-      e33: 5.54e-43
+      e13: 6.36e-43
+      e20: -0.013845414
+      e21: 1.9327386e+10
+      e22: 1.8518598e+29
+      e23: -5.141528e-28
+      e30: 4.5914e-41
+      e31: 6.36e-43
+      e32: 6.39e-43
+      e33: 6.36e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: -9.263132e-19, g: -9.263132e-19, b: -9.263132e-19, a: -9.263132e-19}
+    m_Data: {r: -5.141509e-28, g: -5.141509e-28, b: -5.141509e-28, a: -5.141509e-28}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1798,6 +1810,7 @@ MonoBehaviour:
   hoverTile: {fileID: 11400000, guid: 29686d863a4e3d44ba016793457e1271, type: 2}
   deleteTile: {fileID: 11400000, guid: be9b9d3fa8534364cb57bbaabc4ac289, type: 2}
   spawnTile: {fileID: 11400000, guid: 0a38f88ea1e058941b14155bbd31bcc7, type: 2}
+  activationPlateTile: {fileID: 11400000, guid: 84e2b5f04531f9b4293125a74a99be37, type: 2}
   wallBuildSprite: {fileID: 21300000, guid: c80beb8dd61a54c48bc257b7e29aa5b4, type: 3}
   fireWallBuildSprite: {fileID: 21300000, guid: ef05a94fd79e6034bb32734df9cc2b40, type: 3}
   spawnPointSprite: {fileID: 21300000, guid: 0000f14e62003df4a8132eebafcab80b, type: 3}

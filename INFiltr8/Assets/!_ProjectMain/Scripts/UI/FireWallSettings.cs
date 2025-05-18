@@ -1,7 +1,10 @@
 ﻿using System;
 using __ProjectMain.Scripts.LevelEditor.Components;
+using __ProjectMain.Scripts.LevelEditor.StateMachine;
+using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
 using __ProjectMain.Scripts.LevelEditor.Types;
 using __ProjectMain.Scripts.Managers;
+using __ProjectMain.Scripts.Managers.LevelEditor;
 using __ProjectMain.Scripts.Utilities.Exceptions;
 using TMPro;
 using UnityEngine;
@@ -56,6 +59,12 @@ namespace __ProjectMain.Scripts.UI
             _fireWallComponent.ResetRequirements();
             RenderRequirements();
             LevelFileManager.Instance.QuickSave();
+        }
+
+        public void AddActivationPlate()
+        {
+            ActivationPlateBuildState.LatestFireWallEdited = _fireWallComponent;
+            LevelEditorManager.Instance.SelectEditorState(new ActivationPlateBuildState());
         }
 
         private void RenderRequirements()
