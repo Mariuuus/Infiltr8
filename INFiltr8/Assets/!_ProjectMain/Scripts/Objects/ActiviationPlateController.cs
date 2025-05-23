@@ -1,8 +1,5 @@
-using System;
-using __ProjectMain.Scripts.LevelEditor.Types;
 using TMPro;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ActiviationPlateController : MonoBehaviour
@@ -12,12 +9,9 @@ public class ActiviationPlateController : MonoBehaviour
 
     [SerializeField]
     private int deviceLimit = 0;
-
-    [SerializeField]
-    private TMP_Text limitText;
-
+    
     private int deviceAmount = 0;
-    private TMP_Text _limitTextInstance;
+    private TextMeshPro plateUI;
     private DoorController door;
     
     private void Start()
@@ -27,8 +21,19 @@ public class ActiviationPlateController : MonoBehaviour
             door = activationDoor.GetComponent<DoorController>();
         }
 
-        _limitTextInstance = Instantiate(limitText, transform.position + new Vector3(1, 5, 0), quaternion.Euler(-50, 0, 0));
-        _limitTextInstance.SetText("0 / " + deviceLimit);
+
+        GameObject ui = new GameObject("activationPlateUI");
+        // rectTransform to store size, position and acnhoring of a gui element
+        ui.AddComponent<RectTransform>();
+        plateUI = ui.AddComponent<TextMeshPro>();
+
+        ui.transform.position = transform.position + new Vector3(1, 5, 0);
+        ui.GetComponent<RectTransform>().sizeDelta = new Vector2(5, 1);
+        ui.transform.rotation = quaternion.Euler(-50, 0, 0);
+        
+        plateUI.fontSize = 12;
+        plateUI.color = new Color32(0, 0, 0, 255);
+        plateUI.SetText(deviceAmount + " / " + deviceLimit);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,26 +50,31 @@ public class ActiviationPlateController : MonoBehaviour
 
             if (deviceAmount > deviceLimit)
             {
-                _limitTextInstance.color = new Color32(245,27,27,255);
+                plateUI.color = new Color32(245,27,27,255);
             }
-            _limitTextInstance.SetText(deviceAmount + " / " + deviceLimit);
+            
+            plateUI.SetText(deviceAmount + " / " + deviceLimit);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("grabbable") &&  deviceAmount > 0)
+        if (other.CompareTag("grabbable") && deviceAmount > 0)
         {
             deviceAmount--;
 
             if (deviceAmount <= deviceLimit)
             {
-                _limitTextInstance.color = new Color32(0,0,0,255);
+                plateUI.color = new Color32(0,0,0,255);
             }
-            
-            _limitTextInstance.SetText(deviceAmount + " / " + deviceLimit);
-            grabbableType color = other.GetComponent<grabbableType>();
-            door.decreaseHackStatus(color.getHackColor());
+
+            if (deviceAmount < deviceLimit)
+            {
+                grabbableType color = other.GetComponent<grabbableType>();
+                door.decreaseHackStatus(color.getHackColor());
+            }
+
+            plateUI.SetText(deviceAmount + " / " + deviceLimit);
         }
     }
 }
