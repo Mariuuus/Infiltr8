@@ -606,7 +606,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
+  - {fileID: 2100000, guid: c7c26a277416328418c960ac4f102c29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -716,7 +716,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae3eb89734bb2ce4ca61341b524eb9c4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -801,6 +801,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackColor: 0
+  redMat: {fileID: 2100000, guid: 3e39f3375aac0ba4a85af23a927ad5b8, type: 2}
+  blueMat: {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
+  greenMat: {fileID: 2100000, guid: 5f66b8ded21454f4380d00914e71722d, type: 2}
+  yellowMat: {fileID: 2100000, guid: f96bd3a1533afaa49a5b6e4d9b62792b, type: 2}
 --- !u!1 &897285812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,7 +1040,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae3eb89734bb2ce4ca61341b524eb9c4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1121,6 +1125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackColor: 0
+  redMat: {fileID: 2100000, guid: 3e39f3375aac0ba4a85af23a927ad5b8, type: 2}
+  blueMat: {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
+  greenMat: {fileID: 2100000, guid: 5f66b8ded21454f4380d00914e71722d, type: 2}
+  yellowMat: {fileID: 2100000, guid: f96bd3a1533afaa49a5b6e4d9b62792b, type: 2}
 --- !u!1 &1145406159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,7 +1193,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
+  - {fileID: 2100000, guid: c7c26a277416328418c960ac4f102c29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1243,7 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationDoor: {fileID: 1487322899}
-  deviceLimit: 1
+  deviceLimit: 2
 --- !u!1 &1349050110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1317,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae3eb89734bb2ce4ca61341b524eb9c4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1394,6 +1402,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackColor: 2
+  redMat: {fileID: 2100000, guid: 3e39f3375aac0ba4a85af23a927ad5b8, type: 2}
+  blueMat: {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
+  greenMat: {fileID: 2100000, guid: 5f66b8ded21454f4380d00914e71722d, type: 2}
+  yellowMat: {fileID: 2100000, guid: f96bd3a1533afaa49a5b6e4d9b62792b, type: 2}
 --- !u!1 &1487322899
 GameObject:
   m_ObjectHideFlags: 0
