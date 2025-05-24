@@ -1,6 +1,4 @@
-using System;
-using Unity.Mathematics;
-using Unity.VisualScripting;
+using __ProjectMain.Scripts.LevelEditor.Types;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +9,7 @@ public class GrabController : MonoBehaviour
     private float grabRange = 5.0f;
     private InputAction grabAction;
     private InputAction moveAction;
+    private InputAction colorChangeAction;
     private bool isGrabbing = false;
 
     [SerializeField] 
@@ -22,6 +21,7 @@ public class GrabController : MonoBehaviour
     {
         grabAction = InputSystem.actions.FindAction("Interact");
         moveAction = InputSystem.actions.FindAction("Move");
+        colorChangeAction = InputSystem.actions.FindAction("colorChange");
     }
 
     // Update is called once per frame
@@ -107,15 +107,28 @@ public class GrabController : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(playerPos, (closestObject.transform.position - playerPos), out hit, grabRange))
                 {
-                     if (!hit.collider.CompareTag("Wall")) {
-                        setInteractionUI();
+                     if (!hit.collider.CompareTag("Wall"))
+                     {
+
+                         if (colorChangeAction.WasPressedThisFrame())
+                         {
+                             switch (colorChangeAction.activeControl.name)
+                             {
+                                 case "1": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.BlueHacked); break;
+                                 case "2": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.RedHacked); break;
+                                 case "3": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.GreenHacked); break;
+                                 case "4": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.YellowHacked); break;
+                             }
+                         }
+
+                         setInteractionUI();
                      } 
                      Debug.DrawRay(transform.position, (closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
                 }
             }
         }
     }
-
+    
     void setInteractionUI()
     {
         if (_interactionInstance != null)

@@ -13,11 +13,18 @@ public class grabbableType : MonoBehaviour
 
     private void Start()
     {
+       changeMaterial(hackColor);
+    }
+    public HackStatus getHackColor()
+    {
+        return hackColor;
+    }
+    
+    public void changeMaterial(HackStatus Color) {
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         Material material = null;
-
-        switch (hackColor)
-        {
+    
+        switch (Color) {
             case HackStatus.BlueHacked:
                 material = blueMat;
                 break;
@@ -32,12 +39,6 @@ public class grabbableType : MonoBehaviour
                 break;
         }
         
-        Debug.Log(renderer == null);
-
         renderer.material = material;
-    }
-    public HackStatus getHackColor()
-    {
-        return hackColor;
     }
 }
