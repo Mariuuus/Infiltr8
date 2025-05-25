@@ -22,10 +22,8 @@ namespace __ProjectMain.Scripts.Managers
             Formatting = Formatting.Indented
         };
 
-        private void Awake()
+        public void Awake()
         {
-            Debug.Log("LevelFileManager::Awake");
-
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
@@ -36,10 +34,20 @@ namespace __ProjectMain.Scripts.Managers
             DontDestroyOnLoad(gameObject);
         }
 
+        /*
         public void Init()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             Instance = this;
+            DontDestroyOnLoad(gameObject);
             Debug.Log("LevelFileManager::Init");
+            
+            
             if (!string.IsNullOrEmpty(levelName) && levelData != null)
             {
                 try
@@ -72,7 +80,7 @@ namespace __ProjectMain.Scripts.Managers
                     }
                 }
             }
-        }
+        }*/
 
         public LevelData CreateLevel(string levelName)
         {

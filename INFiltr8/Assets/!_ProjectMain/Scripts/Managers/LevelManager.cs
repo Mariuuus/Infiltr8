@@ -39,14 +39,14 @@ namespace __ProjectMain.Scripts.Managers
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             
             Debug.Log("LevelManager::Init");
 
             Active = true;
 
-            _levelFileManager = GetComponent<LevelFileManager>();
-            _levelFileManager.Init();
+            _levelFileManager = LevelFileManager.Instance;
+            //_levelFileManager.Init();
             _levelEditorManager = GetComponent<LevelEditorManager>();
             _levelEditorManager.Init();
 
