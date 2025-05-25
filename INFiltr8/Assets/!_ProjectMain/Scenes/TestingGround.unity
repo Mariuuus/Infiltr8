@@ -801,10 +801,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackColor: 0
+  cooldownTime: 5
   redMat: {fileID: 2100000, guid: 3e39f3375aac0ba4a85af23a927ad5b8, type: 2}
   blueMat: {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
   greenMat: {fileID: 2100000, guid: 5f66b8ded21454f4380d00914e71722d, type: 2}
   yellowMat: {fileID: 2100000, guid: f96bd3a1533afaa49a5b6e4d9b62792b, type: 2}
+  countdownUI: {fileID: 3990558358595682961, guid: bbd29876df5f9cb40926cb40e6db8585, type: 3}
 --- !u!1 &897285812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,10 +1127,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackColor: 0
+  cooldownTime: 5
   redMat: {fileID: 2100000, guid: 3e39f3375aac0ba4a85af23a927ad5b8, type: 2}
   blueMat: {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
   greenMat: {fileID: 2100000, guid: 5f66b8ded21454f4380d00914e71722d, type: 2}
   yellowMat: {fileID: 2100000, guid: f96bd3a1533afaa49a5b6e4d9b62792b, type: 2}
+  countdownUI: {fileID: 3990558358595682961, guid: bbd29876df5f9cb40926cb40e6db8585, type: 3}
 --- !u!1 &1145406159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,10 +1406,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackColor: 2
+  cooldownTime: 5
   redMat: {fileID: 2100000, guid: 3e39f3375aac0ba4a85af23a927ad5b8, type: 2}
   blueMat: {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
   greenMat: {fileID: 2100000, guid: 5f66b8ded21454f4380d00914e71722d, type: 2}
   yellowMat: {fileID: 2100000, guid: f96bd3a1533afaa49a5b6e4d9b62792b, type: 2}
+  countdownUI: {fileID: 3990558358595682961, guid: bbd29876df5f9cb40926cb40e6db8585, type: 3}
 --- !u!1 &1487322899
 GameObject:
   m_ObjectHideFlags: 0
