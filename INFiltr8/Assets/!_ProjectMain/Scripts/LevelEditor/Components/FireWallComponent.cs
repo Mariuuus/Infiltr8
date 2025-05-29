@@ -89,7 +89,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         {
             foreach (var plate in activationPlates)
             {
-                LevelFileManager.Instance.levelData.components.Remove(plate);
+                LevelEditorFileManager.Instance.levelData.components.Remove(plate);
             }
             activationPlates.Clear();
         }

@@ -28,9 +28,9 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 
         public virtual void OnClick(InputAction.CallbackContext ctx)
         {
-            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
             LevelEditorManager.Instance.UpdateUI();
-            LevelFileManager.Instance.QuickSave();
+            LevelEditorFileManager.Instance.QuickSave();
         }
 
         public virtual void OnEsc(InputAction.CallbackContext ctx)

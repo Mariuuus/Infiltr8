@@ -16,9 +16,9 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
                 LatestFireWallEdited,
                 LevelEditorUtils.ReduceToTwoDimensions(pos1),
                 LevelEditorUtils.ReduceToTwoDimensions(pos2),
-                LevelFileManager.Instance.levelData
+                LevelEditorFileManager.Instance.levelData
             );
-            LevelFileManager.Instance.levelData.components.Add(newActivationComponent);
+            LevelEditorFileManager.Instance.levelData.components.Add(newActivationComponent);
             return true;
         }
 

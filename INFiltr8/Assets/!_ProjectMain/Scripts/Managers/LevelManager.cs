@@ -15,7 +15,7 @@ namespace __ProjectMain.Scripts.Managers
 
         public bool Active { get; private set; } = false;
 
-        private LevelFileManager _levelFileManager;
+        private LevelEditorFileManager _levelEditorFileManager;
         private LevelEditorManager _levelEditorManager;
         
         [Header("Tilemaps")]
@@ -45,8 +45,8 @@ namespace __ProjectMain.Scripts.Managers
 
             Active = true;
 
-            _levelFileManager = LevelFileManager.Instance;
-            //_levelFileManager.Init();
+            _levelEditorFileManager = LevelEditorFileManager.Instance;
+            _levelEditorFileManager.Init();
             _levelEditorManager = GetComponent<LevelEditorManager>();
             _levelEditorManager.Init();
 
@@ -66,12 +66,12 @@ namespace __ProjectMain.Scripts.Managers
 
         private void InitiateGround()
         {
-            for (int y = _levelFileManager.levelData.wallPointOne.y;
-                 y <= _levelFileManager.levelData.wallPointTwo.y;
+            for (int y = _levelEditorFileManager.levelData.wallPointOne.y;
+                 y <= _levelEditorFileManager.levelData.wallPointTwo.y;
                  y++)
             {
-                for (int x = _levelFileManager.levelData.wallPointOne.x;
-                     x <= _levelFileManager.levelData.wallPointTwo.x;
+                for (int x = _levelEditorFileManager.levelData.wallPointOne.x;
+                     x <= _levelEditorFileManager.levelData.wallPointTwo.x;
                      x++)
                 {
                     PlaceObjectAtTile(new Vector3Int(x, y, 0), groundTilemap, groundObject);
@@ -81,18 +81,18 @@ namespace __ProjectMain.Scripts.Managers
 
         private void InitiateOuterLevelWalls()
         {
-            for (int y = _levelFileManager.levelData.wallPointOne.y;
-                 y <= _levelFileManager.levelData.wallPointTwo.y;
+            for (int y = _levelEditorFileManager.levelData.wallPointOne.y;
+                 y <= _levelEditorFileManager.levelData.wallPointTwo.y;
                  y++)
             {
-                for (int x = _levelFileManager.levelData.wallPointOne.x;
-                     x <= _levelFileManager.levelData.wallPointTwo.x;
+                for (int x = _levelEditorFileManager.levelData.wallPointOne.x;
+                     x <= _levelEditorFileManager.levelData.wallPointTwo.x;
                      x++)
                 {
-                    if (x == _levelFileManager.levelData.wallPointOne.x ||
-                        x == _levelFileManager.levelData.wallPointTwo.x ||
-                        y == _levelFileManager.levelData.wallPointOne.y ||
-                        y == _levelFileManager.levelData.wallPointTwo.y)
+                    if (x == _levelEditorFileManager.levelData.wallPointOne.x ||
+                        x == _levelEditorFileManager.levelData.wallPointTwo.x ||
+                        y == _levelEditorFileManager.levelData.wallPointOne.y ||
+                        y == _levelEditorFileManager.levelData.wallPointTwo.y)
                     {
                         PlaceObjectAtTile(new Vector3Int(x, y, 0), wallsTilemap, wallObject);
                     }
@@ -102,7 +102,7 @@ namespace __ProjectMain.Scripts.Managers
 
         private void InitiateFireWalls()
         {
-            foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(FireWallComponent)))
+            foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(FireWallComponent)))
             {
                 var component = (FireWallComponent)levelComponent;
                 foreach (var point in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.GetPointsInBetween(component.startPosition,
@@ -115,7 +115,7 @@ namespace __ProjectMain.Scripts.Managers
 
         private void InitiateWalls()
         {
-            foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(WallComponent)))
+            foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(WallComponent)))
             {
                 var component = (WallComponent)levelComponent;
                 foreach (var point in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.GetPointsInBetween(component.startPosition,

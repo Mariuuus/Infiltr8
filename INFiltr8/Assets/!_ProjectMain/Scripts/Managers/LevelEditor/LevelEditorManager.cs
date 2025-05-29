@@ -47,7 +47,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
 
         private void Start()
@@ -90,15 +90,15 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
 
         private void ShowRepresentationInTilemap()
         {
-            LevelEditorUtils.ClearTilemap(LevelManager.Instance.levelEditorRepresentationTilemap, LevelFileManager.Instance.levelData);
+            LevelEditorUtils.ClearTilemap(LevelManager.Instance.levelEditorRepresentationTilemap, LevelEditorFileManager.Instance.levelData);
 
-            foreach (var component in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(SpawnPointComponent)))
+            foreach (var component in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(SpawnPointComponent)))
             {
                 var spawnPoint = ((SpawnPointComponent)component);
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(spawnPoint.position), spawnTile);
             }
             
-            foreach (var component in LevelEditorUtils.FilterComponents(LevelFileManager.Instance.levelData.components, typeof(ActivationComponent)))
+            foreach (var component in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(ActivationComponent)))
             {
                 var activation = ((ActivationComponent)component);
 

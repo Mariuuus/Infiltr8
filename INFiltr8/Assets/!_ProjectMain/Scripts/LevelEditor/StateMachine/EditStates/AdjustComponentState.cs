@@ -18,8 +18,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
             if (mousePos != LookAtTile)
             {
                 LevelComponent currentLookAtComponent =
-                    LevelEditorUtils.ReceiveComponentAtPosition(LevelFileManager.Instance.levelData.components, mousePos);
-                LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+                    LevelEditorUtils.ReceiveComponentAtPosition(LevelEditorFileManager.Instance.levelData.components, mousePos);
+                LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
                 if (currentLookAtComponent is IAdjustableComponent)
                 {
                     foreach (var pos in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.ReceiveComponentPoints(currentLookAtComponent)))
@@ -33,7 +33,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 
         public override void OnClick(InputAction.CallbackContext ctx)
         {
-            LevelComponent currentLookAtComponent = LevelEditorUtils.ReceiveComponentAtPosition(LevelFileManager.Instance.levelData.components, LookAtTile);
+            LevelComponent currentLookAtComponent = LevelEditorUtils.ReceiveComponentAtPosition(LevelEditorFileManager.Instance.levelData.components, LookAtTile);
             if (currentLookAtComponent is IAdjustableComponent component)
             {
                 component.OnAdjust();

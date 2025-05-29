@@ -11,7 +11,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
     {
         public TwoPointsLevelComponent(Vector2Int startPosition, Vector2Int endPosition, LevelData levelData) : base(startPosition, endPosition, levelData)
         {
-            if(LevelEditorUtils.IsPositionBlocked(LevelFileManager.Instance.levelData.components, startPosition, endPosition)) throw new InvalidLevelEditorActionException("There is something in the way. Please reconsider your placement!");
+            if(LevelEditorUtils.IsPositionBlocked(LevelEditorFileManager.Instance.levelData.components, startPosition, endPosition)) throw new InvalidLevelEditorActionException("There is something in the way. Please reconsider your placement!");
         }
 
         public TwoPointsLevelComponent()

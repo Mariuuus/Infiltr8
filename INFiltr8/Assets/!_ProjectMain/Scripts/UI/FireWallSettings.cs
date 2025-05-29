@@ -51,14 +51,14 @@ namespace __ProjectMain.Scripts.UI
             if (_formAmount <= 0) throw new InvalidLevelEditorActionException("Invalid Amount!");
             _fireWallComponent.AddRequirement(new HackStatusAmount(_formHackColor, _formAmount));
             RenderRequirements();
-            LevelFileManager.Instance.QuickSave();
+            LevelEditorFileManager.Instance.QuickSave();
         }
 
         public void ClearRequirements()
         {
             _fireWallComponent.ResetRequirements();
             RenderRequirements();
-            LevelFileManager.Instance.QuickSave();
+            LevelEditorFileManager.Instance.QuickSave();
         }
 
         public void AddActivationPlate()

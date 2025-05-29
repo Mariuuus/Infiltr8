@@ -17,7 +17,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         {
             if (LatestCellClicked.Equals(new Vector3Int(-1, -1, -1)) ||
                 PreviousCellClicked.Equals(new Vector3Int(-1, -1, -1))) return false;
-            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
             return true;
         }
 
@@ -39,10 +39,10 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
             Vector3Int mousePos = LevelEditorManager.Instance.GetMousePosition();
             if (LatestCellClicked.Equals(new Vector3Int(-1,-1,-1))) return;
             
-            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
             foreach (var pos in LevelEditorUtils.ReduceToInBoundsVectors(LevelEditorUtils.GetPointsInBetween(
                          LevelEditorUtils.ReduceToTwoDimensions(LatestCellClicked),
-                         LevelEditorUtils.ReduceToTwoDimensions(mousePos)), LevelFileManager.Instance.levelData))
+                         LevelEditorUtils.ReduceToTwoDimensions(mousePos)), LevelEditorFileManager.Instance.levelData))
             {
                 LevelManager.Instance.uiTilemap.SetTile(pos, LevelEditorManager.Instance.hoverTile);
             }
@@ -65,7 +65,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
             catch (InvalidLevelEditorActionException e)
             {
                 ClearPointer(); 
-                LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+                LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
                 Debug.LogException(e);
                 throw e;
             }
@@ -75,7 +75,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         {
             if (ctx.performed)
             {
-                LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+                LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
                 if(LatestCellClicked.Equals(new Vector3Int(-1, -1, -1)) && PreviousCellClicked.Equals(new Vector3Int(-1, -1, -1))) base.OnEsc(ctx);
                 ClearPointer();
             }

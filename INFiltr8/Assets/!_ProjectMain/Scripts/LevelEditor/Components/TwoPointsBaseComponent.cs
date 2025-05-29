@@ -30,8 +30,8 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
                 this.endPosition = endPosition;
             }
             
-            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, startPosition)) throw new InvalidLevelEditorActionException("This is outside of the Level!");
-            if(!LevelEditorUtils.IsPositionInField(LevelFileManager.Instance.levelData, endPosition)) throw new InvalidLevelEditorActionException("This is outside of the Level!");
+            if(!LevelEditorUtils.IsPositionInField(LevelEditorFileManager.Instance.levelData, startPosition)) throw new InvalidLevelEditorActionException("This is outside of the Level!");
+            if(!LevelEditorUtils.IsPositionInField(LevelEditorFileManager.Instance.levelData, endPosition)) throw new InvalidLevelEditorActionException("This is outside of the Level!");
         }
         public TwoPointsBaseComponent()
         {

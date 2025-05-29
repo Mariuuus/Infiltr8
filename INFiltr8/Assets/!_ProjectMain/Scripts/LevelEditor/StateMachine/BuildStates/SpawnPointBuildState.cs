@@ -11,8 +11,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         protected override bool Build(Vector3Int pos)
         {
             var spawn = new SpawnPointComponent(LevelEditorUtils.ReduceToTwoDimensions(pos),
-                LevelFileManager.Instance.levelData);
-            LevelFileManager.Instance.levelData.components.Add(spawn);
+                LevelEditorFileManager.Instance.levelData);
+            LevelEditorFileManager.Instance.levelData.components.Add(spawn);
             return base.Build(pos);
         }
 

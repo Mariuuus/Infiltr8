@@ -13,20 +13,7 @@ namespace __ProjectMain.Scripts.UI
         
         public void CreateNewLevel()
         {
-            try
-            {
-                LevelFileManager.Instance.levelData = LevelFileManager.Instance.LoadFile(_textInput);
-            }
-            catch (FileNotFoundException fileNotFoundException)
-            {
-                Debug.Log(fileNotFoundException.Message);
-                LevelFileManager.Instance.levelData = LevelFileManager.Instance.CreateLevel(_textInput);
-                LevelFileManager.Instance.QuickSave();
-            }
-            finally
-            {
-                SceneManager.LoadScene("LevelEditor");
-            }
+            LevelFileManager.Instance.CreateAndLoadLevel(_textInput);
         }
     }
 }

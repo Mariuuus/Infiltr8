@@ -21,9 +21,9 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
             WallComponent newWall = new WallComponent(
                 LevelEditorUtils.ReduceToTwoDimensions(pos1),
                 LevelEditorUtils.ReduceToTwoDimensions(pos2),
-                LevelFileManager.Instance.levelData
+                LevelEditorFileManager.Instance.levelData
             );
-            LevelFileManager.Instance.levelData.components.Add(newWall);
+            LevelEditorFileManager.Instance.levelData.components.Add(newWall);
         }
 
         public Sprite GetIcon()

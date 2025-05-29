@@ -1,29 +1,26 @@
-﻿using System;
-using System.Collections;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using __ProjectMain.Scripts.LevelEditor;
+using __ProjectMain.Scripts.UI;
+using __ProjectMain.Scripts.Utilities.Files;
 using UnityEngine;
-using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 
 namespace __ProjectMain.Scripts.Managers
 {
     public class LevelFileManager : MonoBehaviour
     {
-        // Singleton instance
         public static LevelFileManager Instance { get; private set; }
-
-        public string levelName;
-        public LevelData levelData;
-
-        // Json.NET settings for polymorphic serialization
-        private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings
-        {
-            TypeNameHandling = TypeNameHandling.Auto,
-            Formatting = Formatting.Indented
-        };
+        public LevelData LevelToLoad { get; private set; }
+        
+        [SerializeField] private GameObject levelSelectorContainer;
+        [SerializeField] private GameObject levelSelectorPrefab;
 
         public void Awake()
         {
+            
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
@@ -32,100 +29,52 @@ namespace __ProjectMain.Scripts.Managers
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            Init();
         }
 
-        /*
-        public void Init()
+        private void Init()
         {
-            if (Instance != null && Instance != this)
+            var levels = GetLevels();
+            for (int i = levelSelectorContainer.transform.childCount - 1; i >= 0; i--)
             {
-                Destroy(gameObject);
-                return;
+                Destroy(levelSelectorContainer.transform.GetChild(i).gameObject);
             }
-
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            Debug.Log("LevelFileManager::Init");
-            
-            
-            if (!string.IsNullOrEmpty(levelName) && levelData != null)
+            Debug.Log(levels);
+            Debug.Log(levels.Count);
+            for (int i = 0; i < levels.Count; i++)
             {
-                try
-                {
-                    levelData = LoadFile(levelName);
-                }
-                catch (FileNotFoundException fileNotFoundException)
-                {
-                    Debug.Log(fileNotFoundException.Message);
-                    levelData = CreateLevel(levelName);
-                    SaveFile(levelData);
-                }
+                GameObject newElement = Instantiate(levelSelectorPrefab, levelSelectorContainer.transform);
+                var uisel = newElement.GetComponent<SelectableLevel>();
+                uisel.LevelData = levels[i];
+                uisel.Index = i;
+                uisel.UpdateUI();
             }
-            else
+        }
+
+        public void SelectLevel(int index)
+        {
+            LevelToLoad = GetLevels()[index];
+            SceneManager.LoadScene("LevelEditor");
+        }
+
+        public List<LevelData> GetLevels() => LevelDataUtils.GetAvailableLevels();
+        
+        public void CreateAndLoadLevel(string levelName) {
+            try
             {
-                int counter = 0;
-                while (true)
-                {
-                    counter++;
-                    try
-                    {
-                        LevelData levelData = CreateLevel("Untitled" + counter);
-                        SaveFile(levelData);
-                        this.levelData = levelData;
-                        return;
-                    }
-                    catch (Exception)
-                    {
-                        // ignored
-                    }
-                }
+                LevelToLoad = LevelDataUtils.LoadFile(levelName);
             }
-        }*/
-
-        public LevelData CreateLevel(string levelName)
-        {
-            return new LevelData(levelName);
+            catch (FileNotFoundException fileNotFoundException)
+            {
+                LevelDataUtils.SaveFile(new LevelData(levelName), false);
+                LevelToLoad = LevelDataUtils.LoadFile(levelName); 
+            }
+            finally
+            {
+                SceneManager.LoadScene("LevelEditor");
+            }
         }
-
-        private static string ReceiveFileName(string levelName)
-        {
-            string path = Application.persistentDataPath + "/" + levelName + ".json";
-            Debug.Log(path);
-            return path;
-        }
-
-        public void SaveFile(LevelData levelData, bool overwrite = false)
-        {
-            Debug.Log("Saving game");
-            string filename = ReceiveFileName(levelData.levelName);
-
-            if (!overwrite && File.Exists(filename)) throw new FileLoadException("File already exists");
-
-            string jsonString = JsonConvert.SerializeObject(levelData, JsonSettings);
-            File.WriteAllText(filename, jsonString);
-            Debug.Log("Saved level successfully");
-        }
-
-        public LevelData LoadFile(string levelName)
-        {
-            Debug.Log("Loading game");
-
-            string filename = ReceiveFileName(levelName);
-
-            if (!File.Exists(filename)) throw new FileNotFoundException("No file found");
-
-            string fileContents = File.ReadAllText(filename);
-
-            LevelData levelData = JsonConvert.DeserializeObject<LevelData>(fileContents, JsonSettings);
-
-            Debug.Log("Loaded level successfully");
-
-            return levelData;
-        }
-
-        public void QuickSave()
-        {
-            SaveFile(levelData, true);
-        }
+        
     }
 }

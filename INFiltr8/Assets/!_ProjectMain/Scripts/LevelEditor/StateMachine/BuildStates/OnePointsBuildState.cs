@@ -32,7 +32,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         
         protected virtual bool Build(Vector3Int pos)
         {
-            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+            LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
             return true;
         }
 
@@ -48,7 +48,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
                 }
                 catch (InvalidLevelEditorActionException e)
                 {
-                    LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelFileManager.Instance.levelData);
+                    LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
                     Debug.LogException(e);
                     throw e;
                 }
