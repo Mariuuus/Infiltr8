@@ -16,6 +16,8 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public static LevelEditorManager Instance { get; private set; }
         private ISelectableState[] _selectableStates;
         
+        public bool isSpecting = true;
+        
         private LevelEditorStateMachine _levelEditorStateMachine;
         
         [Header("General Settings")]

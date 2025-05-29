@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 905091730}
+      - m_Target: {fileID: 86503692}
         m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.MainMenu, Assembly-CSharp
         m_MethodName: SettingsButtonClick
         m_Mode: 1
@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 86503690}
   - component: {fileID: 86503691}
+  - component: {fileID: 86503692}
   m_Layer: 5
   m_Name: ButtonContainer
   m_TagString: Untagged
@@ -318,6 +319,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &86503692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86503689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10aca4d9160546f0a62d00fd640f9fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195866013
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +550,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 905091730}
+      - m_Target: {fileID: 86503692}
         m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.MainMenu, Assembly-CSharp
         m_MethodName: LevelEditorButtonClick
         m_Mode: 1
@@ -973,8 +986,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 905091731}
-  - component: {fileID: 905091730}
   - component: {fileID: 905091732}
+  - component: {fileID: 905091733}
   m_Layer: 0
   m_Name: MANAGERS
   m_TagString: Untagged
@@ -982,18 +995,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &905091730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905091729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10aca4d9160546f0a62d00fd640f9fc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &905091731
 Transform:
   m_ObjectHideFlags: 0
@@ -1018,15 +1019,64 @@ MonoBehaviour:
   m_GameObject: {fileID: 905091729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d08501595ed4517bd097df15e431a60, type: 3}
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
-  levelData:
-    levelName: 
-    wallPointOne: {x: 0, y: 0}
-    wallPointTwo: {x: 0, y: 0}
-    components: []
+  m_Actions: {fileID: -944628639613478452, guid: 1c8acd89f69c6fb4681c0994746c705e, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3a33d238-c5af-4860-8752-c2e80078d170
+    m_ActionName: 'Gameplay/Drag[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e1aa74b9-f684-4623-96c4-6d0b14062092
+    m_ActionName: 'Gameplay/Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 905091733}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.Managers.GlobalGameManager,
+          Assembly-CSharp
+        m_MethodName: OnEsc
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fca55f90-f9ae-4b98-9af8-23e1b6622aa3
+    m_ActionName: 'Gameplay/Escape[/Keyboard/escape]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &905091733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905091729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4915a3b497446a2bb1796058a3aa34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &973377506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1160,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 905091730}
+      - m_Target: {fileID: 86503692}
         m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.MainMenu, Assembly-CSharp
         m_MethodName: ExitButtonClick
         m_Mode: 1
@@ -1648,7 +1698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 905091730}
+      - m_Target: {fileID: 86503692}
         m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.MainMenu, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1

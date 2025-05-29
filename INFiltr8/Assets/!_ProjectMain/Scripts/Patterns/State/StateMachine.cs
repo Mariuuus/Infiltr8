@@ -1,4 +1,6 @@
-﻿namespace __ProjectMain.Scripts.Patterns.State
+﻿using UnityEngine;
+
+namespace __ProjectMain.Scripts.Patterns.State
 {
     public abstract class StateMachine
     {
@@ -6,10 +8,12 @@
 
         public void ChangeState(IState newState)
         {
+            Debug.Log(currentState?.GetType().Name);
             currentState?.Exit();
 
             currentState = newState;
 
+            Debug.Log(currentState.GetType().Name);
             currentState.Enter();
         }
 

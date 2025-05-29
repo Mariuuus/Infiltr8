@@ -9,10 +9,12 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         public void Enter()
         {
             LevelEditorManager.Instance.currentStateText.text = "Current Mode:" + GetType().Name;
+            LevelEditorManager.Instance.isSpecting = true;
         }
 
         public void Exit()
         {
+            LevelEditorManager.Instance.isSpecting = false;
         }
 
         public void HandleInput()

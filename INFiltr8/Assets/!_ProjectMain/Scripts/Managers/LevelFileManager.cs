@@ -14,9 +14,6 @@ namespace __ProjectMain.Scripts.Managers
     {
         public static LevelFileManager Instance { get; private set; }
         public LevelData LevelToLoad { get; private set; }
-        
-        [SerializeField] private GameObject levelSelectorContainer;
-        [SerializeField] private GameObject levelSelectorPrefab;
 
         public void Awake()
         {
@@ -29,33 +26,12 @@ namespace __ProjectMain.Scripts.Managers
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
-            Init();
-        }
-
-        private void Init()
-        {
-            var levels = GetLevels();
-            for (int i = levelSelectorContainer.transform.childCount - 1; i >= 0; i--)
-            {
-                Destroy(levelSelectorContainer.transform.GetChild(i).gameObject);
-            }
-            Debug.Log(levels);
-            Debug.Log(levels.Count);
-            for (int i = 0; i < levels.Count; i++)
-            {
-                GameObject newElement = Instantiate(levelSelectorPrefab, levelSelectorContainer.transform);
-                var uisel = newElement.GetComponent<SelectableLevel>();
-                uisel.LevelData = levels[i];
-                uisel.Index = i;
-                uisel.UpdateUI();
-            }
         }
 
         public void SelectLevel(int index)
         {
             LevelToLoad = GetLevels()[index];
-            SceneManager.LoadScene("LevelEditor");
+            GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine.LevelEditorState);
         }
 
         public List<LevelData> GetLevels() => LevelDataUtils.GetAvailableLevels();

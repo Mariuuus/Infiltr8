@@ -413,7 +413,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 92410926}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999756
+  m_Size: 0.9969019
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 927734801}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.LevelUISelector, Assembly-CSharp
         m_MethodName: CreateNewLevel
         m_Mode: 1
@@ -810,7 +810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00044249598}
+  m_AnchoredPosition: {x: 0, y: 0.0007270912}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &608282118
@@ -1454,7 +1454,6 @@ GameObject:
   m_Component:
   - component: {fileID: 927734800}
   - component: {fileID: 927734801}
-  - component: {fileID: 927734802}
   m_Layer: 0
   m_Name: GlobalManager
   m_TagString: Untagged
@@ -1486,23 +1485,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 927734798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34c671e604344c0285deb9dbe9fbcf3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &927734802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927734798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bdea1a78e7644e58c9fe82a9a2dd4a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSelectorContainer: {fileID: 608282116}
-  levelSelectorPrefab: {fileID: 2197461578776130799, guid: 8ea0ff6c2023534a1a84b6a4f28bef07, type: 3}
 --- !u!1 &1073199238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,6 +1824,7 @@ GameObject:
   - component: {fileID: 1436561967}
   - component: {fileID: 1436561966}
   - component: {fileID: 1436561970}
+  - component: {fileID: 1436561971}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1956,6 +1942,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1436561971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436561965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c671e604344c0285deb9dbe9fbcf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSelectorContainer: {fileID: 608282116}
+  levelSelectorPrefab: {fileID: 2197461578776130799, guid: 8ea0ff6c2023534a1a84b6a4f28bef07, type: 3}
 --- !u!1 &1712496814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2075,10 +2075,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 927734801}
+      - m_Target: {fileID: 1436561971}
         m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.LevelUISelector, Assembly-CSharp
         m_MethodName: OnChange
-        m_Mode: 0
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
