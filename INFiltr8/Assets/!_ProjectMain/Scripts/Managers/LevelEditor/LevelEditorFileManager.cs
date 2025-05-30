@@ -38,7 +38,7 @@ namespace __ProjectMain.Scripts.Managers
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             Debug.Log("LevelFileManager::Init");
 
             if (LevelFileManager.Instance != null)

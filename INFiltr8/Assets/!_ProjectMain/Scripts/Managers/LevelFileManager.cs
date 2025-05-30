@@ -31,24 +31,41 @@ namespace __ProjectMain.Scripts.Managers
         public void SelectLevel(int index)
         {
             LevelToLoad = GetLevels()[index];
-            GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine.LevelEditorState);
+            try
+            {
+                GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine
+                    .LevelEditorState);
+            }
+            catch
+            {
+                SceneManager.LoadScene("LevelEditor");
+            }
         }
 
         public List<LevelData> GetLevels() => LevelDataUtils.GetAvailableLevels();
         
-        public void CreateAndLoadLevel(string levelName) {
+        public void CreateAndLoadLevel(string levelName, int size) {
+            Debug.Log(levelName);
             try
             {
                 LevelToLoad = LevelDataUtils.LoadFile(levelName);
             }
             catch (FileNotFoundException fileNotFoundException)
             {
-                LevelDataUtils.SaveFile(new LevelData(levelName), false);
+                LevelDataUtils.SaveFile(new LevelData(levelName, size), false);
                 LevelToLoad = LevelDataUtils.LoadFile(levelName); 
             }
             finally
             {
-                SceneManager.LoadScene("LevelEditor");
+                try
+                {
+                    GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine
+                        .LevelEditorState);
+                }
+                catch
+                {
+                    SceneManager.LoadScene("LevelEditor");
+                }
             }
         }
         

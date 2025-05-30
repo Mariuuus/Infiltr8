@@ -53,7 +53,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 
         public override void Exit()
         {
-            _selectedComponent.OnExitAdjust();
+            _selectedComponent?.OnExitAdjust();
         }
     }
 }

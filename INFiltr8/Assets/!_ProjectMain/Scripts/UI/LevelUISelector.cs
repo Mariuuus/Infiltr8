@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using __ProjectMain.Scripts.Managers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,15 +11,27 @@ namespace __ProjectMain.Scripts.UI
     public class LevelUISelector : MonoBehaviour
     {
         private string _textInput;
+        private int _size;
         
         [SerializeField] private GameObject levelSelectorContainer;
         [SerializeField] private GameObject levelSelectorPrefab;
         
-        public void OnChange(string input) => _textInput = input;
+        [SerializeField] private TMP_Text sizeRepresentation;
+        
+        
+        public void OnNameChange(String input) => _textInput = input;
+
+
+        public void OnSliderChange(Single element)
+        {
+            sizeRepresentation.text = "Size: " + (int)element; 
+            _size = (int)element;
+        }
+        
         
         public void CreateNewLevel()
         {
-            LevelFileManager.Instance.CreateAndLoadLevel(_textInput);
+            LevelFileManager.Instance.CreateAndLoadLevel(_textInput, _size);
         }
 
         private void Start()

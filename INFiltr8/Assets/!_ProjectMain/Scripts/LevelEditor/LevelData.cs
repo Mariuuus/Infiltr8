@@ -14,10 +14,20 @@ namespace __ProjectMain.Scripts.LevelEditor
         [JsonProperty(Order = 4)] public List<LevelComponent> components;
         
 
+        public LevelData () {
+            // just for deserialization
+        }
         public LevelData (string levelName) {
             this.levelName = levelName;
             wallPointOne = new Vector2Int (0, 0);
             wallPointTwo = new Vector2Int (20, 20);
+            components =  new List<LevelComponent>();
+        }
+        
+        public LevelData (string levelName, int size) {
+            this.levelName = levelName;
+            wallPointOne = new Vector2Int (0, 0);
+            wallPointTwo = new Vector2Int (size, size);
             components =  new List<LevelComponent>();
         }
     }
