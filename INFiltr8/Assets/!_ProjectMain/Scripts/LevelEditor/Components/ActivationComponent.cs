@@ -13,6 +13,12 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
             endPoint, levelData)
         {
             this.fireWall = fireWall;
+            fireWall.AddActivationPlate(this);
+        }
+        
+        public ActivationComponent()
+        {
+            // just for deserialization
         }
         
         /// <summary>

@@ -81,6 +81,16 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         {
             doorUnlockRequirements.Clear();
         }
+        
+        /// <summary>
+        /// add to list of activation plates.
+        /// </summary>
+        /// <param name="activationPlate"></param>
+        public void AddActivationPlate(ActivationComponent activationPlate)
+        {
+            activationPlates.Add(activationPlate);
+        }
+        
 
         /// <summary>
         /// Will be called when this Component will be deleted

@@ -22,9 +22,26 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
                 LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
                 if (currentLookAtComponent is IAdjustableComponent)
                 {
-                    foreach (var pos in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.ReceiveComponentPoints(currentLookAtComponent)))
+                    
+
+                    if (currentLookAtComponent is IConnectedComponent connectedComponent)
                     {
-                        LevelManager.Instance.uiTilemap.SetTile(pos, LevelEditorManager.Instance.deleteTile);
+                        Debug.Log("IConnectedComponent found!");
+                        foreach (var component in connectedComponent.GetAllLevelComponents())
+                        {
+                            Debug.Log(component);
+                            foreach (var pos in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.ReceiveComponentPoints(component)))
+                            {
+                                LevelManager.Instance.uiTilemap.SetTile(pos, LevelEditorManager.Instance.deleteTile);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var pos in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.ReceiveComponentPoints(currentLookAtComponent)))
+                        {
+                            LevelManager.Instance.uiTilemap.SetTile(pos, LevelEditorManager.Instance.deleteTile);
+                        }
                     }
                 }
                 base.Update();

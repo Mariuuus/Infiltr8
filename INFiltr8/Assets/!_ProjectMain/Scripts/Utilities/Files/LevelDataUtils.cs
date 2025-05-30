@@ -13,7 +13,8 @@ namespace __ProjectMain.Scripts.Utilities.Files
         private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings
         {
             TypeNameHandling = TypeNameHandling.Auto,
-            Formatting = Formatting.Indented
+            Formatting = Formatting.Indented,
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
         };
         
         public static string ReceiveFileName(string levelName)
@@ -24,7 +25,7 @@ namespace __ProjectMain.Scripts.Utilities.Files
         
         public static LevelData LoadFile(string levelName)
         {
-            Debug.Log("Loading game, " + levelName);
+            Debug.Log("Loading game, " + levelName + " from " + Application.persistentDataPath);
 
             string filename = LevelDataUtils.ReceiveFileName(levelName);
 

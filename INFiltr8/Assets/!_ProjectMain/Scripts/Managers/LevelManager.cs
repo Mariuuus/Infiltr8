@@ -32,7 +32,7 @@ namespace __ProjectMain.Scripts.Managers
         private void Awake()
         {
             Active = false;
-            if (Instance != null && Instance != this)
+            if (Instance && Instance != this)
             {
                 Destroy(gameObject);
                 return;

@@ -12,6 +12,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         
         protected override bool Build(Vector3Int pos1, Vector3Int pos2)
         {
+            if(!base.Build(pos1, pos2)) return false;
             ActivationComponent newActivationComponent = new ActivationComponent(
                 LatestFireWallEdited,
                 LevelEditorUtils.ReduceToTwoDimensions(pos1),

@@ -39,10 +39,10 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
         public static List<Vector2Int> ReceiveComponentPoints(LevelComponent component)
         {
             List<Vector2Int> points = new List<Vector2Int>();
-            if (component is TwoPointsLevelComponent)
+            if (component is TwoPointsBaseComponent levelComponent)
             {
-                foreach (var pos in GetPointsInBetween(((TwoPointsLevelComponent)component).startPosition,
-                             ((TwoPointsLevelComponent)component).endPosition))
+                foreach (var pos in GetPointsInBetween(levelComponent.startPosition,
+                             levelComponent.endPosition))
                 {
                     points.Add(pos);
                 }
@@ -78,7 +78,7 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
                 }
                 else //two points
                 {
-                    foreach (var inBetweenPoint in ((TwoPointsLevelComponent) component).GetPointsInBetween())
+                    foreach (var inBetweenPoint in ((TwoPointsBaseComponent) component).GetPointsInBetween())
                     {
                         if(inBetweenPoint.Equals(position)) return true;
                     }
@@ -124,7 +124,7 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
             }
             else
             {
-                var twoPosComponent = component as TwoPointsLevelComponent;
+                var twoPosComponent = component as TwoPointsBaseComponent;
                 return IsPositionInField(level, twoPosComponent!.startPosition) || IsPositionInField(level, twoPosComponent.endPosition);
 
             }
@@ -141,7 +141,7 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
                 }
                 else
                 {
-                    var twoPosComponent = component as TwoPointsLevelComponent;
+                    var twoPosComponent = component as TwoPointsBaseComponent;
                     if (!(IsPositionInField(level, twoPosComponent!.startPosition) ||
                           IsPositionInField(level, twoPosComponent.endPosition))) return false;
                 }
