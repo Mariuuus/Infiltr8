@@ -8,10 +8,7 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField]
-    private List<HackStatusAmount> requiredHackStatusAmounts = new List<HackStatusAmount>();
-    // [SerializeField]
-    // private List<ActiviationPlateController> PlateControllers = new List<ActiviationPlateController>();
+    public List<HackStatusAmount> requiredHackStatusAmounts = new List<HackStatusAmount>();
     private Dictionary<HackStatus, int> hackAmounts = new Dictionary<HackStatus, int>();
     private bool open = false;
     private TextMeshPro doorUI;
@@ -141,7 +138,7 @@ public class DoorController : MonoBehaviour
         // transform.position = Vector3.Lerp(doorPosition, doorPosition + new Vector3(0, yDirection, 0), 0.3f);
     }
 
-    private void updateDoorUI()
+    public void updateDoorUI()
     {
         if (doorUI == null) return;
         String uiText = "Required: \n";

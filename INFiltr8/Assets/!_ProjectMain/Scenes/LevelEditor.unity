@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d08501595ed4517bd097df15e431a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: TestLevel1234
+  levelName: Test
   levelData:
     levelName: 
     wallPointOne: {x: 0, y: 0}
@@ -1801,6 +1801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3229e8754e44aa5807d8d6b0a24e2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpecting: 1
   lookAtText: {fileID: 1162081455}
   currentStateText: {fileID: 1539880841}
   grid: {fileID: 1365826446}

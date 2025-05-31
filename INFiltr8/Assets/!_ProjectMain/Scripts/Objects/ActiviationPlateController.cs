@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ActiviationPlateController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject activationDoor;
+    public GameObject activationDoor;
 
     [SerializeField]
     private int deviceLimit = 0;
@@ -35,6 +34,12 @@ public class ActiviationPlateController : MonoBehaviour
         plateUI.color = new Color32(0, 0, 0, 255);
         plateUI.SetText(deviceAmount + " / " + deviceLimit);
     }
+
+    public void UpdateUI()
+    {
+        plateUI.SetText(deviceAmount + " / " + deviceLimit);
+    }
+    
 
     private void OnTriggerEnter(Collider other)
     {

@@ -50,7 +50,7 @@ namespace __ProjectMain.Scripts.Managers
             {
                 LevelToLoad = LevelDataUtils.LoadFile(levelName);
             }
-            catch (FileNotFoundException fileNotFoundException)
+            catch (FileNotFoundException)
             {
                 LevelDataUtils.SaveFile(new LevelData(levelName, size), false);
                 LevelToLoad = LevelDataUtils.LoadFile(levelName); 

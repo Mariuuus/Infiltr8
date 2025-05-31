@@ -66,6 +66,7 @@ namespace __ProjectMain.Scripts.Managers
 
         private void InitiateGround()
         {
+            ClearMap(groundTilemap);
             for (int y = _levelEditorFileManager.levelData.wallPointOne.y;
                  y <= _levelEditorFileManager.levelData.wallPointTwo.y;
                  y++)
