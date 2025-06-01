@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using __ProjectMain.Scripts.LevelEditor.StateMachine;
+using __ProjectMain.Scripts.Managers;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -27,7 +28,6 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         public void OnRemove()
         {
             fireWall.activationPlates.Remove(this);
-            //TODO: check if this is enough!
         }
 
         public List<LevelComponent> GetAllLevelComponents()

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/!_ProjectMain/Scenes/TestingGround.unity
     guid: c6526bd609edb754b9362275cbeaf2eb
+  - enabled: 1
+    path: Assets/!_ProjectMain/Scenes/LevelLoader.unity
+    guid: 9b7961fb722e47a8d819041d77d63f21
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

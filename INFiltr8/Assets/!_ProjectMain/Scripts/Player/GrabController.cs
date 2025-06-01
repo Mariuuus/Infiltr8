@@ -112,6 +112,7 @@ public class GrabController : MonoBehaviour
 
                          if (colorChangeAction.WasPressedThisFrame())
                          {
+                             //Debug.Log(colorChangeAction.activeControl.name);
                              switch (colorChangeAction.activeControl.name)
                              {
                                  case "1": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.BlueHacked); break;

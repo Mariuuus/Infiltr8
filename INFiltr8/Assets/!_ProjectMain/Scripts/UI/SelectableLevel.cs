@@ -12,9 +12,14 @@ namespace __ProjectMain.Scripts.UI
         
         [SerializeField] private TMP_Text levelNameText;
 
-        public void OnSelect()
+        public void OnEdit()
         {
-            LevelFileManager.Instance.SelectLevel(Index);
+            LevelFileManager.Instance.EditLevel(Index);
+        }
+        
+        public void OnPlay()
+        {
+            LevelFileManager.Instance.PlayLevel(Index);
         }
 
         public void UpdateUI()

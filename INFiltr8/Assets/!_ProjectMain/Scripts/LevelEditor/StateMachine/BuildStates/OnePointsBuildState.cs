@@ -15,7 +15,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
         {
             if (ctx.performed)
             {
-                base.OnClick(ctx);
+                base.OnEsc(ctx);
             }
         }
 

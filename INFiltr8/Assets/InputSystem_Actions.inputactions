@@ -499,7 +499,7 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": ";Keyboard&Mouse;Gamepad",
                     "action": "colorChange",
                     "isComposite": false,
                     "isPartOfComposite": false

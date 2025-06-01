@@ -7,7 +7,7 @@ namespace __ProjectMain.Scripts.Managers.GameStateMachine.States
     {
         public void Enter()
         {
-            SceneManager.LoadScene("TestingGround");
+            SceneManager.LoadScene("LevelLoader");
         }
         public void Exit() {}
 
@@ -15,7 +15,7 @@ namespace __ProjectMain.Scripts.Managers.GameStateMachine.States
 
         public void OnEsc(InputAction.CallbackContext ctx)
         {
-            GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine.MainMenuState);
+            GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine.LevelEditorMenuState);
         }
     }
 }

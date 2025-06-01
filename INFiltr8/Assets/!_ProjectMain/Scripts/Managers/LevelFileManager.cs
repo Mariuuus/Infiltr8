@@ -28,7 +28,7 @@ namespace __ProjectMain.Scripts.Managers
             DontDestroyOnLoad(gameObject);
         }
 
-        public void SelectLevel(int index)
+        public void EditLevel(int index)
         {
             LevelToLoad = GetLevels()[index];
             try
@@ -39,6 +39,20 @@ namespace __ProjectMain.Scripts.Managers
             catch
             {
                 SceneManager.LoadScene("LevelEditor");
+            }
+        }
+        
+        public void PlayLevel(int index)
+        {
+            LevelToLoad = GetLevels()[index];
+            try
+            {
+                GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine
+                    .IngameState);
+            }
+            catch
+            {
+                SceneManager.LoadScene("LevelLoader");
             }
         }
 
