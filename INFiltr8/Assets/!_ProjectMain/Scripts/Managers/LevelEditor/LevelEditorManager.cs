@@ -32,12 +32,14 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile hoverTile;
         public Tile deleteTile;
         public Tile spawnTile;
+        public Tile laptopTile;
         public Tile activationPlateTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
         public Sprite fireWallBuildSprite;
         public Sprite spawnPointSprite;
+        public Sprite laptopSprite;
         public Sprite deleteComponentsSprite;
         public Sprite adjustComponentsSprite;
         private void Awake()
@@ -73,6 +75,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.SpawnPointBuildState,
                 _levelEditorStateMachine.FireWallBuildState,
                 _levelEditorStateMachine.AdjustComponentState,
+                _levelEditorStateMachine.LaptopBuildState
             };
             
             foreach (var state in _selectableStates)
@@ -98,6 +101,12 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             {
                 var spawnPoint = ((SpawnPointComponent)component);
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(spawnPoint.position), spawnTile);
+            }
+            
+            foreach (var component in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(LaptopComponent)))
+            {
+                var laptop = ((LaptopComponent)component);
+                LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(laptop.position), laptopTile);
             }
             
             foreach (var component in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(ActivationComponent)))

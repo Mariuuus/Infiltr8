@@ -1,6 +1,7 @@
 using System;
 using __ProjectMain.Scripts.LevelEditor;
 using __ProjectMain.Scripts.LevelEditor.Components;
+using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
 using __ProjectMain.Scripts.Objects;
 using __ProjectMain.Scripts.Objects.PlaceableComponents;
 using __ProjectMain.Scripts.Utilities.Files;
@@ -15,11 +16,17 @@ namespace __ProjectMain.Scripts.Managers.Level
 
         [SerializeField] private string fallbackLevelName;
 
-        [Header("Tilemap GameObjects")]
+        [Header("GameObjects")]
         public GameObject floorObject;
         public /*IPlaceable<WallComponent>*/ GameObject wallObject;
         public /*IPlaceable<FireWallComponent>*/ GameObject fireWallObject;
         public /*IPlaceable<ActivationComponent>*/ GameObject activationObject;
+        public /*IPlaceable<LaptopComponent>*/ GameObject laptopObject;
+        public /*IPlaceable<LaptopComponent>*/ GameObject spawnPointObject;
+        
+        [Header("Player")]
+        public GameObject playerObject;
+
 
         private void Awake()
         {
@@ -68,6 +75,8 @@ namespace __ProjectMain.Scripts.Managers.Level
                 new Vector2Int(lvlData.wallPointTwo.x, lvlData.wallPointTwo.y)
             ));
 
+            SpawnPointComponent spawnPoint = null;
+
             
             // place each component
             foreach (var component in lvlData.components)
@@ -92,11 +101,33 @@ namespace __ProjectMain.Scripts.Managers.Level
                         newObj.GetComponent<WallPlacer>().Place(wallComponent);
                         break;
                     }
+                    case LaptopComponent laptopComponent:
+                    {
+                        var newObj = Instantiate(laptopObject);
+                        newObj.GetComponent<LaptopPlacer>().Place(laptopComponent);
+                        break;
+                    }
+                    case SpawnPointComponent spawnPointComponent:
+                    {
+                        spawnPoint = spawnPointComponent;
+                        break;
+                    }
                 }
             }
+
+            if (spawnPoint != null)
+            {
+                var spawnPointObj = Instantiate(spawnPointObject);
+                spawnPointObj.transform.position = new Vector3(spawnPoint.position.y, 1.5f, spawnPoint.position.x);
+                
+                playerObject.transform.position = spawnPointObj.transform.position;
+            }
+            else
+            {
+                throw new ApplicationException("LevelLoaderManager: SpawnPoint not found");
+            }
             
-            //TODO: place player
-            
+
         }
     }
-}
+}   

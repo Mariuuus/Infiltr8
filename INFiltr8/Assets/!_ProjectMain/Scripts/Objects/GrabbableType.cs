@@ -23,7 +23,14 @@ public class grabbableType : MonoBehaviour
 
     private void Start()
     {
-       setMaterial(hackColor);
+        Init();
+    }
+
+
+    public void Init()
+    {
+        setMaterial(hackColor);
+
     }
     public HackStatus getHackColor()
     {

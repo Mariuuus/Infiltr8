@@ -8,7 +8,6 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
     public class DeviceComponent : OnePointLevelComponent
     {
         public List<HackStatus> possibleHacks;
-        public HackStatus startHack;
 
         public DeviceComponent()
         {
