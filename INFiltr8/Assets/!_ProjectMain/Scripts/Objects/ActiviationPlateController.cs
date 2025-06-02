@@ -48,6 +48,7 @@ public class ActiviationPlateController : MonoBehaviour
             if (deviceAmount < deviceLimit)
             {
                 grabbableType color = other.GetComponent<grabbableType>();
+                //Debug.Log(color.getHackColor());
                 door.increaseHackStatus(color.getHackColor());    
             }
             

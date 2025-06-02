@@ -1,4 +1,6 @@
-﻿using __ProjectMain.Scripts.Managers.LevelEditor;
+﻿using System;
+using __ProjectMain.Scripts.Managers;
+using __ProjectMain.Scripts.Managers.LevelEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,6 +37,17 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
 
         public void OnEsc(InputAction.CallbackContext ctx)
         {
+            try
+            {
+                Debug.Log("Switch to level editor menu state!!!");
+                GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine
+                    .LevelEditorMenuState);
+                return;
+            }
+            catch (Exception)
+            {
+                // is fine: this means not started from main menu
+            }
         }
     }
 }

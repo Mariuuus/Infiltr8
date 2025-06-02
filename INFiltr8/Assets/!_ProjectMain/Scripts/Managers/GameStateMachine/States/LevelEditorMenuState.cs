@@ -8,7 +8,6 @@ namespace __ProjectMain.Scripts.Managers.GameStateMachine.States
         public void Enter()
         {
             SceneManager.LoadScene("LevelEditorMenu");
-
         }
         public void Exit() {}
 

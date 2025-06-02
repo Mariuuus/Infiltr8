@@ -11,6 +11,8 @@ namespace __ProjectMain.Scripts.Managers.GameStateMachine
         public LevelEditorState LevelEditorState { get; } = new();
         public LevelEditorMenuState LevelEditorMenuState { get; } = new();
 
-        public void OnEsc(InputAction.CallbackContext ctx) => ((IGameState)currentState).OnEsc(ctx);
+        public void OnEsc(InputAction.CallbackContext ctx)  {
+            if(ctx.performed) ((IGameState)currentState).OnEsc(ctx);
+        }
     }
 }

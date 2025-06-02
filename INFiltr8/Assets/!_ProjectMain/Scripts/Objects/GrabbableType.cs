@@ -67,6 +67,7 @@ public class grabbableType : MonoBehaviour
         StartCoroutine(updateUIpos());
         StartCoroutine(updateUIFill()); 
         setMaterial(Color);
+        hackColor = Color;
     }
 
     IEnumerator updateUIpos()

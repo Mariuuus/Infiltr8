@@ -87,11 +87,11 @@ namespace __ProjectMain.Scripts.Managers.Level
                     {
                         var newFirewall = Instantiate(fireWallObject);
                         newFirewall.GetComponent<FireWallPlacer>().Place(fireWallComponent);
+                        Debug.Log(fireWallComponent.activationPlates.Count);
                         foreach (var activationComponent  in fireWallComponent.activationPlates)
                         {
                             var newActivationPlate = Instantiate(activationObject);
                             newActivationPlate.GetComponent<ActivationPlatePlacer>().Place(activationComponent, newFirewall);
-                            break;
                         }
                         break;
                     }

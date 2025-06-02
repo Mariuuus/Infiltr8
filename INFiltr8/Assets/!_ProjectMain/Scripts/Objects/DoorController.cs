@@ -22,7 +22,7 @@ public class DoorController : MonoBehaviour
         hackAmounts.Add(HackStatus.YellowHacked, 0);
 
         _initialPos = transform.position;
-        Debug.Log(_initialPos);
+        //Debug.Log(_initialPos);
         
         GameObject ui = new GameObject("doorUI");
         // rectTransform to store size, position and acnhoring of a gui element
@@ -44,13 +44,13 @@ public class DoorController : MonoBehaviour
         {
             if (requiredHackStatusAmounts[i].hackStatus == hackColor)
             {
-                if (hackAmounts[hackColor] < requiredHackStatusAmounts[i].amount)
-                {
+                /*if (hackAmounts[hackColor] < requiredHackStatusAmounts[i].amount)
+                {*/
                     Debug.Log("door detected new object");
                     hackAmounts[hackColor]++;
                     updateDoorUI();
                     checkHackStatus();
-                }
+                /*}*/
             }
         }
     }
@@ -81,7 +81,7 @@ public class DoorController : MonoBehaviour
             hacked += c.Value;
         }
 
-        if (hacked == getRequiredHackAmount())
+        if (hacked >= getRequiredHackAmount())
         {
             // open door
             StopAllCoroutines();

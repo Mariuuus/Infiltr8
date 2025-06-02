@@ -10,8 +10,8 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
     {
         public void Place(WallComponent component, params Object[] args)
         {
-            transform.localScale = PlacerUtils.CalcScale(component.startPosition, component.endPosition, transform.localScale.y);
-            transform.position = PlacerUtils.CalcPosition(component.startPosition, component.endPosition, 0);
+            transform.localScale = PlacerUtils.CalcScale(component.startPosition, component.endPosition, 2);
+            transform.position = PlacerUtils.CalcPosition(component.startPosition, component.endPosition, 0.5f);
         }
     }
 }

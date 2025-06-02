@@ -12,6 +12,9 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
         private ActiviationPlateController _activationController;
         public void Place(ActivationComponent component, params Object[] args)
         {
+            Debug.Log(component.startPosition + "|" + component.endPosition);
+            
+            
             transform.localScale = PlacerUtils.CalcScale(component.startPosition, component.endPosition, transform.localScale.y);
             transform.position = PlacerUtils.CalcPosition(component.startPosition, component.endPosition,
                 (0 - (1-transform.localScale.y)+ 2*transform.localScale.y));

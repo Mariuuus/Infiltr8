@@ -31,6 +31,9 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
                 Debug.LogError(e.Message);
             }
         }
-        public void OnEsc(InputAction.CallbackContext ctx) => ((ILevelEditorState)currentState).OnEsc(ctx);
+        public void OnEsc(InputAction.CallbackContext ctx)
+        {
+            if(ctx.performed) ((ILevelEditorState)currentState).OnEsc(ctx);
+        }
     }
 }

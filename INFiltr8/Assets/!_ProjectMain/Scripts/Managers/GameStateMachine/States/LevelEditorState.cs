@@ -17,10 +17,7 @@ namespace __ProjectMain.Scripts.Managers.GameStateMachine.States
 
         public void OnEsc(InputAction.CallbackContext ctx)
         {
-            if (LevelEditorManager.Instance.isSpecting)
-            {
-                GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine.LevelEditorMenuState);
-            }
+            // in level editor directly
         }
     }
 }

@@ -25,7 +25,7 @@ namespace __ProjectMain.Scripts.Utilities.Files
         
         public static LevelData LoadFile(string levelName)
         {
-            Debug.Log("Loading game, " + levelName + " from " + Application.persistentDataPath);
+            //Debug.Log("Loading game, " + levelName + " from " + Application.persistentDataPath);
 
             string filename = LevelDataUtils.ReceiveFileName(levelName);
 
@@ -35,21 +35,21 @@ namespace __ProjectMain.Scripts.Utilities.Files
 
             LevelData levelData = JsonConvert.DeserializeObject<LevelData>(fileContents, JsonSettings);
 
-            Debug.Log("Loaded level successfully");
+            //Debug.Log("Loaded level successfully");
 
             return levelData;
         }
         
         public static void SaveFile(LevelData levelData, bool overwrite = false)
         {
-            Debug.Log("Saving game");
+            //Debug.Log("Saving game");
             string filename = LevelDataUtils.ReceiveFileName(levelData.levelName);
 
             if (!overwrite && File.Exists(filename)) throw new FileLoadException("File already exists");
 
             string jsonString = JsonConvert.SerializeObject(levelData, JsonSettings);
             File.WriteAllText(filename, jsonString);
-            Debug.Log("Saved level successfully");
+            //Debug.Log("Saved level successfully");
         }
         
         public static List<LevelData> GetAvailableLevels()
@@ -58,7 +58,6 @@ namespace __ProjectMain.Scripts.Utilities.Files
             List<LevelData> levels = new List<LevelData>();
             foreach (var level in Directory.GetFiles(searchPath, "*.json", SearchOption.AllDirectories).ToList())
             {
-                Debug.Log(level);
                 levels.Add(LevelDataUtils.LoadFile(level.Replace(".json", "").Replace(Application.persistentDataPath+"/", "")));
             }
 
