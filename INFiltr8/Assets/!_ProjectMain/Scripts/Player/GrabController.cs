@@ -1,4 +1,5 @@
 using __ProjectMain.Scripts.LevelEditor.Types;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,7 +15,10 @@ public class GrabController : MonoBehaviour
 
     [SerializeField] 
     private GameObject interactionImage;
-
+    
+    [SerializeField] 
+    private Transform grabPos;
+    
     private GameObject _interactionInstance;
     
     void Start()
@@ -22,6 +26,18 @@ public class GrabController : MonoBehaviour
         grabAction = InputSystem.actions.FindAction("Interact");
         moveAction = InputSystem.actions.FindAction("Move");
         colorChangeAction = InputSystem.actions.FindAction("colorChange");
+        
+        //reset rigidbody with the settings here
+        var rb = closestObject.GetComponent<Rigidbody>();
+        if (!rb)
+        { 
+            AddRigidbody();
+        }
+        else
+        {
+            Destroy(rb);
+            AddRigidbody();
+        }
     }
 
     // Update is called once per frame
@@ -52,9 +68,23 @@ public class GrabController : MonoBehaviour
                         }
                         else
                         {
-                            Destroy(_interactionInstance);
+                            if (_interactionInstance != null)
+                            {
+                                Destroy(_interactionInstance); 
+                                _interactionInstance = null; 
+                            }
                             isGrabbing = true;
-                            closestObject.GetComponent<Rigidbody>().useGravity = false;
+                            var rb = closestObject.GetComponent<Rigidbody>();
+                            closestObject.transform.parent = grabPos;
+
+                            if (rb)
+                            { 
+                                Destroy(rb);
+                            }
+
+
+                            closestObject.transform.localPosition = Vector3.zero;
+                            //closestObject.transform.localRotation = Quaternion.identity;
                         }
                     }
                   
@@ -63,25 +93,15 @@ public class GrabController : MonoBehaviour
                 {
                     setInteractionUI();
                     isGrabbing = false;
-                    closestObject.GetComponent<Rigidbody>().useGravity = true;
+                    closestObject.transform.parent = null;
+                    AddRigidbody();
                 }
             }
         }
 
         if (isGrabbing && closestObject != null)
         {
-            Vector2 moveDir = moveAction.ReadValue<Vector2>();
-            Vector3 grabVector;
-
-            if (moveDir.x == 0 && moveDir.y == 0)
-            {
-                grabVector = new Vector3(0, 0, 1.5f);
-            }
-            else
-            {
-                grabVector = new Vector3(moveDir.x * 1.75f, 0, moveDir.y * 1.75f);
-            }
-            
+            Vector3 grabVector = new Vector3(0, 0, 1.5f);
             closestObject.transform.position = Vector3.Slerp(closestObject.transform.position, playerPos + grabVector, 0.45f);
         }
         
@@ -127,6 +147,26 @@ public class GrabController : MonoBehaviour
                      Debug.DrawRay(transform.position, (closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
                 }
             }
+        }
+    }
+
+    private void AddRigidbody()
+    {
+        Rigidbody newRigidbody = closestObject.AddComponent<Rigidbody>();
+        newRigidbody.mass = 1f;
+        newRigidbody.linearDamping = 0f;
+        newRigidbody.angularDamping = 0.05f;
+        newRigidbody.useGravity = true;
+        newRigidbody.isKinematic = false;
+        newRigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
+    }
+
+    void LateUpdate()
+    {
+        if (isGrabbing && closestObject != null)
+        {
+            closestObject.transform.position = grabPos.position;
+            closestObject.transform.rotation = grabPos.rotation;
         }
     }
     

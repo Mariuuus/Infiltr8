@@ -5,25 +5,35 @@ using UnityEngine.InputSystem.Utilities;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private InputAction moveAction;
-    
     [SerializeField]
-    private float Speed = 2;
+    private float moveSpeed = 2;
+    [SerializeField]
+    private float rotationSpeed = 2;
 
     [SerializeField] 
     private Rigidbody rb;
-    void Start()
+    private Vector3 _input;
+
+
+    void Update()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
+        _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 playerPos = transform.position;
-        Vector2 moveValue = moveAction.ReadValue<Vector2>();
-        
-        rb.MovePosition(playerPos + new Vector3(moveValue.x, 0, moveValue.y).normalized * Time.deltaTime * Speed);
+        if (_input != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(_input, Vector3.up);
+            Quaternion newRotation = Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(newRotation);
+
+            rb.linearVelocity = transform.forward * moveSpeed;
+        }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
     }
+
 }

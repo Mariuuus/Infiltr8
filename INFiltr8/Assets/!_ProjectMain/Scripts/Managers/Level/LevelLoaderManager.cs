@@ -118,7 +118,7 @@ namespace __ProjectMain.Scripts.Managers.Level
             if (spawnPoint != null)
             {
                 var spawnPointObj = Instantiate(spawnPointObject);
-                spawnPointObj.transform.position = new Vector3(spawnPoint.position.y, 1.5f, spawnPoint.position.x);
+                spawnPointObj.transform.position = new Vector3(spawnPoint.position.y, 0.5f, spawnPoint.position.x);
                 
                 playerObject.transform.position = spawnPointObj.transform.position;
             }
