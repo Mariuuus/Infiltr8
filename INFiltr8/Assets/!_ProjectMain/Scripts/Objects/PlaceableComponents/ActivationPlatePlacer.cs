@@ -9,7 +9,7 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
 {
     public class ActivationPlatePlacer : MonoBehaviour, IPlaceable<ActivationComponent>
     {
-        private ActiviationPlateController _activationController;
+        private ActivationPlateController _activationController;
         public void Place(ActivationComponent component, params Object[] args)
         {
             Debug.Log(component.startPosition + "|" + component.endPosition);
@@ -19,7 +19,7 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
             transform.position = PlacerUtils.CalcPosition(component.startPosition, component.endPosition,
                 (0 - (1-transform.localScale.y)+ 2*transform.localScale.y));
             
-            _activationController = GetComponent<ActiviationPlateController>();
+            _activationController = GetComponent<ActivationPlateController>();
             var fireWall = args[0] as GameObject;
             _activationController.activationDoor = fireWall;
             

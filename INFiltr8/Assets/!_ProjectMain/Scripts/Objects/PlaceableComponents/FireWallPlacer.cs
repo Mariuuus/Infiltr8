@@ -15,7 +15,7 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
             
             var doorController = GetComponent<DoorController>();
             doorController.requiredHackStatusAmounts = component.doorUnlockRequirements;
-            doorController.updateDoorUI();
+            doorController.UpdateDoorUI();
         }
     }
 }

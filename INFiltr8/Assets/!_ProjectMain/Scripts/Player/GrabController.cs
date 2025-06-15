@@ -1,186 +1,197 @@
+using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Types;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GrabController : MonoBehaviour
+namespace __ProjectMain.Scripts.Player
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private Collider closestObject = null;
-    private float grabRange = 5.0f;
-    private InputAction grabAction;
-    private InputAction moveAction;
-    private InputAction colorChangeAction;
-    private bool isGrabbing = false;
-
-    [SerializeField] 
-    private GameObject interactionImage;
-    
-    [SerializeField] 
-    private Transform grabPos;
-    
-    private GameObject _interactionInstance;
-    
-    void Start()
+    public class GrabController : MonoBehaviour
     {
-        grabAction = InputSystem.actions.FindAction("Interact");
-        moveAction = InputSystem.actions.FindAction("Move");
-        colorChangeAction = InputSystem.actions.FindAction("colorChange");
-        
-        //reset rigidbody with the settings here
-        var rb = closestObject.GetComponent<Rigidbody>();
-        if (!rb)
-        { 
-            AddRigidbody();
-        }
-        else
-        {
-            Destroy(rb);
-            AddRigidbody();
-        }
-    }
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        private Collider _closestObject;
+        private readonly float _grabRange = 5.0f;
+        private InputAction _grabAction;
+        private InputAction _moveAction;
+        private InputAction _colorChangeAction;
+        private bool _isGrabbing;
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Vector3 playerPos = transform.position;
-        Collider[] hitColliders = Physics.OverlapSphere(playerPos, grabRange);
-        
-        if (closestObject != null)
+        [SerializeField] 
+        private GameObject interactionImage;
+    
+        [SerializeField] 
+        private Transform grabPos;
+    
+        private GameObject _interactionInstance;
+    
+        void Start()
         {
-            if ((closestObject.transform.position - playerPos).magnitude > grabRange)
+            // _grabAction = InputSystem.actions.FindAction("Interact");
+            // _moveAction = InputSystem.actions.FindAction("Move");
+            // _colorChangeAction = InputSystem.actions.FindAction("colorChange");
+        
+            //reset rigidbody with the settings here
+            if(_closestObject != null)
             {
-                closestObject = null;
-                Destroy(_interactionInstance);
-            }
-            
-            if (grabAction.WasPressedThisFrame() && closestObject != null)
-            {
-                if (!isGrabbing)
+                var rb = _closestObject.GetComponent<Rigidbody>();
+                if (!rb)
                 {
-                    RaycastHit hit;
-                    if (Physics.Raycast(playerPos, (closestObject.transform.position - playerPos), out hit, grabRange))
-                    {
-                        if (hit.collider.CompareTag("Wall"))
-                        {
-                            Debug.Log("closest object is behind wall");
-                            isGrabbing = false;
-                        }
-                        else
-                        {
-                            if (_interactionInstance != null)
-                            {
-                                Destroy(_interactionInstance); 
-                                _interactionInstance = null; 
-                            }
-                            isGrabbing = true;
-                            var rb = closestObject.GetComponent<Rigidbody>();
-                            closestObject.transform.parent = grabPos;
-
-                            if (rb)
-                            { 
-                                Destroy(rb);
-                            }
-
-
-                            closestObject.transform.localPosition = Vector3.zero;
-                            //closestObject.transform.localRotation = Quaternion.identity;
-                        }
-                    }
-                  
+                    AddRigidbody();
                 }
                 else
                 {
-                    setInteractionUI();
-                    isGrabbing = false;
-                    closestObject.transform.parent = null;
+                    Destroy(rb);
                     AddRigidbody();
                 }
             }
         }
 
-        if (isGrabbing && closestObject != null)
+        public void OnHack(InputAction.CallbackContext context)
         {
-            Vector3 grabVector = new Vector3(0, 0, 1.5f);
-            closestObject.transform.position = Vector3.Slerp(closestObject.transform.position, playerPos + grabVector, 0.45f);
-        }
-        
-        foreach (var collider in hitColliders)
-        {
-            if (collider.CompareTag("grabbable") && !isGrabbing)
+            if (!context.started) return;
+            if (!_closestObject) return;
+            Debug.Log("Grab");
+            Vector3 playerPos = transform.position;
+            Collider[] hitColliders = Physics.OverlapSphere(playerPos, _grabRange);
+            
+            foreach (var hitCollider in hitColliders)
             {
-                if (closestObject != null)
+                if (hitCollider.CompareTag("grabbable") && !_isGrabbing)
                 {
-                    float newDistance = (collider.transform.position - playerPos).magnitude;
-                    float oldDistance = (closestObject.transform.position - playerPos).magnitude;
-                    
-                    if (newDistance < oldDistance)
+                    RaycastHit hit;
+                    if (Physics.Raycast(playerPos, (_closestObject.transform.position - playerPos), out hit, _grabRange))
                     {
-                        closestObject = collider;
+                        if (!hit.collider.CompareTag("Wall"))
+                        {
+                            switch (context.control.name)
+                            {
+                                case "1": _closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.BlueHacked); break;
+                                case "2": _closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.RedHacked); break;
+                                case "3": _closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.GreenHacked); break;
+                                case "4": _closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.YellowHacked); break;
+                            }
+
+                            SetInteractionUI();
+                        } 
+                        Debug.DrawRay(transform.position, (_closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
                     }
-                }
-                else
-                {
-                    closestObject = collider;
-                }
-                
-                RaycastHit hit;
-                if (Physics.Raycast(playerPos, (closestObject.transform.position - playerPos), out hit, grabRange))
-                {
-                     if (!hit.collider.CompareTag("Wall"))
-                     {
-
-                         if (colorChangeAction.WasPressedThisFrame())
-                         {
-                             //Debug.Log(colorChangeAction.activeControl.name);
-                             switch (colorChangeAction.activeControl.name)
-                             {
-                                 case "1": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.BlueHacked); break;
-                                 case "2": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.RedHacked); break;
-                                 case "3": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.GreenHacked); break;
-                                 case "4": closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.YellowHacked); break;
-                             }
-                         }
-
-                         setInteractionUI();
-                     } 
-                     Debug.DrawRay(transform.position, (closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
                 }
             }
         }
-    }
-
-    private void AddRigidbody()
-    {
-        Rigidbody newRigidbody = closestObject.AddComponent<Rigidbody>();
-        newRigidbody.mass = 1f;
-        newRigidbody.linearDamping = 0f;
-        newRigidbody.angularDamping = 0.05f;
-        newRigidbody.useGravity = true;
-        newRigidbody.isKinematic = false;
-        newRigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
-    }
-
-    void LateUpdate()
-    {
-        if (isGrabbing && closestObject != null)
+        
+        public void OnGrab(InputAction.CallbackContext context)
         {
-            closestObject.transform.position = grabPos.position;
-            closestObject.transform.rotation = grabPos.rotation;
+            if (!context.started) return;
+            if (_closestObject == null) return;
+            
+            if (!_isGrabbing)
+            {
+                Vector3 playerPos = transform.position;
+                RaycastHit hit;
+                if (Physics.Raycast(playerPos, (_closestObject.transform.position - playerPos), out hit, _grabRange))
+                {
+                    if (hit.collider.CompareTag("Wall"))
+                    {
+                        _isGrabbing = false;
+                    }
+                    else
+                    {
+                        if (_interactionInstance != null)
+                        {
+                            Destroy(_interactionInstance); 
+                            _interactionInstance = null; 
+                        }
+                        _isGrabbing = true;
+                        var rb = _closestObject.GetComponent<Rigidbody>();
+                        _closestObject.transform.parent = grabPos;
+
+                        if (rb)
+                        {
+                            Destroy(rb);
+                        }
+                        _closestObject.transform.localPosition = Vector3.zero;
+                    }
+                }
+            } 
+            else
+            {
+                SetInteractionUI();
+                _isGrabbing = false;
+                _closestObject.transform.parent = null;
+                AddRigidbody();
+            }
+            
         }
-    }
+        
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            Vector3 playerPos = transform.position;
+            Collider[] hitColliders = Physics.OverlapSphere(playerPos, _grabRange);
+        
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.CompareTag("grabbable") && !_isGrabbing)
+                {
+                    if (_closestObject)
+                    {
+                        float newDistance = (hitCollider.transform.position - playerPos).magnitude;
+                        float oldDistance = (_closestObject.transform.position - playerPos).magnitude;
+                    
+                        if (newDistance < oldDistance)
+                        {
+                            _closestObject = hitCollider;
+                        }
+                    }
+                    else
+                    {
+                        _closestObject = hitCollider;
+                    }
+                    RaycastHit hit;
+                    if (Physics.Raycast(playerPos, (_closestObject.transform.position - playerPos), out hit, _grabRange))
+                    {
+                        if (!hit.collider.CompareTag("Wall"))
+                        {
+                            SetInteractionUI();
+                        } 
+                        Debug.DrawRay(transform.position, (_closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
+                    }
+                }
+            }
+        }
+
+        private void AddRigidbody()
+        {
+            Rigidbody newRigidbody = _closestObject.AddComponent<Rigidbody>();
+            newRigidbody.mass = 1f;
+            newRigidbody.linearDamping = 0f;
+            newRigidbody.angularDamping = 0.05f;
+            newRigidbody.useGravity = true;
+            newRigidbody.isKinematic = false;
+            newRigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
+        }
+
+        void LateUpdate()
+        {
+            if (_isGrabbing && _closestObject)
+            {
+                _closestObject.transform.position = grabPos.position;
+                _closestObject.transform.rotation = grabPos.rotation;
+            }
+        }
     
-    void setInteractionUI()
-    {
-        if (_interactionInstance != null)
+        void SetInteractionUI()
         {
-            Destroy(_interactionInstance);    
+            if (_interactionInstance)
+            {
+                Destroy(_interactionInstance);    
+            }
+        
+            if (_closestObject == null) return;
+        
+            _interactionInstance = Instantiate(interactionImage, _closestObject.transform.position + new Vector3(0, 1, 0),
+                Quaternion.Euler(40, 0, 0));
         }
-        
-        if (closestObject == null) return;
-        
-        _interactionInstance = Instantiate(interactionImage, closestObject.transform.position + new Vector3(0, 1, 0),
-            Quaternion.Euler(40, 0, 0));
     }
 }
 
