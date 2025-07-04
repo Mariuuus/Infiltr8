@@ -1,0 +1,34 @@
+{
+    "name": "MainMenu",
+    "maps": [
+        {
+            "name": "MainMenu",
+            "id": "c0ca1efb-7710-4f51-8d69-115c1c8361c7",
+            "actions": [
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "0caa4e87-aee7-4000-ae55-298ebc1787d9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4746f238-1377-4eaf-9a16-d8bf935903d4",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

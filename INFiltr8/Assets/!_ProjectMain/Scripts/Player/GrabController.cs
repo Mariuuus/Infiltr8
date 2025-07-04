@@ -107,7 +107,9 @@ namespace __ProjectMain.Scripts.Player
 
                         if (rb)
                         {
-                            Destroy(rb);
+                            //Destroy(rb);
+                            rb.isKinematic = true;
+                            rb.detectCollisions = true;
                         }
                         _closestObject.transform.localPosition = Vector3.zero;
                     }
@@ -118,7 +120,9 @@ namespace __ProjectMain.Scripts.Player
                 SetInteractionUI();
                 _isGrabbing = false;
                 _closestObject.transform.parent = null;
-                AddRigidbody();
+                //AddRigidbody();
+                var rb = _closestObject.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
             }
             
         }
@@ -171,14 +175,14 @@ namespace __ProjectMain.Scripts.Player
             newRigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
         }
 
-        void LateUpdate()
-        {
-            if (_isGrabbing && _closestObject)
-            {
-                _closestObject.transform.position = grabPos.position;
-                _closestObject.transform.rotation = grabPos.rotation;
-            }
-        }
+        // void LateUpdate()
+        // {
+        //     if (_isGrabbing && _closestObject)
+        //     {
+        //         _closestObject.transform.position = grabPos.position;
+        //         _closestObject.transform.rotation = grabPos.rotation;
+        //     }
+        // }
     
         void SetInteractionUI()
         {
