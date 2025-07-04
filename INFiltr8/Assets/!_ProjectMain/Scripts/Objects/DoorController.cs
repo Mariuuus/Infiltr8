@@ -36,7 +36,7 @@ namespace __ProjectMain.Scripts.Objects
             ui.transform.rotation = quaternion.Euler(-50, 0, 0);
         
             _doorUI.fontSize = 12;
-            _doorUI.color = new Color32(0, 0, 0, 255);
+            _doorUI.color = new Color32(255, 255, 255, 255);
             UpdateDoorUI();
         
         }

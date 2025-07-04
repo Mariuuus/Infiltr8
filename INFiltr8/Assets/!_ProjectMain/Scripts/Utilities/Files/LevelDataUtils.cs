@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using __ProjectMain.Scripts.LevelEditor;
@@ -9,6 +10,8 @@ namespace __ProjectMain.Scripts.Utilities.Files
 {
     public class LevelDataUtils
     {
+        public const string LevelFolderName = "./Assets/!_ProjectMain/Data/Levels";
+        
         // Json.NET settings for polymorphic serialization
         private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings
         {
@@ -22,22 +25,38 @@ namespace __ProjectMain.Scripts.Utilities.Files
             string path = Application.persistentDataPath + "/" + levelName + ".json";
             return path;
         }
+
+        public static LevelData[] LoadLevels()
+        {
+            var directory = Directory.GetFiles(LevelFolderName, "*.json");
+            LevelData[] result = new LevelData[directory.Length];
+            
+            for (int i = 0; i < directory.Length; i++)
+            {
+                result[i] = (LoadFileFromPath(directory[i]));
+            }
+
+            return result;
+        }
+        
+        public static LevelData LoadFileFromPath(string path)
+        {
+            if (!File.Exists(path)) throw new FileNotFoundException("No file found");
+
+            string fileContents = File.ReadAllText(path);
+
+            LevelData levelData = JsonConvert.DeserializeObject<LevelData>(fileContents, JsonSettings);
+            
+            return levelData;
+        }
         
         public static LevelData LoadFile(string levelName)
         {
-            //Debug.Log("Loading game, " + levelName + " from " + Application.persistentDataPath);
+            Debug.Log("Loading game, " + levelName + " from " + Application.persistentDataPath);
 
             string filename = LevelDataUtils.ReceiveFileName(levelName);
 
-            if (!File.Exists(filename)) throw new FileNotFoundException("No file found");
-
-            string fileContents = File.ReadAllText(filename);
-
-            LevelData levelData = JsonConvert.DeserializeObject<LevelData>(fileContents, JsonSettings);
-
-            //Debug.Log("Loaded level successfully");
-
-            return levelData;
+            return LoadFileFromPath(filename);
         }
         
         public static void SaveFile(LevelData levelData, bool overwrite = false)

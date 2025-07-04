@@ -42,10 +42,14 @@ namespace __ProjectMain.Scripts.Managers.Level
 
         private void Init()
         {
-            LevelData lvlData = LevelFileManager.Instance?.LevelToLoad;
+            LevelData lvlData = MainMenu.LevelLoaderManager.Instance?.selectedLevelData;
             if (lvlData == null)
             {
-                lvlData = LevelDataUtils.LoadFile(fallbackLevelName);
+                lvlData = LevelFileManager.Instance?.LevelToLoad;
+                if (lvlData == null)
+                {
+                    lvlData = LevelDataUtils.LoadFile(fallbackLevelName);
+                }
             }
             
             // place ground
@@ -87,7 +91,6 @@ namespace __ProjectMain.Scripts.Managers.Level
                     {
                         var newFirewall = Instantiate(fireWallObject);
                         newFirewall.GetComponent<FireWallPlacer>().Place(fireWallComponent);
-                        Debug.Log(fireWallComponent.activationPlates.Count);
                         foreach (var activationComponent  in fireWallComponent.activationPlates)
                         {
                             var newActivationPlate = Instantiate(activationObject);

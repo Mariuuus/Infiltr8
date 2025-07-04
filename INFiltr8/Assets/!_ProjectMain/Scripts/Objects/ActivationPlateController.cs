@@ -33,7 +33,7 @@ namespace __ProjectMain.Scripts.Objects
             ui.transform.rotation = quaternion.Euler(-50, 0, 0);
         
             plateUI.fontSize = 12;
-            plateUI.color = new Color32(0, 0, 0, 255);
+            plateUI.color = new Color32(255, 255, 255, 255);
             plateUI.SetText(deviceAmount + " / " + deviceLimit);
         }
 
@@ -73,7 +73,7 @@ namespace __ProjectMain.Scripts.Objects
 
                 if (deviceAmount <= deviceLimit)
                 {
-                    plateUI.color = new Color32(0,0,0,255);
+                    plateUI.color = new Color32(255,255,255,255);
                 }
 
                 if (deviceAmount < deviceLimit)
