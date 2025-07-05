@@ -8,7 +8,7 @@
                 {
                     "name": "Back",
                     "type": "Button",
-                    "id": "0caa4e87-aee7-4000-ae55-298ebc1787d9",
+                    "id": "98dfda95-3c2d-49e3-849e-55cd3043016f",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -18,8 +18,41 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "4746f238-1377-4eaf-9a16-d8bf935903d4",
+                    "id": "87a820fd-af30-4b92-8609-2544fb722587",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "855380aa-6316-4564-b4a4-72bfac2bece0",
+                    "path": "<Keyboard>/pause",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67ca3b2f-c313-4e8b-9a7e-bdaed7b528b8",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ef1a9e7b-d4dc-49cc-b45a-a6d6ccd56881",
+                    "path": "<Gamepad>/{Back}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

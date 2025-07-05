@@ -2,6 +2,7 @@ using System;
 using __ProjectMain.Scripts.UI;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using UnityEngine.Serialization;
 
@@ -16,7 +17,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
     {
         public static MainMenuManager Instance { get; private set; }
         public bool Playing{ get; private set; }
-        public State currentState =  State.Intro;
+        public State currentState =  State.Overview;
         
         private GameObject _hitObject;
         
@@ -77,8 +78,9 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
         }
 
-        public void OnBack()
+        public void OnBack(InputAction.CallbackContext context)
         {
+            if (!context.performed) return;
             if (currentState == State.Overview) return;
             if (currentState == State.Intro)
             {

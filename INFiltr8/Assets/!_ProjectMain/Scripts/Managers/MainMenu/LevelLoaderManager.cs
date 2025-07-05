@@ -9,9 +9,6 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
 {
     public class LevelLoaderManager : MonoBehaviour
     {
-        public GameObject levelContainer;
-        public GameObject prefabButton;
-        public bool cheat;
         public static LevelLoaderManager Instance { get; private set; }
         
         public LevelData selectedLevelData;
@@ -27,19 +24,6 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             Instance = this;
             
             DontDestroyOnLoad(gameObject);
-
-            var level = LevelDataUtils.LoadLevels();
-            
-            Debug.Log($"Loaded {level.Length} levels");
-
-            for (int i = 0; i < level.Length; i++)
-            {
-                var levelData = level[i];
-                var newObject = Instantiate(prefabButton, levelContainer.transform, false);
-                //TODO: add available state in a gamesave folder
-                bool available = cheat;
-                newObject.GetComponent<LevelStartButton>().Init(levelData, i+1, available);
-            }
         }
 
         public void LoadLevel(LevelData levelData)

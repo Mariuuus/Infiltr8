@@ -13,11 +13,18 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public CinemachineCamera levelSelectorCamera;
         public PlayableDirector introDirector;
         
-        public bool Playing { get; private set; }
-        
         private CinemachineCamera _currentCamera;
         
+        
+        public bool Playing { get; private set; }
+        
+        
         public void Awake()
+        {
+            Init();
+        }
+
+        public void Init()
         {
             if (Instance != null && Instance != this)
             {
@@ -26,13 +33,14 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
 
             Instance = this;
-
+            
             DeactivateCameras();
             _currentCamera = overviewCamera;
             ChangeToCamera(overviewCamera);
-            
-            PlayIntro();
         }
+        
+        public void GameStartSequence() => PlayIntro();
+
         
         public void ChangeToCamera(CinemachineCamera nextCamera)
         {
