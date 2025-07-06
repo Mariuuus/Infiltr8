@@ -28,7 +28,8 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Grid grid;
         public GameObject buildButton;        
         public GameObject buildUIContainer;    
-        public FireWallSettings fireWallSettings;    
+        public FireWallSettings fireWallSettings;
+        public ActivationPlateSettings activationPlateSettings;
         
         [Header("Tiles")]
         public Tile hoverTile;

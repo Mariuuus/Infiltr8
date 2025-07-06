@@ -288,7 +288,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 12, z: -8}
+  FollowOffset: {x: 0, y: 10, z: -6}
 --- !u!114 &179847112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,8 +340,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179847109}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.47185794, y: 0.00000001755703, z: -0.000000009396238, w: 0.88167465}
-  m_LocalPosition: {x: 0, y: 12, z: -8}
+  m_LocalRotation: {x: 0.49269882, y: 0.000000017722607, z: -0.000000010034369, w: 0.8701999}
+  m_LocalPosition: {x: 0, y: 10, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -768,8 +768,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465046600}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.471858, y: 0.000000017557033, z: -0.000000009396239, w: 0.8816746}
-  m_LocalPosition: {x: 0, y: 12, z: -8}
+  m_LocalRotation: {x: 0.49269882, y: 0.00000001772261, z: -0.000000010034371, w: 0.8701999}
+  m_LocalPosition: {x: 0, y: 10, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745b5f39839b46039f398486c595d86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallbackLevelName: Level02
+  fallbackLevelName: Level00
   floorObject: {fileID: 1997971157313656597, guid: 38c62ee730210170997af7209e2c19b1, type: 3}
   wallObject: {fileID: 4166579851043906467, guid: cd41d262d624ed3b5be2f57a0a489aea, type: 3}
   fireWallObject: {fileID: 8794531009927736383, guid: b535cf5e653a961d2a5793ac634494aa, type: 3}
@@ -1364,6 +1364,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e4217716-1657-412d-8136-76abf4350cc0
     m_ActionName: 'Player/Back[/Keyboard/escape,/Keyboard/pause]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: da2af9a4-256b-48cc-a57c-afc61fc208e4
+    m_ActionName: 'Player/NextLine[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c47bfbba-3ff6-41c3-98fc-ed0868784ad0
+    m_ActionName: 'Player/PrevLine[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using __ProjectMain.Scripts.LevelEditor.StateMachine;
 using __ProjectMain.Scripts.Managers;
+using __ProjectMain.Scripts.Managers.LevelEditor;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
     public class ActivationComponent : TwoPointsFloorComponent, IConnectedComponent, IAdjustableComponent
     {
         public FireWallComponent fireWall;
+        public int maxDevices;
         public ActivationComponent(FireWallComponent fireWall, Vector2Int startPoint, Vector2Int endPoint, LevelData levelData) : base(startPoint,
             endPoint, levelData)
         {
@@ -37,12 +39,14 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
 
         public void OnAdjust()
         {
-            fireWall.OnAdjust();
+            //fireWall.OnAdjust();
+            LevelEditorManager.Instance.activationPlateSettings.Show(this);
         }
 
         public void OnExitAdjust()
         {
-            fireWall.OnExitAdjust();
+            //fireWall.OnExitAdjust();
+            LevelEditorManager.Instance.activationPlateSettings.Hide();
         }
     }
 }

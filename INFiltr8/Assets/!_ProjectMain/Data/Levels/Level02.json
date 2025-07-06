@@ -306,6 +306,7 @@
       "activationPlates": [
         {
           "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 18,
             "y": 4,
@@ -362,6 +363,7 @@
           "sqrMagnitude": 425
         }
       },
+      "maxDevices": 0,
       "startPosition": {
         "x": 18,
         "y": 4,
@@ -545,6 +547,7 @@
       "activationPlates": [
         {
           "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 14,
             "y": 13,
@@ -609,6 +612,7 @@
           "sqrMagnitude": 410
         }
       },
+      "maxDevices": 0,
       "startPosition": {
         "x": 14,
         "y": 13,
@@ -987,6 +991,7 @@
       "activationPlates": [
         {
           "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 22,
             "y": 4,
@@ -1002,6 +1007,7 @@
         },
         {
           "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 19,
             "y": 19,
@@ -1017,6 +1023,7 @@
         },
         {
           "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 2,
             "y": 18,
@@ -1034,7 +1041,7 @@
       "doorUnlockRequirements": [
         {
           "hackStatus": 3,
-          "amount": 1
+          "amount": 3
         }
       ],
       "startPosition": {
@@ -1056,6 +1063,7 @@
         "activationPlates": [
           {
             "fireWall": null,
+            "maxDevices": 0,
             "startPosition": {
               "x": 19,
               "y": 19,
@@ -1071,6 +1079,7 @@
           },
           {
             "fireWall": null,
+            "maxDevices": 0,
             "startPosition": {
               "x": 2,
               "y": 18,
@@ -1104,6 +1113,7 @@
           "sqrMagnitude": 740
         }
       },
+      "maxDevices": 1,
       "startPosition": {
         "x": 22,
         "y": 4,
@@ -1123,6 +1133,7 @@
         "activationPlates": [
           {
             "fireWall": null,
+            "maxDevices": 0,
             "startPosition": {
               "x": 22,
               "y": 4,
@@ -1138,6 +1149,7 @@
           },
           {
             "fireWall": null,
+            "maxDevices": 0,
             "startPosition": {
               "x": 2,
               "y": 18,
@@ -1171,6 +1183,7 @@
           "sqrMagnitude": 740
         }
       },
+      "maxDevices": 1,
       "startPosition": {
         "x": 19,
         "y": 19,
@@ -1190,6 +1203,7 @@
         "activationPlates": [
           {
             "fireWall": null,
+            "maxDevices": 0,
             "startPosition": {
               "x": 22,
               "y": 4,
@@ -1205,6 +1219,7 @@
           },
           {
             "fireWall": null,
+            "maxDevices": 0,
             "startPosition": {
               "x": 19,
               "y": 19,
@@ -1238,6 +1253,7 @@
           "sqrMagnitude": 740
         }
       },
+      "maxDevices": 1,
       "startPosition": {
         "x": 2,
         "y": 18,
