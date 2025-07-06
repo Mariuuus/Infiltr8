@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Types;
+using __ProjectMain.Scripts.Objects;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -21,11 +22,15 @@ public class grabbableType : MonoBehaviour
     
     private bool onCooldown = false;
 
+    private DoorController _door = null;
+
     private void Start()
     {
         Init();
     }
 
+    public void SetController(DoorController door) => _door = door;
+    public void ResetController() => _door = null;
 
     public void Init()
     {
@@ -62,6 +67,8 @@ public class grabbableType : MonoBehaviour
     public void changeMaterial(HackStatus Color)
     {
         if (onCooldown) return;
+        
+        _door?.HackChangeOfObjectInTrigger(hackColor, Color);
 
         StartCoroutine(cooldown());
         StartCoroutine(updateUIpos());

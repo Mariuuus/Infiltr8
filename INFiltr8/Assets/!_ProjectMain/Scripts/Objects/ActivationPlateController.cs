@@ -47,6 +47,8 @@ namespace __ProjectMain.Scripts.Objects
         {
             if (other.CompareTag("grabbable"))
             {
+                other.GetComponent<grabbableType>()?.SetController(this.door);
+                
                 if (deviceAmount < deviceLimit)
                 {
                     grabbableType color = other.GetComponent<grabbableType>();
@@ -66,6 +68,7 @@ namespace __ProjectMain.Scripts.Objects
 
         private void OnTriggerExit(Collider other)
         {
+            other.GetComponent<grabbableType>()?.ResetController();
             Debug.Log("Leave Trigger");
             if (other.CompareTag("grabbable") && deviceAmount > 0)
             {

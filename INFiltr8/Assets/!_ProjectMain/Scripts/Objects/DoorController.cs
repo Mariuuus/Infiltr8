@@ -71,6 +71,12 @@ namespace __ProjectMain.Scripts.Objects
             }
         }
 
+        public void HackChangeOfObjectInTrigger(HackStatus prevStatus, HackStatus newStatus)
+        {
+            DecreaseHackStatus(prevStatus);
+            IncreaseHackStatus(newStatus);
+        }
+
         private void CheckHackStatus()
         {
             int hacked = 0;
