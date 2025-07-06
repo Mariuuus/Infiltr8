@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using __ProjectMain.Scripts.LevelEditor;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
@@ -23,6 +24,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public /*IPlaceable<ActivationComponent>*/ GameObject activationObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject laptopObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject spawnPointObject;
+        public /*IPlaceable<LaptopComponent>*/ GameObject goalObject;
         
         [Header("Player")]
         public GameObject playerObject;
@@ -80,7 +82,6 @@ namespace __ProjectMain.Scripts.Managers.Level
             ));
 
             SpawnPointComponent spawnPoint = null;
-
             
             // place each component
             foreach (var component in lvlData.components)
@@ -113,6 +114,12 @@ namespace __ProjectMain.Scripts.Managers.Level
                     case SpawnPointComponent spawnPointComponent:
                     {
                         spawnPoint = spawnPointComponent;
+                        break;
+                    }
+                    case GoalComponent goalComponent:
+                    {
+                        var goal = Instantiate(goalObject);
+                        goal.transform.position = new Vector3(goalComponent.position.y, -1f, goalComponent.position.x);
                         break;
                     }
                 }

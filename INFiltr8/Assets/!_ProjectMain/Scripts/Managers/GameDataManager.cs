@@ -3,6 +3,7 @@ using __ProjectMain.Data;
 using __ProjectMain.Scripts.Managers.MainMenu;
 using __ProjectMain.Scripts.Utilities.Files;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace __ProjectMain.Scripts.Managers
 {
@@ -33,6 +34,11 @@ namespace __ProjectMain.Scripts.Managers
             }
             
             Debug.developerConsoleVisible = true;
+        }
+
+        public void SwitchToOverview()
+        {
+            SceneManager.LoadScene("LevelSelection");
         }
     }
 }
