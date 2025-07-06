@@ -8,16 +8,19 @@ using UnityEngine.UIElements;
 
 public class DialogController : MonoBehaviour
 {
-    private List<string> lines { get; set; }
+    private List<string> lines { get; set; } 
     public int index { get; set; }
+    
     public float textSpeed = 0.025f;
     [SerializeField]
     public TextMeshProUGUI dialogText;
     [SerializeField]
     public TextMeshProUGUI dialogName;
+    [SerializeField] 
+    public TextMeshProUGUI dialogueAmountText;
     [SerializeField]
     public GameObject dialogImage;
-
+    
     private bool isInDialogue = false;
     private bool isInLine = false;
     
@@ -25,6 +28,9 @@ public class DialogController : MonoBehaviour
     void Start()
     { 
         gameObject.SetActive(false);
+        //dialogText.SetText(string.Empty);
+        //dialogName.SetText("hackermax");
+        // startDialogueLines();
     }
 
     public bool LoadNewDialogue(DialogData d)
@@ -35,6 +41,7 @@ public class DialogController : MonoBehaviour
         isInDialogue = true;
         index = 0;
         dialogText.SetText(String.Empty);
+        dialogueAmountText.SetText("0 / 0");
         lines = d.msg;
         dialogName.SetText(d.npc_name);
         dialogImage.GetComponent<Image>().sprite = d.avatar;
@@ -87,6 +94,8 @@ public class DialogController : MonoBehaviour
 
     public void skipDialogue()
     {
+        dialogName.SetText("Character Name/Scene Name");
+        dialogueAmountText.SetText("0 / 0");
         dialogText.SetText(String.Empty);
         gameObject.SetActive(false);
     }
@@ -99,6 +108,7 @@ public class DialogController : MonoBehaviour
     {
         isInLine = true;
         dialogText.SetText(String.Empty);
+        dialogueAmountText.SetText(index + 1 + "/" + lines.Count);
         string temp = "";
         foreach (char c in lines[index])
         {
