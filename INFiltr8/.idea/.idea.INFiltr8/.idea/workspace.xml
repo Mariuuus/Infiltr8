@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6d72246-5f59-45b5-b4e9-b25ca31cba37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Scripts/UI/ActivationPlateSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Scripts/UI/ActivationPlateSettings.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!_ProjectMain/Data/Levels/Level02.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Data/Levels/Level02.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!_ProjectMain/Scenes/LevelEditor.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Scenes/LevelEditor.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!_ProjectMain/Scenes/LevelLoader.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Scenes/LevelLoader.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!_ProjectMain/Scripts/LevelEditor/Components/ActivationComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Scripts/LevelEditor/Components/ActivationComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!_ProjectMain/Scripts/Managers/LevelEditor/LevelEditorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Scripts/Managers/LevelEditor/LevelEditorManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!_ProjectMain/Scripts/Objects/PlaceableComponents/ActivationPlatePlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Scripts/Objects/PlaceableComponents/ActivationPlatePlacer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.INFiltr8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.INFiltr8/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!_ProjectMain/Prefabs/LevelComponents/Goal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Prefabs/LevelComponents/Goal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!_ProjectMain/Prefabs/UI/buttonImage.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!_ProjectMain/Prefabs/UI/buttonImage.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +130,7 @@
       <workItem from="1751740857704" duration="26000" />
       <workItem from="1751741030389" duration="9099000" />
       <workItem from="1751750630520" duration="10951000" />
-      <workItem from="1751821681500" duration="3353000" />
+      <workItem from="1751821681500" duration="5011000" />
     </task>
     <servers />
   </component>

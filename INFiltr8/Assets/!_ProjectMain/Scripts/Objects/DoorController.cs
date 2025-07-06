@@ -85,7 +85,7 @@ namespace __ProjectMain.Scripts.Objects
                 // open door
                 StopAllCoroutines();
                 transform.position = _initialPos;
-                StartCoroutine(MoveDoor(new Vector3(0, -2, 0)));
+                StartCoroutine(MoveDoor(new Vector3(0, -2.01f, 0)));
                 _open = true;
             }
             else
