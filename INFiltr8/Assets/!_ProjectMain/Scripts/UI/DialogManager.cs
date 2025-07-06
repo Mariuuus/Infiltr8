@@ -1,14 +1,27 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class DialogueController : MonoBehaviour
+public class DialogManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private List<DialogData> dialogues;
-    private int count = 0;
     public GameObject dialogueBox;
     private DialogController _dialogController;
+    public static DialogManager Instance { get; private set; }
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            Instance = this;
+        }
+        
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         if (dialogueBox != null)
@@ -20,27 +33,12 @@ public class DialogueController : MonoBehaviour
             Debug.LogError("missing dialogueBox component! Please add a dialogueBox to the dialogueManager");
         }
     }
-    
-    public void nextDialogue()
-    {
-        if (count < dialogues.Count - 1)
-        {
-            startDialoque(dialogues[count]);
-            count++;
-        }
-    }
 
-    public void startDialoque(DialogData d)
+    public void StartDialoque(DialogData d)
     {
         if (_dialogController != null)
         {
-            _dialogController.loadNewDialogue(d);
+            _dialogController.LoadNewDialogue(d);
         }
     }
-    
-    public void addDialogue(DialogData d)
-    {
-        dialogues.Add(d);
-    }
-    
 }

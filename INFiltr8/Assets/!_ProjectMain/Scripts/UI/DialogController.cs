@@ -3,32 +3,33 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class DialogController : MonoBehaviour
 {
     private List<string> lines { get; set; }
-    private int index { get; set; }
-
+    public int index { get; set; }
     public float textSpeed = 0.025f;
     [SerializeField]
     public TextMeshProUGUI dialogText;
     [SerializeField]
     public TextMeshProUGUI dialogName;
     [SerializeField]
-    public Sprite dialogImage;
+    public GameObject dialogImage;
 
     private bool isInDialogue = false;
     private bool isInLine = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-       gameObject.SetActive(false);
+    { 
+        gameObject.SetActive(false);
     }
 
-    public void loadNewDialogue(DialogData d)
+    public bool LoadNewDialogue(DialogData d)
     {
-        if (isInDialogue) return;
+        if (isInDialogue) return false;
         
         gameObject.SetActive(true);
         isInDialogue = true;
@@ -36,19 +37,28 @@ public class DialogController : MonoBehaviour
         dialogText.SetText(String.Empty);
         lines = d.msg;
         dialogName.SetText(d.npc_name);
-        dialogImage = d.avatar;
+        dialogImage.GetComponent<Image>().sprite = d.avatar;
         startDialogueLines();
+        return true;
     }
-
-    private void FixedUpdate()
+    
+    public void OnLeftClick(InputAction.CallbackContext ctx)
     {
-        if (Input.GetMouseButton(0))
+        if (ctx.performed)
         {
-            nextLine();
+            nextLine();      
         }
     }
 
-    void nextLine()
+    public void OnRightClick(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            previousLine();
+        }
+    }
+
+    private void nextLine()
     {
         if (isInLine) return;
         
@@ -64,7 +74,24 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    void startDialogueLines()
+    private void previousLine()
+    {
+        if (isInLine) return;
+
+        if (index > 0)
+        {
+            index--;
+            startDialogueLines();
+        }
+    }
+
+    public void skipDialogue()
+    {
+        dialogText.SetText(String.Empty);
+        gameObject.SetActive(false);
+    }
+
+    private void startDialogueLines()
     {
         StartCoroutine(writeLine());
     }
@@ -73,7 +100,7 @@ public class DialogController : MonoBehaviour
         isInLine = true;
         dialogText.SetText(String.Empty);
         string temp = "";
-        foreach (char c in lines[index].ToCharArray())
+        foreach (char c in lines[index])
         {
             temp += c;
             dialogText.SetText(temp);
