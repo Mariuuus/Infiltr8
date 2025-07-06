@@ -119,7 +119,7 @@ namespace __ProjectMain.Scripts.Managers.Level
                     case GoalComponent goalComponent:
                     {
                         var goal = Instantiate(goalObject);
-                        goal.transform.position = new Vector3(goalComponent.position.y, -1f, goalComponent.position.x);
+                        goal.transform.position = new Vector3(goalComponent.position.y, -2f, goalComponent.position.x);
                         break;
                     }
                 }

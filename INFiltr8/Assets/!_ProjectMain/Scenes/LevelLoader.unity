@@ -2248,6 +2248,18 @@ PrefabInstance:
       value: 'Player/Pause[/Keyboard/escape,/Keyboard/pause]'
       objectReference: {fileID: 0}
     - target: {fileID: 3624281263134707695, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624281263134707695, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624281263134707695, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624281263134707695, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}

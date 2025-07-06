@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1423481082952754657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.46, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42,15 +42,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 28.003164
+      value: 15.998308
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 57.905632
+      value: 33.081696
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 96.87198
+      value: 55.343315
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,11 +58,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.85
+      value: 3.9596
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.000000005861
+      value: -0.0000000033484
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44788fd280c742c1a51fb39abb97a589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: 100
+  spinSpeed: 5000
   floatHeight: 1
-  floatSpeed: 2
+  floatSpeed: 20
 --- !u!4 &5343701928402665039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
