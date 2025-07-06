@@ -48,7 +48,6 @@ namespace __ProjectMain.Scripts.Player
 
         public void OnHack(InputAction.CallbackContext context)
         {
-            Debug.LogError("OnHack Input" + context.ToString());
             if (!context.started) return;
             if (!_closestObject) return;
             Debug.Log("Grab");
@@ -82,8 +81,6 @@ namespace __ProjectMain.Scripts.Player
         
         public void OnGrab(InputAction.CallbackContext context)
         {
-            Debug.LogError("OnGrab Input" + context.ToString());
-
             if (!context.started) return;
             if (_closestObject == null) return;
             

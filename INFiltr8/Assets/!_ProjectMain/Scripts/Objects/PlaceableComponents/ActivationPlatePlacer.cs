@@ -23,6 +23,7 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
             var fireWall = args[0] as GameObject;
             _activationController.activationDoor = fireWall;
 
+            Debug.Log(component.maxDevices);
             if (component.maxDevices == 0)
             {
                 //max amount possible calculation ig 
