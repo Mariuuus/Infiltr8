@@ -23,6 +23,17 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
             var fireWall = args[0] as GameObject;
             _activationController.activationDoor = fireWall;
             
+            var fireWallComponent = args[1] as FireWallComponent;
+            //TODO: only sum is calculated / might want to delete or improve
+            var sum = 0;
+            if (fireWallComponent != null)
+                foreach (var req in fireWallComponent.doorUnlockRequirements)
+                {
+                    sum += req.amount;
+                }
+
+            _activationController.SetMaxDevices(sum);
+            
             var updateUI = WaitAndUpdateUI();
             StartCoroutine(updateUI);
         }

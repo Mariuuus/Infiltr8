@@ -95,7 +95,7 @@ namespace __ProjectMain.Scripts.Managers.Level
                         foreach (var activationComponent  in fireWallComponent.activationPlates)
                         {
                             var newActivationPlate = Instantiate(activationObject);
-                            newActivationPlate.GetComponent<ActivationPlatePlacer>().Place(activationComponent, newFirewall);
+                            newActivationPlate.GetComponent<ActivationPlatePlacer>().Place(activationComponent, newFirewall, fireWallComponent);
                         }
                         break;
                     }

@@ -27,7 +27,7 @@ namespace __ProjectMain.Scripts.Objects
             // rectTransform to store size, position and acnhoring of a gui element
             ui.AddComponent<RectTransform>();
             plateUI = ui.AddComponent<TextMeshPro>();
-
+            
             ui.transform.position = transform.position + new Vector3(1, 5, 0);
             ui.GetComponent<RectTransform>().sizeDelta = new Vector2(5, 1);
             ui.transform.rotation = quaternion.Euler(-50, 0, 0);
@@ -84,6 +84,11 @@ namespace __ProjectMain.Scripts.Objects
 
                 plateUI.SetText(deviceAmount + " / " + deviceLimit);
             }
+        }
+
+        public void SetMaxDevices(int amount)
+        {
+            deviceLimit = amount;
         }
     }
 }

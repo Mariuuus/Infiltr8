@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationDoor: {fileID: 0}
-  deviceLimit: 2
+  deviceLimit: 100
 --- !u!114 &241379289525859497
 MonoBehaviour:
   m_ObjectHideFlags: 0
