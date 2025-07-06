@@ -1213,6 +1213,7 @@ MonoBehaviour:
   activationObject: {fileID: 6193071957823484143, guid: 3b07bc5dfadcc13b28d17c1dc9161a0a, type: 3}
   laptopObject: {fileID: 7356640642587778312, guid: 6bbf4b4ade3fc2fe0b424da3a25b3641, type: 3}
   spawnPointObject: {fileID: 3084064948813652178, guid: 5ff0354d6a7058563946904723b67949, type: 3}
+  goalObject: {fileID: 1423481082952754657, guid: 5ccdc63f19a8043e797ef55f6f58a94a, type: 3}
   playerObject: {fileID: 1569329882}
 --- !u!1 &1044489290
 GameObject:
@@ -2222,6 +2223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 894036542024191320, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1468597747973625866, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2280,6 +2285,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3624281263134707695, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487551403962145905, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

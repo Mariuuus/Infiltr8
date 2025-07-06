@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.StateMachine;
 using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
@@ -33,6 +34,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile hoverTile;
         public Tile deleteTile;
         public Tile spawnTile;
+        public Tile goalTile;
         public Tile laptopTile;
         public Tile activationPlateTile;
 
@@ -40,6 +42,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite wallBuildSprite;
         public Sprite fireWallBuildSprite;
         public Sprite spawnPointSprite;
+        public Sprite goalSprite;
         public Sprite laptopSprite;
         public Sprite deleteComponentsSprite;
         public Sprite adjustComponentsSprite;
@@ -74,6 +77,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.WallBuildState,
                 _levelEditorStateMachine.DeleteComponentsState,
                 _levelEditorStateMachine.SpawnPointBuildState,
+                _levelEditorStateMachine.GoalBuildState,
                 _levelEditorStateMachine.FireWallBuildState,
                 _levelEditorStateMachine.AdjustComponentState,
                 _levelEditorStateMachine.LaptopBuildState
@@ -98,15 +102,18 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         {
             LevelEditorUtils.ClearTilemap(LevelManager.Instance.levelEditorRepresentationTilemap, LevelEditorFileManager.Instance.levelData);
 
-            foreach (var component in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(SpawnPointComponent)))
+            foreach (var spawnPoint in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(SpawnPointComponent)).Select(component => ((SpawnPointComponent)component)))
             {
-                var spawnPoint = ((SpawnPointComponent)component);
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(spawnPoint.position), spawnTile);
             }
             
-            foreach (var component in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(LaptopComponent)))
+            foreach (var goalComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(GoalComponent)).Select(component => ((GoalComponent)component)))
             {
-                var laptop = ((LaptopComponent)component);
+                LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(goalComponent.position), goalTile);
+            }
+            
+            foreach (var laptop in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(LaptopComponent)).Select(component => ((LaptopComponent)component)))
+            {
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(laptop.position), laptopTile);
             }
             

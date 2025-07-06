@@ -23,7 +23,7 @@ namespace __ProjectMain.Scripts.Managers.Ingame
 
         public void Pause() =>  Paused = true;
         public void Resume() =>  Paused = false;
-        
-        public void Quit() => SceneManager.LoadScene("LevelSelection");
+
+        public void Quit() => GameDataManager.Instance.SwitchToOverview();
     }
 }
