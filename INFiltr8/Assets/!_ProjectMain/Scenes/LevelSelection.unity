@@ -3587,7 +3587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelContainer: {fileID: 317359208}
   prefabButton: {fileID: 7601797220026114588, guid: 24f1b22a88402b63fae10742d64b74ec, type: 3}
-  cheat: 1
+  cheat: 0
 --- !u!1001 &1311820422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3813,6 +3813,7 @@ MonoBehaviour:
     wallPointOne: {x: 0, y: 0}
     wallPointTwo: {x: 0, y: 0}
     components: []
+  levelIndex: 0
 --- !u!1001 &1413314576
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -20,12 +20,14 @@ namespace __ProjectMain.Scripts.UI.MainMenuElements
             levelData = pLevelData;
             levelNumber = pLevelNumber;
             buttonText.text = "Level " + levelNumber;
-            buttonImage.color = available ? new Color(255, 243, 113, 255) : new Color(255, 243, 113, 64);
+            buttonImage.color = available
+                ? new Color32(255, 243, 113, 255)
+                : new Color32(255, 243, 113, 90); 
         }
 
         public void OnClick()
         {
-            LevelLoaderManager.Instance?.LoadLevel(levelData);
+            LevelLoaderManager.Instance?.LoadLevel(levelData, levelNumber-1);
         }
     }
 }

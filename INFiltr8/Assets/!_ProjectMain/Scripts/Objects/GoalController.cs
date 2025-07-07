@@ -1,4 +1,5 @@
 using __ProjectMain.Scripts.Managers;
+using __ProjectMain.Scripts.Managers.MainMenu;
 using UnityEngine;
 
 namespace __ProjectMain.Scripts.Objects
@@ -33,8 +34,11 @@ namespace __ProjectMain.Scripts.Objects
         }
         void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player")) GameDataManager.Instance.SwitchToOverview();
-
+            if (other.CompareTag("Player"))
+            {
+                GameDataManager.Instance.SwitchToOverview();
+                GameDataManager.Instance.CompletedLevel(LevelLoaderManager.Instance.levelIndex);
+            }
         }
     }
 }

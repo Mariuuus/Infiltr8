@@ -78,7 +78,11 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             if (Math.Abs(introDirector.duration - introDirector.time) < 0.01f)            
             {
                 Playing = false;
-                if(MainMenuManager.Instance.currentState == State.Intro) MainMenuManager.Instance.currentState =  State.Overview;
+                if(MainMenuManager.Instance.currentState == State.Intro)
+                {
+                    MainMenuManager.Instance.currentState = State.Overview;
+                    GameDataManager.Instance.WatchedIntro();
+                }
             }
         }
     }

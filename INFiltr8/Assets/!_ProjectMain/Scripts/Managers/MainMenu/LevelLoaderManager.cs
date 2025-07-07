@@ -12,6 +12,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public static LevelLoaderManager Instance { get; private set; }
         
         public LevelData selectedLevelData;
+        public int levelIndex;
 
         public void Awake()
         {
@@ -26,10 +27,11 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             DontDestroyOnLoad(gameObject);
         }
 
-        public void LoadLevel(LevelData levelData)
+        public void LoadLevel(LevelData levelData, int levelIndex)
         {
+            if (GameDataManager.Instance.ProgressLevel() < levelIndex) return;
             selectedLevelData = levelData;
-            Debug.Log(selectedLevelData);
+            this.levelIndex = levelIndex;
             SceneManager.LoadScene("LevelLoader");
         }
     }

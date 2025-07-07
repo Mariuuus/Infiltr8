@@ -22,7 +22,9 @@ namespace __ProjectMain.Scripts.Utilities.Files
         /// </summary>
         static GameDataUtils()
         {
+            Directory.CreateDirectory(Application.persistentDataPath + "/game/");
             Path = Application.persistentDataPath + "/game/" + "progress.json";
+            Debug.Log(Path);
         }
         
         /// <summary>

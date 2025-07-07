@@ -20,8 +20,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             {
                 var levelData = level[i];
                 var newObject = Instantiate(prefabButton, levelContainer.transform, false);
-                //TODO: add available state in a gamesave folder
-                bool available = cheat;
+                bool available = cheat ? cheat : GameDataManager.Instance.ProgressLevel() >= i;
+                Debug.Log($"{available} at level {i}");
                 newObject.GetComponent<LevelStartButton>().Init(levelData, i+1, available);
             }
         }

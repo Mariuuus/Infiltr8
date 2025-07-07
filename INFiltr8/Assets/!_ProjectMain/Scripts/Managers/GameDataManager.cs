@@ -11,6 +11,8 @@ namespace __ProjectMain.Scripts.Managers
     {
         public static GameDataManager Instance;
 
+        private GameData _gameData;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -25,15 +27,33 @@ namespace __ProjectMain.Scripts.Managers
 
         private void Start()
         {
-            GameData gd = GameDataUtils.LoadData();
+            _gameData = GameDataUtils.LoadData();
 
-            if (!gd.introDone)
+            if (!_gameData.introDone)
             {
                 Debug.Log("introDone");
                 CameraManager.Instance.GameStartSequence();
             }
-            
-            Debug.developerConsoleVisible = true;
+
+            GameDataUtils.QuickSave(_gameData);
+        }
+
+        public void WatchedIntro()
+        {
+            _gameData.introDone = true;
+            GameDataUtils.QuickSave(_gameData);
+        }
+        
+        public void CompletedLevel(int levelIndex)
+        {
+            if (_gameData.progress > levelIndex) return;
+            _gameData.progress = levelIndex+1;
+            GameDataUtils.QuickSave(_gameData);
+        }
+
+        public int ProgressLevel()
+        {
+            return _gameData.progress;
         }
 
         public void SwitchToOverview()
