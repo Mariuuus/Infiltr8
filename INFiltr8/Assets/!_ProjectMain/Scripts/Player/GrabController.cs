@@ -9,12 +9,12 @@ namespace __ProjectMain.Scripts.Player
     public class GrabController : MonoBehaviour
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        private Collider _closestObject;
+        public Collider ClosestObject {private set; get;}
         private readonly float _grabRange = 5.0f;
         private InputAction _grabAction;
         private InputAction _moveAction;
         private InputAction _colorChangeAction;
-        private bool _isGrabbing;
+        public bool IsGrabbing {private set; get;}
 
         [SerializeField] 
         private GameObject interactionImage;
@@ -31,9 +31,9 @@ namespace __ProjectMain.Scripts.Player
             // _colorChangeAction = InputSystem.actions.FindAction("colorChange");
         
             //reset rigidbody with the settings here
-            if(_closestObject != null)
+            if(ClosestObject != null)
             {
-                var rb = _closestObject.GetComponent<Rigidbody>();
+                var rb = ClosestObject.GetComponent<Rigidbody>();
                 if (!rb)
                 {
                     AddRigidbody();
@@ -49,31 +49,31 @@ namespace __ProjectMain.Scripts.Player
         public void OnHack(InputAction.CallbackContext context)
         {
             if (!context.started) return;
-            if (!_closestObject) return;
+            if (!ClosestObject) return;
             Debug.Log("Grab");
             Vector3 playerPos = transform.position;
             Collider[] hitColliders = Physics.OverlapSphere(playerPos, _grabRange);
             
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.CompareTag("grabbable") && !_isGrabbing)
+                if (hitCollider.CompareTag("grabbable") && !IsGrabbing)
                 {
                     RaycastHit hit;
-                    if (Physics.Raycast(playerPos, (_closestObject.transform.position - playerPos), out hit, _grabRange))
+                    if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, _grabRange))
                     {
                         if (!hit.collider.CompareTag("Wall"))
                         {
                             switch (context.control.name)
                             {
-                                case "1": _closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.BlueHacked); break;
-                                case "2": _closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.RedHacked); break;
-                                case "3": _closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.GreenHacked); break;
-                                case "4": _closestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.YellowHacked); break;
+                                case "1": ClosestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.BlueHacked); break;
+                                case "2": ClosestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.RedHacked); break;
+                                case "3": ClosestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.GreenHacked); break;
+                                case "4": ClosestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.YellowHacked); break;
                             }
 
                             SetInteractionUI();
                         } 
-                        Debug.DrawRay(transform.position, (_closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
+                        Debug.DrawRay(transform.position, (ClosestObject.transform.position - playerPos) * hit.distance, Color.yellow);
                     }
                 }
             }
@@ -82,17 +82,17 @@ namespace __ProjectMain.Scripts.Player
         public void OnGrab(InputAction.CallbackContext context)
         {
             if (!context.started) return;
-            if (_closestObject == null) return;
+            if (ClosestObject == null) return;
             
-            if (!_isGrabbing)
+            if (!IsGrabbing)
             {
                 Vector3 playerPos = transform.position;
                 RaycastHit hit;
-                if (Physics.Raycast(playerPos, (_closestObject.transform.position - playerPos), out hit, _grabRange))
+                if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, _grabRange))
                 {
                     if (hit.collider.CompareTag("Wall"))
                     {
-                        _isGrabbing = false;
+                        IsGrabbing = false;
                     }
                     else
                     {
@@ -101,9 +101,9 @@ namespace __ProjectMain.Scripts.Player
                             Destroy(_interactionInstance); 
                             _interactionInstance = null; 
                         }
-                        _isGrabbing = true;
-                        var rb = _closestObject.GetComponent<Rigidbody>();
-                        _closestObject.transform.parent = grabPos;
+                        IsGrabbing = true;
+                        var rb = ClosestObject.GetComponent<Rigidbody>();
+                        ClosestObject.transform.parent = grabPos;
 
                         if (rb)
                         {
@@ -111,17 +111,17 @@ namespace __ProjectMain.Scripts.Player
                             rb.isKinematic = true;
                             rb.detectCollisions = true;
                         }
-                        _closestObject.transform.localPosition = Vector3.zero;
+                        ClosestObject.transform.localPosition = Vector3.zero;
                     }
                 }
             } 
             else
             {
                 SetInteractionUI();
-                _isGrabbing = false;
-                _closestObject.transform.parent = null;
+                IsGrabbing = false;
+                ClosestObject.transform.parent = null;
                 //AddRigidbody();
-                var rb = _closestObject.GetComponent<Rigidbody>();
+                var rb = ClosestObject.GetComponent<Rigidbody>();
                 rb.isKinematic = false;
             }
             
@@ -135,30 +135,30 @@ namespace __ProjectMain.Scripts.Player
         
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.CompareTag("grabbable") && !_isGrabbing)
+                if (hitCollider.CompareTag("grabbable") && !IsGrabbing)
                 {
-                    if (_closestObject)
+                    if (ClosestObject)
                     {
                         float newDistance = (hitCollider.transform.position - playerPos).magnitude;
-                        float oldDistance = (_closestObject.transform.position - playerPos).magnitude;
+                        float oldDistance = (ClosestObject.transform.position - playerPos).magnitude;
                     
                         if (newDistance < oldDistance)
                         {
-                            _closestObject = hitCollider;
+                            ClosestObject = hitCollider;
                         }
                     }
                     else
                     {
-                        _closestObject = hitCollider;
+                        ClosestObject = hitCollider;
                     }
                     RaycastHit hit;
-                    if (Physics.Raycast(playerPos, (_closestObject.transform.position - playerPos), out hit, _grabRange))
+                    if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, _grabRange))
                     {
                         if (!hit.collider.CompareTag("Wall"))
                         {
                             SetInteractionUI();
                         } 
-                        Debug.DrawRay(transform.position, (_closestObject.transform.position - playerPos) * hit.distance, Color.yellow);
+                        Debug.DrawRay(transform.position, (ClosestObject.transform.position - playerPos) * hit.distance, Color.yellow);
                     }
                 }
             }
@@ -166,7 +166,7 @@ namespace __ProjectMain.Scripts.Player
 
         private void AddRigidbody()
         {
-            Rigidbody newRigidbody = _closestObject.AddComponent<Rigidbody>();
+            Rigidbody newRigidbody = ClosestObject.AddComponent<Rigidbody>();
             newRigidbody.mass = 1f;
             newRigidbody.linearDamping = 0f;
             newRigidbody.angularDamping = 0.05f;
@@ -191,9 +191,9 @@ namespace __ProjectMain.Scripts.Player
                 Destroy(_interactionInstance);    
             }
         
-            if (_closestObject == null) return;
+            if (ClosestObject == null) return;
         
-            _interactionInstance = Instantiate(interactionImage, _closestObject.transform.position + new Vector3(0, 1, 0),
+            _interactionInstance = Instantiate(interactionImage, ClosestObject.transform.position + new Vector3(0, 1, 0),
                 Quaternion.Euler(40, 0, 0));
         }
     }

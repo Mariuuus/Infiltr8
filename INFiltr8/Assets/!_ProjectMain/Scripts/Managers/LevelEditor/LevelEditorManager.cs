@@ -38,6 +38,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile goalTile;
         public Tile laptopTile;
         public Tile activationPlateTile;
+        public Tile portTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
@@ -47,6 +48,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite laptopSprite;
         public Sprite deleteComponentsSprite;
         public Sprite adjustComponentsSprite;
+        public Sprite portBuildSprite;
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -81,7 +83,8 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.GoalBuildState,
                 _levelEditorStateMachine.FireWallBuildState,
                 _levelEditorStateMachine.AdjustComponentState,
-                _levelEditorStateMachine.LaptopBuildState
+                _levelEditorStateMachine.LaptopBuildState,
+                _levelEditorStateMachine.PortBuildState,
             };
             
             foreach (var state in _selectableStates)
@@ -111,6 +114,12 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             foreach (var goalComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(GoalComponent)).Select(component => ((GoalComponent)component)))
             {
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(goalComponent.position), goalTile);
+            }
+            
+            foreach (var portComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(PortComponent)).Select(component => ((PortComponent)component)))
+            {
+                LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(portComponent.position1), portTile);
+                LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(portComponent.position2), portTile);
             }
             
             foreach (var laptop in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(LaptopComponent)).Select(component => ((LaptopComponent)component)))

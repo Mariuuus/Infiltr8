@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745b5f39839b46039f398486c595d86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallbackLevelName: Level04
+  fallbackLevelName: TestLevel01
   floorObject: {fileID: 1997971157313656597, guid: 38c62ee730210170997af7209e2c19b1, type: 3}
   wallObject: {fileID: 4166579851043906467, guid: cd41d262d624ed3b5be2f57a0a489aea, type: 3}
   fireWallObject: {fileID: 8794531009927736383, guid: b535cf5e653a961d2a5793ac634494aa, type: 3}
@@ -1214,6 +1214,7 @@ MonoBehaviour:
   laptopObject: {fileID: 7356640642587778312, guid: 6bbf4b4ade3fc2fe0b424da3a25b3641, type: 3}
   spawnPointObject: {fileID: 3084064948813652178, guid: 5ff0354d6a7058563946904723b67949, type: 3}
   goalObject: {fileID: 1423481082952754657, guid: 5ccdc63f19a8043e797ef55f6f58a94a, type: 3}
+  portObject: {fileID: 1387127911518755336, guid: 9460d4ffa79efbaa8b6dd167cf428a13, type: 3}
   playerObject: {fileID: 1569329882}
 --- !u!1 &1044489290
 GameObject:
@@ -2314,6 +2315,10 @@ PrefabInstance:
     - target: {fileID: 5487551403962145905, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7546238772196742876, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

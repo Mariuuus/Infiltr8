@@ -9,8 +9,14 @@ using Debug = UnityEngine.Debug;
 
 namespace __ProjectMain.Scripts.Utilities.LevelEditor
 {
-    public class LevelEditorUtils
+    public abstract class LevelEditorUtils
     {
+        
+        public static int GetAmountOf(List<LevelComponent> components, Type componentType)
+        {
+            List<LevelComponent> filteredList = FilterComponents(components, componentType);
+            return filteredList.Count;
+        }
         public static List<LevelComponent> FilterComponents(List<LevelComponent> components, Type componentType)
         {
             List<LevelComponent> filteredList = new List<LevelComponent>();
@@ -46,6 +52,11 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
                 {
                     points.Add(pos);
                 }
+            }
+            else if(component is TwoOnePointComponent twoPointLevelComponent)
+            {
+                points.Add(twoPointLevelComponent.position1);
+                points.Add(twoPointLevelComponent.position2);
             }
             else
             {

@@ -6,6 +6,7 @@ using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
 using __ProjectMain.Scripts.Objects;
 using __ProjectMain.Scripts.Objects.PlaceableComponents;
 using __ProjectMain.Scripts.Utilities.Files;
+using __ProjectMain.Scripts.Utilities.LevelEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -25,6 +26,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public /*IPlaceable<LaptopComponent>*/ GameObject laptopObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject spawnPointObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject goalObject;
+        public /*IPlaceable<LaptopComponent>*/ GameObject portObject;
         
         [Header("Player")]
         public GameObject playerObject;
@@ -123,6 +125,35 @@ namespace __ProjectMain.Scripts.Managers.Level
                         break;
                     }
                 }
+            }
+            
+            
+            // Handle specific cause of color :)
+            var ports = LevelEditorUtils.FilterComponents((lvlData.components), typeof(PortComponent));
+            int totalPorts = ports.Count;
+            for (int i = 0; i < totalPorts; i++)
+            {
+                var portComponent = (PortComponent)ports[i];
+                var port1 = Instantiate(portObject);
+                var port2 = Instantiate(portObject);
+
+                float hue = (float)i / totalPorts;
+                Color pairColor = Color.HSVToRGB(hue, 1f, 1f);
+                pairColor *= 6f;
+
+                port1.GetComponent<PortalPlacer>().Place(
+                    portComponent, 
+                    portComponent.position1, 
+                    port2.GetComponent<PortalController>(), 
+                    pairColor
+                );
+
+                port2.GetComponent<PortalPlacer>().Place(
+                    portComponent, 
+                    portComponent.position2, 
+                    port1.GetComponent<PortalController>(), 
+                    pairColor
+                );
             }
 
             if (spawnPoint != null)

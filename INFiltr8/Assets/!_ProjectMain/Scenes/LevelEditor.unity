@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d08501595ed4517bd097df15e431a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Level04
+  levelName: TestLevel01
   levelData:
     levelName: 
     wallPointOne: {x: 0, y: 0}
@@ -2279,6 +2279,7 @@ MonoBehaviour:
   goalTile: {fileID: 11400000, guid: 063e4763ae3126b9b80fb497d6a0039b, type: 2}
   laptopTile: {fileID: 11400000, guid: 07f0ba5b8838580ddb3b4b85991093d7, type: 2}
   activationPlateTile: {fileID: 11400000, guid: 84e2b5f04531f9b4293125a74a99be37, type: 2}
+  portTile: {fileID: 11400000, guid: 126f7cdba45ed3c438ddd3fea2035119, type: 2}
   wallBuildSprite: {fileID: 21300000, guid: c80beb8dd61a54c48bc257b7e29aa5b4, type: 3}
   fireWallBuildSprite: {fileID: 21300000, guid: ef05a94fd79e6034bb32734df9cc2b40, type: 3}
   spawnPointSprite: {fileID: 21300000, guid: 0000f14e62003df4a8132eebafcab80b, type: 3}
@@ -2286,6 +2287,7 @@ MonoBehaviour:
   laptopSprite: {fileID: 21300000, guid: cf841d5dec6230612a947b6dd3373fc0, type: 3}
   deleteComponentsSprite: {fileID: 21300000, guid: f3e5cceef2fe5ed45ae9330b0a3e506c, type: 3}
   adjustComponentsSprite: {fileID: 21300000, guid: 0b7edcdba2d507f4a9a51f18ada804b9, type: 3}
+  portBuildSprite: {fileID: 21300000, guid: 7961f007ae93da8bf89b520c103ea923, type: 3}
 --- !u!1 &700096945
 GameObject:
   m_ObjectHideFlags: 0
