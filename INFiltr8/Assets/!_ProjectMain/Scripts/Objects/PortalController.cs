@@ -13,9 +13,13 @@ namespace __ProjectMain.Scripts.Objects
          {
              Debug.Log("Entered portal");
              var grabController = FindFirstObjectByType<GrabController>();
-             if (other.CompareTag("grabbable") && !hasBeenPorted &&
-                 !(grabController.IsGrabbing && grabController.ClosestObject.gameObject == other.gameObject))
+             if (other.CompareTag("grabbable") && !hasBeenPorted)
+                
              {
+                 if (grabController.IsGrabbing && grabController.ClosestObject.gameObject == other.gameObject)
+                 {
+                     grabController.DropObject(grabController.HeldObj);
+                 }
                  otherPortal.hasBeenPorted =  true;
                  other.gameObject.transform.position = otherPortal.transform.position;
                  other.GetComponent<Rigidbody>().AddForce(otherPortal.transform.forward * 500, ForceMode.Impulse);

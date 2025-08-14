@@ -2312,9 +2312,21 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3994702834877615828, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: rotationSpeed
+      value: 620
+      objectReference: {fileID: 0}
+    - target: {fileID: 5377559509108124330, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.351
+      objectReference: {fileID: 0}
     - target: {fileID: 5487551403962145905, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550402295261239112, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: pickupForce
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7546238772196742876, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_CollisionDetection

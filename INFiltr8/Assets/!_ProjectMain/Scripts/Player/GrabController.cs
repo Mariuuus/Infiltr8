@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Types;
 using Unity.VisualScripting;
@@ -10,41 +11,20 @@ namespace __ProjectMain.Scripts.Player
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         public Collider ClosestObject {private set; get;}
-        private readonly float _grabRange = 5.0f;
-        private InputAction _grabAction;
-        private InputAction _moveAction;
         private InputAction _colorChangeAction;
-        public bool IsGrabbing {private set; get;}
-
-        [SerializeField] 
-        private GameObject interactionImage;
-    
-        [SerializeField] 
-        private Transform grabPos;
-    
-        private GameObject _interactionInstance;
-    
-        void Start()
-        {
-            // _grabAction = InputSystem.actions.FindAction("Interact");
-            // _moveAction = InputSystem.actions.FindAction("Move");
-            // _colorChangeAction = InputSystem.actions.FindAction("colorChange");
         
-            //reset rigidbody with the settings here
-            if(ClosestObject != null)
-            {
-                var rb = ClosestObject.GetComponent<Rigidbody>();
-                if (!rb)
-                {
-                    AddRigidbody();
-                }
-                else
-                {
-                    Destroy(rb);
-                    AddRigidbody();
-                }
-            }
-        }
+        [Header("Pickup Settings")]
+        [SerializeField] private float pickupRange = 3.0f;
+        [SerializeField] private float pickupForce = 150.0f;
+        
+        public bool IsGrabbing {private set; get;}
+        public GameObject HeldObj {private set; get;}
+        public Rigidbody HeldObjRB {private set; get;}
+        
+        [SerializeField] private Transform grabPos;
+        [SerializeField] private GameObject interactionImage;
+        
+        private GameObject _interactionInstance;
 
         public void OnHack(InputAction.CallbackContext context)
         {
@@ -52,14 +32,13 @@ namespace __ProjectMain.Scripts.Player
             if (!ClosestObject) return;
             Debug.Log("Grab");
             Vector3 playerPos = transform.position;
-            Collider[] hitColliders = Physics.OverlapSphere(playerPos, _grabRange);
-            
+            Collider[] hitColliders = Physics.OverlapSphere(playerPos, pickupRange);
             foreach (var hitCollider in hitColliders)
             {
                 if (hitCollider.CompareTag("grabbable") && !IsGrabbing)
                 {
                     RaycastHit hit;
-                    if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, _grabRange))
+                    if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, pickupRange))
                     {
                         if (!hit.collider.CompareTag("Wall"))
                         {
@@ -78,6 +57,48 @@ namespace __ProjectMain.Scripts.Player
                 }
             }
         }
+
+        private void Update()
+        {
+            if (HeldObj != null)
+            {
+                MoveObject();
+            }
+        }
+
+        public void MoveObject()
+        {
+            if (Vector3.Distance(grabPos.position, HeldObj.transform.position) > 0.01f)
+            {
+                Vector3 direction = grabPos.position - HeldObj.transform.position;
+                HeldObjRB.AddForce(direction * pickupForce);
+            }
+        }
+
+        public void PickupObject(GameObject obj)
+        {
+            if (obj.GetComponent<Rigidbody>())
+            {
+                HeldObjRB = obj.GetComponent<Rigidbody>();
+                HeldObjRB.useGravity = false;
+                HeldObjRB.linearDamping = 10;
+                HeldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+                
+                HeldObjRB.transform.SetParent(grabPos);
+                HeldObj = obj;
+            }
+        }
+        
+        public void DropObject(GameObject obj)
+        {
+            HeldObjRB.useGravity = true;
+            HeldObjRB.linearDamping = 1;
+            HeldObjRB.constraints = RigidbodyConstraints.None;
+            
+            HeldObjRB.transform.SetParent(null);
+            HeldObj = null;
+            IsGrabbing = false;
+        }
         
         public void OnGrab(InputAction.CallbackContext context)
         {
@@ -88,30 +109,20 @@ namespace __ProjectMain.Scripts.Player
             {
                 Vector3 playerPos = transform.position;
                 RaycastHit hit;
-                if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, _grabRange))
+                if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, pickupRange))
                 {
-                    if (hit.collider.CompareTag("Wall"))
+                    if (!hit.collider.CompareTag("Wall"))
                     {
-                        IsGrabbing = false;
-                    }
-                    else
-                    {
+                        // Remove Hack and Grab UI
                         if (_interactionInstance != null)
                         {
                             Destroy(_interactionInstance); 
                             _interactionInstance = null; 
                         }
+                        
+                        //Pickup Object
                         IsGrabbing = true;
-                        var rb = ClosestObject.GetComponent<Rigidbody>();
-                        ClosestObject.transform.parent = grabPos;
-
-                        if (rb)
-                        {
-                            //Destroy(rb);
-                            rb.isKinematic = true;
-                            rb.detectCollisions = true;
-                        }
-                        ClosestObject.transform.localPosition = Vector3.zero;
+                        PickupObject(ClosestObject.gameObject);
                     }
                 }
             } 
@@ -119,19 +130,16 @@ namespace __ProjectMain.Scripts.Player
             {
                 SetInteractionUI();
                 IsGrabbing = false;
-                ClosestObject.transform.parent = null;
-                //AddRigidbody();
-                var rb = ClosestObject.GetComponent<Rigidbody>();
-                rb.isKinematic = false;
+                //Drop
+                DropObject(ClosestObject.gameObject);
             }
             
         }
         
-        // Update is called once per frame
         void FixedUpdate()
         {
             Vector3 playerPos = transform.position;
-            Collider[] hitColliders = Physics.OverlapSphere(playerPos, _grabRange);
+            Collider[] hitColliders = Physics.OverlapSphere(playerPos, pickupRange);
         
             foreach (var hitCollider in hitColliders)
             {
@@ -152,7 +160,7 @@ namespace __ProjectMain.Scripts.Player
                         ClosestObject = hitCollider;
                     }
                     RaycastHit hit;
-                    if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, _grabRange))
+                    if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, pickupRange))
                     {
                         if (!hit.collider.CompareTag("Wall"))
                         {
@@ -163,27 +171,6 @@ namespace __ProjectMain.Scripts.Player
                 }
             }
         }
-
-        private void AddRigidbody()
-        {
-            Rigidbody newRigidbody = ClosestObject.AddComponent<Rigidbody>();
-            newRigidbody.mass = 1f;
-            newRigidbody.linearDamping = 0f;
-            newRigidbody.angularDamping = 0.05f;
-            newRigidbody.useGravity = true;
-            newRigidbody.isKinematic = false;
-            newRigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
-        }
-
-        // void LateUpdate()
-        // {
-        //     if (_isGrabbing && _closestObject)
-        //     {
-        //         _closestObject.transform.position = grabPos.position;
-        //         _closestObject.transform.rotation = grabPos.rotation;
-        //     }
-        // }
-    
         void SetInteractionUI()
         {
             if (_interactionInstance)
