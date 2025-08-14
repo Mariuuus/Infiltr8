@@ -9,7 +9,7 @@
 ### LevelEditor Presents
 
 1. Add a new LevelComponent at `Scripts/LevelEditor/Components`.
-    This Class needs to inhared (directly or indirect) from `LevelComponent`.
+    This Class needs to inherited (directly or indirect) from `LevelComponent`.
     It is recommended that you at least inherited from `OnePointLevelComponent` or `TwoPointLevelComponent`. The following Example will add a `OnePointLevelComponent` named `GoalLevelComponent`. This can then look like this:
 
     ```csharp
@@ -31,7 +31,7 @@
     ```
 
 2. Add a BuildState (optional, but often requiered).
-    This sould again inherit from the corresponding BuildState (`OnePointsBuildState` or `TwoPointsBuildState`).
+    This should again inherit from the corresponding BuildState (`OnePointsBuildState` or `TwoPointsBuildState`).
     This should also implement the `ISelectableState` Interface, if there should be a button which can be used to switch to the mode in the level editor. This can look like this, but you have to look at the specific implementation of the inhereted class. You will probably need to implementent a build methode that is allready wrapped to enhance easier implementation of new models. The State of the previous Component can look like this:
 
     ```csharp
