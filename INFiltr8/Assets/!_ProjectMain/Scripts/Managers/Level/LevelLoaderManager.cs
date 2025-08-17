@@ -27,6 +27,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public /*IPlaceable<LaptopComponent>*/ GameObject spawnPointObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject goalObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject portObject;
+        public /*IPlaceable<LaptopComponent>*/ GameObject onlyPlayerWall;
         
         [Header("Player")]
         public GameObject playerObject;
@@ -122,6 +123,12 @@ namespace __ProjectMain.Scripts.Managers.Level
                     {
                         var goal = Instantiate(goalObject);
                         goal.transform.position = new Vector3(goalComponent.position.y, -2f, goalComponent.position.x);
+                        break;
+                    }
+                    case OnlyPlayerDoorComponent onlyPlayerWallComponent:
+                    {
+                        var newObj = Instantiate(onlyPlayerWall);
+                        newObj.GetComponent<OnlyPlayerDoorPlacer>().Place(onlyPlayerWallComponent, playerObject.GetComponent<CapsuleCollider>());
                         break;
                     }
                 }

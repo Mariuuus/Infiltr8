@@ -85,13 +85,20 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
             {
                 if (component is OnePointLevelComponent)
                 {
-                    if(((OnePointLevelComponent)component).position.Equals(position)) return true;
+                    if (((OnePointLevelComponent)component).position.Equals(position)) return true;
                 }
-                else //two points
+                else if (component is TwoOnePointComponent)
                 {
-                    foreach (var inBetweenPoint in ((TwoPointsBaseComponent) component).GetPointsInBetween())
+                    Debug.Log(component.GetType().Name + " doesn't have a position between " + position + " and " +
+                              position + "!");
+                    if (((TwoOnePointComponent)component).position1.Equals(position)) return true;
+                    if (((TwoOnePointComponent)component).position2.Equals(position)) return true;
+                }
+                else
+                {
+                    foreach (var inBetweenPoint in ((TwoPointsBaseComponent)component).GetPointsInBetween())
                     {
-                        if(inBetweenPoint.Equals(position)) return true;
+                        if (inBetweenPoint.Equals(position)) return true;
                     }
                 }
             }

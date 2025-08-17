@@ -39,6 +39,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile laptopTile;
         public Tile activationPlateTile;
         public Tile portTile;
+        public Tile onlyPlayerWallTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
@@ -49,6 +50,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite deleteComponentsSprite;
         public Sprite adjustComponentsSprite;
         public Sprite portBuildSprite;
+        public Sprite onlyPlayerWallSprite;
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -78,6 +80,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             _selectableStates = new ISelectableState[]
             {
                 _levelEditorStateMachine.WallBuildState,
+                _levelEditorStateMachine.OnlyPlayerDoorBuildState,
                 _levelEditorStateMachine.DeleteComponentsState,
                 _levelEditorStateMachine.SpawnPointBuildState,
                 _levelEditorStateMachine.GoalBuildState,
@@ -114,6 +117,14 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             foreach (var goalComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(GoalComponent)).Select(component => ((GoalComponent)component)))
             {
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(goalComponent.position), goalTile);
+            }
+            
+            foreach (var playerOnlyWallC in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(OnlyPlayerDoorComponent)).Select(component => ((OnlyPlayerDoorComponent)component)))
+            {
+                foreach (var pos in playerOnlyWallC.GetPointsInBetween())
+                {
+                    LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), onlyPlayerWallTile);
+                }
             }
             
             foreach (var portComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(PortComponent)).Select(component => ((PortComponent)component)))

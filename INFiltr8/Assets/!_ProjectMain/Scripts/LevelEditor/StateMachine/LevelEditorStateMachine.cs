@@ -15,6 +15,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         public SpawnPointBuildState SpawnPointBuildState { get; } = new();
         public GoalBuildState GoalBuildState { get; } = new();
         public LaptopBuildState LaptopBuildState { get; } = new();
+        
+        public OnlyPlayerDoorBuildState OnlyPlayerDoorBuildState { get; } = new ();
 
         public DeleteComponentsState DeleteComponentsState { get; } = new();
         public AdjustComponentState AdjustComponentState { get; } = new();
