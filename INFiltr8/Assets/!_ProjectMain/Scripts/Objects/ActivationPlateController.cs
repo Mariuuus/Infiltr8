@@ -13,13 +13,13 @@ namespace __ProjectMain.Scripts.Objects
     
         private int deviceAmount = 0;
         private TextMeshPro plateUI;
-        private DoorController door;
+        public DoorController Door { get; private set;}
     
         private void Start()
         {
             if (activationDoor != null)
             {
-                door = activationDoor.GetComponent<DoorController>();
+                Door = activationDoor.GetComponent<DoorController>();
             }
 
 
@@ -47,12 +47,12 @@ namespace __ProjectMain.Scripts.Objects
         {
             if (other.CompareTag("grabbable"))
             {
-                other.GetComponent<grabbableType>()?.SetController(this.door);
+                other.GetComponent<grabbableType>()?.SetController(this.Door);
                 
                 if (deviceAmount < deviceLimit)
                 {
                     grabbableType color = other.GetComponent<grabbableType>();
-                    door.IncreaseHackStatus(color.getHackColor());    
+                    Door.IncreaseHackStatus(color.getHackColor());    
                 }
             
                 deviceAmount++;
@@ -82,7 +82,7 @@ namespace __ProjectMain.Scripts.Objects
                 if (deviceAmount < deviceLimit)
                 {
                     grabbableType color = other.GetComponent<grabbableType>();
-                    door.DecreaseHackStatus(color.getHackColor());
+                    Door.DecreaseHackStatus(color.getHackColor());
                 }
 
                 plateUI.SetText(deviceAmount + " / " + deviceLimit);

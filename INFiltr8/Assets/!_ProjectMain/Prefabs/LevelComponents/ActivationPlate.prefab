@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8848083766666011827}
   - component: {fileID: 6492360255497022371}
   - component: {fileID: 241379289525859497}
+  - component: {fileID: 4788927844714393156}
   m_Layer: 0
   m_Name: ActivationPlate
   m_TagString: Untagged
@@ -136,3 +137,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d868bd1c30b14e0e90ec8763ad7a939c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4788927844714393156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193071957823484143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4ba74a6bb5497e8b6845e194eee2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicator: {fileID: 125894765183558027, guid: dae1103cf40a52944abaecd13e40e501, type: 3}
