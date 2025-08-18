@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Types;
+using __ProjectMain.Scripts.Objects;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,10 +45,10 @@ namespace __ProjectMain.Scripts.Player
                         {
                             switch (context.control.name)
                             {
-                                case "1": ClosestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.BlueHacked); break;
-                                case "2": ClosestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.RedHacked); break;
-                                case "3": ClosestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.GreenHacked); break;
-                                case "4": ClosestObject.GetComponent<grabbableType>().changeMaterial(HackStatus.YellowHacked); break;
+                                case "1": ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.BlueHacked); break;
+                                case "2": ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.RedHacked); break;
+                                case "3": ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.GreenHacked); break;
+                                case "4": ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.YellowHacked); break;
                             }
 
                             SetInteractionUI();

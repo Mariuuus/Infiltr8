@@ -9,7 +9,7 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
         public void Place(LaptopComponent component, params object[] args)
         {
             transform.position = new Vector3(component.position.y, 0, component.position.x);
-            var grabController = GetComponent<grabbableType>();
+            var grabController = GetComponent<GrabbableObject>();
             grabController.Init();
         }
     }

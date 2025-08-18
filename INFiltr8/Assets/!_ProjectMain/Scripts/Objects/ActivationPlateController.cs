@@ -1,3 +1,4 @@
+using __ProjectMain.Scripts.UI;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace __ProjectMain.Scripts.Objects
         private int deviceAmount = 0;
         private TextMeshPro plateUI;
         public DoorController Door { get; private set;}
+
+        [SerializeField] private ActivationPlateUIController uIController;
     
         private void Start()
         {
@@ -22,24 +25,12 @@ namespace __ProjectMain.Scripts.Objects
                 Door = activationDoor.GetComponent<DoorController>();
             }
 
-
-            GameObject ui = new GameObject("activationPlateUI");
-            // rectTransform to store size, position and acnhoring of a gui element
-            ui.AddComponent<RectTransform>();
-            plateUI = ui.AddComponent<TextMeshPro>();
-            
-            ui.transform.position = transform.position + new Vector3(1, 5, 0);
-            ui.GetComponent<RectTransform>().sizeDelta = new Vector2(5, 1);
-            ui.transform.rotation = quaternion.Euler(-50, 0, 0);
-        
-            plateUI.fontSize = 12;
-            plateUI.color = new Color32(255, 255, 255, 255);
-            plateUI.SetText(deviceAmount + " / " + deviceLimit);
+            UpdateUI();
         }
 
         public void UpdateUI()
         {
-            plateUI.SetText(deviceAmount + " / " + deviceLimit);
+            uIController.UpdateUI(deviceAmount, deviceLimit);
         }
     
 
@@ -47,45 +38,31 @@ namespace __ProjectMain.Scripts.Objects
         {
             if (other.CompareTag("grabbable"))
             {
-                other.GetComponent<grabbableType>()?.SetController(this.Door);
+                other.GetComponent<GrabbableObject>()?.SetController(this.Door);
                 
                 if (deviceAmount < deviceLimit)
                 {
-                    grabbableType color = other.GetComponent<grabbableType>();
+                    GrabbableObject color = other.GetComponent<GrabbableObject>();
                     Door.IncreaseHackStatus(color.getHackColor());    
                 }
-            
                 deviceAmount++;
-
-                if (deviceAmount > deviceLimit)
-                {
-                    plateUI.color = new Color32(245,27,27,255);
-                }
-            
-                plateUI.SetText(deviceAmount + " / " + deviceLimit);
+                UpdateUI();
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            other.GetComponent<grabbableType>()?.ResetController();
+            other.GetComponent<GrabbableObject>()?.ResetController();
             Debug.Log("Leave Trigger");
             if (other.CompareTag("grabbable") && deviceAmount > 0)
             {
                 deviceAmount--;
-
-                if (deviceAmount <= deviceLimit)
-                {
-                    plateUI.color = new Color32(255,255,255,255);
-                }
-
                 if (deviceAmount < deviceLimit)
                 {
-                    grabbableType color = other.GetComponent<grabbableType>();
+                    GrabbableObject color = other.GetComponent<GrabbableObject>();
                     Door.DecreaseHackStatus(color.getHackColor());
                 }
-
-                plateUI.SetText(deviceAmount + " / " + deviceLimit);
+                UpdateUI();
             }
         }
 
