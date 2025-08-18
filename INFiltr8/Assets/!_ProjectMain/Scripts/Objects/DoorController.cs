@@ -18,6 +18,7 @@ namespace __ProjectMain.Scripts.Objects
         private Vector3 _initialPos;
 
         [SerializeField] private GameObject doorUIPrefab;
+        [SerializeField] private AudioClip doorOpenSound;
 
 
         void Start()
@@ -86,6 +87,8 @@ namespace __ProjectMain.Scripts.Objects
                 transform.position = _initialPos;
                 StartCoroutine(MoveDoor(new Vector3(0, -2.01f, 0)));
                 _open = true;
+                // play sfx
+                SFXManager.instance.PlaySFXClip(doorOpenSound, 1f);
             }
             else
             {
