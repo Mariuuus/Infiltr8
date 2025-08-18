@@ -1127,7 +1127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rot
+  m_text: Red
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfecea3b06d23a245b18a0d377700903, type: 2}
   m_sharedMaterial: {fileID: -3860683770155146142, guid: dfecea3b06d23a245b18a0d377700903, type: 2}
