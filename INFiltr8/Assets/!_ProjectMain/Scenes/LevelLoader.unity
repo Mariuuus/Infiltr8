@@ -1337,8 +1337,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow,/KeychronKeychronK8ProSystemControl/stick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1569329892}
-        m_TargetAssemblyTypeName: __ProjectMain.Scripts.Player.GrabController, Assembly-CSharp
+      - m_Target: {fileID: 1569329899}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.Player.HackController, Assembly-CSharp
         m_MethodName: OnHack
         m_Mode: 0
         m_Arguments:
@@ -1928,6 +1928,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c79d3999d118c47b4a4b062b22a258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1569329899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8138450364599475844, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+  m_PrefabInstance: {fileID: 6475480063109187370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569329882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc5517cf76d4923b54fa8b330d50fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1816932987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,7 +2357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1468597747973625866, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1468597747973625866, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_NeverAutoSwitchControlSchemes
@@ -2354,11 +2365,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1468597747973625866, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_ActionId
-      value: 9c88dc3d-0642-4058-a03e-c32ecb70097c
+      value: e4217716-1657-412d-8136-76abf4350cc0
       objectReference: {fileID: 0}
     - target: {fileID: 1468597747973625866, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_ActionName
-      value: 'Player/Pause[/Keyboard/escape,/Keyboard/pause]'
+      value: 'Player/Back[/Keyboard/escape,/Keyboard/pause]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468597747973625866, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468597747973625866, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3624281263134707695, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_LocalScale.x
@@ -2420,6 +2439,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 620
       objectReference: {fileID: 0}
+    - target: {fileID: 3994702834877615828, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: interactionImage
+      value: 
+      objectReference: {fileID: 142217409823344248, guid: aace6615e7be325448a78081da596a01, type: 3}
     - target: {fileID: 5377559509108124330, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.06
@@ -2430,7 +2453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6550402295261239112, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: pickupForce
-      value: 100
+      value: 125.1
       objectReference: {fileID: 0}
     - target: {fileID: 7546238772196742876, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_CollisionDetection

@@ -6,30 +6,31 @@ namespace __ProjectMain.Scripts.Objects
 {
     public class PortalController : MonoBehaviour
     {
-         private PortalController otherPortal;
+         private PortalController _otherPortal;
          public bool hasBeenPorted;
          
          private void OnTriggerEnter(Collider other)
          {
-             Debug.Log("Entered portal");
+             //Debug.Log("Entered portal");
+             var playerController = FindFirstObjectByType<PlayerController>();
              var grabController = FindFirstObjectByType<GrabController>();
-             if (other.CompareTag("grabbable") && !hasBeenPorted)
+             if (other.CompareTag("Interactable") && !hasBeenPorted)
                 
              {
-                 if (grabController.IsGrabbing && grabController.ClosestObject.gameObject == other.gameObject)
+                 if (grabController.IsGrabbing && playerController.ClosestObject.gameObject == other.gameObject)
                  {
                      grabController.DropObject(grabController.HeldObj);
                  }
-                 otherPortal.hasBeenPorted =  true;
-                 other.gameObject.transform.position = otherPortal.transform.position;
-                 other.GetComponent<Rigidbody>().AddForce(otherPortal.transform.forward * 500, ForceMode.Impulse);
+                 _otherPortal.hasBeenPorted =  true;
+                 other.gameObject.transform.position = _otherPortal.transform.position;
+                 other.GetComponent<Rigidbody>().AddForce(_otherPortal.transform.forward * 500, ForceMode.Impulse);
              } 
          }
 
          private void OnTriggerExit(Collider other)
          {
-             Debug.Log("Exited portal");
-             if (other.CompareTag("grabbable"))
+             //Debug.Log("Exited portal");
+             if (other.CompareTag("Interactable"))
              {
                  hasBeenPorted = false;
              }
@@ -37,7 +38,7 @@ namespace __ProjectMain.Scripts.Objects
 
          public void Init(PortalController portal)
          {
-             this.otherPortal = portal;
+             this._otherPortal = portal;
          }
     }
 }
