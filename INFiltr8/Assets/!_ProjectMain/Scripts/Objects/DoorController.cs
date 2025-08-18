@@ -117,7 +117,7 @@ namespace __ProjectMain.Scripts.Objects
 
             while (true)
             {
-                if (transform.position != endPos)
+                if (transform.position.y > endPos.y)
                 {
                     Vector3 currentDoorPos = transform.position;
                     Vector3 smoothPos = Vector3.MoveTowards(currentDoorPos, currentDoorPos + targetPos,
