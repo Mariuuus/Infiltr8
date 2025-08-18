@@ -53,20 +53,19 @@ namespace __ProjectMain.Scripts.Utilities.Files
         
         public static void SaveFile(LevelData levelData, bool overwrite = false)
         {
-            //Debug.Log("Saving game");
+            Debug.Log("Saving game");
             string filename = LevelDataUtils.ReceiveFileName(levelData.levelName);
 
             if (!overwrite && File.Exists(filename)) throw new FileLoadException("File already exists");
 
             string jsonString = JsonConvert.SerializeObject(levelData, JsonSettings);
             File.WriteAllText(filename, jsonString);
-            //Debug.Log("Saved level successfully");
+            Debug.Log("Saved level successfully");
         }
         
         public static List<LevelData> GetAvailableLevels()
         {
             var assets =  Resources.LoadAll(LevelFolderName, typeof(TextAsset));
-            Debug.Log(assets);
             List<LevelData> levels = new List<LevelData>();
             foreach (var file in assets)
             {

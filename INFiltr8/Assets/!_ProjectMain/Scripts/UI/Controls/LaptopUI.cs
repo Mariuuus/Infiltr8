@@ -26,7 +26,7 @@ namespace __ProjectMain.Scripts.UI.Controls
             {
                 button.SetActive(false);
             }
-            if (hackableDevice == null) return;
+            if (!hackableDevice) return;
             foreach (var hack in hackableDevice.Component.possibleHacks)
             {
                 switch (hack)

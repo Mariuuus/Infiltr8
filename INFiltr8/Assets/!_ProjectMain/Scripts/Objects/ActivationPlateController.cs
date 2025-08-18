@@ -43,7 +43,7 @@ namespace __ProjectMain.Scripts.Objects
                 if (_deviceAmount < deviceLimit)
                 {
                     var color = other.GetComponent<HackableDevice>();
-                    Door.IncreaseHackStatus(color.GetHackColor());    
+                    if(!color.UnHacked) Door.IncreaseHackStatus(color.GetHackColor());    
                 }
                 _deviceAmount++;
                 UpdateUI();
@@ -60,7 +60,7 @@ namespace __ProjectMain.Scripts.Objects
                 if (_deviceAmount < deviceLimit)
                 {
                     var color = other.GetComponent<HackableDevice>();
-                    Door.DecreaseHackStatus(color.GetHackColor());
+                    if(!color.UnHacked) Door.DecreaseHackStatus(color.GetHackColor());    
                 }
                 UpdateUI();
             }

@@ -32,6 +32,18 @@ namespace __ProjectMain.Scripts.Objects
             //Debug.Log(_initialPos);
 
             UpdateDoorUI();
+            PrintAmounts();
+        }
+
+        public void PrintAmounts()
+        {
+            Debug.Log("+++++ HACK_AMOUNTS +++++");
+            foreach (var keyValuePair in _hackAmounts)
+            {
+                Debug.Log(keyValuePair.Key + ": " + keyValuePair.Value);
+            }
+            Debug.Log("+++++ ------------ +++++");
+            
         }
 
         public void IncreaseHackStatus(HackStatus hackColor)
@@ -46,6 +58,7 @@ namespace __ProjectMain.Scripts.Objects
                     CheckHackStatus();
                 }
             }
+            PrintAmounts();
         }
 
         public void DecreaseHackStatus(HackStatus hackColor)

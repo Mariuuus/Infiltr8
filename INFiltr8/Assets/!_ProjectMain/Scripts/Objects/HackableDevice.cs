@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.Types;
 using Unity.VisualScripting;
@@ -10,6 +11,7 @@ namespace __ProjectMain.Scripts.Objects
     public class HackableDevice : MonoBehaviour
     {
         public DeviceComponent Component { get; private set; }
+        public bool UnHacked { get; private set; } = true;
 
         public void Init(DeviceComponent component)
         {
@@ -24,6 +26,8 @@ namespace __ProjectMain.Scripts.Objects
         [SerializeField] private Material blueMat;
         [SerializeField] private Material greenMat;
         [SerializeField] private Material yellowMat;
+        [SerializeField] private Material unHackedMaterial;
+        
         
         [SerializeField] private MeshRenderer pRenderer;
     
@@ -34,15 +38,28 @@ namespace __ProjectMain.Scripts.Objects
 
         public void SetController(DoorController door) => _door = door;
         public void ResetController() => _door = null;
-        
+
+        public void Start()
+        {
+            UnHacked = true;
+            ResetHackStatus();
+        }
+
         public HackStatus GetHackColor()
         {
             return hackColor;
         }
+
+        private void ResetHackStatus()
+        {
+            pRenderer.material = unHackedMaterial;
+            UnHacked = true;
+        }
     
         private void SetMaterial(HackStatus color) {
             Material material = null;
-        
+            UnHacked = false;
+            
             switch (color) {
                 case HackStatus.BlueHacked:
                     material = blueMat;
