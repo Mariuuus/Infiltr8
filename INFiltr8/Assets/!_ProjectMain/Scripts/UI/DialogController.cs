@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using TMPro;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class DialogController : MonoBehaviour
 {
