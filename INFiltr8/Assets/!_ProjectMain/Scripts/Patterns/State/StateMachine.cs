@@ -8,12 +8,12 @@ namespace __ProjectMain.Scripts.Patterns.State
 
         public void ChangeState(IState newState)
         {
-            Debug.Log(currentState?.GetType().Name);
+            //Debug.Log(currentState?.GetType().Name);
             currentState?.Exit();
 
             currentState = newState;
 
-            Debug.Log(currentState.GetType().Name);
+            //Debug.Log(currentState.GetType().Name);
             currentState.Enter();
         }
 

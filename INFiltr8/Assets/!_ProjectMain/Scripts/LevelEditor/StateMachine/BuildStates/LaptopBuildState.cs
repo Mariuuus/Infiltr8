@@ -13,11 +13,13 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
     {
         protected override bool Build(Vector3Int pos)
         {
-            var ph = new List<HackStatus>();
-            ph.Add(HackStatus.BlueHacked);
-            ph.Add(HackStatus.RedHacked);
-            ph.Add(HackStatus.GreenHacked);
-            ph.Add(HackStatus.YellowHacked);
+            var ph = new List<HackStatus>
+            {
+                HackStatus.BlueHacked,
+                HackStatus.RedHacked,
+                HackStatus.GreenHacked,
+                HackStatus.YellowHacked
+            };
             var spawn = new LaptopComponent(
                 LevelEditorUtils.ReduceToTwoDimensions(pos),
                 LevelEditorFileManager.Instance.levelData,

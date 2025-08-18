@@ -16,9 +16,9 @@ namespace __ProjectMain.Scripts.Player
         [SerializeField] private float pickupForce = 150.0f;
         [SerializeField] private float dropDistance = 3.5f;
         
-        public bool IsGrabbing {private set; get;}
+        public bool IsGrabbing {private set; get;} = false;
         public GameObject HeldObj {private set; get;}
-        public Rigidbody HeldObjRB {private set; get;}
+        private Rigidbody HeldObjRb { set; get;}
         
         [SerializeField] private Transform grabPos;
         
@@ -40,7 +40,7 @@ namespace __ProjectMain.Scripts.Player
             } else if (Vector3.Distance(grabPos.position, HeldObj.transform.position) > 0.01f)
             {
                 Vector3 direction = grabPos.position - HeldObj.transform.position;
-                HeldObjRB.AddForce(direction * pickupForce);
+                HeldObjRb.AddForce(direction * pickupForce);
             }
         }
 
@@ -48,25 +48,31 @@ namespace __ProjectMain.Scripts.Player
         {
             if (obj.GetComponent<Rigidbody>())
             {
-                HeldObjRB = obj.GetComponent<Rigidbody>();
-                HeldObjRB.useGravity = false;
-                HeldObjRB.linearDamping = 10;
-                HeldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+                HeldObjRb = obj.GetComponent<Rigidbody>();
+                HeldObjRb.useGravity = false;
+                HeldObjRb.linearDamping = 10;
+                HeldObjRb.constraints = RigidbodyConstraints.FreezeRotation;
                 
-                HeldObjRB.transform.SetParent(grabPos);
+                HeldObjRb.transform.SetParent(grabPos);
                 HeldObj = obj;
             }
+            Physics.IgnoreCollision(GetComponent<Collider>(), obj.GetComponent<Collider>(), true);
+            GetComponent<PlayerController>().UpdateInteractionUI();
+
         }
         
         public void DropObject(GameObject obj)
         {
-            HeldObjRB.useGravity = true;
-            HeldObjRB.linearDamping = 1;
-            HeldObjRB.constraints = RigidbodyConstraints.None;
+            HeldObjRb.useGravity = true;
+            HeldObjRb.linearDamping = 1;
+            HeldObjRb.constraints = RigidbodyConstraints.None;
             
-            HeldObjRB.transform.SetParent(null);
+            HeldObjRb.transform.SetParent(null);
             HeldObj = null;
             IsGrabbing = false;
+                
+            Physics.IgnoreCollision(GetComponent<Collider>(), obj.GetComponent<Collider>(), false);
+            GetComponent<PlayerController>().UpdateInteractionUI();
         }
         
         public void OnGrab(InputAction.CallbackContext context)

@@ -30,6 +30,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public GameObject buildUIContainer;    
         public FireWallSettings fireWallSettings;
         public ActivationPlateSettings activationPlateSettings;
+        public LaptopSettings laptopSettings;
         
         [Header("Tiles")]
         public Tile hoverTile;

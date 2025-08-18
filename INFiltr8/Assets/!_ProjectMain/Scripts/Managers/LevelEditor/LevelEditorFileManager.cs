@@ -91,6 +91,7 @@ namespace __ProjectMain.Scripts.Managers
 
         public void QuickSave()
         {
+            Debug.Log("LevelFileManager::QuickSave");
             LevelDataUtils.SaveFile(levelData, true);
         }
     }

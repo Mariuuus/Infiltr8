@@ -2453,7 +2453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6550402295261239112, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: pickupForce
-      value: 125.1
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7546238772196742876, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_CollisionDetection

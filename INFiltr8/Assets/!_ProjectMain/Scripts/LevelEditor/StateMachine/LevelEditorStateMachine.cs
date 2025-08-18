@@ -25,7 +25,9 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         /*
          * This works for overwriting the "normal" State Machine
          */
-        public void OnClick(InputAction.CallbackContext ctx) {
+        public void OnClick(InputAction.CallbackContext ctx)
+        {
+            if (!ctx.performed) return;
             try
             {
                 ((ILevelEditorState)currentState).OnClick(ctx);

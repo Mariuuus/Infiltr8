@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3878925025205440800
 Transform:
   m_ObjectHideFlags: 0
@@ -229,6 +229,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4105017255917610314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715182829531834449}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &715182829531834449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105017255917610314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2068732260488277718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7356640642587778312
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +274,7 @@ GameObject:
   - component: {fileID: 3835301839441317449}
   - component: {fileID: 2882733566021935760}
   - component: {fileID: 5819206091530488396}
+  - component: {fileID: 6873768433694837951}
   m_Layer: 0
   m_Name: Laptop
   m_TagString: Interactable
@@ -335,14 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8816a8c412a568347b10d64a3fbe2487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hackColor: 0
-  cooldownTime: 5
-  redMat: {fileID: 2100000, guid: 3e39f3375aac0ba4a85af23a927ad5b8, type: 2}
-  blueMat: {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
-  greenMat: {fileID: 2100000, guid: 5f66b8ded21454f4380d00914e71722d, type: 2}
-  yellowMat: {fileID: 2100000, guid: f96bd3a1533afaa49a5b6e4d9b62792b, type: 2}
-  renderer: {fileID: 5935114338843319378}
-  countdownUI: {fileID: 3990558358595682961, guid: bbd29876df5f9cb40926cb40e6db8585, type: 3}
 --- !u!114 &5819206091530488396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +379,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ce7c8c51b74daba5db51e6b16c7d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6873768433694837951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356640642587778312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3402ed25842d4a008d8a0a570c65bfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hackColor: 0
+  cooldownTime: 2
+  redMat: {fileID: 2100000, guid: 3e39f3375aac0ba4a85af23a927ad5b8, type: 2}
+  blueMat: {fileID: 2100000, guid: 41a5a4cf5e53faa4ca27f641315dc46c, type: 2}
+  greenMat: {fileID: 2100000, guid: 5f66b8ded21454f4380d00914e71722d, type: 2}
+  yellowMat: {fileID: 2100000, guid: f96bd3a1533afaa49a5b6e4d9b62792b, type: 2}
+  pRenderer: {fileID: 5935114338843319378}
+  countdownUI: {fileID: 3990558358595682961, guid: bbd29876df5f9cb40926cb40e6db8585, type: 3}
 --- !u!1 &7736523428915447368
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +430,7 @@ Transform:
   m_Children:
   - {fileID: 7427148808153180977}
   - {fileID: 2376062496743358131}
+  - {fileID: 715182829531834449}
   m_Father: {fileID: 1294113039967704116}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &2842828257609292120

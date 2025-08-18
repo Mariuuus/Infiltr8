@@ -26,10 +26,10 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 
                     if (currentLookAtComponent is IConnectedComponent connectedComponent)
                     {
-                        Debug.Log("IConnectedComponent found!");
+                        //Debug.Log("IConnectedComponent found!");
                         foreach (var component in connectedComponent.GetAllLevelComponents())
                         {
-                            Debug.Log(component);
+                            //Debug.Log(component);
                             foreach (var pos in LevelEditorUtils.ExpandToThreeDimensions(LevelEditorUtils.ReceiveComponentPoints(component)))
                             {
                                 LevelManager.Instance.uiTilemap.SetTile(pos, LevelEditorManager.Instance.deleteTile);
@@ -50,6 +50,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
 
         public override void OnClick(InputAction.CallbackContext ctx)
         {
+            if (!ctx.performed) return;
             LevelComponent currentLookAtComponent = LevelEditorUtils.ReceiveComponentAtPosition(LevelEditorFileManager.Instance.levelData.components, LookAtTile);
             if (currentLookAtComponent is IAdjustableComponent component)
             {

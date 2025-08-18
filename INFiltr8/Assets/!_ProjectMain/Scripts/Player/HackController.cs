@@ -17,23 +17,23 @@ namespace __ProjectMain.Scripts.Player
             {
                 case "1":
                 case "up":
-                    GetComponent<PlayerController>().ClosestObject.GetComponent<GrabbableObject>()
-                        .changeMaterial(HackStatus.BlueHacked);
+                    GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>()
+                        .ChangeMaterial(HackStatus.BlueHacked);
                     break;
                 case "2":
                 case "right":
-                    GetComponent<PlayerController>().ClosestObject.GetComponent<GrabbableObject>()
-                        .changeMaterial(HackStatus.RedHacked);
+                    GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>()
+                        .ChangeMaterial(HackStatus.RedHacked);
                     break;
                 case "3":
                 case "down":
-                    GetComponent<PlayerController>().ClosestObject.GetComponent<GrabbableObject>()
-                        .changeMaterial(HackStatus.GreenHacked);
+                    GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>()
+                        .ChangeMaterial(HackStatus.GreenHacked);
                     break;
                 case "4":
                 case "left":
-                    GetComponent<PlayerController>().ClosestObject.GetComponent<GrabbableObject>()
-                        .changeMaterial(HackStatus.YellowHacked);
+                    GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>()
+                        .ChangeMaterial(HackStatus.YellowHacked);
                     break;
             }
             GetComponent<PlayerController>().UpdateInteractionUI();

@@ -12,8 +12,8 @@ namespace __ProjectMain.Scripts.Objects
         [SerializeField]
         private int deviceLimit = 0;
     
-        private int deviceAmount = 0;
-        private TextMeshPro plateUI;
+        private int _deviceAmount = 0;
+        private TextMeshPro _plateUI;
         public DoorController Door { get; private set;}
 
         [SerializeField] private ActivationPlateUIController uIController;
@@ -30,7 +30,7 @@ namespace __ProjectMain.Scripts.Objects
 
         public void UpdateUI()
         {
-            uIController.UpdateUI(deviceAmount, deviceLimit);
+            uIController.UpdateUI(_deviceAmount, deviceLimit);
         }
     
 
@@ -38,29 +38,29 @@ namespace __ProjectMain.Scripts.Objects
         {
             if (other.CompareTag("Interactable"))
             {
-                other.GetComponent<GrabbableObject>()?.SetController(this.Door);
+                other.GetComponent<HackableDevice>()?.SetController(this.Door);
                 
-                if (deviceAmount < deviceLimit)
+                if (_deviceAmount < deviceLimit)
                 {
-                    GrabbableObject color = other.GetComponent<GrabbableObject>();
-                    Door.IncreaseHackStatus(color.getHackColor());    
+                    var color = other.GetComponent<HackableDevice>();
+                    Door.IncreaseHackStatus(color.GetHackColor());    
                 }
-                deviceAmount++;
+                _deviceAmount++;
                 UpdateUI();
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            other.GetComponent<GrabbableObject>()?.ResetController();
+            other.GetComponent<HackableDevice>()?.ResetController();
             Debug.Log("Leave Trigger");
-            if (other.CompareTag("Interactable") && deviceAmount > 0)
+            if (other.CompareTag("Interactable") && _deviceAmount > 0)
             {
-                deviceAmount--;
-                if (deviceAmount < deviceLimit)
+                _deviceAmount--;
+                if (_deviceAmount < deviceLimit)
                 {
-                    GrabbableObject color = other.GetComponent<GrabbableObject>();
-                    Door.DecreaseHackStatus(color.getHackColor());
+                    var color = other.GetComponent<HackableDevice>();
+                    Door.DecreaseHackStatus(color.GetHackColor());
                 }
                 UpdateUI();
             }

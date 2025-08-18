@@ -30,7 +30,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
         {
             LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
             LevelEditorManager.Instance.UpdateUI();
-            LevelEditorFileManager.Instance.QuickSave();
+            //LevelEditorFileManager.Instance.QuickSave();
         }
 
         public virtual void OnEsc(InputAction.CallbackContext ctx)

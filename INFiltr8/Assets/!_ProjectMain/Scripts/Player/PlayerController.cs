@@ -1,4 +1,6 @@
 using __ProjectMain.Scripts.Managers.Ingame;
+using __ProjectMain.Scripts.Objects;
+using __ProjectMain.Scripts.UI.Controls;
 using UnityEngine;
 
 namespace __ProjectMain.Scripts.Player
@@ -6,7 +8,7 @@ namespace __ProjectMain.Scripts.Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 2;
-        [SerializeField] private float rotationSpeed = 2;
+        //[SerializeField] private float rotationSpeed = 2;
         [SerializeField] public float playerRange = 3f;
         [SerializeField] private GameObject interactionImage;
 
@@ -84,10 +86,11 @@ namespace __ProjectMain.Scripts.Player
                     if (hit.collider.CompareTag("Wall"))
                     {
                         ClosestObject = before;
+                        UpdateInteractionUI();
                     }
                 }
-                UpdateInteractionUI();
             }
+            if(before != ClosestObject) UpdateInteractionUI();
         }
     
         public void UpdateInteractionUI()
@@ -97,10 +100,13 @@ namespace __ProjectMain.Scripts.Player
                 Destroy(_interactionInstance);    
             }
     
-            if (ClosestObject  == null) return;
-    
+            if (ClosestObject  == null || GetComponent<GrabController>().IsGrabbing) return;
+            
+            Debug.Log(ClosestObject.name);
             _interactionInstance = Instantiate(interactionImage, ClosestObject .transform.position + new Vector3(0, 1, 0),
                 Quaternion.Euler(40, 0, 0));
+            _interactionInstance.transform.SetParent(ClosestObject.transform);
+            _interactionInstance.GetComponentInChildren<LaptopUI>().Init(ClosestObject.GetComponent<HackableDevice>() ?? null );
         }
     }
 }

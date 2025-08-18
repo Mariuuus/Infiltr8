@@ -17,14 +17,8 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         public DeviceComponent(Vector2Int position, LevelData levelData, List<HackStatus> possibleHacks)
         {
             this.position = position;
-            this.possibleHacks = new List<HackStatus> {};
+            this.possibleHacks = new List<HackStatus>();
             this.possibleHacks.AddRange(possibleHacks);
-        }
-        
-        public DeviceComponent(Vector2Int position, LevelData levelData)
-        {
-            this.position = position;
-            this.possibleHacks = new List<HackStatus> {};
         }
     }
 }

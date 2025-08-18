@@ -10,7 +10,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
     [System.Serializable]
     public class ActivationComponent : TwoPointsFloorComponent, IConnectedComponent, IAdjustableComponent
     {
-        public FireWallComponent fireWall;
+        [SerializeReference] public FireWallComponent fireWall;
         public int maxDevices;
         public ActivationComponent(FireWallComponent fireWall, Vector2Int startPoint, Vector2Int endPoint, LevelData levelData) : base(startPoint,
             endPoint, levelData)
