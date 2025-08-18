@@ -72,8 +72,6 @@ namespace __ProjectMain.Scripts.Player
                 if (dist > playerRange)
                 {
                     
-                    Debug.Log(dist);
-                    Debug.Log(ClosestObject);
                     ClosestObject = null;
                     UpdateInteractionUI();
                     return;
@@ -90,8 +88,6 @@ namespace __ProjectMain.Scripts.Player
                 }
                 UpdateInteractionUI();
             }
-            
-            Debug.Log(ClosestObject ? ClosestObject.name : "NONE");
         }
     
         public void UpdateInteractionUI()

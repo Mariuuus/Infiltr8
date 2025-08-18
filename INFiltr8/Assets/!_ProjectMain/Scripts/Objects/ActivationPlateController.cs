@@ -36,7 +36,7 @@ namespace __ProjectMain.Scripts.Objects
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("grabbable"))
+            if (other.CompareTag("Interactable"))
             {
                 other.GetComponent<GrabbableObject>()?.SetController(this.Door);
                 
@@ -54,7 +54,7 @@ namespace __ProjectMain.Scripts.Objects
         {
             other.GetComponent<GrabbableObject>()?.ResetController();
             Debug.Log("Leave Trigger");
-            if (other.CompareTag("grabbable") && deviceAmount > 0)
+            if (other.CompareTag("Interactable") && deviceAmount > 0)
             {
                 deviceAmount--;
                 if (deviceAmount < deviceLimit)
