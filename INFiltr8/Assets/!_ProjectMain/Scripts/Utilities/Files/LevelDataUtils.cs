@@ -10,7 +10,7 @@ namespace __ProjectMain.Scripts.Utilities.Files
 {
     public class LevelDataUtils
     {
-        public const string LevelFolderName = "./Assets/!_ProjectMain/Data/Levels";
+        private const string LevelFolderName = "Levels";
         
         // Json.NET settings for polymorphic serialization
         private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings
@@ -25,19 +25,6 @@ namespace __ProjectMain.Scripts.Utilities.Files
             string path = Application.persistentDataPath + "/" + levelName + ".json";
             return path;
         }
-
-        public static LevelData[] LoadLevels()
-        {
-            var directory = Directory.GetFiles(LevelFolderName, "*.json");
-            LevelData[] result = new LevelData[directory.Length];
-            
-            for (int i = 0; i < directory.Length; i++)
-            {
-                result[i] = (LoadFileFromPath(directory[i]));
-            }
-
-            return result;
-        }
         
         public static LevelData LoadFileFromPath(string path)
         {
@@ -45,11 +32,16 @@ namespace __ProjectMain.Scripts.Utilities.Files
 
             string fileContents = File.ReadAllText(path);
 
+            return DeserializeFromString(fileContents);
+        }
+
+        private static LevelData DeserializeFromString(string fileContents)
+        {
             LevelData levelData = JsonConvert.DeserializeObject<LevelData>(fileContents, JsonSettings);
-            
+
             return levelData;
         }
-        
+
         public static LevelData LoadFile(string levelName)
         {
             Debug.Log("Loading game, " + levelName + " from " + Application.persistentDataPath);
@@ -73,13 +65,13 @@ namespace __ProjectMain.Scripts.Utilities.Files
         
         public static List<LevelData> GetAvailableLevels()
         {
-            string searchPath = Application.persistentDataPath;
+            var assets =  Resources.LoadAll(LevelFolderName, typeof(TextAsset));
+            Debug.Log(assets);
             List<LevelData> levels = new List<LevelData>();
-            foreach (var level in Directory.GetFiles(searchPath, "*.json", SearchOption.AllDirectories).ToList())
+            foreach (var file in assets)
             {
-                levels.Add(LevelDataUtils.LoadFile(level.Replace(".json", "").Replace(Application.persistentDataPath+"/", "")));
+                levels.Add(DeserializeFromString(((TextAsset)file).text));
             }
-
             return levels;
         }
     }

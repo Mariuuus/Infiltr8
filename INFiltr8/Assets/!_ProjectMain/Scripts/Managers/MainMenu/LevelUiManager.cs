@@ -12,7 +12,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         
         public void Start()
         {
-            var level = LevelDataUtils.LoadLevels();
+            var level = LevelDataUtils.GetAvailableLevels().ToArray();
 
             Debug.Log($"Loaded {level.Length} levels");
 
