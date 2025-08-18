@@ -31,6 +31,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public FireWallSettings fireWallSettings;
         public ActivationPlateSettings activationPlateSettings;
         public LaptopSettings laptopSettings;
+        public DialogAreaSettings dialogAreaSettings;
         
         [Header("Tiles")]
         public Tile hoverTile;
