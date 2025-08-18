@@ -251,7 +251,7 @@
                 {
                     "name": "",
                     "id": "b3f66d0b-7751-423f-908b-a11c5bd95930",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -262,10 +262,10 @@
                 {
                     "name": "",
                     "id": "3189d2d3-038d-494f-b2a1-44a643ae79c0",
-                    "path": "<Keyboard>/1",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Hack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -273,10 +273,10 @@
                 {
                     "name": "",
                     "id": "7fde54a2-22ac-4218-bdd4-3d4367647b55",
-                    "path": "<Keyboard>/2",
+                    "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse;Gamepad",
+                    "groups": "",
                     "action": "Hack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -284,10 +284,10 @@
                 {
                     "name": "",
                     "id": "340c8b81-7feb-4da1-9c37-cb199117f89b",
-                    "path": "<Keyboard>/3",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Hack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -295,10 +295,54 @@
                 {
                     "name": "",
                     "id": "0d08274b-5b89-443e-bc8f-2931a2ea358c",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83fd85e3-7b4b-4c66-80e7-9ce823f67fe7",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d16f673-7a52-42d4-97ac-31bf47ae2bb6",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "853ffd6f-9274-40df-a9a6-e5a0413408b3",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d57270e-3dc1-470c-9a53-efed6ea07e11",
                     "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Hack",
                     "isComposite": false,
                     "isPartOfComposite": false

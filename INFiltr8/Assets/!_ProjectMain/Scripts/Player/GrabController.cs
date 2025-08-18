@@ -29,9 +29,9 @@ namespace __ProjectMain.Scripts.Player
 
         public void OnHack(InputAction.CallbackContext context)
         {
+            Debug.Log(context.control.name);
             if (!context.started) return;
             if (!ClosestObject) return;
-            Debug.Log("Grab");
             Vector3 playerPos = transform.position;
             Collider[] hitColliders = Physics.OverlapSphere(playerPos, pickupRange);
             foreach (var hitCollider in hitColliders)
@@ -42,13 +42,17 @@ namespace __ProjectMain.Scripts.Player
                     if (Physics.Raycast(playerPos, (ClosestObject.transform.position - playerPos), out hit, pickupRange))
                     {
                         if (!hit.collider.CompareTag("Wall"))
-                        {
+                        {   
                             switch (context.control.name)
                             {
-                                case "1": ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.BlueHacked); break;
-                                case "2": ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.RedHacked); break;
-                                case "3": ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.GreenHacked); break;
-                                case "4": ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.YellowHacked); break;
+                                case "1": case "up":
+                                    ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.BlueHacked); break;
+                                case "2": case "right":
+                                    ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.RedHacked); break;
+                                case "3": case "down":
+                                    ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.GreenHacked); break;
+                                case "4": case "left":
+                                    ClosestObject.GetComponent<GrabbableObject>().changeMaterial(HackStatus.YellowHacked); break;
                             }
 
                             SetInteractionUI();
