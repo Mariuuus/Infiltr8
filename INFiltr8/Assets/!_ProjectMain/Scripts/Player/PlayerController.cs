@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.LogError("Moves");
             Quaternion targetRotation = Quaternion.LookRotation(_input, Vector3.up);
-            Quaternion newRotation = Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
-            rb.MoveRotation(newRotation);
+            //Quaternion newRotation = Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(targetRotation);
 
             rb.linearVelocity = transform.forward * moveSpeed;
         }

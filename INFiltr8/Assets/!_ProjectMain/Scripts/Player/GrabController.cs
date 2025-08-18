@@ -17,6 +17,7 @@ namespace __ProjectMain.Scripts.Player
         [Header("Pickup Settings")]
         [SerializeField] private float pickupRange = 3.0f;
         [SerializeField] private float pickupForce = 150.0f;
+        [SerializeField] private float dropDistance = 3.5f;
         
         public bool IsGrabbing {private set; get;}
         public GameObject HeldObj {private set; get;}
@@ -73,7 +74,10 @@ namespace __ProjectMain.Scripts.Player
 
         public void MoveObject()
         {
-            if (Vector3.Distance(grabPos.position, HeldObj.transform.position) > 0.01f)
+            if (Vector3.Distance(grabPos.position, HeldObj.transform.position) > dropDistance)
+            {
+                DropObject(HeldObj);
+            } else if (Vector3.Distance(grabPos.position, HeldObj.transform.position) > 0.01f)
             {
                 Vector3 direction = grabPos.position - HeldObj.transform.position;
                 HeldObjRB.AddForce(direction * pickupForce);
