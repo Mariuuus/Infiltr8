@@ -425,10 +425,8 @@
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
       "possibleHacks": [
-        2,
-        0,
-        1,
-        3
+        3,
+        1
       ],
       "position": {
         "x": 24,
@@ -530,10 +528,8 @@
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
       "possibleHacks": [
-        2,
-        0,
-        1,
-        3
+        3,
+        1
       ],
       "position": {
         "x": 15,
@@ -809,10 +805,8 @@
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
       "possibleHacks": [
-        2,
-        0,
-        1,
-        3
+        3,
+        2
       ],
       "position": {
         "x": 6,

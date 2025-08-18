@@ -13,27 +13,28 @@ namespace __ProjectMain.Scripts.Player
             if (!context.started) return;
             if (GetComponent<GrabController>().IsGrabbing) return;
             if (!GetComponent<PlayerController>().ClosestObject) return;
+            var hackableDevice = GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>();
             switch (context.control.name)
             {
                 case "1":
                 case "up":
-                    GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>()
-                        .ChangeMaterial(HackStatus.BlueHacked);
+                    if(hackableDevice.Component.possibleHacks.Contains(HackStatus.BlueHacked))
+                        hackableDevice.ChangeMaterial(HackStatus.BlueHacked);
                     break;
                 case "2":
                 case "right":
-                    GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>()
-                        .ChangeMaterial(HackStatus.RedHacked);
+                    if(hackableDevice.Component.possibleHacks.Contains(HackStatus.RedHacked))
+                        hackableDevice.ChangeMaterial(HackStatus.RedHacked);
                     break;
                 case "3":
                 case "down":
-                    GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>()
-                        .ChangeMaterial(HackStatus.GreenHacked);
+                    if(hackableDevice.Component.possibleHacks.Contains(HackStatus.GreenHacked))
+                        hackableDevice.ChangeMaterial(HackStatus.GreenHacked);
                     break;
                 case "4":
                 case "left":
-                    GetComponent<PlayerController>().ClosestObject.GetComponent<HackableDevice>()
-                        .ChangeMaterial(HackStatus.YellowHacked);
+                    if(hackableDevice.Component.possibleHacks.Contains(HackStatus.YellowHacked))
+                        hackableDevice.ChangeMaterial(HackStatus.YellowHacked);
                     break;
             }
             GetComponent<PlayerController>().UpdateInteractionUI();
