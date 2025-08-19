@@ -42,6 +42,7 @@ namespace __ProjectMain.Scripts.UI
         public void onAddDialogImage()
         {
             // TODO: think of a way on how to "upload" a picture, or we always just use the standard icon (walkie talkie)
+            // Marius: maybe we should use a selector to choose 4/5 different characters (-> more diverse, but "fairly easy" to implement)
         }
 
         public void updateDialogLinesList()
