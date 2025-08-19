@@ -36,6 +36,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialoque(DialogData d)
     {
+        dialogueBox.SetActive(true);
         if (_dialogController != null)
         {
             _dialogController.LoadNewDialogue(d);

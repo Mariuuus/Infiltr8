@@ -9,14 +9,17 @@ namespace __ProjectMain.Scripts.UI
 {
     public class DialogAreaSettings : MonoBehaviour
     {
-        public DialogAreaComponent _dialogAreaComponent;
+        private DialogAreaComponent _dialogAreaComponent;
         public TMP_InputField dialogNameField;
+        public TMP_InputField newLineField;
+        
         [SerializeField] private GameObject container;
         [SerializeField] private GameObject listElement;
 
         public void Show(DialogAreaComponent dialogAreaComponent)
         {
             this._dialogAreaComponent = dialogAreaComponent;
+            UpdateDialogLinesList();
             this.gameObject.SetActive(true);
         }
 
@@ -31,12 +34,14 @@ namespace __ProjectMain.Scripts.UI
             LevelEditorFileManager.Instance.QuickSave();
         }
 
-        public void OnAddDialogLine(string newLine)
+        public void OnAddDialogLine()
         {
+            string newLine = newLineField.text;
             if (newLine.Length == 0) throw new InvalidLevelEditorActionException("new Dialog Line cant be empty");
             _dialogAreaComponent.dialog.lines.Add(newLine);
-            updateDialogLinesList();
+            UpdateDialogLinesList();
             LevelEditorFileManager.Instance.QuickSave();
+            newLineField.text = string.Empty;
         }
 
         public void onAddDialogImage()
@@ -45,19 +50,27 @@ namespace __ProjectMain.Scripts.UI
             // Marius: maybe we should use a selector to choose 4/5 different characters (-> more diverse, but "fairly easy" to implement)
         }
 
-        public void updateDialogLinesList()
+        public void UpdateDialogLinesList()
         {
             for (int i = container.transform.childCount - 1; i >= 0; i--)
             {
                 Destroy(container.transform.GetChild(i).gameObject);
             }
-            
+
+            int index = 0;
             foreach (var line in _dialogAreaComponent.dialog.lines)
             {
                 GameObject newElement = Instantiate(listElement, container.transform);
-                
-                //TODO: Update lines in UI 
+                newElement.GetComponent<DialogAreaLinesList>().Init(line, index, this);
+                index++;
             }
+        }
+
+        public void DeleteLineFromList(int index)
+        {
+            _dialogAreaComponent.dialog.lines.RemoveAt(index);
+            LevelEditorFileManager.Instance.QuickSave();
+            UpdateDialogLinesList();
         }
     }
 }

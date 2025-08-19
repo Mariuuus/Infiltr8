@@ -28,6 +28,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public /*IPlaceable<LaptopComponent>*/ GameObject goalObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject portObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject onlyPlayerWall;
+        public GameObject dialogAreaObject;
         
         [Header("Player")]
         public GameObject playerObject;
@@ -132,6 +133,12 @@ namespace __ProjectMain.Scripts.Managers.Level
                     {
                         var newObj = Instantiate(onlyPlayerWall);
                         newObj.GetComponent<OnlyPlayerDoorPlacer>().Place(onlyPlayerWallComponent, playerObject.GetComponent<CapsuleCollider>());
+                        break;
+                    }
+                    case DialogAreaComponent dialogAreaComponent:
+                    {
+                        var newObj = Instantiate(dialogAreaObject);
+                        newObj.GetComponent<DialogAreaPlacer>().Place(dialogAreaComponent);
                         break;
                     }
                 }

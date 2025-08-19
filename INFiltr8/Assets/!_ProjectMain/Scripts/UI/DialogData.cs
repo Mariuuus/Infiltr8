@@ -6,17 +6,18 @@ public enum DialoqType
     AREA, NPC
 }
 
-[CreateAssetMenu(fileName = "DialogData", menuName = "Scriptable Objects/DialogData")]
-public class DialogData : ScriptableObject
+//[CreateAssetMenu(fileName = "DialogData", menuName = "Scriptable Objects/DialogData")]
+[System.Serializable]
+public class DialogData
 {
     public string dialogName;
     public DialoqType trigger;
-    public CharacterData character;
-    public List<string> lines;
+    public string character = "";
+    public List<string> lines = new List<string>();
 }
 
-[CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/DialogData")]
-public class CharacterData: ScriptableObject
+// [CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/DialogData")]
+public class CharacterData
 {
     public string characterName;
     public Sprite characterSprite;

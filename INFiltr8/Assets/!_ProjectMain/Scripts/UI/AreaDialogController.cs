@@ -4,13 +4,11 @@ using UnityEngine;
 public class AreaDialogController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private DialogData dialog;
+    private DialogData _dialog;
+    private bool dialogTriggered;
     void Start()
     {
-        if (dialog == null)
-        {
-            Debug.LogError("please add a dialog to the npc");
-        }
+        return;
     }
 
     // Update is called once per frame
@@ -21,10 +19,16 @@ public class AreaDialogController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !dialogTriggered)
         {
+            dialogTriggered = true;
             Debug.Log("triggered");
-            DialogManager.Instance.StartDialoque(dialog);
+            DialogManager.Instance.StartDialoque(_dialog);
         }
+    }
+
+    public void SetDialog(DialogData d)
+    {
+        this._dialog = d;
     }
 }

@@ -93,10 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e39ccb0d36401d4281969962e42b967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lines:
-  - hi ich bin hackermax
-  - yoyoyo
-  - was geht
   textSpeed: 0.025
   dialogText: {fileID: 7033311829880141624}
   dialogName: {fileID: 580814547267536587}
@@ -386,7 +382,6 @@ GameObject:
   - component: {fileID: 8393732375144579486}
   - component: {fileID: 7879451960697754483}
   - component: {fileID: 3959012442169653030}
-  - component: {fileID: 5073819800915967831}
   m_Layer: 5
   m_Name: DialogCanvas
   m_TagString: Untagged
@@ -477,19 +472,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5073819800915967831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4035683967493148782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14bca62ad8e41014389868fa075dfdc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 170718305910171350}
 --- !u!1 &5518012027397687870
 GameObject:
   m_ObjectHideFlags: 0
