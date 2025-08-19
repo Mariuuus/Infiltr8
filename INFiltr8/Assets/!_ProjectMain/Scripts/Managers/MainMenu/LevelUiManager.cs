@@ -13,15 +13,11 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public void Start()
         {
             var level = LevelDataUtils.GetAvailableLevels().ToArray();
-
-            Debug.Log($"Loaded {level.Length} levels");
-
             for (int i = 0; i < level.Length; i++)
             {
                 var levelData = level[i];
                 var newObject = Instantiate(prefabButton, levelContainer.transform, false);
                 bool available = cheat ? cheat : GameDataManager.Instance.ProgressLevel() >= i;
-                Debug.Log($"{available} at level {i}");
                 newObject.GetComponent<LevelStartButton>().Init(levelData, i+1, available);
             }
         }

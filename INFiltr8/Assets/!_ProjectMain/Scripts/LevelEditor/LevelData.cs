@@ -30,5 +30,12 @@ namespace __ProjectMain.Scripts.LevelEditor
             wallPointTwo = new Vector2Int (size, size);
             components =  new List<LevelComponent>();
         }
+        
+        public LevelData (string levelName, int height, int width) {
+            this.levelName = levelName;
+            wallPointOne = new Vector2Int (0, 0);
+            wallPointTwo = new Vector2Int (width, height);
+            components =  new List<LevelComponent>();
+        }
     }
 }

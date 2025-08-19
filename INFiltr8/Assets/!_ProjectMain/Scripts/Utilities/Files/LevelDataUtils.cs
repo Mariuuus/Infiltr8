@@ -26,6 +26,11 @@ namespace __ProjectMain.Scripts.Utilities.Files
             return path;
         }
         
+        public static void RemoveLocalLevel(string path)
+        {
+            File.Delete(path);
+        }
+        
         public static LevelData LoadFileFromPath(string path)
         {
             if (!File.Exists(path)) throw new FileNotFoundException("No file found");
@@ -71,6 +76,19 @@ namespace __ProjectMain.Scripts.Utilities.Files
             {
                 levels.Add(DeserializeFromString(((TextAsset)file).text));
             }
+            return levels;
+        }
+        
+        public static List<LevelData> GetAvailableLocalLevels()
+        {
+            string searchPath = Application.persistentDataPath;
+            List<LevelData> levels = new List<LevelData>();
+
+            foreach (var level in Directory.GetFiles(searchPath, "*.json", SearchOption.TopDirectoryOnly).ToList())
+            {
+                levels.Add(LoadFile(level.Replace(".json", "").Replace(Application.persistentDataPath + "/", "")));
+            }
+
             return levels;
         }
     }

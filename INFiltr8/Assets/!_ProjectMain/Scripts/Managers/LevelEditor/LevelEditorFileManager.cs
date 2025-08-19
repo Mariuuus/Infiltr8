@@ -38,12 +38,9 @@ namespace __ProjectMain.Scripts.Managers
             }
 
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
-            Debug.Log("LevelFileManager::Init");
-
-            if (LevelFileManager.Instance != null)
+            if (MainMenu.LevelLoaderManager.Instance != null)
             {
-                levelData = LevelFileManager.Instance.LevelToLoad;
+                levelData = MainMenu.LevelLoaderManager.Instance.selectedLevelData;
             }
             else
             {

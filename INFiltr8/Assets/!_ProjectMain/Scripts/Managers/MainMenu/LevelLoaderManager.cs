@@ -34,5 +34,17 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             this.levelIndex = levelIndex;
             SceneManager.LoadScene("LevelLoader");
         }
+        
+        public void LoadLocalLevel(LevelData levelData)
+        {
+            selectedLevelData = levelData;
+            SceneManager.LoadScene("LevelLoader");
+        }
+        
+        public void LoadLocalLevelEdit(LevelData levelData)
+        {
+            selectedLevelData = levelData;
+            SceneManager.LoadScene("LevelEditor");
+        }
     }
 }

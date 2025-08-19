@@ -52,7 +52,7 @@ public class DialogController : MonoBehaviour
     
     public void OnLeftClick(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && isInDialogue)
         {
             nextLine();      
         }
@@ -60,7 +60,7 @@ public class DialogController : MonoBehaviour
 
     public void OnRightClick(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && isInDialogue)
         {
             previousLine();
         }

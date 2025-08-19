@@ -1,4 +1,5 @@
 using __ProjectMain.Scripts.Managers.MainMenu;
+using __ProjectMain.Scripts.UI.LevelEditorMenu;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,6 +9,8 @@ namespace __ProjectMain.Scripts.UI
     {
         [SerializeField] private Vector3 normalScale;
         [SerializeField] private Vector3 hoverScale;
+        
+        [SerializeField] private LevelEditorManager  levelEditorManager;
         public void OnHoverStart()
         {
             transform.localScale = hoverScale;
@@ -22,11 +25,13 @@ namespace __ProjectMain.Scripts.UI
         public void OnClick()
         {
             MainMenuManager.Instance.currentState = State.LevelEditor;
+            levelEditorManager.Show();
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.levelEditorCamera);
         }
 
         public void OnUnclick()
         {
+            levelEditorManager.Hide();
             //do something here lol
         }
     }

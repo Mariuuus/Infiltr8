@@ -40,9 +40,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
             try
             {
                 Debug.Log("Switch to level editor menu state!!!");
-                GlobalGameManager.Instance.GameStateMachine.ChangeState(GlobalGameManager.Instance.GameStateMachine
-                    .LevelEditorMenuState);
-                return;
+                GameDataManager.Instance.SwitchToOverview();
             }
             catch (Exception)
             {

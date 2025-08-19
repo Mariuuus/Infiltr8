@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 
 namespace __ProjectMain.Scripts.Managers
 {
+    //DEPRECATED
     public class LevelFileManager : MonoBehaviour
     {
         public static LevelFileManager Instance { get; private set; }

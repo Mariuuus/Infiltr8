@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//DEPRECATED
 namespace __ProjectMain.Scripts.UI
 {
     public class MainMenu : MonoBehaviour

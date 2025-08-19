@@ -359,7 +359,18 @@
                 {
                     "name": "",
                     "id": "9c49483b-7eda-496c-96a7-979dade22987",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextLine",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "023010c5-662c-4fe0-ade1-edfad6708993",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -370,7 +381,18 @@
                 {
                     "name": "",
                     "id": "90cb2d52-81bf-4eb3-b062-bdf570417972",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrevLine",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f0ec5a5-8792-45db-adf9-9d3f23def408",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

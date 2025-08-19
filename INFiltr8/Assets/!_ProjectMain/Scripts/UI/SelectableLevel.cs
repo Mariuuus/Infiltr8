@@ -3,6 +3,7 @@ using __ProjectMain.Scripts.Managers;
 using TMPro;
 using UnityEngine;
 
+//DEPRECATED
 namespace __ProjectMain.Scripts.UI
 {
     public class SelectableLevel : MonoBehaviour
