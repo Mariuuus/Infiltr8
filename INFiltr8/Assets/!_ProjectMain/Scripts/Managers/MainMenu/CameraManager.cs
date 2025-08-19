@@ -11,6 +11,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public CinemachineCamera overviewCamera;
         public CinemachineCamera levelEditorCamera;
         public CinemachineCamera levelSelectorCamera;
+        public CinemachineCamera settingsCamera;
         public PlayableDirector introDirector;
         
         private CinemachineCamera _currentCamera;
@@ -55,6 +56,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             overviewCamera.gameObject.SetActive(false);
             levelEditorCamera.gameObject.SetActive(false);
             levelSelectorCamera.gameObject.SetActive(false);
+            settingsCamera.gameObject.SetActive(false);
         }
 
         public void PlayIntro()

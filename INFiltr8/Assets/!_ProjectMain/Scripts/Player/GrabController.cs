@@ -15,6 +15,9 @@ namespace __ProjectMain.Scripts.Player
         [Header("Pickup Settings")]
         [SerializeField] private float pickupForce = 150.0f;
         [SerializeField] private float dropDistance = 3.5f;
+
+        [SerializeField] private AudioClip grabSound;
+        [SerializeField] private AudioClip dropSound;
         
         public bool IsGrabbing {private set; get;} = false;
         public GameObject HeldObj {private set; get;}
@@ -58,7 +61,9 @@ namespace __ProjectMain.Scripts.Player
             }
             Physics.IgnoreCollision(GetComponent<Collider>(), obj.GetComponent<Collider>(), true);
             GetComponent<PlayerController>().UpdateInteractionUI();
-
+            //play sfx
+            SFXManager.instance.PlaySFXClip(grabSound,1f);
+            
         }
         
         public void DropObject(GameObject obj)
@@ -73,6 +78,8 @@ namespace __ProjectMain.Scripts.Player
                 
             Physics.IgnoreCollision(GetComponent<Collider>(), obj.GetComponent<Collider>(), false);
             GetComponent<PlayerController>().UpdateInteractionUI();
+            //play sfx
+            SFXManager.instance.PlaySFXClip(dropSound, 1f);
         }
         
         public void OnGrab(InputAction.CallbackContext context)

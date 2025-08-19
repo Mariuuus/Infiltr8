@@ -19,6 +19,7 @@ namespace __ProjectMain.Scripts.Objects
 
         [SerializeField] private GameObject doorUIPrefab;
         [SerializeField] private AudioClip doorOpenSound;
+        [SerializeField] private AudioClip doorCloseSound;
 
 
         void Start()
@@ -111,6 +112,8 @@ namespace __ProjectMain.Scripts.Objects
                     StopAllCoroutines();
                     transform.position = _initialPos;
                     _open = false;
+                    // play sfx
+                    SFXManager.instance.PlaySFXClip(doorCloseSound, 1f);
                 }
             }
         }

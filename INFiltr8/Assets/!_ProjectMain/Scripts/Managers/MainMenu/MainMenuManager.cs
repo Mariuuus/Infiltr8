@@ -11,7 +11,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
 
     public enum State
     {
-        Intro, Overview, LevelEditor, LevelSelect
+        Intro, Overview, LevelEditor, LevelSelect, Settings
     }
     public class MainMenuManager : MonoBehaviour
     {
