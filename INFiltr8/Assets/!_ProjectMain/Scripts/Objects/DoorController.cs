@@ -13,7 +13,7 @@ namespace __ProjectMain.Scripts.Objects
     public class DoorController : MonoBehaviour
     {
         public List<HackStatusAmount> requiredHackStatusAmounts = new List<HackStatusAmount>();
-        public bool Open {private set; get;}
+        public bool Open { private set; get; } = false;
         
         private readonly Dictionary<HackStatus, int> _hackAmounts = new Dictionary<HackStatus, int>();
         private GameObject _doorUI;
@@ -21,12 +21,13 @@ namespace __ProjectMain.Scripts.Objects
 
         [SerializeField] private GameObject doorUIPrefab;
         [SerializeField] private AudioClip doorOpenSound;
+        [SerializeField] private AudioClip doorCloseSound;
 
         private List<ActivationPlateController> _activationPlates;
         
         public void RecalculateDoorRequirements()
         {
-            _hackAmounts.Clear();
+            ResetHackRequirements();
             foreach (var plates in _activationPlates)
             {
                 foreach (var keyValueP in plates.HacksOnPlate)
@@ -36,26 +37,32 @@ namespace __ProjectMain.Scripts.Objects
             }
             PrintAmounts();
             CheckHackStatus();
+            UpdateDoorUI();
+        }
+
+        private void ResetHackRequirements()
+        {
+            _hackAmounts.Clear();
+            _hackAmounts.Add(HackStatus.RedHacked, 0);
+            _hackAmounts.Add(HackStatus.BlueHacked, 0);
+            _hackAmounts.Add(HackStatus.GreenHacked, 0);
+            _hackAmounts.Add(HackStatus.YellowHacked, 0);
         }
 
         public void AddActivationPlate(ActivationPlateController activationPlates)
         {
+            Debug.Log("Adding activation plate");
             _activationPlates.Add(activationPlates);
         }
 
 
         void Start()
         {
-            _hackAmounts.Add(HackStatus.RedHacked, 0);
-            _hackAmounts.Add(HackStatus.BlueHacked, 0);
-            _hackAmounts.Add(HackStatus.GreenHacked, 0);
-            _hackAmounts.Add(HackStatus.YellowHacked, 0);
-
+            _activationPlates = new List<ActivationPlateController>();
+            ResetHackRequirements();
             _initialPos = transform.position;
-            //Debug.Log(_initialPos);
-
-            UpdateDoorUI();
             PrintAmounts();
+            UpdateDoorUI();
         }
 
         public void PrintAmounts()
@@ -71,8 +78,19 @@ namespace __ProjectMain.Scripts.Objects
 
         private void CheckHackStatus()
         {
-            
-            //HACKED:
+            bool open = true;
+            foreach (var hack in requiredHackStatusAmounts)
+            {
+                if (_hackAmounts[hack.hackStatus] < hack.amount)
+                {
+                    open = false;
+                }       
+            }
+
+            if (open == Open) return;
+            if (open)
+            {
+                //HACKED:
                 // open door
                 StopAllCoroutines();
                 transform.position = _initialPos;
@@ -80,16 +98,20 @@ namespace __ProjectMain.Scripts.Objects
                 Open = true;
                 // play sfx
                 SFXManager.instance.PlaySFXClip(doorOpenSound, 1f);
-            
-            //UNHACKED:
+            }
+            else
+            {
+                //UNHACKED:
                 // close door, if it was open previously
                 if (Open)
                 {
                     StopAllCoroutines();
                     transform.position = _initialPos;
                     Open = false;
+                    // play sfx
+                    SFXManager.instance.PlaySFXClip(doorCloseSound, 1f);
                 }
-            
+            }
         }
 
         private IEnumerator MoveDoor(Vector3 targetPos)

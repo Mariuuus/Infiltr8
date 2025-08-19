@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using __ProjectMain.Scripts.LevelEditor.Types;
 using __ProjectMain.Scripts.Player;
@@ -20,16 +21,9 @@ namespace __ProjectMain.Scripts.Objects
         public DoorController Door { get; private set;}
 
         [SerializeField] private ActivationPlateUIController uIController;
-    
-        private void Start()
-        {
-            if (activationDoor != null)
-            {
-                Door = activationDoor.GetComponent<DoorController>();
-            }
 
-            Door.AddActivationPlate(this);
-            
+        public void Awake()
+        {
             HacksOnPlate = new Dictionary<HackStatus, int>
             {
                 [HackStatus.BlueHacked] = 0,
@@ -37,14 +31,42 @@ namespace __ProjectMain.Scripts.Objects
                 [HackStatus.GreenHacked] = 0,
                 [HackStatus.YellowHacked] = 0
             };
+        }
+
+        private void Start()
+        {
+            if (activationDoor != null)
+            {
+                Door = activationDoor.GetComponent<DoorController>();
+            }
+            Debug.Log(activationDoor);
+            Debug.Log(Door);
+
+            Door.AddActivationPlate(this);
 
             UpdateUI();
         }
-
+        
         public void ChangeHackStatus(HackStatus remove, HackStatus add)
         {
             HacksOnPlate[remove]--;
             HacksOnPlate[add]++;
+            Door.RecalculateDoorRequirements();
+        }
+        
+        public void AddHackStatus( HackStatus add)
+        {
+            HacksOnPlate[add]++;
+            Door.RecalculateDoorRequirements();
+            UpdateUI();
+        }
+        
+        
+        public void RemoveHackStatus(HackStatus remove)
+        {
+            HacksOnPlate[remove]--;
+            Door.RecalculateDoorRequirements();
+            UpdateUI();
         }
 
         private int GetDevicesOnPlate()
@@ -70,7 +92,7 @@ namespace __ProjectMain.Scripts.Objects
             if (other.CompareTag("Interactable"))
             {
                 var hackObj = other.GetComponent<HackableDevice>();
-                hackObj.SetController(this.Door);
+                hackObj.SetController(this);
 
                 if (!hackObj.UnHacked)
                 {

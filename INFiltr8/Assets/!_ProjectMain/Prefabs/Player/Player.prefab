@@ -188,7 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rotationSpeed: 960
   playerRange: 3
   interactionImage: {fileID: 0}
   rb: {fileID: 7546238772196742876}
@@ -348,6 +347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupForce: 150
   dropDistance: 3.5
+  grabSound: {fileID: 8300000, guid: 31380e1fede271b4a980604aa642f836, type: 3}
+  dropSound: {fileID: 8300000, guid: 45887576d56cf9443a4cceb395ea35c7, type: 3}
   grabPos: {fileID: 5377559509108124330}
 --- !u!114 &8138450364599475844
 MonoBehaviour:

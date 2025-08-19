@@ -53,7 +53,7 @@ namespace __ProjectMain.Scripts.Objects
 
         private void ResetHackStatus()
         {
-            _plate.UnHack(GetHackColor());
+            _plate?.RemoveHackStatus(GetHackColor());
             pRenderer.material = unHackedMaterial;
             UnHacked = true;
         }
@@ -83,17 +83,18 @@ namespace __ProjectMain.Scripts.Objects
         public void ChangeMaterial(HackStatus color)
         {
             if (_onCooldown) return;
-        
-            _plate?.ChangeHackStatus(hackColor, color);
+            Debug.Log(_plate);
+            if(!UnHacked) _plate?.ChangeHackStatus(hackColor, color);
+            if(UnHacked) _plate?.AddHackStatus(color);
 
             StartCoroutine(Cooldown());
-            StartCoroutine(IpdateUIPos());
+            StartCoroutine(UpdateUIPos());
             StartCoroutine(UpdateUIFill()); 
             SetMaterial(color);
             hackColor = color;
         }
 
-        IEnumerator IpdateUIPos()
+        IEnumerator UpdateUIPos()
         {
             while (_onCooldown)
             {

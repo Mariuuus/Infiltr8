@@ -86,22 +86,25 @@ namespace __ProjectMain.Scripts.Managers.Level
 
             SpawnPointComponent spawnPoint = null;
             
+            var firewalls = LevelEditorUtils.FilterComponents((lvlData.components), typeof(FireWallComponent));
+            foreach (var levelComponent in firewalls)
+            {
+                var fireWallComponent = (FireWallComponent)levelComponent;
+                var newFirewall = Instantiate(fireWallObject);
+                newFirewall.GetComponent<FireWallPlacer>().Place(fireWallComponent);
+                foreach (var activationComponent  in fireWallComponent.activationPlates)
+                {
+                    var newActivationPlate = Instantiate(activationObject);
+                    newActivationPlate.GetComponent<ActivationPlatePlacer>().Place(activationComponent, newFirewall, fireWallComponent);
+                }
+            }
+            
             // place each component
             foreach (var component in lvlData.components)
             {
                 switch (component)
                 {
-                    case FireWallComponent fireWallComponent:
-                    {
-                        var newFirewall = Instantiate(fireWallObject);
-                        newFirewall.GetComponent<FireWallPlacer>().Place(fireWallComponent);
-                        foreach (var activationComponent  in fireWallComponent.activationPlates)
-                        {
-                            var newActivationPlate = Instantiate(activationObject);
-                            newActivationPlate.GetComponent<ActivationPlatePlacer>().Place(activationComponent, newFirewall, fireWallComponent);
-                        }
-                        break;
-                    }
+                    
                     case WallComponent wallComponent:
                     {
                         var newObj = Instantiate(wallObject);
