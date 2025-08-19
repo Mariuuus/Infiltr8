@@ -99,7 +99,8 @@ namespace __ProjectMain.Scripts.UI.Controls
                     break;
                 case Device.Keyboard: 
                 default:
-                    //TODO
+                    gamepadUI.SetActive(false);
+                    keyboardUI.SetActive(true);
                     break;
             }
         }

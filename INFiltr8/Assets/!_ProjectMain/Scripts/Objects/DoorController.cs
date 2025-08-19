@@ -6,19 +6,42 @@ using __ProjectMain.Scripts.UI;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace __ProjectMain.Scripts.Objects
 {
     public class DoorController : MonoBehaviour
     {
         public List<HackStatusAmount> requiredHackStatusAmounts = new List<HackStatusAmount>();
+        public bool Open {private set; get;}
+        
         private readonly Dictionary<HackStatus, int> _hackAmounts = new Dictionary<HackStatus, int>();
-        private bool _open;
         private GameObject _doorUI;
         private Vector3 _initialPos;
 
         [SerializeField] private GameObject doorUIPrefab;
         [SerializeField] private AudioClip doorOpenSound;
+
+        private List<ActivationPlateController> _activationPlates;
+        
+        public void RecalculateDoorRequirements()
+        {
+            _hackAmounts.Clear();
+            foreach (var plates in _activationPlates)
+            {
+                foreach (var keyValueP in plates.HacksOnPlate)
+                {
+                    _hackAmounts[keyValueP.Key] += keyValueP.Value;
+                }
+            }
+            PrintAmounts();
+            CheckHackStatus();
+        }
+
+        public void AddActivationPlate(ActivationPlateController activationPlates)
+        {
+            _activationPlates.Add(activationPlates);
+        }
 
 
         void Start()
@@ -46,85 +69,27 @@ namespace __ProjectMain.Scripts.Objects
             
         }
 
-        public void IncreaseHackStatus(HackStatus hackColor)
-        {
-            for (int i = 0; i < requiredHackStatusAmounts.Count; i++)
-            {
-                if (requiredHackStatusAmounts[i].hackStatus == hackColor)
-                {
-                    Debug.Log("door detected new object");
-                    _hackAmounts[hackColor]++;
-                    UpdateDoorUI();
-                    CheckHackStatus();
-                }
-            }
-            PrintAmounts();
-        }
-
-        public void DecreaseHackStatus(HackStatus hackColor)
-        {
-            for (int i = 0; i < requiredHackStatusAmounts.Count; i++)
-            {
-                if (requiredHackStatusAmounts[i].hackStatus == hackColor)
-                {
-                    if (_hackAmounts[hackColor] > 0)
-                    {
-                        Debug.Log("removed object from door");
-                        _hackAmounts[hackColor]--;
-                        UpdateDoorUI();
-                        CheckHackStatus();
-                    }
-                }
-            }
-        }
-
-        public void HackChangeOfObjectInTrigger(HackStatus prevStatus, HackStatus newStatus)
-        {
-            DecreaseHackStatus(prevStatus);
-            IncreaseHackStatus(newStatus);
-        }
-
         private void CheckHackStatus()
         {
-            int hacked = 0;
-
-            foreach (var c in _hackAmounts)
-            {
-                hacked += c.Value;
-            }
-
-            if (hacked >= GetRequiredHackAmount())
-            {
+            
+            //HACKED:
                 // open door
                 StopAllCoroutines();
                 transform.position = _initialPos;
                 StartCoroutine(MoveDoor(new Vector3(0, -2.01f, 0)));
-                _open = true;
+                Open = true;
                 // play sfx
                 SFXManager.instance.PlaySFXClip(doorOpenSound, 1f);
-            }
-            else
-            {
+            
+            //UNHACKED:
                 // close door, if it was open previously
-                if (_open)
+                if (Open)
                 {
                     StopAllCoroutines();
                     transform.position = _initialPos;
-                    _open = false;
+                    Open = false;
                 }
-            }
-        }
-
-        private int GetRequiredHackAmount()
-        {
-            int res = 0;
-
-            foreach (var c in requiredHackStatusAmounts)
-            {
-                res += c.amount;
-            }
-
-            return res;
+            
         }
 
         private IEnumerator MoveDoor(Vector3 targetPos)
@@ -147,9 +112,6 @@ namespace __ProjectMain.Scripts.Objects
 
                 yield return null;
             }
-
-            // Vector3 doorPosition = transform.position;
-            // transform.position = Vector3.Lerp(doorPosition, doorPosition + new Vector3(0, yDirection, 0), 0.3f);
         }
 
         public void UpdateDoorUI()

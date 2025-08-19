@@ -16,7 +16,7 @@ namespace __ProjectMain.Scripts.Managers
         
         public Device usedDevice = Device.Keyboard;
         
-        private List<IControlsListener> _listeners = new List<IControlsListener>();
+        private List<IControlsListener> _listeners;
 
         public void AddSubscriber(IControlsListener listener)
         {
@@ -46,6 +46,7 @@ namespace __ProjectMain.Scripts.Managers
             }
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            _listeners = new List<IControlsListener>();
         }
 
         public void OnControlsChanged(PlayerInput input)

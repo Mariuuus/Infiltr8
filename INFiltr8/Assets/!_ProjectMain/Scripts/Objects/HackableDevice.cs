@@ -32,12 +32,13 @@ namespace __ProjectMain.Scripts.Objects
         [SerializeField] private MeshRenderer pRenderer;
     
         [SerializeField] private Canvas countdownUI;
+        
         private Canvas _countDownUIInstance;
         private bool _onCooldown = false;
-        private DoorController _door = null;
+        private ActivationPlateController _plate = null;
 
-        public void SetController(DoorController door) => _door = door;
-        public void ResetController() => _door = null;
+        public void SetController(ActivationPlateController door) => _plate = door;
+        public void ResetController() => _plate = null;
 
         public void Start()
         {
@@ -52,6 +53,7 @@ namespace __ProjectMain.Scripts.Objects
 
         private void ResetHackStatus()
         {
+            _plate.UnHack(GetHackColor());
             pRenderer.material = unHackedMaterial;
             UnHacked = true;
         }
@@ -82,7 +84,7 @@ namespace __ProjectMain.Scripts.Objects
         {
             if (_onCooldown) return;
         
-            _door?.HackChangeOfObjectInTrigger(hackColor, color);
+            _plate?.ChangeHackStatus(hackColor, color);
 
             StartCoroutine(Cooldown());
             StartCoroutine(IpdateUIPos());

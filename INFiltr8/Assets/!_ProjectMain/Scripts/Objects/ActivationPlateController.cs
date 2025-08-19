@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using __ProjectMain.Scripts.LevelEditor.Types;
+using __ProjectMain.Scripts.Player;
 using __ProjectMain.Scripts.UI;
 using TMPro;
 using Unity.Mathematics;
@@ -11,8 +14,8 @@ namespace __ProjectMain.Scripts.Objects
 
         [SerializeField]
         private int deviceLimit = 0;
-    
-        private int _deviceAmount = 0;
+
+        public Dictionary<HackStatus, int> HacksOnPlate {private set; get;}
         private TextMeshPro _plateUI;
         public DoorController Door { get; private set;}
 
@@ -25,12 +28,40 @@ namespace __ProjectMain.Scripts.Objects
                 Door = activationDoor.GetComponent<DoorController>();
             }
 
+            Door.AddActivationPlate(this);
+            
+            HacksOnPlate = new Dictionary<HackStatus, int>
+            {
+                [HackStatus.BlueHacked] = 0,
+                [HackStatus.RedHacked] = 0,
+                [HackStatus.GreenHacked] = 0,
+                [HackStatus.YellowHacked] = 0
+            };
+
             UpdateUI();
         }
 
+        public void ChangeHackStatus(HackStatus remove, HackStatus add)
+        {
+            HacksOnPlate[remove]--;
+            HacksOnPlate[add]++;
+        }
+
+        private int GetDevicesOnPlate()
+        {
+            int sum = 0;
+            foreach (var keyPairs in HacksOnPlate)
+            {
+                sum += keyPairs.Value;
+            }
+
+            return sum;
+        }
+        
+
         public void UpdateUI()
         {
-            uIController.UpdateUI(_deviceAmount, deviceLimit);
+            uIController.UpdateUI(GetDevicesOnPlate(), deviceLimit);
         }
     
 
@@ -38,30 +69,34 @@ namespace __ProjectMain.Scripts.Objects
         {
             if (other.CompareTag("Interactable"))
             {
-                other.GetComponent<HackableDevice>()?.SetController(this.Door);
-                
-                if (_deviceAmount < deviceLimit)
+                var hackObj = other.GetComponent<HackableDevice>();
+                hackObj.SetController(this.Door);
+
+                if (!hackObj.UnHacked)
                 {
-                    var color = other.GetComponent<HackableDevice>();
-                    if(!color.UnHacked) Door.IncreaseHackStatus(color.GetHackColor());    
+                    HacksOnPlate[hackObj.GetHackColor()]++;
+                    
+                    if (GetDevicesOnPlate() <= deviceLimit) Door.RecalculateDoorRequirements();
                 }
-                _deviceAmount++;
+                
                 UpdateUI();
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            other.GetComponent<HackableDevice>()?.ResetController();
-            Debug.Log("Leave Trigger");
-            if (other.CompareTag("Interactable") && _deviceAmount > 0)
+            if (other.CompareTag("Interactable"))
             {
-                _deviceAmount--;
-                if (_deviceAmount < deviceLimit)
+                var hackObj = other.GetComponent<HackableDevice>();
+                hackObj.ResetController();
+
+                if (!hackObj.UnHacked)
                 {
-                    var color = other.GetComponent<HackableDevice>();
-                    if(!color.UnHacked) Door.DecreaseHackStatus(color.GetHackColor());    
+                    HacksOnPlate[hackObj.GetHackColor()]--;
+                    
+                    if (GetDevicesOnPlate() <= deviceLimit) Door.RecalculateDoorRequirements();
                 }
+                
                 UpdateUI();
             }
         }
