@@ -42,9 +42,10 @@ public class DialogController : MonoBehaviour
         index = 0;
         dialogText.SetText(String.Empty);
         dialogueAmountText.SetText("0 / 0");
-        lines = d.msg;
-        dialogName.SetText(d.npc_name);
-        dialogImage.GetComponent<Image>().sprite = d.avatar;
+        lines = d.lines;
+        dialogName.SetText(d.dialogName);
+        // dialogImage.GetComponent<Image>().sprite = d.image;
+        // TODO: add enum to map character images
         startDialogueLines();
         return true;
     }

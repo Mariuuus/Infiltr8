@@ -3438,7 +3438,7 @@ MonoBehaviour:
   fireWallSettings: {fileID: 1056220170}
   activationPlateSettings: {fileID: 2064654072}
   laptopSettings: {fileID: 463811331}
-  dialogAreaSettings: {fileID: 0}
+  dialogAreaSettings: {fileID: 1203741449}
   hoverTile: {fileID: 11400000, guid: 29686d863a4e3d44ba016793457e1271, type: 2}
   deleteTile: {fileID: 11400000, guid: be9b9d3fa8534364cb57bbaabc4ac289, type: 2}
   spawnTile: {fileID: 11400000, guid: 0a38f88ea1e058941b14155bbd31bcc7, type: 2}
@@ -3447,6 +3447,7 @@ MonoBehaviour:
   activationPlateTile: {fileID: 11400000, guid: 84e2b5f04531f9b4293125a74a99be37, type: 2}
   portTile: {fileID: 11400000, guid: 126f7cdba45ed3c438ddd3fea2035119, type: 2}
   onlyPlayerWallTile: {fileID: 11400000, guid: 1a35340483cdc065f9262ffd91586c18, type: 2}
+  dialogAreaTile: {fileID: 11400000, guid: 701559fc96a277f4b9c29c046fdcc2bd, type: 2}
   wallBuildSprite: {fileID: 21300000, guid: c80beb8dd61a54c48bc257b7e29aa5b4, type: 3}
   fireWallBuildSprite: {fileID: 21300000, guid: ef05a94fd79e6034bb32734df9cc2b40, type: 3}
   spawnPointSprite: {fileID: 21300000, guid: 0000f14e62003df4a8132eebafcab80b, type: 3}
@@ -3456,6 +3457,7 @@ MonoBehaviour:
   adjustComponentsSprite: {fileID: 21300000, guid: 0b7edcdba2d507f4a9a51f18ada804b9, type: 3}
   portBuildSprite: {fileID: 21300000, guid: 7961f007ae93da8bf89b520c103ea923, type: 3}
   onlyPlayerWallSprite: {fileID: 21300000, guid: f0680f47c9a014344b2eddd9e5bbce30, type: 3}
+  dialogAreaSprite: {fileID: 21300000, guid: 5defbbb382a3b074e8611d19748988b1, type: 3}
 --- !u!1 &700096945
 GameObject:
   m_ObjectHideFlags: 0

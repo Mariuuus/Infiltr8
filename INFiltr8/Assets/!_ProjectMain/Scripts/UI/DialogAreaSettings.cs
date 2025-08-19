@@ -27,14 +27,14 @@ namespace __ProjectMain.Scripts.UI
 
         public void OnDialogNameChange(string dialogName)
         {
-            _dialogAreaComponent.dialog.npc_name = dialogName;
+            _dialogAreaComponent.dialog.dialogName = dialogName;
             LevelEditorFileManager.Instance.QuickSave();
         }
 
         public void OnAddDialogLine(string newLine)
         {
             if (newLine.Length == 0) throw new InvalidLevelEditorActionException("new Dialog Line cant be empty");
-            _dialogAreaComponent.dialog.msg.Add(newLine);
+            _dialogAreaComponent.dialog.lines.Add(newLine);
             updateDialogLinesList();
             LevelEditorFileManager.Instance.QuickSave();
         }
@@ -52,7 +52,7 @@ namespace __ProjectMain.Scripts.UI
                 Destroy(container.transform.GetChild(i).gameObject);
             }
             
-            foreach (var line in _dialogAreaComponent.dialog.msg)
+            foreach (var line in _dialogAreaComponent.dialog.lines)
             {
                 GameObject newElement = Instantiate(listElement, container.transform);
                 

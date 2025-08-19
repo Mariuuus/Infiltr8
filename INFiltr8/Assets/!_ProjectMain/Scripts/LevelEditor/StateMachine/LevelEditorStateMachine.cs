@@ -21,6 +21,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         public DeleteComponentsState DeleteComponentsState { get; } = new();
         public AdjustComponentState AdjustComponentState { get; } = new();
         public PortBuildState PortBuildState { get; } = new();
+        public DialogAreaBuildState DialogAreaBuildState { get; } = new();
         
         /*
          * This works for overwriting the "normal" State Machine

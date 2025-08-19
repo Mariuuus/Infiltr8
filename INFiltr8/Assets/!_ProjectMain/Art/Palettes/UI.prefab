@@ -52,6 +52,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1342177279
+  - first: {x: 3, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 1
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -4, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -77,11 +87,11 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 3
       m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 1
+      m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1342177279
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
@@ -92,6 +102,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 126f7cdba45ed3c438ddd3fea2035119, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 1a35340483cdc065f9262ffd91586c18, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 701559fc96a277f4b9c29c046fdcc2bd, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: cf841d5dec6230612a947b6dd3373fc0, type: 3}
@@ -101,8 +113,10 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 7961f007ae93da8bf89b520c103ea923, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 221377e44314720fa8be820b43874594, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 9880b5ac3c1b06c43a4a3ce97022f82b, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 3
+  - m_RefCount: 4
     m_Data:
       e00: 1
       e01: 0
@@ -139,7 +153,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -262,7 +276,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &3987469573492770542
+--- !u!114 &4131156650714056017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

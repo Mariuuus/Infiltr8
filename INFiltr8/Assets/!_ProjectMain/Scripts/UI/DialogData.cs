@@ -9,8 +9,15 @@ public enum DialoqType
 [CreateAssetMenu(fileName = "DialogData", menuName = "Scriptable Objects/DialogData")]
 public class DialogData : ScriptableObject
 {
-    public string npc_name;
+    public string dialogName;
     public DialoqType trigger;
-    public Sprite avatar;
-    public List<string> msg;
+    public CharacterData character;
+    public List<string> lines;
+}
+
+[CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/DialogData")]
+public class CharacterData: ScriptableObject
+{
+    public string characterName;
+    public Sprite characterSprite;
 }

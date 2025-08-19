@@ -42,6 +42,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile activationPlateTile;
         public Tile portTile;
         public Tile onlyPlayerWallTile;
+        public Tile dialogAreaTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
@@ -53,6 +54,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite adjustComponentsSprite;
         public Sprite portBuildSprite;
         public Sprite onlyPlayerWallSprite;
+        public Sprite dialogAreaSprite;
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -90,6 +92,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.AdjustComponentState,
                 _levelEditorStateMachine.LaptopBuildState,
                 _levelEditorStateMachine.PortBuildState,
+                _levelEditorStateMachine.DialogAreaBuildState,
             };
             
             foreach (var state in _selectableStates)
@@ -149,6 +152,17 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                     LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), activationPlateTile);
                 }
                 
+            }
+
+            foreach (var dialogArea in LevelEditorUtils.FilterComponents(
+                LevelEditorFileManager.Instance.levelData.components, typeof(DialogAreaComponent)))
+            {
+                var dialog = ((DialogAreaComponent) dialogArea);
+
+                foreach (var pos in dialog.GetPointsInBetween())
+                {
+                    LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), dialogAreaTile);
+                }
             }
         }
 
