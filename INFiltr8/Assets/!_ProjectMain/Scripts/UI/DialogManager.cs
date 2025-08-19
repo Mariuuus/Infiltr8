@@ -34,12 +34,16 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void StartDialoque(DialogData d)
+    public bool StartDialoque(DialogData d)
     {
+        // Debug.Log(dialogueBox.activeSelf);
         dialogueBox.SetActive(true);
         if (_dialogController != null)
         {
-            _dialogController.LoadNewDialogue(d);
+           // Debug.Log(dialogueBox.activeSelf);
+            return _dialogController.LoadNewDialogue(d);
         }
+
+        return false;
     }
 }

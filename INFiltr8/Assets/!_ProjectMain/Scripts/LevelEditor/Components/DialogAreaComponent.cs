@@ -14,7 +14,6 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         public DialogAreaComponent(Vector2Int startPoint, Vector2Int endPoint, LevelData levelData) : base(startPoint,
             endPoint, levelData)
         {
-            Debug.Log("got called");
             this.dialog = new DialogData();
         }
 

@@ -27,7 +27,7 @@ public class DialogController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         //dialogText.SetText(string.Empty);
         //dialogName.SetText("hackermax");
         // startDialogueLines();
@@ -37,7 +37,7 @@ public class DialogController : MonoBehaviour
     {
         if (isInDialogue) return false;
         
-        gameObject.SetActive(true);
+        // gameObject.SetActive(true);
         isInDialogue = true;
         index = 0;
         dialogText.SetText(String.Empty);

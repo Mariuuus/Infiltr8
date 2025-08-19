@@ -17,13 +17,12 @@ public class AreaDialogController : MonoBehaviour
         return; 
     }
 
+    //TODO: check when player is standing inside but not triggered yet (like with laptops)
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !dialogTriggered)
         {
-            dialogTriggered = true;
-            Debug.Log("triggered");
-            DialogManager.Instance.StartDialoque(_dialog);
+            dialogTriggered = DialogManager.Instance.StartDialoque(_dialog);
         }
     }
 

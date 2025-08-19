@@ -19,6 +19,7 @@ namespace __ProjectMain.Scripts.UI
         public void Show(DialogAreaComponent dialogAreaComponent)
         {
             this._dialogAreaComponent = dialogAreaComponent;
+            this.dialogNameField.text = _dialogAreaComponent.dialog.dialogName;
             UpdateDialogLinesList();
             this.gameObject.SetActive(true);
         }

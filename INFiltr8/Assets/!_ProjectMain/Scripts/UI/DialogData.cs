@@ -22,3 +22,5 @@ public class CharacterData
     public string characterName;
     public Sprite characterSprite;
 }
+
+// add character enum later
