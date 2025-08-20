@@ -12,7 +12,7 @@ public class DialogData
 {
     public string dialogName;
     public DialoqType trigger;
-    public string character = "";
+    public characters character = characters.None;
     public List<string> lines = new List<string>();
 }
 
@@ -23,4 +23,9 @@ public class CharacterData
     public Sprite characterSprite;
 }
 
-// add character enum later
+public enum characters
+{
+    None,
+    USBStick,
+    Schlappy,
+}

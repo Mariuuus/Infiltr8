@@ -19,8 +19,7 @@ public class DialogManager : MonoBehaviour
         {
             Instance = this;
         }
-        
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject); -> loses reference!
     }
     void Start()
     {
