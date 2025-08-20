@@ -1,3 +1,4 @@
+using System;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.Managers;
 using __ProjectMain.Scripts.Managers.LevelEditor;
@@ -10,8 +11,9 @@ namespace __ProjectMain.Scripts.UI
     public class DialogAreaSettings : MonoBehaviour
     {
         private DialogAreaComponent _dialogAreaComponent;
-        public TMP_InputField dialogNameField;
-        public TMP_InputField newLineField;
+        [SerializeField] private TMP_InputField dialogNameField;
+        [SerializeField] private TMP_InputField newLineField;
+        [SerializeField] private TMP_Dropdown dropdown;
         
         [SerializeField] private GameObject container;
         [SerializeField] private GameObject listElement;
@@ -21,6 +23,13 @@ namespace __ProjectMain.Scripts.UI
             this._dialogAreaComponent = dialogAreaComponent;
             this.dialogNameField.text = _dialogAreaComponent.dialog.dialogName;
             UpdateDialogLinesList();
+            dropdown.options.Clear();
+            foreach (var character in Enum.GetValues(typeof(characters)))
+            {
+                dropdown.options.Add(new TMP_Dropdown.OptionData(character.ToString()));
+            }
+
+            dropdown.value = ((Int32) _dialogAreaComponent.dialog.character);
             this.gameObject.SetActive(true);
         }
 
@@ -45,10 +54,15 @@ namespace __ProjectMain.Scripts.UI
             newLineField.text = string.Empty;
         }
 
-        public void onAddDialogImage()
+        public void OnCharacterSelect(Int32 option)
         {
             // TODO: think of a way on how to "upload" a picture, or we always just use the standard icon (walkie talkie)
             // Marius: maybe we should use a selector to choose 4/5 different characters (-> more diverse, but "fairly easy" to implement)
+
+            _dialogAreaComponent.dialog.character = (characters) option;
+            _dialogAreaComponent.dialog.dialogName = ((characters) option).ToString();
+            dialogNameField.text = _dialogAreaComponent.dialog.dialogName;
+            LevelEditorFileManager.Instance.QuickSave();
         }
 
         public void UpdateDialogLinesList()

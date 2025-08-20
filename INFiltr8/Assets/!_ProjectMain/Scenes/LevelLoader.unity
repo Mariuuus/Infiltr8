@@ -639,6 +639,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8012211458333626333, guid: ee1fd4609803a7245bd698499276d66f, type: 3}
+      propertyPath: usbSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd02090c80bf90749963dcd89664e036, type: 3}
+    - target: {fileID: 8012211458333626333, guid: ee1fd4609803a7245bd698499276d66f, type: 3}
+      propertyPath: laptopSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 78c4b67787f559d469e6ad5654301c15, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2028,7 +2036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745b5f39839b46039f398486c595d86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallbackLevelName: Untitled_Level_01
+  fallbackLevelName: Level08
   floorObject: {fileID: 1997971157313656597, guid: 38c62ee730210170997af7209e2c19b1, type: 3}
   wallObject: {fileID: 4166579851043906467, guid: cd41d262d624ed3b5be2f57a0a489aea, type: 3}
   fireWallObject: {fileID: 8794531009927736383, guid: b535cf5e653a961d2a5793ac634494aa, type: 3}
