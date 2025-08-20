@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -44,25 +45,33 @@ namespace __ProjectMain.Scripts.Utilities.Files
 
         private static LevelData DeserializeFromString(string fileContents)
         {
-            LevelData levelData = JsonConvert.DeserializeObject<LevelData>(fileContents, JsonSettings);
-            
-            //fix connection on LevelData:
-            
-            foreach (var firewall in LevelEditorUtils.FilterComponents(levelData.components, typeof(FireWallComponent)))
+            try
             {
-                foreach (var plate in ((FireWallComponent)(firewall)).activationPlates)
+                LevelData levelData = JsonConvert.DeserializeObject<LevelData>(fileContents, JsonSettings);
+                //fix connection on LevelData:
+            
+                foreach (var firewall in LevelEditorUtils.FilterComponents(levelData.components, typeof(FireWallComponent)))
                 {
-                    plate.fireWall = (FireWallComponent)firewall;
+                    foreach (var plate in ((FireWallComponent)(firewall)).activationPlates)
+                    {
+                        plate.fireWall = (FireWallComponent)firewall;
+                    }
                 }
-            }
 
-            foreach (var activationCom in LevelEditorUtils.FilterComponents(levelData.components,
-                         typeof(ActivationComponent)))
+                foreach (var activationCom in LevelEditorUtils.FilterComponents(levelData.components,
+                             typeof(ActivationComponent)))
+                {
+                    levelData.components.Remove(activationCom);
+                }
+
+                return levelData;
+            }
+            catch (Exception e)
             {
-                levelData.components.Remove(activationCom);
+                Debug.LogError("File is corrupted ("+fileContents+")");
             }
 
-            return levelData;
+            return new LevelData();
         }
 
         public static LevelData LoadFile(string levelName)

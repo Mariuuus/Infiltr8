@@ -8,6 +8,7 @@ public class AreaDialogController : MonoBehaviour
     private bool dialogTriggered;
     void Start()
     {
+        dialogTriggered = false;
         return;
     }
 
