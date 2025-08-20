@@ -104,9 +104,9 @@ namespace __ProjectMain.Scripts.Utilities.Files
 
             foreach (var level in Directory.GetFiles(searchPath, "*.json", SearchOption.TopDirectoryOnly).ToList())
             {
-                levels.Add(LoadFile(level.Replace(".json", "").Replace(Application.persistentDataPath + "/", "")));
+                levels.Add(LoadFile(level.Replace(".json", "").Replace(Application.persistentDataPath, "").Replace("\\", "").Replace("/","")));
             }
-
+            
             return levels;
         }
     }
