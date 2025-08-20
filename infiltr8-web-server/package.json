@@ -1,0 +1,12 @@
+{
+  "name": "infiltr8-web-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "back": "cd server && dotnet restore && dotnet run",
+    "front": "cd client && npm i && npm run serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
