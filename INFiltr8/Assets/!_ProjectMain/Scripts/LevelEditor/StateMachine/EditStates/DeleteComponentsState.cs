@@ -33,7 +33,15 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
             LevelComponent currentLookAtComponent = LevelEditorUtils.ReceiveComponentAtPosition(LevelEditorFileManager.Instance.levelData.components, LookAtTile);
             if (currentLookAtComponent != null)
             {
-                LevelEditorFileManager.Instance.levelData.components.Remove(currentLookAtComponent);
+                if(currentLookAtComponent.GetType() == typeof(ActivationComponent))
+                {
+                    var activationComponent = (ActivationComponent)currentLookAtComponent;
+                    activationComponent.fireWall.activationPlates.Remove(activationComponent);
+                }
+                else
+                {
+                    LevelEditorFileManager.Instance.levelData.components.Remove(currentLookAtComponent);
+                }
                 base.OnClick(ctx);
             }
         }

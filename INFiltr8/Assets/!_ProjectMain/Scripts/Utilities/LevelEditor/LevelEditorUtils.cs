@@ -34,6 +34,17 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
         {   
             foreach (var component in components)
             {
+                if (component.GetType() == typeof(FireWallComponent))
+                {
+                    FireWallComponent fireWallComponent = (FireWallComponent)component;
+                    foreach (var plate in fireWallComponent.activationPlates)
+                    {
+                        if (ReceiveComponentPoints(plate).Contains(ReduceToTwoDimensions(cellPosition)))
+                        {
+                            return plate;
+                        }
+                    }
+                }
                 if (ReceiveComponentPoints(component).Contains(ReduceToTwoDimensions(cellPosition)))
                 {
                     return component;
@@ -61,6 +72,17 @@ namespace __ProjectMain.Scripts.Utilities.LevelEditor
             else
             {
                 points.Add(((OnePointLevelComponent)component).position);
+            }
+            
+            if (component.GetType() == typeof(FireWallComponent))
+            {
+                foreach (var activationComponent in ((FireWallComponent)component).activationPlates)
+                {
+                    foreach (var pos in activationComponent.GetPointsInBetween())
+                    {
+                        points.Add(pos);
+                    }
+                }
             }
 
             return points;

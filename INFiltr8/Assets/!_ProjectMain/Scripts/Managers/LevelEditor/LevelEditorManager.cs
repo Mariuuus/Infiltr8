@@ -106,13 +106,13 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
 
         public void UpdateUI()
         {
+            LevelEditorUtils.ClearTilemap(LevelManager.Instance.levelEditorRepresentationTilemap, LevelEditorFileManager.Instance.levelData);
             LevelManager.Instance.UpdateMap();
             ShowRepresentationInTilemap();
         }
 
         private void ShowRepresentationInTilemap()
         {
-            LevelEditorUtils.ClearTilemap(LevelManager.Instance.levelEditorRepresentationTilemap, LevelEditorFileManager.Instance.levelData);
 
             foreach (var spawnPoint in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(SpawnPointComponent)).Select(component => ((SpawnPointComponent)component)))
             {
@@ -141,17 +141,6 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             foreach (var laptop in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(LaptopComponent)).Select(component => ((LaptopComponent)component)))
             {
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(laptop.position), laptopTile);
-            }
-            
-            foreach (var component in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(ActivationComponent)))
-            {
-                var activation = ((ActivationComponent)component);
-
-                foreach (var pos in activation.GetPointsInBetween())
-                {
-                    LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), activationPlateTile);
-                }
-                
             }
 
             foreach (var dialogArea in LevelEditorUtils.FilterComponents(

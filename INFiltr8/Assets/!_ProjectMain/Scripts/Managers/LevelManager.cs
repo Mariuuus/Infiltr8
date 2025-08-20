@@ -111,7 +111,17 @@ namespace __ProjectMain.Scripts.Managers
                 {
                     PlaceObjectAtTile(point, wallsTilemap, fireWallObject);
                 }
+                
+                foreach (var activationComponent in component.activationPlates)
+                {
+                    foreach (var pos in activationComponent.GetPointsInBetween())
+                    {
+                        levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos),  LevelEditorManager.Instance.activationPlateTile);
+                    }
+                
+                }
             }
+            
         }
 
         private void InitiateWalls()
@@ -137,7 +147,7 @@ namespace __ProjectMain.Scripts.Managers
         public void ClearMap(Tilemap tilemap)
         {
             foreach (Transform child in tilemap.transform) {
-                GameObject.Destroy(child.gameObject);
+                Destroy(child.gameObject);
             }
         }
     }

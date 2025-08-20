@@ -19,7 +19,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
                 LevelEditorUtils.ReduceToTwoDimensions(pos2),
                 LevelEditorFileManager.Instance.levelData
             );
-            LevelEditorFileManager.Instance.levelData.components.Add(newActivationComponent);
+            //LevelEditorFileManager.Instance.levelData.components.Add(newActivationComponent); not in need, cause its saved within the firewall-component! -- rather load from firewall
             return true;
         }
 

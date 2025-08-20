@@ -22,8 +22,6 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
                 LevelEditorUtils.ClearTilemap(LevelManager.Instance.uiTilemap, LevelEditorFileManager.Instance.levelData);
                 if (currentLookAtComponent is IAdjustableComponent)
                 {
-                    
-
                     if (currentLookAtComponent is IConnectedComponent connectedComponent)
                     {
                         //Debug.Log("IConnectedComponent found!");
@@ -52,6 +50,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
         {
             if (!ctx.performed) return;
             LevelComponent currentLookAtComponent = LevelEditorUtils.ReceiveComponentAtPosition(LevelEditorFileManager.Instance.levelData.components, LookAtTile);
+            Debug.Log(currentLookAtComponent.GetType());
             if (currentLookAtComponent is IAdjustableComponent component)
             {
                 component.OnAdjust();

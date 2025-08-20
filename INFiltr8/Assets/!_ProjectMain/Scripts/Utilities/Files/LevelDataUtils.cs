@@ -3,6 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using __ProjectMain.Scripts.LevelEditor;
+using __ProjectMain.Scripts.LevelEditor.Components;
+using __ProjectMain.Scripts.Utilities.LevelEditor;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -43,6 +45,22 @@ namespace __ProjectMain.Scripts.Utilities.Files
         private static LevelData DeserializeFromString(string fileContents)
         {
             LevelData levelData = JsonConvert.DeserializeObject<LevelData>(fileContents, JsonSettings);
+            
+            //fix connection on LevelData:
+            
+            foreach (var firewall in LevelEditorUtils.FilterComponents(levelData.components, typeof(FireWallComponent)))
+            {
+                foreach (var plate in ((FireWallComponent)(firewall)).activationPlates)
+                {
+                    plate.fireWall = (FireWallComponent)firewall;
+                }
+            }
+
+            foreach (var activationCom in LevelEditorUtils.FilterComponents(levelData.components,
+                         typeof(ActivationComponent)))
+            {
+                levelData.components.Remove(activationCom);
+            }
 
             return levelData;
         }
