@@ -1,3 +1,4 @@
+using System.Collections;
 using __ProjectMain.Scripts.Managers.MainMenu;
 using __ProjectMain.Scripts.UI.LevelEditorMenu;
 using UnityEngine;
@@ -25,14 +26,20 @@ namespace __ProjectMain.Scripts.UI
         public void OnClick()
         {
             MainMenuManager.Instance.currentState = State.LevelEditor;
-            levelEditorManager.Show();
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.levelEditorCamera);
+            StartCoroutine(DelayUI());
         }
+
+        IEnumerator DelayUI()
+        {
+            yield return new WaitForSecondsRealtime(1f);
+            levelEditorManager.Show();
+        }
+        
 
         public void OnUnclick()
         {
             levelEditorManager.Hide();
-            //do something here lol
         }
     }
 }

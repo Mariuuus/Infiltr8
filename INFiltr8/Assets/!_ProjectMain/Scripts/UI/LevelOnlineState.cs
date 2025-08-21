@@ -1,5 +1,6 @@
 using System.Collections;
 using __ProjectMain.Scripts.Managers.MainMenu;
+using __ProjectMain.Scripts.UI.LevelBrowserMenu;
 using UnityEngine;
 
 namespace __ProjectMain.Scripts.UI
@@ -8,6 +9,7 @@ namespace __ProjectMain.Scripts.UI
     {
         [SerializeField] private Vector3 normalScale;
         [SerializeField] private Vector3 hoverScale;
+        [SerializeField] private LevelBrowserManager levelBrowserManager;
 
 
         public void OnHoverStart()
@@ -22,13 +24,21 @@ namespace __ProjectMain.Scripts.UI
 
         public void OnClick()
         {
+            
             MainMenuManager.Instance.currentState = State.OnlineLevel;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.onlineLevelCamera);
+            StartCoroutine(DelayUI());
+        }
+
+        private IEnumerator DelayUI()
+        {
+            yield return new WaitForSecondsRealtime(1f);
+            levelBrowserManager.Show();
         }
 
         public void OnUnclick()
         {
-            // insert CODE
+            levelBrowserManager.Hide();
         }
     }
 

@@ -62,8 +62,20 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
                 {
                     rowComponent.Init(levelSummary.Id, levelSummary.Name, levelSummary.Author, this);
                 }
+                
             }
         }
+        
+        public void Show()
+        {
+            uiElement.SetActive(true);
+            RenderLocalLevels();
+        }
+
+        public void Hide()
+        {
+            uiElement.SetActive(false);
+        } 
 
         private void Start()
         {
