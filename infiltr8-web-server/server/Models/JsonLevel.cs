@@ -17,5 +17,7 @@ public class JsonLevel
 
 public class LevelSummary
 {
-    public required string Id { get; set;}
+    public required string Id { get; set; }
+    public required string Name { get; set; }
+    public required string Author { get; set; }
 }

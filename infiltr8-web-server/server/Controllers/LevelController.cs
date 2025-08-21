@@ -26,15 +26,25 @@ namespace server.Controllers
             var (levels, totalItems) = _levelService.Get(page, pageSize, search);
             var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
 
+            var summaries = levels
+                .Select(l => new LevelSummary
+                {
+                    Id = l.Id,
+                    Name = l.Name,
+                    Author = l.Author
+                })
+                .ToList();
+
             return new PagedResult<LevelSummary>
             {
-                Items = levels.Select(l => new LevelSummary { Id = l.Id }).ToList(),
+                Items = summaries,
                 Page = page,
                 PageSize = pageSize,
                 TotalItems = (int)totalItems,
                 TotalPages = totalPages
             };
         }
+
 
         // GET /api/level/{id}
         [HttpGet("{id}")]

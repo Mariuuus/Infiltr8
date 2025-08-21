@@ -13,6 +13,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public CinemachineCamera levelSelectorCamera;
         public CinemachineCamera settingsCamera;
         public CinemachineCamera exitCamera;
+        public CinemachineCamera onlineLevelCamera;
+        public CinemachineCamera achievementCamera;
         public PlayableDirector introDirector;
         
         private CinemachineCamera _currentCamera;
@@ -46,6 +48,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         
         public void ChangeToCamera(CinemachineCamera nextCamera)
         {
+            Debug.Log("Changing from "+ _currentCamera +" to camera" + nextCamera);
             if (Playing) return;
             _currentCamera.gameObject.SetActive(false);
             _currentCamera = nextCamera;
@@ -59,6 +62,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             levelSelectorCamera.gameObject.SetActive(false);
             settingsCamera.gameObject.SetActive(false);
             exitCamera.gameObject.SetActive(false);
+            onlineLevelCamera.gameObject.SetActive(false);
+            achievementCamera.gameObject.SetActive(false);
         }
 
         public void PlayIntro()
