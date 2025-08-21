@@ -56,7 +56,6 @@
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
-          "fireWall": null,
           "maxDevices": 0,
           "startPosition": {
             "x": 17,
@@ -72,7 +71,6 @@
           }
         },
         {
-          "fireWall": null,
           "maxDevices": 0,
           "startPosition": {
             "x": 17,
@@ -236,60 +234,6 @@
         "y": 17,
         "magnitude": 20.248457,
         "sqrMagnitude": 410
-      }
-    },
-    {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.ActivationComponent, Assembly-CSharp",
-      "fireWall": {
-        "activationPlates": [
-          {
-            "fireWall": null,
-            "maxDevices": 0,
-            "startPosition": {
-              "x": 17,
-              "y": 11,
-              "magnitude": 20.248457,
-              "sqrMagnitude": 410
-            },
-            "endPosition": {
-              "x": 18,
-              "y": 12,
-              "magnitude": 21.6333084,
-              "sqrMagnitude": 468
-            }
-          }
-        ],
-        "doorUnlockRequirements": [
-          {
-            "hackStatus": 0,
-            "amount": 1
-          }
-        ],
-        "startPosition": {
-          "x": 16,
-          "y": 14,
-          "magnitude": 21.2602921,
-          "sqrMagnitude": 452
-        },
-        "endPosition": {
-          "x": 19,
-          "y": 14,
-          "magnitude": 23.6008472,
-          "sqrMagnitude": 557
-        }
-      },
-      "maxDevices": 0,
-      "startPosition": {
-        "x": 17,
-        "y": 17,
-        "magnitude": 24.04163,
-        "sqrMagnitude": 578
-      },
-      "endPosition": {
-        "x": 18,
-        "y": 16,
-        "magnitude": 24.083189,
-        "sqrMagnitude": 580
       }
     },
     {
@@ -521,7 +465,6 @@
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
-          "fireWall": null,
           "maxDevices": 0,
           "startPosition": {
             "x": 5,
@@ -573,47 +516,6 @@
         "y": 7,
         "magnitude": 7.615773,
         "sqrMagnitude": 58
-      }
-    },
-    {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.ActivationComponent, Assembly-CSharp",
-      "fireWall": {
-        "activationPlates": [],
-        "doorUnlockRequirements": [
-          {
-            "hackStatus": 2,
-            "amount": 1
-          },
-          {
-            "hackStatus": 3,
-            "amount": 1
-          }
-        ],
-        "startPosition": {
-          "x": 3,
-          "y": 8,
-          "magnitude": 8.54400349,
-          "sqrMagnitude": 73
-        },
-        "endPosition": {
-          "x": 3,
-          "y": 10,
-          "magnitude": 10.4403067,
-          "sqrMagnitude": 109
-        }
-      },
-      "maxDevices": 0,
-      "startPosition": {
-        "x": 5,
-        "y": 11,
-        "magnitude": 12.083046,
-        "sqrMagnitude": 146
-      },
-      "endPosition": {
-        "x": 6,
-        "y": 9,
-        "magnitude": 10.8166542,
-        "sqrMagnitude": 117
       }
     },
     {
@@ -728,6 +630,57 @@
         "y": 18,
         "magnitude": 18.1107712,
         "sqrMagnitude": 328
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "USBStick",
+        "trigger": 0,
+        "character": 1,
+	"lines": [
+	  "Hello again, little hacker!",
+	  "I think you should try solving this training on your own!",
+	  "GOOD LUCK!"
+	]
+      },
+      "startPosition": {
+        "x": 13,
+        "y": 8,
+        "magnitude": 15.2643375,
+        "sqrMagnitude": 233
+      },
+      "endPosition": {
+        "x": 14,
+        "y": 10,
+        "magnitude": 17.20465,
+        "sqrMagnitude": 296
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "Schlappy",
+        "trigger": 0,
+        "character": 2,
+	"lines": [
+	  "Hehe, you did it!",
+	  "Just to be clear...",
+	  "I believed in you the whole time!",
+	  "See you in the real challenge!"
+	]
+      },
+      "startPosition": {
+        "x": 1,
+        "y": 8,
+        "magnitude": 8.062258,
+        "sqrMagnitude": 65
+      },
+      "endPosition": {
+        "x": 2,
+        "y": 6,
+        "magnitude": 6.3245554,
+        "sqrMagnitude": 40
       }
     }
   ]

@@ -92,6 +92,16 @@ namespace __ProjectMain.Scripts.Player
             }
             if(before != ClosestObject) UpdateInteractionUI();
         }
+
+        public void Freeze()
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
+        
+        public void UnFreeze()
+        {
+            GetComponent<Rigidbody>().isKinematic = false;
+        }
     
         public void UpdateInteractionUI()
         {

@@ -3,6 +3,7 @@ using __ProjectMain.Scripts.UI;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.Playables;
 using UnityEngine.Serialization;
 
@@ -21,6 +22,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         
         private GameObject _hitObject;
         
+        [SerializeField] private VirtualMouseInput virtualMouseInput;
+        
         
         public void Awake()
         {
@@ -36,8 +39,17 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
 
         void Update()
         {
+
             if (currentState != State.Overview) return;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray;
+            if (ControlsManager.Instance.usedDevice == Device.Keyboard)
+            {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            }
+            else
+            {
+                ray = Camera.main.ScreenPointToRay(new Vector3(virtualMouseInput.virtualMouse.position.x.value, virtualMouseInput.virtualMouse.position.y.value, 0));
+            }
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
@@ -49,7 +61,9 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                     
                     if (clickableMenuElement != null)
                     {   
-                        if (Input.GetMouseButtonDown(0))
+                        if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
+                            ControlsManager.Instance.usedDevice == Device.Gamepad &&
+                            virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
                         {
                             clickableMenuElement.OnClick();
                             clickableMenuElement.OnHoverEnd();
@@ -69,7 +83,9 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
 
                     _hitObject = hitObject;
                 }
-                else if (Input.GetMouseButtonDown(0))
+                else if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
+                         ControlsManager.Instance.usedDevice == Device.Gamepad &&
+                         virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
                 {
                     _hitObject.GetComponent<IClickableMenuElement>()?.OnClick();
                     _hitObject.GetComponent<IClickableMenuElement>()?.OnHoverEnd();
