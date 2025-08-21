@@ -1,0 +1,15 @@
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/server
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/appsettings.Development.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/appsettings.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/server.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/server.deps.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/server.runtimeconfig.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/server.pdb
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/DnsClient.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/Microsoft.AspNetCore.OpenApi.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/Microsoft.OpenApi.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/MongoDB.Bson.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/MongoDB.Driver.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/SharpCompress.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/Snappier.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/publish/ZstdSharp.dll

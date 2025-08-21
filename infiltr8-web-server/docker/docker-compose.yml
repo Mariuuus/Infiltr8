@@ -1,0 +1,27 @@
+---
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  server:
+    image: server:latest
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__LevelDb=mongodb://mongo:27017
+    ports:
+      - "8080:8080"
+
+volumes:
+  mongo-data:
