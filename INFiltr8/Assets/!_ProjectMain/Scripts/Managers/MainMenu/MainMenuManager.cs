@@ -1,4 +1,5 @@
 using System;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.UI;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -23,6 +24,9 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         private GameObject _hitObject;
         
         [SerializeField] private VirtualMouseInput virtualMouseInput;
+        
+        [SerializeField] private AudioClip menuHoverSound;
+        [SerializeField] private AudioClip menuSelectSound;
         
         
         public void Awake()
@@ -66,10 +70,12 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                             virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
                         {
                             clickableMenuElement.OnClick();
+                            // SfxManager.instance.PlaySfxClip(menuSelectSound, 1f);
                             clickableMenuElement.OnHoverEnd();
                         }
                         else
                         {
+                            SfxManager.instance.PlaySfxClip(menuHoverSound, 1f);
                             clickableMenuElement.OnHoverStart();
                         }
                     }

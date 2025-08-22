@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Types;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.Objects;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -62,7 +63,7 @@ namespace __ProjectMain.Scripts.Player
             Physics.IgnoreCollision(GetComponent<Collider>(), obj.GetComponent<Collider>(), true);
             GetComponent<PlayerController>().UpdateInteractionUI();
             //play sfx
-            SFXManager.instance.PlaySFXClip(grabSound,1f);
+            SfxManager.instance.PlaySfxClip(grabSound,1f);
             
         }
         
@@ -79,7 +80,7 @@ namespace __ProjectMain.Scripts.Player
             Physics.IgnoreCollision(GetComponent<Collider>(), obj.GetComponent<Collider>(), false);
             GetComponent<PlayerController>().UpdateInteractionUI();
             //play sfx
-            SFXManager.instance.PlaySFXClip(dropSound, 1f);
+            SfxManager.instance.PlaySfxClip(dropSound, 1f);
         }
         
         public void OnGrab(InputAction.CallbackContext context)
