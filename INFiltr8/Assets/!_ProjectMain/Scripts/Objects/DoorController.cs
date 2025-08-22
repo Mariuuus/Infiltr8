@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using __ProjectMain.Scripts.LevelEditor.Types;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.UI;
 using TMPro;
 using Unity.Mathematics;
@@ -97,7 +98,7 @@ namespace __ProjectMain.Scripts.Objects
                 StartCoroutine(MoveDoor(new Vector3(0, -2.01f, 0)));
                 Open = true;
                 // play sfx
-                SFXManager.instance.PlaySFXClip(doorOpenSound, 1f);
+                SfxManager.instance.PlaySfxClip(doorOpenSound, 1f);
             }
             else
             {
@@ -109,7 +110,7 @@ namespace __ProjectMain.Scripts.Objects
                     transform.position = _initialPos;
                     Open = false;
                     // play sfx
-                    SFXManager.instance.PlaySFXClip(doorCloseSound, 1f);
+                    SfxManager.instance.PlaySfxClip(doorCloseSound, 1f);
                 }
             }
         }

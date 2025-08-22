@@ -22,6 +22,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         public AdjustComponentState AdjustComponentState { get; } = new();
         public PortBuildState PortBuildState { get; } = new();
         public DialogAreaBuildState DialogAreaBuildState { get; } = new();
+        public CollectableBuildState CollectableBuildState { get; } = new();
         
         /*
          * This works for overwriting the "normal" State Machine

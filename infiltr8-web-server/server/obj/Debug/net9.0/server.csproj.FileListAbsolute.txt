@@ -1,34 +1,76 @@
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\appsettings.Development.json
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\appsettings.json
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\server.staticwebassets.endpoints.json
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\server.exe
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\server.deps.json
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\server.runtimeconfig.json
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\server.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\server.pdb
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\DnsClient.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\Microsoft.OpenApi.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\MongoDB.Bson.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\MongoDB.Driver.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\SharpCompress.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\Snappier.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\bin\Debug\net9.0\ZstdSharp.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.csproj.AssemblyReference.cache
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.AssemblyInfoInputs.cache
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.AssemblyInfo.cs
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.csproj.CoreCompileInputs.cache
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\scopedcss\bundle\server.styles.css
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\staticwebassets.build.json
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\staticwebassets.build.json.cache
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\staticwebassets.development.json
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.csproj.Up2Date
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\refint\server.dll
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.pdb
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\server.genruntimeconfig.cache
-C:\Users\sil3n\Visual Studio Code\infiltr8-web-server\server\obj\Debug\net9.0\ref\server.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/appsettings.Development.json
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/appsettings.json
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/server.staticwebassets.endpoints.json
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/server.exe
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/server.deps.json
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/server.runtimeconfig.json
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/server.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/server.pdb
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/DnsClient.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/Microsoft.OpenApi.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/MongoDB.Bson.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/MongoDB.Driver.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/SharpCompress.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/Snappier.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/bin/Debug/net9.0/ZstdSharp.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.csproj.AssemblyReference.cache
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.AssemblyInfoInputs.cache
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.AssemblyInfo.cs
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.csproj.CoreCompileInputs.cache
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/scopedcss/bundle/server.styles.css
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/staticwebassets.build.json
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/staticwebassets.build.json.cache
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/staticwebassets.development.json
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.csproj.Up2Date
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/refint/server.dll
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.pdb
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/server.genruntimeconfig.cache
+C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/ref/server.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/appsettings.Development.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/appsettings.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/server.staticwebassets.endpoints.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/server
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/server.deps.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/server.runtimeconfig.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/server.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/server.pdb
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/DnsClient.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/MongoDB.Bson.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/MongoDB.Driver.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/SharpCompress.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/Snappier.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/ZstdSharp.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.csproj.AssemblyReference.cache
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/rpswa.dswa.cache.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.GeneratedMSBuildEditorConfig.editorconfig
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.csproj.CoreCompileInputs.cache
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.MvcApplicationPartsAssemblyInfo.cs
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.MvcApplicationPartsAssemblyInfo.cache
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/rjimswa.dswa.cache.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/scopedcss/bundle/server.styles.css
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/staticwebassets.build.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/staticwebassets.build.json.cache
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/staticwebassets.development.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.csproj.Up2Date
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/refint/server.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.pdb
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/server.genruntimeconfig.cache
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/Debug/net9.0/ref/server.dll
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/web.config
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/appsettings.Development.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/appsettings.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/server.deps.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/server.runtimeconfig.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/server.staticwebassets.endpoints.json

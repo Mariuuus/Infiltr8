@@ -43,7 +43,7 @@ namespace __ProjectMain.Scripts.Utilities.Files
             return DeserializeFromString(fileContents);
         }
 
-        private static LevelData DeserializeFromString(string fileContents)
+        public static LevelData DeserializeFromString(string fileContents)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace __ProjectMain.Scripts.Utilities.Files
                 Debug.LogError("File is corrupted ("+fileContents+")");
             }
 
-            return new LevelData();
+            return null;
         }
 
         public static LevelData LoadFile(string levelName)
@@ -82,6 +82,11 @@ namespace __ProjectMain.Scripts.Utilities.Files
 
             return LoadFileFromPath(filename);
         }
+
+        public static string SerializeToString(LevelData levelData)
+        {
+            return JsonConvert.SerializeObject(levelData, JsonSettings);
+        }
         
         public static void SaveFile(LevelData levelData, bool overwrite = false)
         {
@@ -89,8 +94,9 @@ namespace __ProjectMain.Scripts.Utilities.Files
             string filename = LevelDataUtils.ReceiveFileName(levelData.levelName);
 
             if (!overwrite && File.Exists(filename)) throw new FileLoadException("File already exists");
-
-            string jsonString = JsonConvert.SerializeObject(levelData, JsonSettings);
+            
+            string jsonString = SerializeToString(levelData);
+            
             File.WriteAllText(filename, jsonString);
             Debug.Log("Saved level successfully");
         }
@@ -117,6 +123,26 @@ namespace __ProjectMain.Scripts.Utilities.Files
             }
             
             return levels;
+        }
+        
+        public static List<LevelData> SearchTop5(List<LevelData> allLevels, string searchStr)
+        {
+            if (string.IsNullOrWhiteSpace(searchStr))
+                return allLevels.Take(5).ToList();
+
+            var scored = allLevels.Select(level =>
+            {
+                int distance = StringUtils.LevenshteinDistance(level.levelName, searchStr);
+                return new { Level = level, Score = distance };
+            });
+
+            var top5 = scored.OrderBy(x => x.Score)
+                .ThenBy(x => x.Level.levelName)
+                .Take(5)
+                .Select(x => x.Level)
+                .ToList();
+
+            return top5;
         }
     }
 }

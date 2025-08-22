@@ -31,6 +31,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public FireWallSettings fireWallSettings;
         public ActivationPlateSettings activationPlateSettings;
         public LaptopSettings laptopSettings;
+        public CollectableSettings collectableSettings;
         public DialogAreaSettings dialogAreaSettings;
         
         [Header("Tiles")]
@@ -43,6 +44,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile portTile;
         public Tile onlyPlayerWallTile;
         public Tile dialogAreaTile;
+        public Tile collectableTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
@@ -55,6 +57,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite portBuildSprite;
         public Sprite onlyPlayerWallSprite;
         public Sprite dialogAreaSprite;
+        public Sprite collectableSprite;
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -93,6 +96,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.LaptopBuildState,
                 _levelEditorStateMachine.PortBuildState,
                 _levelEditorStateMachine.DialogAreaBuildState,
+                _levelEditorStateMachine.CollectableBuildState,
             };
             
             foreach (var state in _selectableStates)
@@ -141,6 +145,11 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
             foreach (var laptop in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(LaptopComponent)).Select(component => ((LaptopComponent)component)))
             {
                 LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(laptop.position), laptopTile);
+            }
+            
+            foreach (var collectable in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(CollectableComponent)).Select(component => ((CollectableComponent)component)))
+            {
+                LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(collectable.position), collectableTile);
             }
 
             foreach (var dialogArea in LevelEditorUtils.FilterComponents(

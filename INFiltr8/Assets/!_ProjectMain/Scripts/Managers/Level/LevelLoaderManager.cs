@@ -29,6 +29,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public /*IPlaceable<LaptopComponent>*/ GameObject portObject;
         public /*IPlaceable<LaptopComponent>*/ GameObject onlyPlayerWall;
         public GameObject dialogAreaObject;
+        public GameObject collectableObject;
         
         [Header("Player")]
         public GameObject playerObject;
@@ -121,6 +122,12 @@ namespace __ProjectMain.Scripts.Managers.Level
                     case SpawnPointComponent spawnPointComponent:
                     {
                         spawnPoint = spawnPointComponent;
+                        break;
+                    }
+                    case CollectableComponent collectableComponent:
+                    {
+                        var newObj = Instantiate(collectableObject);
+                        newObj.GetComponent<CollectablePlacer>().Place(collectableComponent);
                         break;
                     }
                     case GoalComponent goalComponent:

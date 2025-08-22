@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using __ProjectMain.Scripts.Objects;
+using __ProjectMain.Scripts.UI.Controls;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 namespace __ProjectMain.Scripts.Managers
 {
@@ -17,6 +19,8 @@ namespace __ProjectMain.Scripts.Managers
         public Device usedDevice = Device.Keyboard;
         
         private List<IControlsListener> _listeners;
+        
+        [SerializeField] private GameObject virtualMouseUI;
 
         public void AddSubscriber(IControlsListener listener)
         {
@@ -37,6 +41,23 @@ namespace __ProjectMain.Scripts.Managers
             }
         }
 
+        public void ActivateVirtualMouse()
+        {
+            virtualMouseUI.gameObject.SetActive(true);
+            //virtualMouseUI.GetComponent<VirtualMouseInput>().enabled = true;
+        }
+        
+        public void DeactivateVirtualMouse()
+        {
+            virtualMouseUI.gameObject.SetActive(false);
+            //virtualMouseUI.GetComponent<VirtualMouseInput>().enabled = false;
+        }
+
+        private void Start()
+        {
+            //DeactivateVirtualMouse();
+        }
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -45,7 +66,7 @@ namespace __ProjectMain.Scripts.Managers
                 return;
             }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             _listeners = new List<IControlsListener>();
         }
 
@@ -53,13 +74,15 @@ namespace __ProjectMain.Scripts.Managers
         {
             Debug.Log("OnControlsChanged: " + input.currentControlScheme);
             var before = usedDevice;
+            if (input.currentControlScheme==null) return;
+            
             if (input.currentControlScheme.ToLower() == "controller" || input.currentControlScheme.ToLower() == "gamepad")
             {
                 usedDevice = Device.Gamepad; 
             }
             else if (input.currentControlScheme.ToLower() == "keyboard&mouse")
             {
-                usedDevice = Device.Keyboard; 
+                usedDevice = Device.Keyboard;
             }
 
             if (before != usedDevice)

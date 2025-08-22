@@ -11,6 +11,10 @@ namespace __ProjectMain.Scripts.Managers.Ingame
         {
             if (!ctx.performed) return;
             IngameManager.Instance.Pause();
+            if (ControlsManager.Instance.usedDevice == Device.Gamepad)
+            {
+                ControlsManager.Instance.ActivateVirtualMouse();
+            }
             pauseScreen.gameObject.SetActive(true);
         }
         
@@ -18,6 +22,7 @@ namespace __ProjectMain.Scripts.Managers.Ingame
         {
             IngameManager.Instance.Resume();
             pauseScreen.gameObject.SetActive(false);
+            ControlsManager.Instance.DeactivateVirtualMouse();
         }
     }
 }

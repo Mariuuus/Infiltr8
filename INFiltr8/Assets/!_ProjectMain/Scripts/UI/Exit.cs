@@ -33,6 +33,7 @@ namespace __ProjectMain.Scripts.UI
         {
             yield return new WaitForSecondsRealtime(1.5f);
             Application.Quit();
+            Debug.Log("Quit");
         }
 
         public void OnUnclick()

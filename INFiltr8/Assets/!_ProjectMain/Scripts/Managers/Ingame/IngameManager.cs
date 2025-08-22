@@ -1,4 +1,6 @@
 using System;
+using __ProjectMain.Scripts.Managers.Level;
+using __ProjectMain.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,8 +23,16 @@ namespace __ProjectMain.Scripts.Managers.Ingame
             Instance = this;
         }
 
-        public void Pause() =>  Paused = true;
-        public void Resume() =>  Paused = false;
+        public void Pause() {
+            Paused = true;
+            LevelLoaderManager.Instance.playerObject.GetComponent<PlayerController>().Freeze();
+        }
+
+        public void Resume()
+        {
+            Paused = false;
+            LevelLoaderManager.Instance.playerObject.GetComponent<PlayerController>().UnFreeze();
+        }
 
         public void Quit() => GameDataManager.Instance.SwitchToOverview();
     }
