@@ -1986,6 +1986,7 @@ MonoBehaviour:
   portObject: {fileID: 1387127911518755336, guid: 9460d4ffa79efbaa8b6dd167cf428a13, type: 3}
   onlyPlayerWall: {fileID: 6517213825380564000, guid: 6121a3d212d373187ade67fc7372e3ec, type: 3}
   dialogAreaObject: {fileID: 975221173853667902, guid: e6e82542a99a87249a4b09f02f5adca7, type: 3}
+  collectableObject: {fileID: 5673836159074100161, guid: 6a5bb0439e8e10362953c67087a9f968, type: 3}
   playerObject: {fileID: 1569329882}
 --- !u!1 &1044489290
 GameObject:

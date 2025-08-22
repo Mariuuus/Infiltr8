@@ -4543,6 +4543,7 @@ MonoBehaviour:
   portTile: {fileID: 11400000, guid: 126f7cdba45ed3c438ddd3fea2035119, type: 2}
   onlyPlayerWallTile: {fileID: 11400000, guid: 1a35340483cdc065f9262ffd91586c18, type: 2}
   dialogAreaTile: {fileID: 11400000, guid: 701559fc96a277f4b9c29c046fdcc2bd, type: 2}
+  collectableTile: {fileID: 11400000, guid: 242c8db8a764a1a6cb5660fd4424a792, type: 2}
   wallBuildSprite: {fileID: 21300000, guid: c80beb8dd61a54c48bc257b7e29aa5b4, type: 3}
   fireWallBuildSprite: {fileID: 21300000, guid: ef05a94fd79e6034bb32734df9cc2b40, type: 3}
   spawnPointSprite: {fileID: 21300000, guid: 0000f14e62003df4a8132eebafcab80b, type: 3}
@@ -4553,6 +4554,7 @@ MonoBehaviour:
   portBuildSprite: {fileID: 21300000, guid: 7961f007ae93da8bf89b520c103ea923, type: 3}
   onlyPlayerWallSprite: {fileID: 21300000, guid: f0680f47c9a014344b2eddd9e5bbce30, type: 3}
   dialogAreaSprite: {fileID: 21300000, guid: 5defbbb382a3b074e8611d19748988b1, type: 3}
+  collectableSprite: {fileID: 21300000, guid: 171f6cc1d1b5cd533b8ba0166a7bf3f4, type: 3}
 --- !u!1 &700096945
 GameObject:
   m_ObjectHideFlags: 0
