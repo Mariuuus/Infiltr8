@@ -2,6 +2,7 @@
 using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.Types;
+using __ProjectMain.Scripts.Managers.Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,6 +33,8 @@ namespace __ProjectMain.Scripts.Objects
         [SerializeField] private MeshRenderer pRenderer;
     
         [SerializeField] private Canvas countdownUI;
+        
+        [SerializeField] private AudioClip hackSound;
         
         private Canvas _countDownUIInstance;
         private bool _onCooldown = false;
@@ -83,9 +86,10 @@ namespace __ProjectMain.Scripts.Objects
         public void ChangeMaterial(HackStatus color)
         {
             if (_onCooldown) return;
-            Debug.Log(_plate);
             if(!UnHacked) _plate?.ChangeHackStatus(hackColor, color);
             if(UnHacked) _plate?.AddHackStatus(color);
+            
+            SfxManager.instance.PlaySfxClip(hackSound,.4f);
 
             StartCoroutine(Cooldown());
             StartCoroutine(UpdateUIPos());

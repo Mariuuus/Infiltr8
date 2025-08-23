@@ -86,18 +86,33 @@
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
-          "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
-            "x": 9,
-            "y": 11,
-            "magnitude": 14.21267,
-            "sqrMagnitude": 202
+            "x": 8,
+            "y": 7,
+            "magnitude": 10.630146,
+            "sqrMagnitude": 113
           },
           "endPosition": {
             "x": 10,
-            "y": 9,
-            "magnitude": 13.4536238,
-            "sqrMagnitude": 181
+            "y": 5,
+            "magnitude": 11.18034,
+            "sqrMagnitude": 125
+          }
+        },
+        {
+          "maxDevices": 0,
+          "startPosition": {
+            "x": 8,
+            "y": 15,
+            "magnitude": 17.0,
+            "sqrMagnitude": 289
+          },
+          "endPosition": {
+            "x": 10,
+            "y": 13,
+            "magnitude": 16.40122,
+            "sqrMagnitude": 269
           }
         }
       ],
@@ -151,48 +166,9 @@
       }
     },
     {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.ActivationComponent, Assembly-CSharp",
-      "fireWall": {
-        "activationPlates": [],
-        "doorUnlockRequirements": [
-          {
-            "hackStatus": 0,
-            "amount": 1
-          }
-        ],
-        "startPosition": {
-          "x": 12,
-          "y": 12,
-          "magnitude": 16.970562,
-          "sqrMagnitude": 288
-        },
-        "endPosition": {
-          "x": 12,
-          "y": 8,
-          "magnitude": 14.422205,
-          "sqrMagnitude": 208
-        }
-      },
-      "startPosition": {
-        "x": 9,
-        "y": 11,
-        "magnitude": 14.21267,
-        "sqrMagnitude": 202
-      },
-      "endPosition": {
-        "x": 10,
-        "y": 9,
-        "magnitude": 13.4536238,
-        "sqrMagnitude": 181
-      }
-    },
-    {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
       "possibleHacks": [
-        2,
-        0,
-        1,
-        3
+        0
       ],
       "position": {
         "x": 6,
@@ -234,10 +210,7 @@
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
       "possibleHacks": [
-        2,
-        0,
-        1,
-        3
+        2
       ],
       "position": {
         "x": 21,
@@ -249,9 +222,6 @@
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
       "possibleHacks": [
-        2,
-        0,
-        1,
         3
       ],
       "position": {
@@ -265,7 +235,7 @@
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
-          "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 23,
             "y": 5,
@@ -303,7 +273,7 @@
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
-          "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 23,
             "y": 17,
@@ -338,46 +308,10 @@
       }
     },
     {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.ActivationComponent, Assembly-CSharp",
-      "fireWall": {
-        "activationPlates": [],
-        "doorUnlockRequirements": [
-          {
-            "hackStatus": 1,
-            "amount": 1
-          }
-        ],
-        "startPosition": {
-          "x": 25,
-          "y": 17,
-          "magnitude": 30.2324333,
-          "sqrMagnitude": 914
-        },
-        "endPosition": {
-          "x": 25,
-          "y": 15,
-          "magnitude": 29.15476,
-          "sqrMagnitude": 850
-        }
-      },
-      "startPosition": {
-        "x": 23,
-        "y": 17,
-        "magnitude": 28.6006985,
-        "sqrMagnitude": 818
-      },
-      "endPosition": {
-        "x": 23,
-        "y": 15,
-        "magnitude": 27.45906,
-        "sqrMagnitude": 754
-      }
-    },
-    {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
-          "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 23,
             "y": 11,
@@ -409,78 +343,6 @@
         "y": 9,
         "magnitude": 26.57066,
         "sqrMagnitude": 706
-      }
-    },
-    {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.ActivationComponent, Assembly-CSharp",
-      "fireWall": {
-        "activationPlates": [],
-        "doorUnlockRequirements": [
-          {
-            "hackStatus": 2,
-            "amount": 1
-          }
-        ],
-        "startPosition": {
-          "x": 25,
-          "y": 11,
-          "magnitude": 27.313,
-          "sqrMagnitude": 746
-        },
-        "endPosition": {
-          "x": 25,
-          "y": 9,
-          "magnitude": 26.57066,
-          "sqrMagnitude": 706
-        }
-      },
-      "startPosition": {
-        "x": 23,
-        "y": 11,
-        "magnitude": 25.4950981,
-        "sqrMagnitude": 650
-      },
-      "endPosition": {
-        "x": 23,
-        "y": 9,
-        "magnitude": 24.6981773,
-        "sqrMagnitude": 610
-      }
-    },
-    {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.ActivationComponent, Assembly-CSharp",
-      "fireWall": {
-        "activationPlates": [],
-        "doorUnlockRequirements": [
-          {
-            "hackStatus": 3,
-            "amount": 1
-          }
-        ],
-        "startPosition": {
-          "x": 25,
-          "y": 5,
-          "magnitude": 25.4950981,
-          "sqrMagnitude": 650
-        },
-        "endPosition": {
-          "x": 25,
-          "y": 3,
-          "magnitude": 25.1793575,
-          "sqrMagnitude": 634
-        }
-      },
-      "startPosition": {
-        "x": 23,
-        "y": 5,
-        "magnitude": 23.5372047,
-        "sqrMagnitude": 554
-      },
-      "endPosition": {
-        "x": 23,
-        "y": 3,
-        "magnitude": 23.1948261,
-        "sqrMagnitude": 538
       }
     },
     {
@@ -546,10 +408,7 @@
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
       "possibleHacks": [
-        2,
-        0,
-        1,
-        3
+        1
       ],
       "position": {
         "x": 21,
@@ -562,7 +421,7 @@
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
-          "fireWall": null,
+          "maxDevices": 0,
           "startPosition": {
             "x": 31,
             "y": 11,
@@ -602,50 +461,6 @@
         "y": 8,
         "magnitude": 35.9026451,
         "sqrMagnitude": 1289
-      }
-    },
-    {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.ActivationComponent, Assembly-CSharp",
-      "fireWall": {
-        "activationPlates": [],
-        "doorUnlockRequirements": [
-          {
-            "hackStatus": 3,
-            "amount": 1
-          },
-          {
-            "hackStatus": 1,
-            "amount": 1
-          },
-          {
-            "hackStatus": 2,
-            "amount": 1
-          }
-        ],
-        "startPosition": {
-          "x": 35,
-          "y": 12,
-          "magnitude": 37.0,
-          "sqrMagnitude": 1369
-        },
-        "endPosition": {
-          "x": 35,
-          "y": 8,
-          "magnitude": 35.9026451,
-          "sqrMagnitude": 1289
-        }
-      },
-      "startPosition": {
-        "x": 31,
-        "y": 11,
-        "magnitude": 32.89377,
-        "sqrMagnitude": 1082
-      },
-      "endPosition": {
-        "x": 33,
-        "y": 9,
-        "magnitude": 34.20526,
-        "sqrMagnitude": 1170
       }
     },
     {
@@ -1165,6 +980,91 @@
         "y": 2,
         "magnitude": 7.28011,
         "sqrMagnitude": 53
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "USBStick",
+        "trigger": 0,
+        "character": 1,
+	"lines": [
+	  "Hello there, I am the US(B)EVIL!",
+	  "I'm here to help you learn deeper techniques of hacking!",
+	  "In front of you is a laptop, you've seen one before!",
+	  "Laptops can be hacked into certain colors.",
+	  "But not all laptops can be hacked into every color!",
+	  "The laptop in front of you can only be hacked into the RED color!",
+	  "And this Firewall, you've seen one before, can be cracked by placing the right number of infiltrated laptops on the plates.",
+	  "A Firewall can even have multiple activation plates, as you can see here!",
+	  "Go ahead, open the door! I'll meet you at the next one!"
+	]
+      },
+      "startPosition": {
+        "x": 3,
+        "y": 8,
+        "magnitude": 8.54400349,
+        "sqrMagnitude": 73
+      },
+      "endPosition": {
+        "x": 4,
+        "y": 12,
+        "magnitude": 12.6491108,
+        "sqrMagnitude": 160
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "USBStick",
+        "trigger": 0,
+        "character": 1,
+	"lines": [
+	  "There you go!",
+	  "Here you can see multiple activation plates and doors.",
+	  "As you can see, doors can require different amounts of laptops.",
+	  "And sometimes even different colors!",
+	  "Go ahead, try it out!",
+	  "I'll meet you once you've managed to open the door behind the three doors!"
+	]
+
+      },
+      "startPosition": {
+        "x": 16,
+        "y": 16,
+        "magnitude": 22.6274166,
+        "sqrMagnitude": 512
+      },
+      "endPosition": {
+        "x": 17,
+        "y": 5,
+        "magnitude": 17.7200451,
+        "sqrMagnitude": 314
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "USBStick",
+        "trigger": 0,
+        "character": 1,
+	"lines": [
+	  "Wow, congrats! I didn't think something so… human… could pull this off!",
+	  "Grab the stick and get out of here!",
+	  "I'll meet you at your next training!"
+	]
+      },
+      "startPosition": {
+        "x": 37,
+        "y": 8,
+        "magnitude": 37.85499,
+        "sqrMagnitude": 1433
+      },
+      "endPosition": {
+        "x": 38,
+        "y": 12,
+        "magnitude": 39.8497162,
+        "sqrMagnitude": 1588
       }
     }
   ]

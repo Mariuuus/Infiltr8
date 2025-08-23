@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using __ProjectMain.Data;
 using __ProjectMain.Scripts.Managers;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.Utilities.Files;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -20,6 +21,8 @@ namespace __ProjectMain.Scripts.Objects
 
         [Tooltip("The speed at which the object floats up and down.")] [SerializeField]
         private float floatSpeed = 2f;
+
+        [SerializeField] private AudioClip collectSound;
 
         private Vector3 _initialPosition;
         private float _timeOffset; // To make each object's float movement unique
@@ -48,6 +51,8 @@ namespace __ProjectMain.Scripts.Objects
         private void OnTriggerEnter(Collider other)
         {
             Debug.Log("Collected" +  _distro.distroName);
+            SfxManager.instance.PlaySfxClip(collectSound,1f);
+
             if(other.CompareTag("Player"))
                 if (GameDataManager.Instance)
                 {

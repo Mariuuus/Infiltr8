@@ -400,6 +400,7 @@ MonoBehaviour:
   unHackedMaterial: {fileID: 2100000, guid: d60c926074d6ad5e3b179be1ccdc85da, type: 2}
   pRenderer: {fileID: 5935114338843319378}
   countdownUI: {fileID: 3990558358595682961, guid: bbd29876df5f9cb40926cb40e6db8585, type: 3}
+  hackSound: {fileID: 8300000, guid: 5078c9977c8542978a97e11458a0c426, type: 3}
 --- !u!1 &7736523428915447368
 GameObject:
   m_ObjectHideFlags: 0
