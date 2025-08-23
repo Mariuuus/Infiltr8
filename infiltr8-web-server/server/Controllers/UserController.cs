@@ -16,6 +16,11 @@ namespace server.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> Create([FromBody] JsonUser jsonUser)
         {
+            if (string.IsNullOrWhiteSpace(jsonUser.Username) || string.IsNullOrWhiteSpace(jsonUser.Password))
+            {
+                return BadRequest(new { message = "username or password cant be empty" });
+            }
+
             var user = new User
             {
                 Username = jsonUser.Username,
