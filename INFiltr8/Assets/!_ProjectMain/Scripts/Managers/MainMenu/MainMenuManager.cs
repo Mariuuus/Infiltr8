@@ -10,25 +10,33 @@ using UnityEngine.Serialization;
 
 namespace __ProjectMain.Scripts.Managers.MainMenu
 {
-
     public enum State
     {
-        Intro, Overview, LevelEditor, LevelSelect, Settings, Exit, OnlineLevel, Achievements
+        Intro,
+        Overview,
+        LevelEditor,
+        LevelSelect,
+        Settings,
+        Exit,
+        OnlineLevel,
+        Achievements
     }
+
     public class MainMenuManager : MonoBehaviour
     {
         public static MainMenuManager Instance { get; private set; }
-        public bool Playing{ get; private set; }
-        public State currentState =  State.Overview;
-        
+        public bool Playing { get; private set; }
+        public State currentState = State.Overview;
+
         private GameObject _hitObject;
-        
+        private GameObject _hitObjectDecoration;
+
         [SerializeField] private VirtualMouseInput virtualMouseInput;
-        
+
         [SerializeField] private AudioClip menuHoverSound;
         [SerializeField] private AudioClip menuSelectSound;
-        
-        
+
+
         public void Awake()
         {
             if (Instance != null && Instance != this)
@@ -38,64 +46,123 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
 
             Instance = this;
-
         }
 
         void Update()
         {
-
-            if (currentState != State.Overview) return;
-            Ray ray;
-            if (ControlsManager.Instance.usedDevice == Device.Keyboard)
+            if (currentState == State.Overview)
             {
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray;
+                if (ControlsManager.Instance.usedDevice == Device.Keyboard)
+                {
+                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                }
+                else
+                {
+                    ray = Camera.main.ScreenPointToRay(new Vector3(virtualMouseInput.virtualMouse.position.x.value,
+                        virtualMouseInput.virtualMouse.position.y.value, 0));
+                }
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    GameObject hitObject = hit.collider.gameObject;
+                    if (hitObject != _hitObject)
+                    {
+                        IClickableMenuElement clickableMenuElement = hitObject.GetComponent<IClickableMenuElement>();
+
+                        if (clickableMenuElement != null)
+                        {
+                            if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
+                                ControlsManager.Instance.usedDevice == Device.Gamepad &&
+                                virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
+                            {
+                                clickableMenuElement.OnClick();
+                                // SfxManager.instance.PlaySfxClip(menuSelectSound, 1f);
+                                clickableMenuElement.OnHoverEnd();
+                            }
+                            else
+                            {
+                                SfxManager.instance.PlaySfxClip(menuHoverSound, 1f);
+                                clickableMenuElement.OnHoverStart();
+                            }
+                        }
+
+                        if (_hitObject)
+                        {
+                            IClickableMenuElement oldClickableMenuElement =
+                                _hitObject.GetComponent<IClickableMenuElement>();
+                            if (oldClickableMenuElement != null) oldClickableMenuElement.OnHoverEnd();
+                        }
+
+                        _hitObject = hitObject;
+                    }
+                    else if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
+                             ControlsManager.Instance.usedDevice == Device.Gamepad &&
+                             virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
+                    {
+                        _hitObject.GetComponent<IClickableMenuElement>()?.OnClick();
+                        _hitObject.GetComponent<IClickableMenuElement>()?.OnHoverEnd();
+                    }
+                }
             }
             else
             {
-                ray = Camera.main.ScreenPointToRay(new Vector3(virtualMouseInput.virtualMouse.position.x.value, virtualMouseInput.virtualMouse.position.y.value, 0));
-            }
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                GameObject hitObject = hit.collider.gameObject;
-                if (hitObject != _hitObject)
+                //check for decoration
+                Ray ray;
+                if (ControlsManager.Instance.usedDevice == Device.Keyboard)
                 {
-                    IClickableMenuElement clickableMenuElement = hitObject.GetComponent<IClickableMenuElement>();
-                    
-                    if (clickableMenuElement != null)
-                    {   
-                        if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
-                            ControlsManager.Instance.usedDevice == Device.Gamepad &&
-                            virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
-                        {
-                            clickableMenuElement.OnClick();
-                            // SfxManager.instance.PlaySfxClip(menuSelectSound, 1f);
-                            clickableMenuElement.OnHoverEnd();
-                        }
-                        else
-                        {
-                            SfxManager.instance.PlaySfxClip(menuHoverSound, 1f);
-                            clickableMenuElement.OnHoverStart();
-                        }
-                    }
-
-                    if (_hitObject)
-                    {
-                        IClickableMenuElement oldClickableMenuElement =
-                            _hitObject.GetComponent<IClickableMenuElement>();
-                        if (oldClickableMenuElement != null) oldClickableMenuElement.OnHoverEnd();
-                    }
-
-                    _hitObject = hitObject;
+                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 }
-                else if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
-                         ControlsManager.Instance.usedDevice == Device.Gamepad &&
-                         virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
+                else
                 {
-                    _hitObject.GetComponent<IClickableMenuElement>()?.OnClick();
-                    _hitObject.GetComponent<IClickableMenuElement>()?.OnHoverEnd();
-                    
+                    ray = Camera.main.ScreenPointToRay(new Vector3(virtualMouseInput.virtualMouse.position.x.value,
+                        virtualMouseInput.virtualMouse.position.y.value, 0));
+                }
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    GameObject hitObject = hit.collider.gameObject;
+                    if (hitObject != _hitObjectDecoration)
+                    {
+                        IClickableMenuDecoration clickableMenuElement = hitObject.GetComponent<IClickableMenuDecoration>();
+
+                        if (clickableMenuElement != null)
+                        {
+                            if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
+                                ControlsManager.Instance.usedDevice == Device.Gamepad &&
+                                virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
+                            {
+                                clickableMenuElement.OnClick();
+                                // SfxManager.instance.PlaySfxClip(menuSelectSound, 1f);
+                                clickableMenuElement.OnHoverEnd();
+                            }
+                            else
+                            {
+                                //SfxManager.instance.PlaySfxClip(menuHoverSound, 1f);
+                                clickableMenuElement.OnHoverStart();
+                            }
+                        }
+
+                        if (_hitObjectDecoration)
+                        {
+                            IClickableMenuDecoration oldClickableMenuElement =
+                                _hitObjectDecoration.GetComponent<IClickableMenuDecoration>();
+                            if (oldClickableMenuElement != null) oldClickableMenuElement.OnHoverEnd();
+                        }
+
+                        _hitObjectDecoration = hitObject;
+                    }
+                    else if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
+                             ControlsManager.Instance.usedDevice == Device.Gamepad &&
+                             virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
+                    {
+                        _hitObjectDecoration.GetComponent<IClickableMenuDecoration>()?.OnClick();
+                        _hitObjectDecoration.GetComponent<IClickableMenuDecoration>()?.OnHoverEnd();
+                    }
                 }
             }
         }
@@ -109,6 +176,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                 CameraManager.Instance.StopIntro();
                 return;
             }
+
             _hitObject?.GetComponent<IClickableMenuElement>()?.OnUnclick();
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.overviewCamera);
             currentState = State.Overview;

@@ -3331,6 +3331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControllerUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2252712827237622535, guid: 220e47d344a3239d9b9097257f54c060, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 540
+      objectReference: {fileID: 0}
     - target: {fileID: 7243383566213701647, guid: 220e47d344a3239d9b9097257f54c060, type: 3}
       propertyPath: m_Pivot.x
       value: 0

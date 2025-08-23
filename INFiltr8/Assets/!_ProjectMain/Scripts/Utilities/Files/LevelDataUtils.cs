@@ -68,7 +68,7 @@ namespace __ProjectMain.Scripts.Utilities.Files
             }
             catch (Exception e)
             {
-                Debug.LogError("File is corrupted ("+fileContents+")");
+                Debug.LogError("File is corrupted ("+fileContents+") with error " + e);
             }
 
             return null;

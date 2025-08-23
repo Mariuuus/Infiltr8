@@ -1,6 +1,7 @@
 using System;
 using __ProjectMain.Scripts.Managers.LevelEditor;
 using __ProjectMain.Scripts.Objects;
+using TMPro;
 using UnityEngine;
 
 namespace __ProjectMain.Scripts.LevelEditor.Components
@@ -28,7 +29,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
 
         public void OnExitAdjust()
         {
-            LevelEditorManager.Instance.collectableSettings.Hide(this);
+            LevelEditorManager.Instance.collectableSettings.Hide();
         }
     }
 }

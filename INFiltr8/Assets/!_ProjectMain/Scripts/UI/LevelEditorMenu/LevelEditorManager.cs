@@ -81,7 +81,7 @@ namespace __ProjectMain.Scripts.UI.LevelEditorMenu
             {
                 LevelDataUtils.SaveFile(newLevel);
             }
-            catch (FileLoadException e)
+            catch (FileLoadException)
             {
                 return false;
             }

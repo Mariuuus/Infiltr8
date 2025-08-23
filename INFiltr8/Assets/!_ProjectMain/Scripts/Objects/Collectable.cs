@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using __ProjectMain.Data;
+using __ProjectMain.Scripts.Managers;
 using __ProjectMain.Scripts.Utilities.Files;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -46,7 +48,11 @@ namespace __ProjectMain.Scripts.Objects
         private void OnTriggerEnter(Collider other)
         {
             Debug.Log("Collected" +  _distro.distroName);
-            //Trigger in CollectableManager
+            if(other.CompareTag("Player"))
+                if (GameDataManager.Instance)
+                {
+                    GameDataManager.Instance.CollectedCollectable(_distro.distroName);
+                }
             Destroy(gameObject);
         }
     }
