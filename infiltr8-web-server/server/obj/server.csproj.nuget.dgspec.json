@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/server.csproj": {}
+    "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\server.csproj": {}
   },
   "projects": {
-    "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/server.csproj": {
+    "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/server.csproj",
+        "projectUniqueName": "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/server.csproj",
-        "packagesPath": "/home/marius/.nuget/packages/",
-        "outputPath": "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/",
+        "projectPath": "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\server.csproj",
+        "packagesPath": "C:\\Users\\Mandy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/marius/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Mandy\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.5, )"
@@ -72,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
