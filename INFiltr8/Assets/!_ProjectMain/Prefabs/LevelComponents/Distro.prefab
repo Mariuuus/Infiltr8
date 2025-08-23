@@ -127,6 +127,7 @@ MonoBehaviour:
   spinSpeed: 100
   floatHeight: 0.2
   floatSpeed: 2
+  collectSound: {fileID: 8300000, guid: 56757e20d3204025bc5cf7320e163a0b, type: 3}
 --- !u!114 &3363711134878678505
 MonoBehaviour:
   m_ObjectHideFlags: 0

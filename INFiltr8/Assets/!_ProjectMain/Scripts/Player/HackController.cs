@@ -1,4 +1,5 @@
 ﻿using __ProjectMain.Scripts.LevelEditor.Types;
+using __ProjectMain.Scripts.Managers.Ingame;
 using __ProjectMain.Scripts.Managers.Level;
 using __ProjectMain.Scripts.Objects;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace __ProjectMain.Scripts.Player
     {
         public void OnHack(InputAction.CallbackContext context)
         {
+            if(IngameManager.Instance.Paused) return;
             if (!context.started) return;
             if (GetComponent<GrabController>().IsGrabbing) return;
             if (!GetComponent<PlayerController>().ClosestObject) return;

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Types;
 using __ProjectMain.Scripts.Managers.Audio;
+using __ProjectMain.Scripts.Managers.Ingame;
 using __ProjectMain.Scripts.Objects;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -85,6 +86,7 @@ namespace __ProjectMain.Scripts.Player
         
         public void OnGrab(InputAction.CallbackContext context)
         {
+            if (IngameManager.Instance.Paused) return;
             if (!context.started) return;
             if (GetComponent<PlayerController>().ClosestObject == null) return;
             

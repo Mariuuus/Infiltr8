@@ -51,9 +51,11 @@ namespace __ProjectMain.Scripts.Managers
         {
             if (!(_gameData.progress > levelIndex))
             {
-                _gameData.progress = levelIndex+1;
+                _gameData.progress = levelIndex + 1;
                 GameDataUtils.QuickSave(_gameData);
-            } else if (levelIndex != -1)
+            }
+
+            if (levelIndex != -1)
             {
                 PersistCollectables();
             }
