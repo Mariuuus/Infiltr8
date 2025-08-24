@@ -38,7 +38,7 @@ namespace __ProjectMain.Scripts.UI.LevelEditorMenu
 
         private void Start()
         {
-            Hide();
+            //Hide();
         }
 
         public void Show()

@@ -7,12 +7,18 @@ using UnityEngine.SceneManagement;
 
 namespace __ProjectMain.Scripts.Managers.MainMenu
 {
+    public enum LevelType
+    {
+        None, Regular, LevelEditor, Online
+    }
     public class LevelLoaderManager : MonoBehaviour
     {
         public static LevelLoaderManager Instance { get; private set; }
         
         public LevelData selectedLevelData;
         public int levelIndex;
+        
+        public LevelType currentLevelType =  LevelType.None;
 
         public void Awake()
         {
@@ -32,18 +38,21 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             if (GameDataManager.Instance.ProgressLevel() < levelIndex) return;
             selectedLevelData = levelData;
             this.levelIndex = levelIndex;
+            currentLevelType = LevelType.Regular;
             SceneManager.LoadScene("LevelLoader");
         }
         
-        public void LoadLocalLevel(LevelData levelData)
+        public void LoadLocalLevel(LevelData levelData, bool online=false)
         {
             selectedLevelData = levelData;
             this.levelIndex = -1;
+            currentLevelType = online ? LevelType.Online :  LevelType.LevelEditor;
             SceneManager.LoadScene("LevelLoader");
         }
         
         public void LoadLocalLevelEdit(LevelData levelData)
         {
+            currentLevelType = LevelType.LevelEditor;
             selectedLevelData = levelData;
             SceneManager.LoadScene("LevelEditor");
         }
