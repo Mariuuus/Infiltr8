@@ -19,6 +19,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         private ISelectableState[] _selectableStates;
         
         public bool isSpecting = true;
+        public bool OverUI = false;
         
         private LevelEditorStateMachine _levelEditorStateMachine;
         
@@ -77,6 +78,9 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         
         public void SelectEditorState(ISelectableState selectableState) => _levelEditorStateMachine.ChangeState((ILevelEditorState)selectableState);
         public void ChangeToSpectator() => _levelEditorStateMachine.ChangeState(_levelEditorStateMachine.SpectateState);
+
+        public void OnPointerEnterUI() => OverUI = true;
+        public void OnPointerExitUI() => OverUI = false;
         public void Init()
         {
             Instance = this;
@@ -171,13 +175,13 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         
         public void OnClick(InputAction.CallbackContext ctx)
         {
+            if (OverUI) return;
             _levelEditorStateMachine.OnClick(ctx);
         }
         
         public void OnEsc(InputAction.CallbackContext ctx)
         {
             _levelEditorStateMachine.OnEsc(ctx);
-            
         }
         
         public Vector3Int GetMousePosition () {

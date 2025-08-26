@@ -997,7 +997,7 @@
 	  "The laptop in front of you can only be hacked into the RED color!",
 	  "And this Firewall, you've seen one before, can be cracked by placing the right number of infiltrated laptops on the plates.",
 	  "A Firewall can even have multiple activation plates, as you can see here!",
-	  "Go ahead, open the door! I'll meet you at the next one!"
+	  "Go ahead, open the Firewall! I'll meet you at the next one!"
 	]
       },
       "startPosition": {
@@ -1021,11 +1021,12 @@
         "character": 1,
 	"lines": [
 	  "There you go!",
-	  "Here you can see multiple activation plates and doors.",
-	  "As you can see, doors can require different amounts of laptops.",
+	  "Here you can see multiple activation plates and Firewall.",
+	  "As you can see, Firewall can require different amounts of laptops.",
 	  "And sometimes even different colors!",
+      "By the way, the amount of laptops on a plate, can differ too. the numbers on the plates indicated the maximum.",
 	  "Go ahead, try it out!",
-	  "I'll meet you once you've managed to open the door behind the three doors!"
+	  "I'll meet you once you've managed to open the door behind the three Firewall!"
 	]
 
       },
@@ -1049,7 +1050,9 @@
         "trigger": 0,
         "character": 1,
 	"lines": [
-	  "Wow, congrats! I didn't think something so… human… could pull this off!",
+	  "Wow, congrats! I didn't think something so...",
+      "huMaN...",
+      "could pull this off!",
 	  "Grab the stick and get out of here!",
 	  "I'll meet you at your next training!"
 	]

@@ -69,7 +69,8 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
         public void Show()
         {
             uiElement.SetActive(true);
-            RenderLocalLevels();
+            OnSearchLocalLevels("");
+            OnSearch();
         }
 
         public void Hide()
@@ -147,7 +148,7 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
         public void OnPlayOnlineLevel()
         {
             if (_selectedLevelData == null) return;
-            LevelLoaderManager.Instance.LoadLocalLevel(_selectedLevelData);
+            LevelLoaderManager.Instance.LoadLocalLevel(_selectedLevelData, true);
         }
 
         public void OnSelectLocalLevel(LevelData levelData)

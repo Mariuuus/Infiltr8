@@ -1,7 +1,12 @@
 using System;
+using __ProjectMain.Scripts.UI;
+using __ProjectMain.Scripts.UI.LevelBrowserMenu;
+using __ProjectMain.Scripts.UI.LevelEditorMenu;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
+using Object = UnityEngine.Object;
 
 namespace __ProjectMain.Scripts.Managers.MainMenu
 {
@@ -21,14 +26,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         
         
         public bool Playing { get; private set; }
-        
-        
-        public void Awake()
-        {
-            Init();
-        }
 
-        public void Init()
+        private void Awake()
         {
             if (Instance != null && Instance != this)
             {
@@ -37,10 +36,44 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
 
             Instance = this;
-            
+        }
+
+        public void Start()
+        {
+            Init();
+        }
+        
+        public void Init()
+        {
             DeactivateCameras();
-            _currentCamera = overviewCamera;
-            ChangeToCamera(overviewCamera);
+
+            switch (LevelLoaderManager.Instance.currentLevelType)
+            {
+                case LevelType.Online:
+                    FindFirstObjectByType<LevelBrowserManager>().Show();
+                    MainMenuManager.Instance.SetHitObj(FindFirstObjectByType<LevelOnlineState>().gameObject);
+                    _currentCamera = onlineLevelCamera;
+                    ChangeToCamera(onlineLevelCamera);
+                    MainMenuManager.Instance.currentState = State.OnlineLevel;
+                    break;
+                case LevelType.Regular:
+                    _currentCamera = levelSelectorCamera;
+                    ChangeToCamera(levelSelectorCamera);
+                    MainMenuManager.Instance.currentState = State.LevelSelect;
+                    break;
+                case LevelType.LevelEditor:
+                    FindFirstObjectByType<LevelEditorManager>().Show();
+                    _currentCamera = levelEditorCamera;
+                    ChangeToCamera(levelEditorCamera);
+                    MainMenuManager.Instance.currentState = State.LevelEditor;
+                    MainMenuManager.Instance.SetHitObj(FindFirstObjectByType<UI.LevelEditor>().gameObject);
+                    break;
+                default:
+                    _currentCamera = overviewCamera;
+                    ChangeToCamera(overviewCamera);
+                    MainMenuManager.Instance.currentState = State.Overview;
+                    break;
+            }
         }
         
         public void GameStartSequence() => PlayIntro();
@@ -89,6 +122,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                 Playing = false;
                 if(MainMenuManager.Instance.currentState == State.Intro)
                 {
+                    Debug.Log("Reset Manager");
                     MainMenuManager.Instance.currentState = State.Overview;
                     GameDataManager.Instance.WatchedIntro();
                 }

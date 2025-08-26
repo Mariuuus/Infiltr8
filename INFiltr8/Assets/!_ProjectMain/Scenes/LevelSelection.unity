@@ -11503,7 +11503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a06289aedc42c6a408294f90ad72f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 1
+  currentState: 0
   virtualMouseInput: {fileID: 1977158644}
   backAction: {fileID: -3269633573997086780, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   menuHoverSound: {fileID: 8300000, guid: c104119626b45084eabb02cafa4c4edc, type: 3}
@@ -12740,6 +12740,7 @@ MonoBehaviour:
     wallPointTwo: {x: 0, y: 0}
     components: []
   levelIndex: 0
+  currentLevelType: 0
 --- !u!1001 &1413314576
 PrefabInstance:
   m_ObjectHideFlags: 0

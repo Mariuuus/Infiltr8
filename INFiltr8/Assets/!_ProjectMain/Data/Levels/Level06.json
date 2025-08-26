@@ -1,0 +1,2805 @@
+{
+  "levelName": "Level06",
+  "wallPointOne": {
+    "x": 0,
+    "y": 0,
+    "magnitude": 0.0,
+    "sqrMagnitude": 0
+  },
+  "wallPointTwo": {
+    "x": 60,
+    "y": 60,
+    "magnitude": 84.85281,
+    "sqrMagnitude": 7200
+  },
+  "components": [
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 59,
+        "y": 12,
+        "magnitude": 60.2079735,
+        "sqrMagnitude": 3625
+      },
+      "endPosition": {
+        "x": 59,
+        "y": 1,
+        "magnitude": 59.0084724,
+        "sqrMagnitude": 3482
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 58,
+        "y": 7,
+        "magnitude": 58.420887,
+        "sqrMagnitude": 3413
+      },
+      "endPosition": {
+        "x": 58,
+        "y": 1,
+        "magnitude": 58.00862,
+        "sqrMagnitude": 3365
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 59,
+        "y": 18,
+        "magnitude": 61.68468,
+        "sqrMagnitude": 3805
+      },
+      "endPosition": {
+        "x": 59,
+        "y": 13,
+        "magnitude": 60.41523,
+        "sqrMagnitude": 3650
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 37,
+        "y": 1,
+        "magnitude": 37.01351,
+        "sqrMagnitude": 1370
+      },
+      "endPosition": {
+        "x": 57,
+        "y": 1,
+        "magnitude": 57.00877,
+        "sqrMagnitude": 3250
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 47,
+        "y": 2,
+        "magnitude": 47.0425339,
+        "sqrMagnitude": 2213
+      },
+      "endPosition": {
+        "x": 57,
+        "y": 2,
+        "magnitude": 57.0350761,
+        "sqrMagnitude": 3253
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 51,
+        "y": 3,
+        "magnitude": 51.0881577,
+        "sqrMagnitude": 2610
+      },
+      "endPosition": {
+        "x": 57,
+        "y": 3,
+        "magnitude": 57.07889,
+        "sqrMagnitude": 3258
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 57,
+        "y": 6,
+        "magnitude": 57.31492,
+        "sqrMagnitude": 3285
+      },
+      "endPosition": {
+        "x": 57,
+        "y": 4,
+        "magnitude": 57.14018,
+        "sqrMagnitude": 3265
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 59,
+        "y": 59,
+        "magnitude": 83.4386,
+        "sqrMagnitude": 6962
+      },
+      "endPosition": {
+        "x": 59,
+        "y": 35,
+        "magnitude": 68.60029,
+        "sqrMagnitude": 4706
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 36,
+        "y": 59,
+        "magnitude": 69.1158447,
+        "sqrMagnitude": 4777
+      },
+      "endPosition": {
+        "x": 58,
+        "y": 59,
+        "magnitude": 82.73451,
+        "sqrMagnitude": 6845
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 58,
+        "y": 58,
+        "magnitude": 82.02438,
+        "sqrMagnitude": 6728
+      },
+      "endPosition": {
+        "x": 58,
+        "y": 42,
+        "magnitude": 71.610054,
+        "sqrMagnitude": 5128
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 39,
+        "y": 58,
+        "magnitude": 69.89278,
+        "sqrMagnitude": 4885
+      },
+      "endPosition": {
+        "x": 57,
+        "y": 58,
+        "magnitude": 81.32035,
+        "sqrMagnitude": 6613
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 57,
+        "y": 57,
+        "magnitude": 80.6101761,
+        "sqrMagnitude": 6498
+      },
+      "endPosition": {
+        "x": 57,
+        "y": 47,
+        "magnitude": 73.87828,
+        "sqrMagnitude": 5458
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 46,
+        "y": 57,
+        "magnitude": 73.24616,
+        "sqrMagnitude": 5365
+      },
+      "endPosition": {
+        "x": 56,
+        "y": 57,
+        "magnitude": 79.9062,
+        "sqrMagnitude": 6385
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 56,
+        "y": 56,
+        "magnitude": 79.19596,
+        "sqrMagnitude": 6272
+      },
+      "endPosition": {
+        "x": 56,
+        "y": 56,
+        "magnitude": 79.19596,
+        "sqrMagnitude": 6272
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 56,
+        "y": 55,
+        "magnitude": 78.4920349,
+        "sqrMagnitude": 6161
+      },
+      "endPosition": {
+        "x": 56,
+        "y": 54,
+        "magnitude": 77.7946,
+        "sqrMagnitude": 6052
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 53,
+        "y": 56,
+        "magnitude": 77.10383,
+        "sqrMagnitude": 5945
+      },
+      "endPosition": {
+        "x": 55,
+        "y": 56,
+        "magnitude": 78.4920349,
+        "sqrMagnitude": 6161
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 1,
+        "magnitude": 2.236068,
+        "sqrMagnitude": 5
+      },
+      "endPosition": {
+        "x": 21,
+        "y": 1,
+        "magnitude": 21.0237961,
+        "sqrMagnitude": 442
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 1,
+        "y": 28,
+        "magnitude": 28.01785,
+        "sqrMagnitude": 785
+      },
+      "endPosition": {
+        "x": 1,
+        "y": 1,
+        "magnitude": 1.41421354,
+        "sqrMagnitude": 2
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 2,
+        "magnitude": 2.828427,
+        "sqrMagnitude": 8
+      },
+      "endPosition": {
+        "x": 20,
+        "y": 2,
+        "magnitude": 20.09975,
+        "sqrMagnitude": 404
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 21,
+        "magnitude": 21.0950222,
+        "sqrMagnitude": 445
+      },
+      "endPosition": {
+        "x": 2,
+        "y": 3,
+        "magnitude": 3.60555124,
+        "sqrMagnitude": 13
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 3,
+        "y": 3,
+        "magnitude": 4.2426405,
+        "sqrMagnitude": 18
+      },
+      "endPosition": {
+        "x": 10,
+        "y": 3,
+        "magnitude": 10.4403067,
+        "sqrMagnitude": 109
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 3,
+        "y": 12,
+        "magnitude": 12.3693171,
+        "sqrMagnitude": 153
+      },
+      "endPosition": {
+        "x": 3,
+        "y": 4,
+        "magnitude": 5.0,
+        "sqrMagnitude": 25
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 4,
+        "y": 4,
+        "magnitude": 5.656854,
+        "sqrMagnitude": 32
+      },
+      "endPosition": {
+        "x": 4,
+        "y": 4,
+        "magnitude": 5.656854,
+        "sqrMagnitude": 32
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 4,
+        "y": 6,
+        "magnitude": 7.21110249,
+        "sqrMagnitude": 52
+      },
+      "endPosition": {
+        "x": 4,
+        "y": 6,
+        "magnitude": 7.21110249,
+        "sqrMagnitude": 52
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 4,
+        "y": 5,
+        "magnitude": 6.40312433,
+        "sqrMagnitude": 41
+      },
+      "endPosition": {
+        "x": 4,
+        "y": 5,
+        "magnitude": 6.40312433,
+        "sqrMagnitude": 41
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 5,
+        "y": 4,
+        "magnitude": 6.40312433,
+        "sqrMagnitude": 41
+      },
+      "endPosition": {
+        "x": 5,
+        "y": 4,
+        "magnitude": 6.40312433,
+        "sqrMagnitude": 41
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 33,
+        "y": 1,
+        "magnitude": 33.01515,
+        "sqrMagnitude": 1090
+      },
+      "endPosition": {
+        "x": 36,
+        "y": 1,
+        "magnitude": 36.0138855,
+        "sqrMagnitude": 1297
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 42,
+        "y": 2,
+        "magnitude": 42.0475922,
+        "sqrMagnitude": 1768
+      },
+      "endPosition": {
+        "x": 46,
+        "y": 2,
+        "magnitude": 46.043457,
+        "sqrMagnitude": 2120
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 22,
+        "y": 1,
+        "magnitude": 22.0227146,
+        "sqrMagnitude": 485
+      },
+      "endPosition": {
+        "x": 25,
+        "y": 1,
+        "magnitude": 25.0199928,
+        "sqrMagnitude": 626
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 1,
+        "y": 37,
+        "magnitude": 37.01351,
+        "sqrMagnitude": 1370
+      },
+      "endPosition": {
+        "x": 1,
+        "y": 58,
+        "magnitude": 58.00862,
+        "sqrMagnitude": 3365
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 58,
+        "magnitude": 58.0344734,
+        "sqrMagnitude": 3368
+      },
+      "endPosition": {
+        "x": 20,
+        "y": 58,
+        "magnitude": 61.3514481,
+        "sqrMagnitude": 3764
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 42,
+        "magnitude": 42.0475922,
+        "sqrMagnitude": 1768
+      },
+      "endPosition": {
+        "x": 2,
+        "y": 57,
+        "magnitude": 57.0350761,
+        "sqrMagnitude": 3253
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 3,
+        "y": 57,
+        "magnitude": 57.07889,
+        "sqrMagnitude": 3258
+      },
+      "endPosition": {
+        "x": 18,
+        "y": 57,
+        "magnitude": 59.77458,
+        "sqrMagnitude": 3573
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 3,
+        "y": 48,
+        "magnitude": 48.09366,
+        "sqrMagnitude": 2313
+      },
+      "endPosition": {
+        "x": 3,
+        "y": 56,
+        "magnitude": 56.0803,
+        "sqrMagnitude": 3145
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 4,
+        "y": 56,
+        "magnitude": 56.1426735,
+        "sqrMagnitude": 3152
+      },
+      "endPosition": {
+        "x": 11,
+        "y": 56,
+        "magnitude": 57.0701332,
+        "sqrMagnitude": 3257
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 4,
+        "y": 55,
+        "magnitude": 55.1452637,
+        "sqrMagnitude": 3041
+      },
+      "endPosition": {
+        "x": 4,
+        "y": 55,
+        "magnitude": 55.1452637,
+        "sqrMagnitude": 3041
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 4,
+        "y": 54,
+        "magnitude": 54.1479454,
+        "sqrMagnitude": 2932
+      },
+      "endPosition": {
+        "x": 4,
+        "y": 54,
+        "magnitude": 54.1479454,
+        "sqrMagnitude": 2932
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 5,
+        "y": 55,
+        "magnitude": 55.2268066,
+        "sqrMagnitude": 3050
+      },
+      "endPosition": {
+        "x": 5,
+        "y": 55,
+        "magnitude": 55.2268066,
+        "sqrMagnitude": 3050
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 6,
+        "y": 55,
+        "magnitude": 55.3263054,
+        "sqrMagnitude": 3061
+      },
+      "endPosition": {
+        "x": 6,
+        "y": 55,
+        "magnitude": 55.3263054,
+        "sqrMagnitude": 3061
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 10,
+        "y": 49,
+        "magnitude": 50.01,
+        "sqrMagnitude": 2501
+      },
+      "endPosition": {
+        "x": 10,
+        "y": 45,
+        "magnitude": 46.09772,
+        "sqrMagnitude": 2125
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 11,
+        "y": 49,
+        "magnitude": 50.2195168,
+        "sqrMagnitude": 2522
+      },
+      "endPosition": {
+        "x": 14,
+        "y": 49,
+        "magnitude": 50.96077,
+        "sqrMagnitude": 2597
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 14,
+        "y": 50,
+        "magnitude": 51.92302,
+        "sqrMagnitude": 2696
+      },
+      "endPosition": {
+        "x": 18,
+        "y": 50,
+        "magnitude": 53.14132,
+        "sqrMagnitude": 2824
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 18,
+        "y": 51,
+        "magnitude": 54.08327,
+        "sqrMagnitude": 2925
+      },
+      "endPosition": {
+        "x": 21,
+        "y": 51,
+        "magnitude": 55.1543274,
+        "sqrMagnitude": 3042
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 21,
+        "y": 52,
+        "magnitude": 56.0803,
+        "sqrMagnitude": 3145
+      },
+      "endPosition": {
+        "x": 25,
+        "y": 52,
+        "magnitude": 57.6974869,
+        "sqrMagnitude": 3329
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 32,
+        "y": 52,
+        "magnitude": 61.05735,
+        "sqrMagnitude": 3728
+      },
+      "endPosition": {
+        "x": 39,
+        "y": 52,
+        "magnitude": 65.0,
+        "sqrMagnitude": 4225
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 39,
+        "y": 51,
+        "magnitude": 64.2028046,
+        "sqrMagnitude": 4122
+      },
+      "endPosition": {
+        "x": 42,
+        "y": 51,
+        "magnitude": 66.0681458,
+        "sqrMagnitude": 4365
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 42,
+        "y": 50,
+        "magnitude": 65.29931,
+        "sqrMagnitude": 4264
+      },
+      "endPosition": {
+        "x": 48,
+        "y": 50,
+        "magnitude": 69.31089,
+        "sqrMagnitude": 4804
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 48,
+        "y": 49,
+        "magnitude": 68.593,
+        "sqrMagnitude": 4705
+      },
+      "endPosition": {
+        "x": 50,
+        "y": 49,
+        "magnitude": 70.00714,
+        "sqrMagnitude": 4901
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 51,
+        "y": 46,
+        "magnitude": 68.68042,
+        "sqrMagnitude": 4717
+      },
+      "endPosition": {
+        "x": 51,
+        "y": 48,
+        "magnitude": 70.0357056,
+        "sqrMagnitude": 4905
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 50,
+        "y": 48,
+        "magnitude": 69.31089,
+        "sqrMagnitude": 4804
+      },
+      "endPosition": {
+        "x": 50,
+        "y": 48,
+        "magnitude": 69.31089,
+        "sqrMagnitude": 4804
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 51,
+        "y": 42,
+        "magnitude": 66.0681458,
+        "sqrMagnitude": 4365
+      },
+      "endPosition": {
+        "x": 51,
+        "y": 45,
+        "magnitude": 68.0147,
+        "sqrMagnitude": 4626
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 52,
+        "y": 39,
+        "magnitude": 65.0,
+        "sqrMagnitude": 4225
+      },
+      "endPosition": {
+        "x": 52,
+        "y": 43,
+        "magnitude": 67.47592,
+        "sqrMagnitude": 4553
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 53,
+        "y": 35,
+        "magnitude": 63.51378,
+        "sqrMagnitude": 4034
+      },
+      "endPosition": {
+        "x": 53,
+        "y": 39,
+        "magnitude": 65.8027344,
+        "sqrMagnitude": 4330
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 54,
+        "y": 31,
+        "magnitude": 62.26556,
+        "sqrMagnitude": 3877
+      },
+      "endPosition": {
+        "x": 54,
+        "y": 35,
+        "magnitude": 64.3506,
+        "sqrMagnitude": 4141
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 54,
+        "y": 24,
+        "magnitude": 59.0931473,
+        "sqrMagnitude": 3492
+      },
+      "endPosition": {
+        "x": 54,
+        "y": 30,
+        "magnitude": 61.77378,
+        "sqrMagnitude": 3816
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 53,
+        "y": 18,
+        "magnitude": 55.97321,
+        "sqrMagnitude": 3133
+      },
+      "endPosition": {
+        "x": 53,
+        "y": 24,
+        "magnitude": 58.18075,
+        "sqrMagnitude": 3385
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 52,
+        "y": 15,
+        "magnitude": 54.1202354,
+        "sqrMagnitude": 2929
+      },
+      "endPosition": {
+        "x": 52,
+        "y": 18,
+        "magnitude": 55.0272675,
+        "sqrMagnitude": 3028
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 51,
+        "y": 12,
+        "magnitude": 52.392746,
+        "sqrMagnitude": 2745
+      },
+      "endPosition": {
+        "x": 51,
+        "y": 15,
+        "magnitude": 53.1601372,
+        "sqrMagnitude": 2826
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 50,
+        "y": 9,
+        "magnitude": 50.8035431,
+        "sqrMagnitude": 2581
+      },
+      "endPosition": {
+        "x": 50,
+        "y": 11,
+        "magnitude": 51.1957,
+        "sqrMagnitude": 2621
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 50,
+        "y": 12,
+        "magnitude": 51.41984,
+        "sqrMagnitude": 2644
+      },
+      "endPosition": {
+        "x": 50,
+        "y": 12,
+        "magnitude": 51.41984,
+        "sqrMagnitude": 2644
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 46,
+        "y": 9,
+        "magnitude": 46.8721657,
+        "sqrMagnitude": 2197
+      },
+      "endPosition": {
+        "x": 49,
+        "y": 9,
+        "magnitude": 49.8196754,
+        "sqrMagnitude": 2482
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 49,
+        "y": 10,
+        "magnitude": 50.01,
+        "sqrMagnitude": 2501
+      },
+      "endPosition": {
+        "x": 49,
+        "y": 10,
+        "magnitude": 50.01,
+        "sqrMagnitude": 2501
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 42,
+        "y": 8,
+        "magnitude": 42.7551155,
+        "sqrMagnitude": 1828
+      },
+      "endPosition": {
+        "x": 46,
+        "y": 8,
+        "magnitude": 46.69047,
+        "sqrMagnitude": 2180
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 37,
+        "y": 8,
+        "magnitude": 37.85499,
+        "sqrMagnitude": 1433
+      },
+      "endPosition": {
+        "x": 41,
+        "y": 8,
+        "magnitude": 41.7731972,
+        "sqrMagnitude": 1745
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 33,
+        "y": 7,
+        "magnitude": 33.7342567,
+        "sqrMagnitude": 1138
+      },
+      "endPosition": {
+        "x": 37,
+        "y": 7,
+        "magnitude": 37.65634,
+        "sqrMagnitude": 1418
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 28,
+        "y": 8,
+        "magnitude": 29.12044,
+        "sqrMagnitude": 848
+      },
+      "endPosition": {
+        "x": 33,
+        "y": 8,
+        "magnitude": 33.9558525,
+        "sqrMagnitude": 1153
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 23,
+        "y": 9,
+        "magnitude": 24.6981773,
+        "sqrMagnitude": 610
+      },
+      "endPosition": {
+        "x": 28,
+        "y": 9,
+        "magnitude": 29.4108829,
+        "sqrMagnitude": 865
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 19,
+        "y": 10,
+        "magnitude": 21.470911,
+        "sqrMagnitude": 461
+      },
+      "endPosition": {
+        "x": 23,
+        "y": 10,
+        "magnitude": 25.0798721,
+        "sqrMagnitude": 629
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 15,
+        "y": 11,
+        "magnitude": 18.6010761,
+        "sqrMagnitude": 346
+      },
+      "endPosition": {
+        "x": 19,
+        "y": 11,
+        "magnitude": 21.9544983,
+        "sqrMagnitude": 482
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 13,
+        "y": 12,
+        "magnitude": 17.6918068,
+        "sqrMagnitude": 313
+      },
+      "endPosition": {
+        "x": 15,
+        "y": 12,
+        "magnitude": 19.2093735,
+        "sqrMagnitude": 369
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 11,
+        "y": 12,
+        "magnitude": 16.27882,
+        "sqrMagnitude": 265
+      },
+      "endPosition": {
+        "x": 12,
+        "y": 12,
+        "magnitude": 16.970562,
+        "sqrMagnitude": 288
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 11,
+        "y": 15,
+        "magnitude": 18.6010761,
+        "sqrMagnitude": 346
+      },
+      "endPosition": {
+        "x": 11,
+        "y": 13,
+        "magnitude": 17.0293865,
+        "sqrMagnitude": 290
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 10,
+        "y": 17,
+        "magnitude": 19.7230835,
+        "sqrMagnitude": 389
+      },
+      "endPosition": {
+        "x": 10,
+        "y": 14,
+        "magnitude": 17.20465,
+        "sqrMagnitude": 296
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 3,
+        "y": 24,
+        "magnitude": 24.1867733,
+        "sqrMagnitude": 585
+      },
+      "endPosition": {
+        "x": 3,
+        "y": 20,
+        "magnitude": 20.22375,
+        "sqrMagnitude": 409
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 4,
+        "y": 28,
+        "magnitude": 28.2842712,
+        "sqrMagnitude": 800
+      },
+      "endPosition": {
+        "x": 4,
+        "y": 24,
+        "magnitude": 24.33105,
+        "sqrMagnitude": 592
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 5,
+        "y": 30,
+        "magnitude": 30.4138126,
+        "sqrMagnitude": 925
+      },
+      "endPosition": {
+        "x": 5,
+        "y": 28,
+        "magnitude": 28.4429245,
+        "sqrMagnitude": 809
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 6,
+        "y": 32,
+        "magnitude": 32.55764,
+        "sqrMagnitude": 1060
+      },
+      "endPosition": {
+        "x": 6,
+        "y": 30,
+        "magnitude": 30.5941162,
+        "sqrMagnitude": 936
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 7,
+        "y": 35,
+        "magnitude": 35.69314,
+        "sqrMagnitude": 1274
+      },
+      "endPosition": {
+        "x": 7,
+        "y": 32,
+        "magnitude": 32.75668,
+        "sqrMagnitude": 1073
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 8,
+        "y": 38,
+        "magnitude": 38.8329773,
+        "sqrMagnitude": 1508
+      },
+      "endPosition": {
+        "x": 8,
+        "y": 35,
+        "magnitude": 35.9026451,
+        "sqrMagnitude": 1289
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 9,
+        "y": 42,
+        "magnitude": 42.9534645,
+        "sqrMagnitude": 1845
+      },
+      "endPosition": {
+        "x": 9,
+        "y": 39,
+        "magnitude": 40.0249939,
+        "sqrMagnitude": 1602
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 9,
+        "y": 38,
+        "magnitude": 39.0512466,
+        "sqrMagnitude": 1525
+      },
+      "endPosition": {
+        "x": 9,
+        "y": 37,
+        "magnitude": 38.0788651,
+        "sqrMagnitude": 1450
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 10,
+        "y": 44,
+        "magnitude": 45.1220551,
+        "sqrMagnitude": 2036
+      },
+      "endPosition": {
+        "x": 10,
+        "y": 40,
+        "magnitude": 41.2310562,
+        "sqrMagnitude": 1700
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 1,
+        "y": 29,
+        "magnitude": 29.0172367,
+        "sqrMagnitude": 842
+      },
+      "endPosition": {
+        "x": 4,
+        "y": 29,
+        "magnitude": 29.2745628,
+        "sqrMagnitude": 857
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 28,
+        "magnitude": 28.0713367,
+        "sqrMagnitude": 788
+      },
+      "endPosition": {
+        "x": 3,
+        "y": 28,
+        "magnitude": 28.1602554,
+        "sqrMagnitude": 793
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 27,
+        "magnitude": 27.0739727,
+        "sqrMagnitude": 733
+      },
+      "endPosition": {
+        "x": 3,
+        "y": 27,
+        "magnitude": 27.1661549,
+        "sqrMagnitude": 738
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 22,
+        "magnitude": 22.0907211,
+        "sqrMagnitude": 488
+      },
+      "endPosition": {
+        "x": 2,
+        "y": 26,
+        "magnitude": 26.0768089,
+        "sqrMagnitude": 680
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 3,
+        "y": 26,
+        "magnitude": 26.1725044,
+        "sqrMagnitude": 685
+      },
+      "endPosition": {
+        "x": 3,
+        "y": 25,
+        "magnitude": 25.1793575,
+        "sqrMagnitude": 634
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 11,
+        "y": 48,
+        "magnitude": 49.24429,
+        "sqrMagnitude": 2425
+      },
+      "endPosition": {
+        "x": 11,
+        "y": 48,
+        "magnitude": 49.24429,
+        "sqrMagnitude": 2425
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 9,
+        "y": 48,
+        "magnitude": 48.83646,
+        "sqrMagnitude": 2385
+      },
+      "endPosition": {
+        "x": 9,
+        "y": 47,
+        "magnitude": 47.8539429,
+        "sqrMagnitude": 2290
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 10,
+        "y": 19,
+        "magnitude": 21.470911,
+        "sqrMagnitude": 461
+      },
+      "endPosition": {
+        "x": 10,
+        "y": 18,
+        "magnitude": 20.59126,
+        "sqrMagnitude": 424
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 11,
+        "y": 21,
+        "magnitude": 23.70654,
+        "sqrMagnitude": 562
+      },
+      "endPosition": {
+        "x": 11,
+        "y": 19,
+        "magnitude": 21.9544983,
+        "sqrMagnitude": 482
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 12,
+        "y": 24,
+        "magnitude": 26.8328152,
+        "sqrMagnitude": 720
+      },
+      "endPosition": {
+        "x": 12,
+        "y": 21,
+        "magnitude": 24.1867733,
+        "sqrMagnitude": 585
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 13,
+        "y": 27,
+        "magnitude": 29.9666481,
+        "sqrMagnitude": 898
+      },
+      "endPosition": {
+        "x": 13,
+        "y": 24,
+        "magnitude": 27.2946873,
+        "sqrMagnitude": 745
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 14,
+        "y": 31,
+        "magnitude": 34.0147,
+        "sqrMagnitude": 1157
+      },
+      "endPosition": {
+        "x": 14,
+        "y": 27,
+        "magnitude": 30.4138126,
+        "sqrMagnitude": 925
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 15,
+        "y": 34,
+        "magnitude": 37.161808,
+        "sqrMagnitude": 1381
+      },
+      "endPosition": {
+        "x": 15,
+        "y": 31,
+        "magnitude": 34.43835,
+        "sqrMagnitude": 1186
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 16,
+        "y": 40,
+        "magnitude": 43.0813179,
+        "sqrMagnitude": 1856
+      },
+      "endPosition": {
+        "x": 16,
+        "y": 34,
+        "magnitude": 37.5765877,
+        "sqrMagnitude": 1412
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 17,
+        "y": 41,
+        "magnitude": 44.38468,
+        "sqrMagnitude": 1970
+      },
+      "endPosition": {
+        "x": 17,
+        "y": 39,
+        "magnitude": 42.5440941,
+        "sqrMagnitude": 1810
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 17,
+        "y": 42,
+        "magnitude": 45.3100433,
+        "sqrMagnitude": 2053
+      },
+      "endPosition": {
+        "x": 20,
+        "y": 42,
+        "magnitude": 46.5188141,
+        "sqrMagnitude": 2164
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 19,
+        "y": 43,
+        "magnitude": 47.0106354,
+        "sqrMagnitude": 2210
+      },
+      "endPosition": {
+        "x": 23,
+        "y": 43,
+        "magnitude": 48.76474,
+        "sqrMagnitude": 2378
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 23,
+        "y": 44,
+        "magnitude": 49.6487656,
+        "sqrMagnitude": 2465
+      },
+      "endPosition": {
+        "x": 28,
+        "y": 44,
+        "magnitude": 52.1536179,
+        "sqrMagnitude": 2720
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 29,
+        "y": 45,
+        "magnitude": 53.5350342,
+        "sqrMagnitude": 2866
+      },
+      "endPosition": {
+        "x": 32,
+        "y": 45,
+        "magnitude": 55.21775,
+        "sqrMagnitude": 3049
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 29,
+        "y": 44,
+        "magnitude": 52.69725,
+        "sqrMagnitude": 2777
+      },
+      "endPosition": {
+        "x": 29,
+        "y": 44,
+        "magnitude": 52.69725,
+        "sqrMagnitude": 2777
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 45,
+        "y": 37,
+        "magnitude": 58.2580452,
+        "sqrMagnitude": 3394
+      },
+      "endPosition": {
+        "x": 45,
+        "y": 41,
+        "magnitude": 60.8769264,
+        "sqrMagnitude": 3706
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 46,
+        "y": 31,
+        "magnitude": 55.4707146,
+        "sqrMagnitude": 3077
+      },
+      "endPosition": {
+        "x": 46,
+        "y": 39,
+        "magnitude": 60.3075447,
+        "sqrMagnitude": 3637
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 47,
+        "y": 28,
+        "magnitude": 54.7083168,
+        "sqrMagnitude": 2993
+      },
+      "endPosition": {
+        "x": 47,
+        "y": 31,
+        "magnitude": 56.3027534,
+        "sqrMagnitude": 3170
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 47,
+        "y": 25,
+        "magnitude": 53.2353249,
+        "sqrMagnitude": 2834
+      },
+      "endPosition": {
+        "x": 47,
+        "y": 27,
+        "magnitude": 54.20332,
+        "sqrMagnitude": 2938
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 46,
+        "y": 22,
+        "magnitude": 50.9901962,
+        "sqrMagnitude": 2600
+      },
+      "endPosition": {
+        "x": 46,
+        "y": 25,
+        "magnitude": 52.35456,
+        "sqrMagnitude": 2741
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 45,
+        "y": 18,
+        "magnitude": 48.4664841,
+        "sqrMagnitude": 2349
+      },
+      "endPosition": {
+        "x": 45,
+        "y": 22,
+        "magnitude": 50.08992,
+        "sqrMagnitude": 2509
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 44,
+        "y": 17,
+        "magnitude": 47.1699066,
+        "sqrMagnitude": 2225
+      },
+      "endPosition": {
+        "x": 44,
+        "y": 18,
+        "magnitude": 47.5394554,
+        "sqrMagnitude": 2260
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 40,
+        "y": 16,
+        "magnitude": 43.0813179,
+        "sqrMagnitude": 1856
+      },
+      "endPosition": {
+        "x": 43,
+        "y": 16,
+        "magnitude": 45.88028,
+        "sqrMagnitude": 2105
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 36,
+        "y": 17,
+        "magnitude": 39.8120575,
+        "sqrMagnitude": 1585
+      },
+      "endPosition": {
+        "x": 40,
+        "y": 17,
+        "magnitude": 43.4626274,
+        "sqrMagnitude": 1889
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 30,
+        "y": 17,
+        "magnitude": 34.48188,
+        "sqrMagnitude": 1189
+      },
+      "endPosition": {
+        "x": 35,
+        "y": 17,
+        "magnitude": 38.9101524,
+        "sqrMagnitude": 1514
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 27,
+        "y": 18,
+        "magnitude": 32.4499626,
+        "sqrMagnitude": 1053
+      },
+      "endPosition": {
+        "x": 30,
+        "y": 18,
+        "magnitude": 34.98571,
+        "sqrMagnitude": 1224
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 23,
+        "y": 19,
+        "magnitude": 29.8328686,
+        "sqrMagnitude": 890
+      },
+      "endPosition": {
+        "x": 27,
+        "y": 19,
+        "magnitude": 33.01515,
+        "sqrMagnitude": 1090
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 22,
+        "y": 19,
+        "magnitude": 29.0688839,
+        "sqrMagnitude": 845
+      },
+      "endPosition": {
+        "x": 22,
+        "y": 19,
+        "magnitude": 29.0688839,
+        "sqrMagnitude": 845
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 21,
+        "y": 20,
+        "magnitude": 29.0,
+        "sqrMagnitude": 841
+      },
+      "endPosition": {
+        "x": 22,
+        "y": 20,
+        "magnitude": 29.7321377,
+        "sqrMagnitude": 884
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 20,
+        "y": 20,
+        "magnitude": 28.2842712,
+        "sqrMagnitude": 800
+      },
+      "endPosition": {
+        "x": 20,
+        "y": 20,
+        "magnitude": 28.2842712,
+        "sqrMagnitude": 800
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 19,
+        "y": 21,
+        "magnitude": 28.3196049,
+        "sqrMagnitude": 802
+      },
+      "endPosition": {
+        "x": 19,
+        "y": 21,
+        "magnitude": 28.3196049,
+        "sqrMagnitude": 802
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 19,
+        "y": 22,
+        "magnitude": 29.0688839,
+        "sqrMagnitude": 845
+      },
+      "endPosition": {
+        "x": 19,
+        "y": 22,
+        "magnitude": 29.0688839,
+        "sqrMagnitude": 845
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 20,
+        "y": 21,
+        "magnitude": 29.0,
+        "sqrMagnitude": 841
+      },
+      "endPosition": {
+        "x": 20,
+        "y": 21,
+        "magnitude": 29.0,
+        "sqrMagnitude": 841
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 20,
+        "y": 23,
+        "magnitude": 30.4795017,
+        "sqrMagnitude": 929
+      },
+      "endPosition": {
+        "x": 20,
+        "y": 22,
+        "magnitude": 29.7321377,
+        "sqrMagnitude": 884
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 21,
+        "y": 26,
+        "magnitude": 33.42155,
+        "sqrMagnitude": 1117
+      },
+      "endPosition": {
+        "x": 21,
+        "y": 23,
+        "magnitude": 31.1448231,
+        "sqrMagnitude": 970
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 22,
+        "y": 29,
+        "magnitude": 36.40055,
+        "sqrMagnitude": 1325
+      },
+      "endPosition": {
+        "x": 22,
+        "y": 26,
+        "magnitude": 34.058773,
+        "sqrMagnitude": 1160
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 23,
+        "y": 32,
+        "magnitude": 39.40812,
+        "sqrMagnitude": 1553
+      },
+      "endPosition": {
+        "x": 23,
+        "y": 29,
+        "magnitude": 37.01351,
+        "sqrMagnitude": 1370
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 24,
+        "y": 34,
+        "magnitude": 41.6173058,
+        "sqrMagnitude": 1732
+      },
+      "endPosition": {
+        "x": 24,
+        "y": 32,
+        "magnitude": 40.0,
+        "sqrMagnitude": 1600
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 25,
+        "y": 36,
+        "magnitude": 43.8292122,
+        "sqrMagnitude": 1921
+      },
+      "endPosition": {
+        "x": 25,
+        "y": 34,
+        "magnitude": 42.2018967,
+        "sqrMagnitude": 1781
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 26,
+        "y": 37,
+        "magnitude": 45.2216759,
+        "sqrMagnitude": 2045
+      },
+      "endPosition": {
+        "x": 28,
+        "y": 37,
+        "magnitude": 46.4004326,
+        "sqrMagnitude": 2153
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 26,
+        "y": 36,
+        "magnitude": 44.4072075,
+        "sqrMagnitude": 1972
+      },
+      "endPosition": {
+        "x": 26,
+        "y": 36,
+        "magnitude": 44.4072075,
+        "sqrMagnitude": 1972
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 29,
+        "y": 37,
+        "magnitude": 47.0106354,
+        "sqrMagnitude": 2210
+      },
+      "endPosition": {
+        "x": 33,
+        "y": 37,
+        "magnitude": 49.57822,
+        "sqrMagnitude": 2458
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 33,
+        "y": 36,
+        "magnitude": 48.83646,
+        "sqrMagnitude": 2385
+      },
+      "endPosition": {
+        "x": 36,
+        "y": 36,
+        "magnitude": 50.91169,
+        "sqrMagnitude": 2592
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 36,
+        "y": 35,
+        "magnitude": 50.20956,
+        "sqrMagnitude": 2521
+      },
+      "endPosition": {
+        "x": 39,
+        "y": 35,
+        "magnitude": 52.40229,
+        "sqrMagnitude": 2746
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 39,
+        "y": 34,
+        "magnitude": 51.7397346,
+        "sqrMagnitude": 2677
+      },
+      "endPosition": {
+        "x": 41,
+        "y": 34,
+        "magnitude": 53.2634964,
+        "sqrMagnitude": 2837
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 41,
+        "y": 29,
+        "magnitude": 50.2195168,
+        "sqrMagnitude": 2522
+      },
+      "endPosition": {
+        "x": 41,
+        "y": 33,
+        "magnitude": 52.63079,
+        "sqrMagnitude": 2770
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 41,
+        "y": 25,
+        "magnitude": 48.02083,
+        "sqrMagnitude": 2306
+      },
+      "endPosition": {
+        "x": 41,
+        "y": 28,
+        "magnitude": 49.6487656,
+        "sqrMagnitude": 2465
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 38,
+        "y": 24,
+        "magnitude": 44.94441,
+        "sqrMagnitude": 2020
+      },
+      "endPosition": {
+        "x": 40,
+        "y": 24,
+        "magnitude": 46.6476135,
+        "sqrMagnitude": 2176
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 36,
+        "y": 25,
+        "magnitude": 43.8292122,
+        "sqrMagnitude": 1921
+      },
+      "endPosition": {
+        "x": 38,
+        "y": 25,
+        "magnitude": 45.4862633,
+        "sqrMagnitude": 2069
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 40,
+        "y": 25,
+        "magnitude": 47.1699066,
+        "sqrMagnitude": 2225
+      },
+      "endPosition": {
+        "x": 40,
+        "y": 25,
+        "magnitude": 47.1699066,
+        "sqrMagnitude": 2225
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 32,
+        "y": 25,
+        "magnitude": 40.60788,
+        "sqrMagnitude": 1649
+      },
+      "endPosition": {
+        "x": 35,
+        "y": 25,
+        "magnitude": 43.0116272,
+        "sqrMagnitude": 1850
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 30,
+        "y": 26,
+        "magnitude": 39.6988678,
+        "sqrMagnitude": 1576
+      },
+      "endPosition": {
+        "x": 32,
+        "y": 26,
+        "magnitude": 41.2310562,
+        "sqrMagnitude": 1700
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 37,
+        "y": 24,
+        "magnitude": 44.1021538,
+        "sqrMagnitude": 1945
+      },
+      "endPosition": {
+        "x": 37,
+        "y": 24,
+        "magnitude": 44.1021538,
+        "sqrMagnitude": 1945
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 36,
+        "y": 24,
+        "magnitude": 43.2666168,
+        "sqrMagnitude": 1872
+      },
+      "endPosition": {
+        "x": 36,
+        "y": 24,
+        "magnitude": 43.2666168,
+        "sqrMagnitude": 1872
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 30,
+        "y": 30,
+        "magnitude": 42.4264069,
+        "sqrMagnitude": 1800
+      },
+      "endPosition": {
+        "x": 30,
+        "y": 27,
+        "magnitude": 40.36087,
+        "sqrMagnitude": 1629
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 31,
+        "y": 32,
+        "magnitude": 44.5533371,
+        "sqrMagnitude": 1985
+      },
+      "endPosition": {
+        "x": 31,
+        "y": 29,
+        "magnitude": 42.44997,
+        "sqrMagnitude": 1802
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 32,
+        "y": 30,
+        "magnitude": 43.8634262,
+        "sqrMagnitude": 1924
+      },
+      "endPosition": {
+        "x": 35,
+        "y": 30,
+        "magnitude": 46.09772,
+        "sqrMagnitude": 2125
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 32,
+        "y": 31,
+        "magnitude": 44.5533371,
+        "sqrMagnitude": 1985
+      },
+      "endPosition": {
+        "x": 33,
+        "y": 31,
+        "magnitude": 45.2769241,
+        "sqrMagnitude": 2050
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 36,
+        "y": 30,
+        "magnitude": 46.8615,
+        "sqrMagnitude": 2196
+      },
+      "endPosition": {
+        "x": 37,
+        "y": 30,
+        "magnitude": 47.63402,
+        "sqrMagnitude": 2269
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 32,
+        "y": 29,
+        "magnitude": 43.1856461,
+        "sqrMagnitude": 1865
+      },
+      "endPosition": {
+        "x": 32,
+        "y": 29,
+        "magnitude": 43.1856461,
+        "sqrMagnitude": 1865
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.GoalComponent, Assembly-CSharp",
+      "position": {
+        "x": 35,
+        "y": 27,
+        "magnitude": 44.20407,
+        "sqrMagnitude": 1954
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.OnlyPlayerDoorComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 37,
+        "y": 29,
+        "magnitude": 47.0106354,
+        "sqrMagnitude": 2210
+      },
+      "endPosition": {
+        "x": 37,
+        "y": 26,
+        "magnitude": 45.2216759,
+        "sqrMagnitude": 2045
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.PortComponent, Assembly-CSharp",
+      "position1": {
+        "x": 31,
+        "y": 49,
+        "magnitude": 57.9827576,
+        "sqrMagnitude": 3362
+      },
+      "position2": {
+        "x": 31,
+        "y": 40,
+        "magnitude": 50.6063232,
+        "sqrMagnitude": 2561
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.OnlyPlayerDoorComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 28,
+        "y": 43,
+        "magnitude": 51.312767,
+        "sqrMagnitude": 2633
+      },
+      "endPosition": {
+        "x": 28,
+        "y": 38,
+        "magnitude": 47.2016945,
+        "sqrMagnitude": 2228
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.OnlyPlayerDoorComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 34,
+        "y": 51,
+        "magnitude": 61.2943726,
+        "sqrMagnitude": 3757
+      },
+      "endPosition": {
+        "x": 34,
+        "y": 45,
+        "magnitude": 56.4003563,
+        "sqrMagnitude": 3181
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.OnlyPlayerDoorComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 35,
+        "y": 24,
+        "magnitude": 42.43819,
+        "sqrMagnitude": 1801
+      },
+      "endPosition": {
+        "x": 35,
+        "y": 18,
+        "magnitude": 39.357338,
+        "sqrMagnitude": 1549
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.OnlyPlayerDoorComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 29,
+        "y": 9,
+        "magnitude": 30.3644524,
+        "sqrMagnitude": 922
+      },
+      "endPosition": {
+        "x": 29,
+        "y": 17,
+        "magnitude": 33.61547,
+        "sqrMagnitude": 1130
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
+      "activationPlates": [
+        {
+          "maxDevices": 0,
+          "startPosition": {
+            "x": 23,
+            "y": 23,
+            "magnitude": 32.5269127,
+            "sqrMagnitude": 1058
+          },
+          "endPosition": {
+            "x": 26,
+            "y": 20,
+            "magnitude": 32.80244,
+            "sqrMagnitude": 1076
+          }
+        }
+      ],
+      "doorUnlockRequirements": [
+        {
+          "hackStatus": 0,
+          "amount": 2
+        },
+        {
+          "hackStatus": 2,
+          "amount": 1
+        },
+        {
+          "hackStatus": 3,
+          "amount": 1
+        }
+      ],
+      "startPosition": {
+        "x": 31,
+        "y": 36,
+        "magnitude": 47.5078926,
+        "sqrMagnitude": 2257
+      },
+      "endPosition": {
+        "x": 31,
+        "y": 33,
+        "magnitude": 45.2769241,
+        "sqrMagnitude": 2050
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
+      "activationPlates": [
+        {
+          "maxDevices": 0,
+          "startPosition": {
+            "x": 36,
+            "y": 49,
+            "magnitude": 60.80296,
+            "sqrMagnitude": 3697
+          },
+          "endPosition": {
+            "x": 39,
+            "y": 45,
+            "magnitude": 59.5482979,
+            "sqrMagnitude": 3546
+          }
+        },
+        {
+          "maxDevices": 0,
+          "startPosition": {
+            "x": 42,
+            "y": 36,
+            "magnitude": 55.31727,
+            "sqrMagnitude": 3060
+          },
+          "endPosition": {
+            "x": 44,
+            "y": 32,
+            "magnitude": 54.4058838,
+            "sqrMagnitude": 2960
+          }
+        }
+      ],
+      "doorUnlockRequirements": [
+        {
+          "hackStatus": 3,
+          "amount": 3
+        }
+      ],
+      "startPosition": {
+        "x": 39,
+        "y": 42,
+        "magnitude": 57.31492,
+        "sqrMagnitude": 3285
+      },
+      "endPosition": {
+        "x": 39,
+        "y": 36,
+        "magnitude": 53.0754166,
+        "sqrMagnitude": 2817
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.PortComponent, Assembly-CSharp",
+      "position1": {
+        "x": 42,
+        "y": 46,
+        "magnitude": 62.2896461,
+        "sqrMagnitude": 3880
+      },
+      "position2": {
+        "x": 36,
+        "y": 39,
+        "magnitude": 53.0754166,
+        "sqrMagnitude": 2817
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
+      "activationPlates": [
+        {
+          "maxDevices": 0,
+          "startPosition": {
+            "x": 24,
+            "y": 50,
+            "magnitude": 55.4616966,
+            "sqrMagnitude": 3076
+          },
+          "endPosition": {
+            "x": 26,
+            "y": 47,
+            "magnitude": 53.7121964,
+            "sqrMagnitude": 2885
+          }
+        }
+      ],
+      "doorUnlockRequirements": [
+        {
+          "hackStatus": 0,
+          "amount": 1
+        }
+      ],
+      "startPosition": {
+        "x": 26,
+        "y": 52,
+        "magnitude": 58.1377678,
+        "sqrMagnitude": 3380
+      },
+      "endPosition": {
+        "x": 31,
+        "y": 52,
+        "magnitude": 60.53924,
+        "sqrMagnitude": 3665
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
+      "possibleHacks": [
+        0,
+        1,
+        3
+      ],
+      "position": {
+        "x": 28,
+        "y": 56,
+        "magnitude": 62.6099052,
+        "sqrMagnitude": 3920
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.OnlyPlayerDoorComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 32,
+        "y": 59,
+        "magnitude": 67.11929,
+        "sqrMagnitude": 4505
+      },
+      "endPosition": {
+        "x": 32,
+        "y": 53,
+        "magnitude": 61.91123,
+        "sqrMagnitude": 3833
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
+      "activationPlates": [
+        {
+          "maxDevices": 0,
+          "startPosition": {
+            "x": 8,
+            "y": 26,
+            "magnitude": 27.2029419,
+            "sqrMagnitude": 740
+          },
+          "endPosition": {
+            "x": 10,
+            "y": 23,
+            "magnitude": 25.0798721,
+            "sqrMagnitude": 629
+          }
+        },
+        {
+          "maxDevices": 0,
+          "startPosition": {
+            "x": 11,
+            "y": 36,
+            "magnitude": 37.64306,
+            "sqrMagnitude": 1417
+          },
+          "endPosition": {
+            "x": 13,
+            "y": 33,
+            "magnitude": 35.4682961,
+            "sqrMagnitude": 1258
+          }
+        }
+      ],
+      "doorUnlockRequirements": [
+        {
+          "hackStatus": 1,
+          "amount": 1
+        }
+      ],
+      "startPosition": {
+        "x": 7,
+        "y": 30,
+        "magnitude": 30.8058434,
+        "sqrMagnitude": 949
+      },
+      "endPosition": {
+        "x": 13,
+        "y": 30,
+        "magnitude": 32.6955643,
+        "sqrMagnitude": 1069
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
+      "activationPlates": [
+        {
+          "maxDevices": 0,
+          "startPosition": {
+            "x": 2,
+            "y": 32,
+            "magnitude": 32.06244,
+            "sqrMagnitude": 1028
+          },
+          "endPosition": {
+            "x": 4,
+            "y": 30,
+            "magnitude": 30.2654915,
+            "sqrMagnitude": 916
+          }
+        }
+      ],
+      "doorUnlockRequirements": [
+        {
+          "hackStatus": 2,
+          "amount": 1
+        }
+      ],
+      "startPosition": {
+        "x": 21,
+        "y": 59,
+        "magnitude": 62.6258736,
+        "sqrMagnitude": 3922
+      },
+      "endPosition": {
+        "x": 21,
+        "y": 59,
+        "magnitude": 62.6258736,
+        "sqrMagnitude": 3922
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 21,
+        "y": 58,
+        "magnitude": 61.68468,
+        "sqrMagnitude": 3805
+      },
+      "endPosition": {
+        "x": 21,
+        "y": 58,
+        "magnitude": 61.68468,
+        "sqrMagnitude": 3805
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.SpawnPointComponent, Assembly-CSharp",
+      "position": {
+        "x": 4,
+        "y": 36,
+        "magnitude": 36.2215424,
+        "sqrMagnitude": 1312
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
+      "possibleHacks": [
+        2,
+        3,
+        1
+      ],
+      "position": {
+        "x": 20,
+        "y": 47,
+        "magnitude": 51.078373,
+        "sqrMagnitude": 2609
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.CollectableComponent, Assembly-CSharp",
+      "type": 4,
+      "position": {
+        "x": 1,
+        "y": 59,
+        "magnitude": 59.0084724,
+        "sqrMagnitude": 3482
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
+      "possibleHacks": [
+        0,
+        1,
+        3
+      ],
+      "position": {
+        "x": 7,
+        "y": 9,
+        "magnitude": 11.4017544,
+        "sqrMagnitude": 130
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
+      "possibleHacks": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "position": {
+        "x": 34,
+        "y": 41,
+        "magnitude": 53.2634964,
+        "sqrMagnitude": 2837
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 42,
+        "y": 41,
+        "magnitude": 58.6941223,
+        "sqrMagnitude": 3445
+      },
+      "endPosition": {
+        "x": 44,
+        "y": 41,
+        "magnitude": 60.1415,
+        "sqrMagnitude": 3617
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 41,
+        "y": 42,
+        "magnitude": 58.6941223,
+        "sqrMagnitude": 3445
+      },
+      "endPosition": {
+        "x": 42,
+        "y": 42,
+        "magnitude": 59.39697,
+        "sqrMagnitude": 3528
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 40,
+        "y": 43,
+        "magnitude": 58.7281876,
+        "sqrMagnitude": 3449
+      },
+      "endPosition": {
+        "x": 41,
+        "y": 43,
+        "magnitude": 59.4138031,
+        "sqrMagnitude": 3530
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 39,
+        "y": 44,
+        "magnitude": 58.796257,
+        "sqrMagnitude": 3457
+      },
+      "endPosition": {
+        "x": 39,
+        "y": 43,
+        "magnitude": 58.0517,
+        "sqrMagnitude": 3370
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 33,
+        "y": 44,
+        "magnitude": 55.0,
+        "sqrMagnitude": 3025
+      },
+      "endPosition": {
+        "x": 33,
+        "y": 45,
+        "magnitude": 55.8032265,
+        "sqrMagnitude": 3114
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 34,
+        "y": 44,
+        "magnitude": 55.6057549,
+        "sqrMagnitude": 3092
+      },
+      "endPosition": {
+        "x": 34,
+        "y": 44,
+        "magnitude": 55.6057549,
+        "sqrMagnitude": 3092
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.OnlyPlayerDoorComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 35,
+        "y": 44,
+        "magnitude": 56.22277,
+        "sqrMagnitude": 3161
+      },
+      "endPosition": {
+        "x": 38,
+        "y": 44,
+        "magnitude": 58.1377678,
+        "sqrMagnitude": 3380
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.PortComponent, Assembly-CSharp",
+      "position1": {
+        "x": 36,
+        "y": 12,
+        "magnitude": 37.94733,
+        "sqrMagnitude": 1440
+      },
+      "position2": {
+        "x": 38,
+        "y": 21,
+        "magnitude": 43.4165878,
+        "sqrMagnitude": 1885
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.PortComponent, Assembly-CSharp",
+      "position1": {
+        "x": 30,
+        "y": 22,
+        "magnitude": 37.2021523,
+        "sqrMagnitude": 1384
+      },
+      "position2": {
+        "x": 33,
+        "y": 14,
+        "magnitude": 35.8468971,
+        "sqrMagnitude": 1285
+      }
+    }
+  ]
+}

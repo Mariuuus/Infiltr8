@@ -53,8 +53,9 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
             Debug.Log(currentLookAtComponent.GetType());
             if (currentLookAtComponent is IAdjustableComponent component)
             {
-                component.OnAdjust();
+                if(_selectedComponent != null) _selectedComponent.OnExitAdjust();
                 _selectedComponent = component;
+                _selectedComponent.OnAdjust();
                 base.OnClick(ctx);
             }
         }

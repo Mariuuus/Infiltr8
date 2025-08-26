@@ -25,8 +25,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
     public class MainMenuManager : MonoBehaviour
     {
         public static MainMenuManager Instance { get; private set; }
-        public bool Playing { get; private set; }
-        public State currentState = State.Overview;
+        public State currentState = State.Intro;
 
         
         private GameObject _hitObject;
@@ -49,10 +48,14 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
 
             Instance = this;
+
         }
+        
+        public void SetHitObj(GameObject hitObject) =>  _hitObject = hitObject;
 
         void Update()
         {
+            if (currentState == State.Intro) return;
             if (currentState == State.Overview)
             {
                 Ray ray;

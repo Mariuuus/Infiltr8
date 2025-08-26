@@ -2311,6 +2311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee62986aae14ffd9974f1672307d19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minZoom: 5
+  maxZoom: 20
 --- !u!1 &331316232
 GameObject:
   m_ObjectHideFlags: 0
@@ -12859,6 +12861,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fca55f90-f9ae-4b98-9af8-23e1b6622aa3
     m_ActionName: 'Gameplay/Escape[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 330585548}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.Player.LevelBuilderCamera,
+          Assembly-CSharp
+        m_MethodName: OnZoom
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dd8ec822-3c07-4c82-990c-2ce48d07ed45
+    m_ActionName: 'Gameplay/Scroll[/Mouse/scroll/y]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
