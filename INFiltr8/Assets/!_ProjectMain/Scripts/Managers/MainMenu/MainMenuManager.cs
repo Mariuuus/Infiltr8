@@ -28,11 +28,14 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public bool Playing { get; private set; }
         public State currentState = State.Overview;
 
+        
         private GameObject _hitObject;
         private GameObject _hitObjectDecoration;
 
         [SerializeField] private VirtualMouseInput virtualMouseInput;
 
+        [SerializeField] private InputActionReference backAction;
+        
         [SerializeField] private AudioClip menuHoverSound;
         [SerializeField] private AudioClip menuSelectSound;
 
@@ -77,9 +80,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                             if (ControlsManager.Instance.usedDevice == Device.Keyboard && Input.GetMouseButtonDown(0) ||
                                 ControlsManager.Instance.usedDevice == Device.Gamepad &&
                                 virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
-                            {
+                            { 
                                 clickableMenuElement.OnClick();
-                                // SfxManager.instance.PlaySfxClip(menuSelectSound, 1f);
                                 clickableMenuElement.OnHoverEnd();
                             }
                             else
@@ -102,6 +104,12 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                              ControlsManager.Instance.usedDevice == Device.Gamepad &&
                              virtualMouseInput.leftButtonAction.action.WasPerformedThisFrame())
                     {
+                        // check if currently hovered object is ClickableMenuElement
+                        var menuElement = _hitObject.GetComponent<IClickableMenuElement>();
+                        if (menuElement != null)
+                        {
+                            SfxManager.instance.PlaySfxClip(menuSelectSound,1f);
+                        }
                         _hitObject.GetComponent<IClickableMenuElement>()?.OnClick();
                         _hitObject.GetComponent<IClickableMenuElement>()?.OnHoverEnd();
                     }
@@ -177,9 +185,12 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                 return;
             }
 
-            _hitObject?.GetComponent<IClickableMenuElement>()?.OnUnclick();
-            CameraManager.Instance.ChangeToCamera(CameraManager.Instance.overviewCamera);
-            currentState = State.Overview;
+            if (currentState != State.Exit)
+            {
+                _hitObject?.GetComponent<IClickableMenuElement>()?.OnUnclick();
+                CameraManager.Instance.ChangeToCamera(CameraManager.Instance.overviewCamera);
+                currentState = State.Overview;
+            }
         }
     }
 }

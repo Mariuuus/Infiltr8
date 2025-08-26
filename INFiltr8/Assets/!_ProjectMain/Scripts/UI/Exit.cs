@@ -1,4 +1,5 @@
 using System.Collections;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.Managers.MainMenu;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace __ProjectMain.Scripts.UI
         [SerializeField] private Vector3 normalScale; 
         [SerializeField] private Vector3 hoverScale;
         
+        [SerializeField] private AudioClip menuSelectSound;
         
         public void OnHoverStart() 
         { 
@@ -25,6 +27,8 @@ namespace __ProjectMain.Scripts.UI
         {
             MainMenuManager.Instance.currentState = State.Exit;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.exitCamera);
+            
+            // SfxManager.instance.PlaySfxClip(menuSelectSound, 1f);
 
             StartCoroutine(DelayExit());
         }
