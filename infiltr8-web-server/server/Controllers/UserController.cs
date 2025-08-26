@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using server.Models;
+using BCrypt.Net;
+using MongoDB.Driver;
 
 namespace server.Controllers
 {
@@ -9,22 +11,36 @@ namespace server.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
-        public UserController(UserService userService) {
-            _userService = userService;
-        }
+        public UserController(UserService userService) => _userService = userService;
 
         [HttpPost]
-        public async ActionResult<User> Create([FromBody] JsonUser jsonUser)
+        public async Task<ActionResult<User>> Create([FromBody] JsonUser jsonUser)
         {
+            if (string.IsNullOrWhiteSpace(jsonUser.Username) || string.IsNullOrWhiteSpace(jsonUser.Password))
+            {
+                return BadRequest(new { message = "username or password cant be empty" });
+            }
+
             var user = new User
             {
                 Username = jsonUser.Username,
-                // TODO: add hashing! (probably with bcrypt)
-                Password = jsonUser.Password
+                Password = BCrypt.Net.BCrypt.HashPassword(jsonUser.Password)
             };
 
+            var userExists = await _userService.GetByUsernameAsync(jsonUser.Username);
+            if (userExists != null)
+            {
+                return Conflict(new { message = "Username already taken" });
+            }
+
             await _userService.Create(user);
-            return CreatedAtAction(nameof(Create), new { id = user.UserId }, user);
+            return Ok(new { message = "user successfully created!" });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Login()
+        {
+            return Ok();
         }
     }
 }
