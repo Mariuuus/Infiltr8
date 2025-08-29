@@ -50,8 +50,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates
         {
             if (!ctx.performed) return;
             LevelComponent currentLookAtComponent = LevelEditorUtils.ReceiveComponentAtPosition(LevelEditorFileManager.Instance.levelData.components, LookAtTile);
-            Debug.Log(currentLookAtComponent.GetType());
-            if (currentLookAtComponent is IAdjustableComponent component)
+            if (currentLookAtComponent!= null && currentLookAtComponent is IAdjustableComponent component)
             {
                 if(_selectedComponent != null) _selectedComponent.OnExitAdjust();
                 _selectedComponent = component;
