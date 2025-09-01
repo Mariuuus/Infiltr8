@@ -18,7 +18,7 @@ namespace __ProjectMain.Scripts.Managers.Audio
             } else { Destroy(gameObject); }
         }
 
-        public void PlaySfxClip(AudioClip audioClip, float volume)
+        public void PlaySfxClip(AudioClip audioClip, float volume, bool pitch=false, float pitchMin=.9f, float pitchMax=1.1f)
         {
             if (audioClip == null) return;
 
@@ -47,6 +47,9 @@ namespace __ProjectMain.Scripts.Managers.Audio
         
             // Lautstärke
             audioSource.volume = volume;
+            
+            // Pitch if activated
+            if(pitch)audioSource.pitch = Random.Range(pitchMin, pitchMax);
         
             // Clip abspielen
             audioSource.Play();

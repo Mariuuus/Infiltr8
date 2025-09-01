@@ -1,6 +1,9 @@
 using System.Collections;
+using __ProjectMain.Scripts.Managers;
 using __ProjectMain.Scripts.Managers.MainMenu;
+using __ProjectMain.Scripts.Utilities.Files;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace __ProjectMain.Scripts.UI
@@ -11,6 +14,9 @@ namespace __ProjectMain.Scripts.UI
         [SerializeField] private Vector3 hoverScale;
 
         public GameObject settingsMenu;
+        public Slider masterVolumeSlider;
+        public Slider musicVolumeSlider;
+        public Slider sfxVolumeSlider;
         
         public void Awake()
         {
@@ -32,13 +38,17 @@ namespace __ProjectMain.Scripts.UI
         {
             MainMenuManager.Instance.currentState = State.Settings;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.settingsCamera);
-
+            
+            masterVolumeSlider.value = GameDataManager.Instance.gameData.masterVolume;
+            musicVolumeSlider.value = GameDataManager.Instance.gameData.musicVolume;
+            sfxVolumeSlider.value = GameDataManager.Instance.gameData.sfxVolume;
             settingsMenu.SetActive(true);
         }
 
         public void OnUnclick()
         {
             StartCoroutine(DelayHide());
+            GameDataUtils.QuickSave(GameDataManager.Instance.gameData);
         }
 
         private IEnumerator DelayHide()

@@ -24,6 +24,9 @@ namespace __ProjectMain.Data
         public int progress;
         public int playTimeMinutes;
         public bool tutorialDone;
+        public float masterVolume;
+        public float musicVolume;
+        public float sfxVolume;
         public bool introDone;
         public List<CollectDistro> collectedDistros = new List<CollectDistro>();
         
@@ -35,6 +38,9 @@ namespace __ProjectMain.Data
             this.playerName = playerName;
             this.progress = 0;
             this.playTimeMinutes = 0;
+            this.masterVolume = 1;
+            this.musicVolume = 1;
+            this.sfxVolume = 1;
             this.tutorialDone = false;
             this.introDone = false;
             foreach (var obj in Enum.GetValues(typeof(DistroType)))

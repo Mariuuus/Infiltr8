@@ -1,4 +1,5 @@
 using System;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.Managers.Level;
 using __ProjectMain.Scripts.Player;
 using UnityEngine;
@@ -21,6 +22,11 @@ namespace __ProjectMain.Scripts.Managers.Ingame
             }
 
             Instance = this;
+        }
+
+        private void Start()
+        {
+            MusicManager.Instance.PlayInGameMusic();
         }
 
         public void Pause() {

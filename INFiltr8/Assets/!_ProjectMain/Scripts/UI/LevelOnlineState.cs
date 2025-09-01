@@ -2,6 +2,7 @@ using System.Collections;
 using __ProjectMain.Scripts.Managers.MainMenu;
 using __ProjectMain.Scripts.UI.LevelBrowserMenu;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace __ProjectMain.Scripts.UI
 {
@@ -27,7 +28,7 @@ namespace __ProjectMain.Scripts.UI
             
             MainMenuManager.Instance.currentState = State.OnlineLevel;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.onlineLevelCamera);
-            StartCoroutine(DelayUI());
+            StartCoroutine(nameof(DelayUI));
         }
 
         private IEnumerator DelayUI()
@@ -39,6 +40,7 @@ namespace __ProjectMain.Scripts.UI
         public void OnUnclick()
         {
             levelBrowserManager.Hide();
+            StopCoroutine(nameof(DelayUI));
         }
     }
 

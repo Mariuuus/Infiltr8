@@ -20,19 +20,19 @@ namespace __ProjectMain.Scripts.UI
         public void OnHoverEnd()
         {
             transform.localScale = normalScale;
-
         }
 
         public void OnClick()
         {
             MainMenuManager.Instance.currentState = State.LevelEditor;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.levelEditorCamera);
-            StartCoroutine(DelayUI());
+            StartCoroutine(nameof(DelayUI));
         }
 
         IEnumerator DelayUI()
         {
             yield return new WaitForSecondsRealtime(1f);
+            Debug.Log(MainMenuManager.Instance.currentState.ToString());
             levelEditorManager.Show();
         }
         
@@ -40,6 +40,7 @@ namespace __ProjectMain.Scripts.UI
         public void OnUnclick()
         {
             levelEditorManager.Hide();
+            StopCoroutine(nameof(DelayUI));
         }
     }
 }
