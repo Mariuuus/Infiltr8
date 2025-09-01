@@ -26,14 +26,11 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
     {
         public static MainMenuManager Instance { get; private set; }
         public State currentState = State.Intro;
-
         
         private GameObject _hitObject;
         private GameObject _hitObjectDecoration;
 
         [SerializeField] private VirtualMouseInput virtualMouseInput;
-
-        [SerializeField] private InputActionReference backAction;
         
         [SerializeField] private AudioClip menuHoverSound;
         [SerializeField] private AudioClip menuSelectSound;
@@ -48,7 +45,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
 
             Instance = this;
-
+            
         }
         
         public void SetHitObj(GameObject hitObject) =>  _hitObject = hitObject;
