@@ -25,7 +25,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
     public class MainMenuManager : MonoBehaviour
     {
         public static MainMenuManager Instance { get; private set; }
-        public State currentState = State.Intro;
+        public State currentState = State.Overview;
         
         private GameObject _hitObject;
         private GameObject _hitObjectDecoration;
@@ -47,7 +47,12 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             Instance = this;
             
         }
-        
+
+        private void Start()
+        {
+            MusicManager.Instance.PlayMainMenuMusic();
+        }
+
         public void SetHitObj(GameObject hitObject) =>  _hitObject = hitObject;
 
         void Update()

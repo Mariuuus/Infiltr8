@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.Managers.Ingame;
 using TMPro;
 using UnityEngine.InputSystem;
@@ -24,6 +25,7 @@ public class DialogController : MonoBehaviour
 
     [SerializeField] private Sprite usbSprite;
     [SerializeField] private Sprite laptopSprite;
+    [SerializeField] private AudioClip soundEffect;
     
     private bool isInDialogue = false;
     private bool isInLine = false;
@@ -143,6 +145,8 @@ public class DialogController : MonoBehaviour
         {
             temp += c;
             dialogText.SetText(temp);
+            //var inNum = (int)c;
+            SfxManager.instance.PlaySfxClip(soundEffect, .7f, true);
             yield return new WaitForSeconds(textSpeed);
         }
 

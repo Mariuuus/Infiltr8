@@ -200,6 +200,7 @@ MonoBehaviour:
   dialogImage: {fileID: 8581375969912390120}
   usbSprite: {fileID: 21300000, guid: dd02090c80bf90749963dcd89664e036, type: 3}
   laptopSprite: {fileID: 21300000, guid: 78c4b67787f559d469e6ad5654301c15, type: 3}
+  soundEffect: {fileID: 8300000, guid: 4860fab57de895908bdb83ecc8f00eb1, type: 3}
 --- !u!1 &1649746912925238829
 GameObject:
   m_ObjectHideFlags: 0

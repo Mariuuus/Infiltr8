@@ -6,6 +6,7 @@ using __ProjectMain.Scripts.Objects;
 using __ProjectMain.Scripts.Utilities.Files;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace __ProjectMain.Scripts.Managers
 {
@@ -13,7 +14,7 @@ namespace __ProjectMain.Scripts.Managers
     {
         public static GameDataManager Instance;
 
-        private GameData _gameData;
+        [FormerlySerializedAs("_gameData")] public GameData gameData;
         
         private readonly List<DistroType> _collectInLevel = new List<DistroType>();
 
@@ -27,32 +28,31 @@ namespace __ProjectMain.Scripts.Managers
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            _gameData = GameDataUtils.LoadData();
+            gameData = GameDataUtils.LoadData();
         }
 
         private void Start()
         {
-            if (!_gameData.introDone)
+            if (!gameData.introDone)
             {
-                Debug.Log("introDone");
-                CameraManager.Instance.GameStartSequence();
+                //CameraManager.Instance.GameStartSequence();
             }
 
-            GameDataUtils.QuickSave(_gameData);
+            GameDataUtils.QuickSave(gameData);
         }
 
         public void WatchedIntro()
         {
-            _gameData.introDone = true;
-            GameDataUtils.QuickSave(_gameData);
+            gameData.introDone = true;
+            GameDataUtils.QuickSave(gameData);
         }
         
         public void CompletedLevel(int levelIndex)
         {
-            if (!(_gameData.progress > levelIndex))
+            if (!(gameData.progress > levelIndex))
             {
-                _gameData.progress = levelIndex + 1;
-                GameDataUtils.QuickSave(_gameData);
+                gameData.progress = levelIndex + 1;
+                GameDataUtils.QuickSave(gameData);
             }
 
             if (levelIndex != -1)
@@ -60,15 +60,17 @@ namespace __ProjectMain.Scripts.Managers
                 PersistCollectables();
             }
         }
+        
+        
 
         private void PersistCollectables()
         {
             foreach (var distro in _collectInLevel)
             {
-                var element = _gameData.collectedDistros.Find(collectDistro => collectDistro.distroType == distro);
+                var element = gameData.collectedDistros.Find(collectDistro => collectDistro.distroType == distro);
                 element.collect = true;
             }
-            GameDataUtils.QuickSave(_gameData);
+            GameDataUtils.QuickSave(gameData);
             _collectInLevel.Clear();
             
         }
@@ -77,24 +79,24 @@ namespace __ProjectMain.Scripts.Managers
         {
             CheckCollectables();
             _collectInLevel.Add(distro);
-            GameDataUtils.QuickSave(_gameData);
+            GameDataUtils.QuickSave(gameData);
         }
 
         public List<CollectDistro> GetCollectables()
         {
             CheckCollectables();
-            return _gameData.collectedDistros;
+            return gameData.collectedDistros;
         }
         
         private void CheckCollectables() {
-            if (_gameData.collectedDistros == null || _gameData.collectedDistros.Count != Enum.GetValues(typeof(DistroType)).Length)
+            if (gameData.collectedDistros == null || gameData.collectedDistros.Count != Enum.GetValues(typeof(DistroType)).Length)
             {
                 foreach (var obj in Enum.GetValues(typeof(DistroType)))
                 {
                     var distro = (DistroType)obj;
-                    if (_gameData.collectedDistros.Find((collectDistro) => collectDistro.distroType == distro) == null)
+                    if (gameData.collectedDistros.Find((collectDistro) => collectDistro.distroType == distro) == null)
                     { 
-                        _gameData.collectedDistros.Add(new CollectDistro(distro, false));
+                        gameData.collectedDistros.Add(new CollectDistro(distro, false));
                     }
                 }
             }
@@ -102,7 +104,7 @@ namespace __ProjectMain.Scripts.Managers
 
         public int ProgressLevel()
         {
-            return _gameData.progress;
+            return gameData.progress;
         }
 
         public void SwitchToOverview()

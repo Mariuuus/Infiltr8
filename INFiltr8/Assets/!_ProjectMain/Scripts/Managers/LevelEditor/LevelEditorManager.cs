@@ -34,6 +34,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public LaptopSettings laptopSettings;
         public CollectableSettings collectableSettings;
         public DialogAreaSettings dialogAreaSettings;
+        public ErrorToastController errorToastController;
         
         [Header("Tiles")]
         public Tile hoverTile;
@@ -74,6 +75,11 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         private void Start()
         {
             _levelEditorStateMachine.ChangeState(_levelEditorStateMachine.SpectateState);
+        }
+
+        public void DisplayError(string message)
+        {
+            errorToastController.ShowError(message);
         }
         
         public void SelectEditorState(ISelectableState selectableState) => _levelEditorStateMachine.ChangeState((ILevelEditorState)selectableState);

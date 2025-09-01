@@ -671,21 +671,6 @@
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
       "startPosition": {
-        "x": 24,
-        "y": 21,
-        "magnitude": 31.8904381,
-        "sqrMagnitude": 1017
-      },
-      "endPosition": {
-        "x": 24,
-        "y": 19,
-        "magnitude": 30.6104565,
-        "sqrMagnitude": 937
-      }
-    },
-    {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
-      "startPosition": {
         "x": 25,
         "y": 17,
         "magnitude": 30.2324333,
@@ -2189,12 +2174,12 @@
     },
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.CollectableComponent, Assembly-CSharp",
-      "type": 2,
+      "type": 3,
       "position": {
-        "x": 23,
-        "y": 23,
-        "magnitude": 32.5269127,
-        "sqrMagnitude": 1058
+        "x": 24,
+        "y": 19,
+        "magnitude": 30.6104565,
+        "sqrMagnitude": 937
       }
     }
   ]

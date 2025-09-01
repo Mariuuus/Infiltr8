@@ -1,48 +1,76 @@
 using System.Collections;
 using UnityEngine;
 
-public class MusicManager : MonoBehaviour
+namespace __ProjectMain.Scripts.Managers.Audio
 {
-    public static MusicManager instance;
-
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private MusicLibrary musicLibrary;
-    
-    private void Awake()
+    public class MusicManager : MonoBehaviour
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else { Destroy(gameObject); }
-    }
+        [SerializeField] private AudioSource audioSource1;
+        [SerializeField] private AudioSource audioSource2;
 
-    public void PlayMusic(string trackName, float fadeDuration = 0.5f)
-    {
-        StartCoroutine(MusicCrossfade(musicLibrary.GetClipFromName(trackName), fadeDuration));
-    }
-    
-    IEnumerator MusicCrossfade(AudioClip nextTrack, float fadeDuration = 0.5f)
-    {
-        float percent = 0;
-        while (percent < 1)
+        [SerializeField] private AudioClip mainMenuMusicClip;
+        [SerializeField] private AudioClip inGameMusicClip;
+        
+        [SerializeField] private float transitionTime = 1.5f;
+
+        private enum Source { AudioSource1, AudioSource2 }
+        private Source _currentSource = Source.AudioSource1;
+
+        public static MusicManager Instance;
+
+        private Coroutine _transitionCoroutine;
+
+        private void Awake()
         {
-            percent += Time.deltaTime * 1 / fadeDuration;
-            musicSource.volume = Mathf.Lerp(1f,0,percent);
-            yield return null;
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
-        musicSource.clip = nextTrack;
-        musicSource.Play();
-
-        percent = 0;
-        while (percent < 1)
+        public void PlayMusic(AudioClip clip)
         {
-            percent += Time.deltaTime * 1 / fadeDuration;
-            musicSource.volume = Mathf.Lerp(0,1f,percent);
-            yield return null;
+            if (clip == null) return;
+
+            var nextSource = _currentSource == Source.AudioSource1 ? Source.AudioSource2 : Source.AudioSource1;
+            var inactiveSource = nextSource == Source.AudioSource1 ? audioSource1 : audioSource2;
+            var activeSource = _currentSource == Source.AudioSource1 ? audioSource1 : audioSource2;
+
+            inactiveSource.clip = clip;
+            inactiveSource.volume = 0f;
+            inactiveSource.Play();
+
+            _currentSource = nextSource;
+
+            if (_transitionCoroutine != null) StopCoroutine(_transitionCoroutine);
+            _transitionCoroutine = StartCoroutine(MixSources(activeSource, inactiveSource));
         }
+
+        private IEnumerator MixSources(AudioSource from, AudioSource to)
+        {
+            float t = 0f;
+
+            while (t < transitionTime)
+            {
+                t += Time.deltaTime;
+                float normalized = t / transitionTime;
+
+                from.volume = Mathf.Lerp(1f, 0f, normalized);
+                to.volume = Mathf.Lerp(0f, 1f, normalized);
+
+                yield return null;
+            }
+
+            from.Stop();
+            to.volume = 1f;
+        }
+
+        public void PlayMainMenuMusic() => PlayMusic(mainMenuMusicClip);
+        public void PlayInGameMusic() => PlayMusic(inGameMusicClip);
     }
-    
 }

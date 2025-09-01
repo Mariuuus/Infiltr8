@@ -1,5 +1,6 @@
 ﻿using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
 using __ProjectMain.Scripts.LevelEditor.StateMachine.EditStates;
+using __ProjectMain.Scripts.Managers.LevelEditor;
 using __ProjectMain.Scripts.Utilities.Exceptions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -36,7 +37,7 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
             }
             catch (InvalidLevelEditorActionException e)
             {
-                //TODO: display Errors!
+                LevelEditorManager.Instance.DisplayError(e.Message);
                 Debug.LogError(e.Message);
             }
         }

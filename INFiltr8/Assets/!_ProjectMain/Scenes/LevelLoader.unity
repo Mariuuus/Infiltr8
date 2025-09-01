@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745b5f39839b46039f398486c595d86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallbackLevelName: Level08
+  fallbackLevelName: Level01
   floorObject: {fileID: 1997971157313656597, guid: 38c62ee730210170997af7209e2c19b1, type: 3}
   wallObject: {fileID: 4166579851043906467, guid: cd41d262d624ed3b5be2f57a0a489aea, type: 3}
   fireWallObject: {fileID: 8794531009927736383, guid: b535cf5e653a961d2a5793ac634494aa, type: 3}
@@ -2134,20 +2134,7 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1044489291}
-        m_TargetAssemblyTypeName: __ProjectMain.Scripts.Managers.Ingame.IngameInputManager,
-          Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: e4217716-1657-412d-8136-76abf4350cc0
     m_ActionName: 'Player/Back[/Keyboard/escape,/Keyboard/pause]'
   - m_PersistentCalls:
@@ -2198,6 +2185,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a9f56957-f194-42ca-b06d-c3fc87c57165
     m_ActionName: 'Player/Reset[/Gamepad/buttonNorth,/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1044489291}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.Managers.Ingame.IngameInputManager,
+          Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3b6b70a1-976c-4d1c-be32-32a0c3b553b0
+    m_ActionName: 'Player/Pause[/Gamepad/select,/Gamepad/start,/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
