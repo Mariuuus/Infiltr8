@@ -128,6 +128,8 @@ MonoBehaviour:
   doorUIPrefab: {fileID: 7726190937928113656, guid: ee82354b8467b5e42a8342f20062cd83, type: 3}
   doorOpenSound: {fileID: 8300000, guid: f0ef6bda1d602174bb7a7d1b06371982, type: 3}
   doorCloseSound: {fileID: 8300000, guid: 87cf9cf4072dc394ebcba13078130321, type: 3}
+  highlightMaterial: {fileID: 2100000, guid: 91362b834a91ec4ee9fd6b9d17816273, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 171413f8d1973a34e8ccf9e8771ec2dc, type: 2}
 --- !u!114 &7495477048145677046
 MonoBehaviour:
   m_ObjectHideFlags: 0

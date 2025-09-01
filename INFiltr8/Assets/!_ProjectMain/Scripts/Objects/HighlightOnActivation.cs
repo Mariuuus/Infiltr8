@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using __ProjectMain.Scripts.Managers.Level;
+using __ProjectMain.Scripts.Player;
 using UnityEngine;
 
 namespace __ProjectMain.Scripts.Objects
 {
-    public class HighlightOnActivation : MonoBehaviour
+    public class HighlightOnActivation : MonoBehaviour, IHighlightByPlayer
     {
 		[SerializeField]
         private GameObject indicator;
         private List<GameObject> _activeIndicators = new List<GameObject>();
+        [SerializeField] private Material highlightMaterial;
+        [SerializeField] private Material defaultMaterial;
+        
         private void PlaceIndicators()
         {
             var comp = GetComponent<ActivationPlateController>();
@@ -34,60 +39,58 @@ namespace __ProjectMain.Scripts.Objects
 
             _activeIndicators.Add(newObj);
         }
+
+        public void TriggerHighlight()
+        {
+            GetComponent<Renderer>().material = highlightMaterial;
+            PlaceIndicators();
+            StopCoroutine(nameof(DissolveIndicators));
+        }
+
+        public void StopHighlightDelayed()
+        {
+            StartCoroutine(nameof(DissolveIndicators));
+        }
+
+        public void StopHighlight()
+        {
+            foreach (var obj in _activeIndicators)
+            {
+                Destroy(obj);
+            }
+            GetComponent<Renderer>().material = defaultMaterial;
+            _activeIndicators.Clear();
+        }
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                StopCoroutine(nameof(DissolveIndicators));
-                PlaceIndicators();
+                TriggerHighlight();
+                GetComponent<ActivationPlateController>().Door.TriggerHighlight();
+                LevelLoaderManager.Instance.playerObject.GetComponent<HighlightController>().ChangeHighlightByPlayer(this);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Player"))
-            {
-                StartCoroutine(nameof(DissolveIndicators));
-            }
+            if (other.CompareTag("Player")) StopHighlightDelayed();
         }
         
         private IEnumerator DissolveIndicators()
         {
-            float duration = 1f;
+            float duration = 3f;
             float elapsed = 0f;
-
-            List<Renderer> renderers = new List<Renderer>();
-            foreach (var obj in _activeIndicators)
-            {
-                var r = obj.GetComponentInChildren<Renderer>();
-                if (r != null)
-                    renderers.Add(r);
-            }
 
             while (elapsed < duration)
             {
-                float alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
-                foreach (var r in renderers)
-                {
-                    foreach (var mat in r.materials)
-                    {
-                        if (mat.HasProperty("_Color"))
-                        {
-                            Color c = mat.color;
-                            mat.color = new Color(c.r, c.g, c.b, alpha);
-                        }
-                    }
-                }
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            foreach (var obj in _activeIndicators)
-            {
-                Destroy(obj);
-            }
-
-            _activeIndicators.Clear();
+            StopHighlight();
+            GetComponent<ActivationPlateController>().Door.StopHighlight();
+            LevelLoaderManager.Instance.playerObject.GetComponent<HighlightController>().RemoveHighlightReference();
         }
     }
 }

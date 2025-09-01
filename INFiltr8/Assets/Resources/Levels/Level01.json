@@ -511,7 +511,7 @@
         "character": 1,
         "lines": [
           "Hello again, little hacker!",
-          "I think you should try solving this training on your own!",
+          "I think you should try solving this on your own!",
           "GOOD LUCK!"
         ]
       },
@@ -672,7 +672,9 @@
           "WHHHAAAT...",
           "You don't know what this is!",
           "This is a linux distro!",
-          "You can collect and search for them in each level. You can find up to 12 distros in this game! Good Luck!"
+          "You can collect and search for them in each level",
+          "(not every level contains one though).",
+          "You can find up to 12 distros in this game! Good Luck!"
         ]
       },
       "startPosition": {

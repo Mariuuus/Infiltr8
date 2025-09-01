@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicator: {fileID: 125894765183558027, guid: dae1103cf40a52944abaecd13e40e501, type: 3}
+  highlightMaterial: {fileID: 2100000, guid: 012b760463ce5dcf1bc4ae0d50002236, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: b7aef64373e358f7f988c9cec85a1030, type: 2}
 --- !u!114 &5329056416695035505
 MonoBehaviour:
   m_ObjectHideFlags: 0

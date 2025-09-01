@@ -29,7 +29,7 @@ namespace __ProjectMain.Scripts.Player
         
 
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (HeldObj != null)
             {

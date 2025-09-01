@@ -1,20 +1,23 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace __ProjectMain.Scripts.Managers.Audio
 {
     public class MusicManager : MonoBehaviour
     {
-        [SerializeField] private AudioSource audioSource1;
-        [SerializeField] private AudioSource audioSource2;
+        [FormerlySerializedAs("audioSource1")] [SerializeField] private AudioSource inGameSource;
+        [FormerlySerializedAs("audioSource2")] [SerializeField] private AudioSource mainMenuMusicSource;
+        [FormerlySerializedAs("audioSource2")] [SerializeField] private AudioSource someMusicSource;
 
         [SerializeField] private AudioClip mainMenuMusicClip;
         [SerializeField] private AudioClip inGameMusicClip;
         
         [SerializeField] private float transitionTime = 1.5f;
 
-        private enum Source { AudioSource1, AudioSource2 }
-        private Source _currentSource = Source.AudioSource1;
+        private enum Source { MainMenu, InGame, Some }
+
+        private Source _currentSource = Source.MainMenu;
 
         public static MusicManager Instance;
 
@@ -26,27 +29,39 @@ namespace __ProjectMain.Scripts.Managers.Audio
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
+                mainMenuMusicSource.clip = mainMenuMusicClip;
+                inGameSource.clip = inGameMusicClip;
             }
             else
             {
                 Destroy(gameObject);
             }
         }
-
-        public void PlayMusic(AudioClip clip)
+        
+        /// <summary>
+        /// this methode should be called if music should be played that isn't the main menu music or the in game music
+        /// Those music should not be reset and start all over, but rather continue.
+        /// </summary>
+        /// <param name="clip"></param>
+        public void PlaySomeMusic(AudioClip clip)
         {
             if (clip == null) return;
+            someMusicSource.clip = clip;
+            
+            SwitchMusicTo(Source.Some);
+        }
 
-            var nextSource = _currentSource == Source.AudioSource1 ? Source.AudioSource2 : Source.AudioSource1;
-            var inactiveSource = nextSource == Source.AudioSource1 ? audioSource1 : audioSource2;
-            var activeSource = _currentSource == Source.AudioSource1 ? audioSource1 : audioSource2;
+        private void SwitchMusicTo(Source source)
+        {
+            if (_currentSource == source) return;
+            var inactiveSource = source == Source.InGame ? inGameSource : source == Source.MainMenu ? mainMenuMusicSource : someMusicSource;
+            var activeSource = _currentSource == Source.InGame ? inGameSource : _currentSource == Source.MainMenu ? mainMenuMusicSource : someMusicSource;
 
-            inactiveSource.clip = clip;
             inactiveSource.volume = 0f;
             inactiveSource.Play();
-
-            _currentSource = nextSource;
-
+            
+            _currentSource = source;
+            
             if (_transitionCoroutine != null) StopCoroutine(_transitionCoroutine);
             _transitionCoroutine = StartCoroutine(MixSources(activeSource, inactiveSource));
         }
@@ -66,11 +81,11 @@ namespace __ProjectMain.Scripts.Managers.Audio
                 yield return null;
             }
 
-            from.Stop();
+            from.Pause();
             to.volume = 1f;
         }
 
-        public void PlayMainMenuMusic() => PlayMusic(mainMenuMusicClip);
-        public void PlayInGameMusic() => PlayMusic(inGameMusicClip);
+        public void PlayMainMenuMusic() => SwitchMusicTo(Source.MainMenu);
+        public void PlayInGameMusic() => SwitchMusicTo(Source.InGame);
     }
 }
