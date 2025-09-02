@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using server.Models;
 
 namespace server.Controllers 
 {
@@ -45,6 +46,18 @@ namespace server.Controllers
             };
         }
 
+        // GET /api/level/me?username=john
+        [HttpGet("me")]
+        public ActionResult<IEnumerable<LevelSummary>> GetMyLevels([FromQuery] string username)
+        {
+            var levels = _levelService.GetByUser(username);
+            return levels.Select(l => new LevelSummary
+            {
+                Id = l.Id,
+                Name = l.Name,
+                Author = l.Author
+            }).ToList();
+        }
 
         // GET /api/level/{id}
         [HttpGet("{id}")]
@@ -62,7 +75,7 @@ namespace server.Controllers
             var level = new Level
             {
                 Name = jsonLevel.Name,
-                Author = jsonLevel.Author,
+                Author = jsonLevel.Username,
                 Content = jsonLevel.Content,
                 UploadDate = DateTime.UtcNow
             };
@@ -73,10 +86,11 @@ namespace server.Controllers
 
         // DELETE /api/level/{id}
         [HttpDelete("{id}")]
-        public IActionResult Remove(string id)
+        public IActionResult Remove(string id, [FromBody] JsonUser jsonUser)
         {
             var existing = _levelService.Get(id);
             if (existing == null) return NotFound();
+            if(existing.Author != jsonUser.Username) return BadRequest();
 
             _levelService.Remove(id);
             return NoContent();

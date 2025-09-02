@@ -11,6 +11,7 @@
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/server.deps.json
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/server.runtimeconfig.json
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/server.pdb
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/BCrypt.Net-Next.dll
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/DnsClient.dll
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/Microsoft.AspNetCore.OpenApi.dll
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/Microsoft.OpenApi.dll

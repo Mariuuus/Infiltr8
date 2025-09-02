@@ -21,6 +21,6 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
             GetComponentInChildren<Button>().interactable = !selected;
         }
 
-        public void OnSelect() => _managerRef.OnSelectLocalLevel(_levelData);
+        public void OnSelect() => _managerRef.OnUploadLocalLevel(_levelData);
     }
 }

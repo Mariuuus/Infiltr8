@@ -74,3 +74,4 @@ C:/Users/sil3n/Visual Studio Code/infiltr8-web-server/server/obj/Debug/net9.0/re
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/server.deps.json
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/server.runtimeconfig.json
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/publish/server.staticwebassets.endpoints.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Debug/net9.0/BCrypt.Net-Next.dll

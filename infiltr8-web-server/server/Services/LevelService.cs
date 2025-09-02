@@ -49,4 +49,8 @@ public class LevelService
 
         _levels.DeleteOne(level => level.Id == id);
     }
+
+    public List<Level> GetByUser(string username) =>
+        _levels.Find(l => l.Author == username).ToList();
+
 }

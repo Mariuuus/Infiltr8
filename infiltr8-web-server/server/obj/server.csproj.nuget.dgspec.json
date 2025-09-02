@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\server.csproj": {}
+    "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\server.csproj": {
+    "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\server.csproj",
+        "projectUniqueName": "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/server.csproj",
         "projectName": "server",
-        "projectPath": "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\Mandy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mandy\\Downloads\\sprog25\\infiltr8\\infiltr8-web-server\\server\\obj\\",
+        "projectPath": "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/server.csproj",
+        "packagesPath": "/home/marius/.nuget/packages/",
+        "outputPath": "/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mandy\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/marius/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -76,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -18,7 +18,9 @@ public class AuthMiddleware
     {
         // check if its a post or delete request for the level route
         if (context.Request.Path.StartsWithSegments("/api/level") &&
-            (context.Request.Method == HttpMethods.Post || context.Request.Method == HttpMethods.Delete))
+            (context.Request.Method == HttpMethods.Post || context.Request.Method == HttpMethods.Delete) ||
+            context.Request.Path.StartsWithSegments("/api/user") && (context.Request.Method == HttpMethods.Get)
+            )
         {
             // enable in order so the body doesnt get deleted, after it was read by the middleware
             context.Request.EnableBuffering();
@@ -46,7 +48,7 @@ public class AuthMiddleware
                 return;
             }
 
-            await _next(context);
         }
+        await _next(context);
     }
 }

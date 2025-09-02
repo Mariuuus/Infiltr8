@@ -7,12 +7,12 @@ public class JsonLevel
     public required string Name { get; set; }
 
     [JsonRequired]
-    [JsonPropertyName("author")]
-    public required string Author { get; set; }
-
-    [JsonRequired]
     [JsonPropertyName("content")]
     public required string Content { get; set; }
+
+    [JsonRequired]
+    [JsonPropertyName("username")]
+    public string Username { get; set; }
 }
 
 public class LevelSummary

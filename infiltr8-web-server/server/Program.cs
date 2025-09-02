@@ -45,7 +45,7 @@ using MongoDB.Driver.Core.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<LevelService>();
-// builder.Services.AddSingleton<UserService>();
+builder.Services.AddSingleton<UserService>();
 builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
@@ -58,9 +58,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowVueApp");
+//app.UseCors("AllowVueApp");
 
-// app.UseMiddleware<AuthMiddleware>();
+app.UseMiddleware<AuthMiddleware>();
 
 app.UseAuthorization();
 

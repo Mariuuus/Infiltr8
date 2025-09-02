@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using __ProjectMain.Scripts.LevelEditor;
+using __ProjectMain.Scripts.Managers;
 using __ProjectMain.Scripts.Managers.MainMenu;
 using __ProjectMain.Scripts.Utilities.Files;
 using __ProjectMain.Scripts.Utilities.LevelEditor;
@@ -15,12 +16,18 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
     {
         [Header("UI Elements")]
         [SerializeField] private GameObject uiElement;
+        [SerializeField] private GameObject loggingWindow;
+        [SerializeField] private GameObject registerWindow;
+        [SerializeField] private GameObject uploadWindow;
         [SerializeField] private GameObject levelsSearchContainer;
         [SerializeField] private GameObject levelSearchRowPrefab;
         
         [SerializeField] private GameObject localLevelsSearchContainer;
         [SerializeField] private GameObject localLevelSearchRowPrefab;
         
+        [SerializeField] private GameObject onlineOwnLevelContainer;
+        [SerializeField] private GameObject onlineOwnLevelPrefab;
+
         
         [Header("Render Inspector Elements")]
         [SerializeField] private TMP_Text levelNameText;
@@ -28,29 +35,43 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
         [SerializeField] private TMP_Text uploadDateText;
         [SerializeField] private Button playButton;
         [SerializeField] private Button saveLocallyButton;
+        [SerializeField] private Button nextPageButton;
+        [SerializeField] private Button prevPageButton;
+        [SerializeField] private TMP_Text pageIndicator;
 
+        
         [Header("Create Form Elements")]
         [SerializeField] private TMP_InputField search;
         [SerializeField] private TMP_InputField searchLocally;
         [SerializeField] private TMP_InputField authorStr;
+        
+        [Header("Login Element")]
+        [SerializeField] private TMP_InputField usernameLogin;
+        [SerializeField] private TMP_InputField passwordLogin;
 
+        [Header("Register Element")]
+        [SerializeField] private TMP_InputField usernameRegister;
+        [SerializeField] private TMP_InputField passwordRegister;
 
         private string _selectedSearchLevelID;
         private LevelData _selectedLevelData;
         private string _selectedLocalLevelID;
         private LevelData _selectedLocalLevelData;
-        
         private List<LevelData> _currentLocalLevels;
-
-
+        private int maxPage = -1;
+        private int currentPage = 1;
+        
         private async void RenderLevels()
         {
+
+            prevPageButton.interactable = false;
+            nextPageButton.interactable = false;
             for (int i = levelsSearchContainer.transform.childCount - 1; i >= 0; i--)
             {
                 Destroy(levelsSearchContainer.transform.GetChild(i).gameObject);
             }
 
-            var pagedResult = await LevelApi.GetLevelsAsync(page: 1, pageSize: 10, search: search.text ?? "");
+            var pagedResult = await LevelApi.GetLevelsAsync(page: currentPage, pageSize: 10, search: search.text ?? "");
             if (pagedResult == null || pagedResult.Items == null) return;
 
             for (int i = 0; i < pagedResult.Items.Count; i++)
@@ -62,8 +83,27 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
                 {
                     rowComponent.Init(levelSummary.Id, levelSummary.Name, levelSummary.Author, this);
                 }
-                
             }
+            
+            currentPage = pagedResult.Page;
+            maxPage = pagedResult.TotalPages;
+            
+            prevPageButton.interactable = (currentPage > 1);
+            nextPageButton.interactable = (maxPage > currentPage);
+            
+            pageIndicator.text = currentPage+"/"+maxPage;
+        }
+
+        public void NextPage()
+        {
+            currentPage++;
+            RenderLevels();
+        }
+
+        public void PrevPage()
+        {
+            currentPage--;
+            RenderLevels();
         }
         
         public void Show()
@@ -76,6 +116,9 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
         public void Hide()
         {
             uiElement.SetActive(false);
+            loggingWindow.SetActive(false);
+            registerWindow.SetActive(false);
+            uploadWindow.SetActive(false);
         } 
 
         private void Start()
@@ -118,7 +161,97 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
                 saveLocallyButton.interactable = false;
                 playButton.interactable = false;
             }
-            
+        }
+
+        public async void OnDeleteOnlineLevel(string id)
+        {
+            var success = await LevelApi.DeleteLevelAsync(id, GameDataManager.Instance.username, GameDataManager.Instance.password);
+            LoadOnlineOwnLevels();
+        }
+
+        public async void OnLogin()
+        {
+            GameDataManager.Instance.loggedIn = await LevelApi.GetAuthState(
+                username: passwordLogin.text,
+                password: passwordLogin.text
+            );
+            if (GameDataManager.Instance.loggedIn)
+            {
+                GameDataManager.Instance.username = usernameLogin.text;
+                GameDataManager.Instance.password = passwordLogin.text;
+                usernameLogin.text = "";
+                passwordLogin.text = "";
+                loggingWindow.SetActive(false);
+                uploadWindow.SetActive(true);
+                LoadOnlineOwnLevels();
+            }
+            else
+            {
+                
+            }
+        }
+        public async void OnRegister()
+        {
+            GameDataManager.Instance.loggedIn = await LevelApi.CreateUser(
+                username: usernameRegister.text,
+                password: passwordRegister.text
+            );
+            if (GameDataManager.Instance.loggedIn)
+            {
+                GameDataManager.Instance.username = usernameLogin.text;
+                GameDataManager.Instance.password = passwordLogin.text;
+                usernameLogin.text = "";
+                passwordLogin.text = "";
+                registerWindow.SetActive(false);
+                uploadWindow.SetActive(true);   
+                LoadOnlineOwnLevels();
+            }
+            else
+            {
+                
+            }
+        }
+        
+        public void SwitchToLogin()
+        {
+            loggingWindow.SetActive(true);
+            registerWindow.SetActive(false);   
+        }
+        
+        public void SwitchToRegister()
+        {
+            loggingWindow.SetActive(false);
+            registerWindow.SetActive(true);   
+        }
+
+        public void OnLogout()
+        {
+            GameDataManager.Instance.loggedIn = false;
+            GameDataManager.Instance.username = "";
+            GameDataManager.Instance.password = "";
+            Hide();
+            Show();
+        }
+        
+        public void GoBack()
+        {
+            Hide();
+            Show();
+        }
+        
+
+        public void OnUpload()
+        {
+            uiElement.SetActive(false);
+            if (!GameDataManager.Instance.loggedIn)
+            {
+                loggingWindow.SetActive(true);
+            }
+            else
+            {
+                uploadWindow.SetActive(true);
+                LoadOnlineOwnLevels();
+            }
         }
 
         private void RenderLocalLevels()
@@ -136,7 +269,7 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
 
         public void OnSearchLocalLevels(string newString)
         {
-            _currentLocalLevels = LevelDataUtils.SearchTop5(LevelDataUtils.GetAvailableLocalLevels(), newString);
+            _currentLocalLevels = LevelDataUtils.SearchTopN(LevelDataUtils.GetAvailableLocalLevels(), newString, 20);
             RenderLocalLevels();
         }
 
@@ -151,10 +284,11 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
             LevelLoaderManager.Instance.LoadLocalLevel(_selectedLevelData, true);
         }
 
-        public void OnSelectLocalLevel(LevelData levelData)
+        public void OnUploadLocalLevel(LevelData levelData)
         {
             _selectedLocalLevelData = levelData;
             RenderLocalLevels();
+            OnUploadLocalLevel();
         }
 
         public async void OnUploadLocalLevel()
@@ -162,11 +296,6 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
             if (_selectedLocalLevelData == null)
             {
                 Debug.LogError("No local level selected to upload.");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(authorStr.text))
-            {
-                Debug.LogError("Author cannot be empty.");
                 return;
             }
             try
@@ -177,13 +306,15 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
 
                 var createdLevel = await LevelApi.CreateLevelAsync(
                     name: levelName,
-                    author: authorStr.text,
-                    content: serializedContent
+                    content: serializedContent,
+                    username:GameDataManager.Instance.username,
+                    password:GameDataManager.Instance.password
                 );
 
                 if (createdLevel != null)
                 {
                     Debug.Log($"Level '{createdLevel.Name}' uploaded successfully! Id: {createdLevel.Id}");
+                    LoadOnlineOwnLevels();
                 }
                 else
                 {
@@ -194,6 +325,28 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
             {
                 Debug.LogError($"Exception while uploading level: {e}");
             }
+        }
+
+        public async void LoadOnlineOwnLevels()
+        {
+            for (int i = onlineOwnLevelContainer.transform.childCount - 1; i >= 0; i--)
+            {
+                Destroy(onlineOwnLevelContainer.transform.GetChild(i).gameObject);
+            }
+
+            var res = await LevelApi.GetLevelsByUserAsync(GameDataManager.Instance.username);
+
+            for (int i = 0; i < res.Count; i++)
+            {
+                var levelSummary = res[i];
+                var newObj = Instantiate(onlineOwnLevelPrefab, onlineOwnLevelContainer.transform);
+                var rowComponent = newObj.GetComponent<LevelBrowserOwnOnlineLevelRow>();
+                if (rowComponent != null)
+                {
+                    rowComponent.Init(levelSummary.Id, levelSummary.Name, levelSummary.Author, this);
+                }
+            }
+            
         }
     }
 }

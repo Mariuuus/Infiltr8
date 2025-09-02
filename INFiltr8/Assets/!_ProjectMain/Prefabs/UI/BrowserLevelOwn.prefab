@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 642.1587, y: 50}
+  m_SizeDelta: {x: 505.4563, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3030243802402289831
 CanvasRenderer:
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <>
+  m_text: X
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfecea3b06d23a245b18a0d377700903, type: 2}
   m_sharedMaterial: {fileID: -3860683770155146142, guid: dfecea3b06d23a245b18a0d377700903, type: 2}
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285015556
-  m_fontColor: {r: 0.016840406, g: 0.14721996, b: 0.4080189, a: 1}
+    rgba: 4278454632
+  m_fontColor: {r: 0.40784314, g: 0.034118637, b: 0.015686262, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -309,7 +309,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 128.67, y: 32}
+  m_SizeDelta: {x: 64, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1182046431901280964
 CanvasRenderer:
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2901961, g: 0.41053477, b: 0.6745098, a: 1}
+  m_Color: {r: 0.7889151, g: 0.24433643, b: 0.20560169, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -393,10 +393,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8948720145585404578}
-        m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.LevelBrowserMenu.LevelBrowserLevelRow,
+      - m_Target: {fileID: 5704024874515292690}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.LevelBrowserMenu.LevelBrowserOwnOnlineLevelRow,
           Assembly-CSharp
-        m_MethodName: OnSelect
+        m_MethodName: OnDelete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -418,9 +418,9 @@ GameObject:
   - component: {fileID: 6798683517628484691}
   - component: {fileID: 4050474839099774476}
   - component: {fileID: 8381120806728326201}
-  - component: {fileID: 8948720145585404578}
+  - component: {fileID: 5704024874515292690}
   m_Layer: 5
-  m_Name: BrowserLevelRow
+  m_Name: BrowserLevelOwn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,7 +445,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 60}
+  m_SizeDelta: {x: 600, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6798683517628484691
 CanvasRenderer:
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &8948720145585404578
+--- !u!114 &5704024874515292690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3076159185658018313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d838b11d9640d3bea0d244a10b78e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 95aa5c67026d43058f9d40225ea6e7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7549071557533908074
@@ -558,7 +558,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 128.6709, y: 32}
+  m_SizeDelta: {x: 63.5976, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153871023813886611
 MonoBehaviour:

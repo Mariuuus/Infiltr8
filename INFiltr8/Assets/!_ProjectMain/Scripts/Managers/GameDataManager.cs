@@ -13,7 +13,10 @@ namespace __ProjectMain.Scripts.Managers
     public class GameDataManager : MonoBehaviour
     {
         public static GameDataManager Instance;
-
+        public string username = "";
+        public string password = "";
+        public bool loggedIn = false;
+        
         [FormerlySerializedAs("_gameData")] public GameData gameData;
         
         private readonly List<DistroType> _collectInLevel = new List<DistroType>();

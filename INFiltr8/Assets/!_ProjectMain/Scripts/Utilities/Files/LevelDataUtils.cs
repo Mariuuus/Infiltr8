@@ -125,10 +125,10 @@ namespace __ProjectMain.Scripts.Utilities.Files
             return levels;
         }
         
-        public static List<LevelData> SearchTop5(List<LevelData> allLevels, string searchStr)
+        public static List<LevelData> SearchTopN(List<LevelData> allLevels, string searchStr, int n)
         {
             if (string.IsNullOrWhiteSpace(searchStr))
-                return allLevels.Take(5).ToList();
+                return allLevels.Take(n).ToList();
 
             var scored = allLevels.Select(level =>
             {
@@ -138,7 +138,7 @@ namespace __ProjectMain.Scripts.Utilities.Files
 
             var top5 = scored.OrderBy(x => x.Score)
                 .ThenBy(x => x.Level.levelName)
-                .Take(5)
+                .Take(n)
                 .Select(x => x.Level)
                 .ToList();
 

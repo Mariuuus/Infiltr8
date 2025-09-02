@@ -30,7 +30,7 @@ namespace server.Controllers
             var userExists = await _userService.GetByUsernameAsync(jsonUser.Username);
             if (userExists != null)
             {
-                return Conflict(new { message = "Username already taken" });
+                return BadRequest(new { message = "Username already taken" });
             }
 
             await _userService.Create(user);

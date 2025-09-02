@@ -40,3 +40,4 @@
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/server.deps.json
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/server.runtimeconfig.json
 /home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/publish/server.staticwebassets.endpoints.json
+/home/marius/uni/sprog/infiltr8/infiltr8-web-server/server/bin/Release/net9.0/BCrypt.Net-Next.dll
