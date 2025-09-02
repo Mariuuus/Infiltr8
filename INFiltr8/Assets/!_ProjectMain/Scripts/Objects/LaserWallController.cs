@@ -90,10 +90,20 @@ namespace __ProjectMain.Scripts.Objects
                 if (grabController.IsGrabbing)
                 {
                     Debug.Log("player dropped a laptop!");
+                    var playerObject = grabController.HeldObj;
+                    if (playerObject.CompareTag("Interactable"))
+                    {
+                        playerObject.GetComponent<HackableDevice>().ResetHackStatus();
+                        Debug.Log("held laptop got unhacked!");
+                    }
+                    
                     grabController.DropObject(grabController.HeldObj);
                 }
           
                 Debug.Log("player hit laser wall!");
+            } else if (other.CompareTag("Interactable"))
+            {
+               other.GetComponent<HackableDevice>().ResetHackStatus();
             }
         }
 
