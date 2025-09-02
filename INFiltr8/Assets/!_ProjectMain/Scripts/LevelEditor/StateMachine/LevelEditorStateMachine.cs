@@ -24,6 +24,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         public PortBuildState PortBuildState { get; } = new();
         public DialogAreaBuildState DialogAreaBuildState { get; } = new();
         public CollectableBuildState CollectableBuildState { get; } = new();
+
+        public LaserWallBuildState LaserWallBuildState { get; } = new();
         
         /*
          * This works for overwriting the "normal" State Machine

@@ -54,7 +54,7 @@ namespace __ProjectMain.Scripts.Objects
             return hackColor;
         }
 
-        private void ResetHackStatus()
+        public void ResetHackStatus()
         {
             _plate?.RemoveHackStatus(GetHackColor());
             pRenderer.material = unHackedMaterial;
