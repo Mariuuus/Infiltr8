@@ -2,35 +2,53 @@ using System;
 using System.Collections;
 using System.Numerics;
 using __ProjectMain.Scripts.Player;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using Vector3 = UnityEngine.Vector3;
 
 namespace __ProjectMain.Scripts.Objects
 {
     public class LaserWallController : MonoBehaviour
     {
-        [SerializeField] private float speed = 2f;
-        [SerializeField] private float maxMoveDistance = 5f;
+        public float speed = 2f;
+        public Vector3 maxMoveStart;
+        public Vector3 maxMoveEnd;
+        public bool isVertical = false;
         [SerializeField] private int cooldownTime = 3;
-        [SerializeField] private bool isVertical = false;
         [SerializeField] private Material normalMaterial;
         [SerializeField] private Material transparentMaterial;
         
-        private Vector3 _initialPosition;
+       
         private Vector3 _direction = Vector3.right;
         private bool _onCooldown = false;
         private MeshRenderer _meshRenderer;
   
         // Start is called once before the first execution of Update after the MonoBehaviour is created
+        
         void Start()
         {
-            this._initialPosition = transform.position;
             this._meshRenderer = gameObject.GetComponent<MeshRenderer>();
             this._meshRenderer.material = normalMaterial;
-            if (isVertical)
+            
+            Vector3 p = transform.position;
+            if (!isVertical)
             {
+                p.x = (Math.Max(maxMoveStart.x, maxMoveEnd.x) + Math.Min(maxMoveStart.x, maxMoveEnd.x)) / 2;
+                transform.position = p;
+            }
+            else if (isVertical)
+            {
+                p.z = (Math.Max(maxMoveStart.z, maxMoveEnd.z) + Math.Min(maxMoveStart.z, maxMoveEnd.z)) / 2;
+                transform.position = p;
                 transform.Rotate(0f, 90f, 0f);
             }
+        }
+
+        public void Init()
+        {
+            return;
+            // calculate center of two points passed placerscript, and set gameobject to the center.
         }
 
         // Update is called once per frame
@@ -40,19 +58,19 @@ namespace __ProjectMain.Scripts.Objects
 
             if (!isVertical)
             {
-                if (transform.position.x <= (this._initialPosition.x - this.maxMoveDistance))
+                if (transform.position.x <= (transform.position.x - Mathf.Abs(transform.position.x - maxMoveStart.x)))
                 {
                     this._direction = Vector3.right;
-                } else if (transform.position.x >= (this._initialPosition.x + this.maxMoveDistance))
+                } else if (transform.position.x >= (transform.position.x + Mathf.Abs(transform.position.x - maxMoveEnd.x)))
                 {
                     this._direction = Vector3.left;
                 }     
             } else if (isVertical)
             {
-                if (transform.position.z <= (this._initialPosition.z - this.maxMoveDistance))
+                if (transform.position.z <= (transform.position.y - Mathf.Abs(transform.position.z - this.maxMoveStart.z)))
                 {
                     this._direction = Vector3.left;
-                } else if (transform.position.z >= (this._initialPosition.z + this.maxMoveDistance))
+                } else if (transform.position.z >= (transform.position.y + Mathf.Abs(this.transform.position.z - this.maxMoveEnd.z)))
                 {
                     this._direction = Vector3.right;
                 }     

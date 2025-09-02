@@ -34,6 +34,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public LaptopSettings laptopSettings;
         public CollectableSettings collectableSettings;
         public DialogAreaSettings dialogAreaSettings;
+        public LaserWallSettings laserWallSettings;
         public ErrorToastController errorToastController;
         
         [Header("Tiles")]
@@ -46,6 +47,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile portTile;
         public Tile onlyPlayerWallTile;
         public Tile dialogAreaTile;
+        public Tile laserWallTile;
         public Tile collectableTile;
 
         [Header("Build Menu Sprites")]
@@ -59,6 +61,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite portBuildSprite;
         public Sprite onlyPlayerWallSprite;
         public Sprite dialogAreaSprite;
+        public Sprite laserWallSprite;
         public Sprite collectableSprite;
         private void Awake()
         {
@@ -107,6 +110,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.PortBuildState,
                 _levelEditorStateMachine.DialogAreaBuildState,
                 _levelEditorStateMachine.CollectableBuildState,
+                _levelEditorStateMachine.LaserWallBuildState,
             };
             
             foreach (var state in _selectableStates)
@@ -170,6 +174,16 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 foreach (var pos in dialog.GetPointsInBetween())
                 {
                     LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), dialogAreaTile);
+                }
+            }
+
+            foreach (var laserWall in LevelEditorUtils.FilterComponents(
+                LevelEditorFileManager.Instance.levelData.components, typeof(LaserWallComponent)))
+            {
+                var laser = ((LaserWallComponent) laserWall);
+                foreach (var pos in laser.GetPointsInBetween())
+                {
+                    LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), laserWallTile);
                 }
             }
         }
