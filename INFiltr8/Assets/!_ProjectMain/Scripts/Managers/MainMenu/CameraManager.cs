@@ -124,7 +124,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                 {
                     Debug.Log("Reset Manager");
                     MainMenuManager.Instance.currentState = State.Overview;
-                    GameDataManager.Instance.WatchedIntro();
+                    //GameDataManager.Instance.WatchedIntro();
                 }
             }
         }

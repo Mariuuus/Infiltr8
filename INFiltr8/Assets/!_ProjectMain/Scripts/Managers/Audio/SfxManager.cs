@@ -33,9 +33,13 @@ namespace __ProjectMain.Scripts.Managers.Audio
                 position = LevelLoaderManager.Instance.playerObject.transform.position;
             }
             // wenn SfxManager aktiv in LevelSelection Scene (CameraManager und overviewCamera sind vorhanden)
-            else if (CameraManager.Instance.overviewCamera != null)
+            else if (CameraManager.Instance != null && CameraManager.Instance.overviewCamera != null)
             {
                 position = CameraManager.Instance.overviewCamera.transform.position;
+            }
+            else
+            {
+                position = Camera.main.transform.position;
             }
             // Debug.Log("Sfx position: " + position);
             

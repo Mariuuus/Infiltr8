@@ -41,12 +41,14 @@ public class DialogController : MonoBehaviour
 
     public bool LoadNewDialogue(DialogData d)
     {
+        
+        Debug.Log("LoadNewDialogue");
         if (isInDialogue) return false;
         
         // gameObject.SetActive(true);
         dialogImage.SetActive(false);
         isInDialogue = true;
-        IngameManager.Instance.Pause();
+        if(IngameManager.Instance) IngameManager.Instance.Pause();
         index = 0;
         dialogText.SetText(String.Empty);
         dialogueAmountText.SetText("0 / 0");
@@ -105,8 +107,9 @@ public class DialogController : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            IngameManager.Instance.Resume();
+            if(IngameManager.Instance) IngameManager.Instance.Resume();
             isInDialogue = false;
+            DialogManager.Instance.OnEnd();
         }
     }
 
@@ -123,12 +126,13 @@ public class DialogController : MonoBehaviour
 
     public void skipDialogue()
     {
-        IngameManager.Instance.Resume();
+        if(IngameManager.Instance) IngameManager.Instance.Resume();
         dialogName.SetText("Character Name/Scene Name");
         dialogueAmountText.SetText("0 / 0");
         dialogText.SetText(String.Empty);
         gameObject.SetActive(false);
         isInDialogue = false;
+        DialogManager.Instance.OnEnd();
     }
 
     private void startDialogueLines()
@@ -146,7 +150,7 @@ public class DialogController : MonoBehaviour
             temp += c;
             dialogText.SetText(temp);
             //var inNum = (int)c;
-            SfxManager.instance.PlaySfxClip(soundEffect, .7f, true);
+            SfxManager.instance.PlaySfxClip(soundEffect, .3f, true);
             yield return new WaitForSeconds(textSpeed);
         }
 

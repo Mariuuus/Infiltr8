@@ -35,7 +35,7 @@ namespace __ProjectMain.Scripts.Managers
         {
             if (!gameData.introDone)
             {
-                //CameraManager.Instance.GameStartSequence();
+                SceneManager.LoadScene("!_ProjectMain/Scenes/Intro");
             }
 
             GameDataUtils.QuickSave(gameData);

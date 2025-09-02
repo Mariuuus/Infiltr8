@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -6,7 +7,14 @@ public class DialogManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject dialogueBox;
     private DialogController _dialogController;
+
+    private Action _callback;
     public static DialogManager Instance { get; private set; }
+
+    public void OnEnd()
+    {
+        _callback?.Invoke();
+    }
 
     private void Awake()
     {
@@ -33,16 +41,15 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public bool StartDialoque(DialogData d)
+    public bool StartDialoque(DialogData d, Action callback=null)
     {
-        // Debug.Log(dialogueBox.activeSelf);
+        _callback = callback;
         dialogueBox.SetActive(true);
+        if(_dialogController == null) _dialogController = dialogueBox.GetComponent<DialogController>();
         if (_dialogController != null)
-        {
-           // Debug.Log(dialogueBox.activeSelf);
+        { 
             return _dialogController.LoadNewDialogue(d);
         }
-
         return false;
     }
 }

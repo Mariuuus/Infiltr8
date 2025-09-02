@@ -114,7 +114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 16}
   m_SizeDelta: {x: 1100, y: 256}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6864839561695126090
@@ -199,8 +199,8 @@ MonoBehaviour:
   dialogueAmountText: {fileID: 6396124124909530278}
   dialogImage: {fileID: 8581375969912390120}
   usbSprite: {fileID: 21300000, guid: dd02090c80bf90749963dcd89664e036, type: 3}
-  laptopSprite: {fileID: 21300000, guid: 78c4b67787f559d469e6ad5654301c15, type: 3}
-  soundEffect: {fileID: 8300000, guid: 4860fab57de895908bdb83ecc8f00eb1, type: 3}
+  laptopSprite: {fileID: 21300000, guid: b815fcbcaf64d8683b9978964603bab8, type: 3}
+  soundEffect: {fileID: 8300000, guid: c711a65bf4ff55caca0e848e4420c422, type: 3}
 --- !u!1 &1649746912925238829
 GameObject:
   m_ObjectHideFlags: 0

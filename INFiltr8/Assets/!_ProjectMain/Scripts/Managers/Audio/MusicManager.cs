@@ -53,7 +53,12 @@ namespace __ProjectMain.Scripts.Managers.Audio
 
         private void SwitchMusicTo(Source source)
         {
-            if (_currentSource == source) return;
+            if (_currentSource == source)
+            {
+                var aSource = _currentSource == Source.InGame ? inGameSource : _currentSource == Source.MainMenu ? mainMenuMusicSource : someMusicSource;
+                if(!aSource.isPlaying) aSource.Play();
+                return;
+            }
             var inactiveSource = source == Source.InGame ? inGameSource : source == Source.MainMenu ? mainMenuMusicSource : someMusicSource;
             var activeSource = _currentSource == Source.InGame ? inGameSource : _currentSource == Source.MainMenu ? mainMenuMusicSource : someMusicSource;
 
