@@ -13,7 +13,7 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
                 return;
             }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         
         private void SendUpdateOnMaxReached() => ForAllListeners((observer) => observer.OnReachedMaxTime());
