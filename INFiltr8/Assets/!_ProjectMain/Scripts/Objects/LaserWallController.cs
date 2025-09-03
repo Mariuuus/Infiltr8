@@ -25,32 +25,23 @@ namespace __ProjectMain.Scripts.Objects
         private MeshRenderer _meshRenderer;
   
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        
-        void Start()
+        private void Start()
         {
             this._meshRenderer = gameObject.GetComponent<MeshRenderer>();
             this._meshRenderer.material = normalMaterial;
-            
-            Vector3 p = transform.position;
-            if (!isVertical)
-            {
-                p.x = (Math.Max(maxMoveStart.x, maxMoveEnd.x) + Math.Min(maxMoveStart.x, maxMoveEnd.x)) / 2;
-                transform.position = p;
-            }
-            else if (isVertical)
-            {
-                p.z = (Math.Max(maxMoveStart.z, maxMoveEnd.z) + Math.Min(maxMoveStart.z, maxMoveEnd.z)) / 2;
-                transform.position = p;
-                transform.Rotate(0f, 90f, 0f);
-            }
         }
 
         public void Init()
         {
-            return;
-            // calculate center of two points passed placerscript, and set gameobject to the center.
+            Debug.Log("emil");
+            Vector3 p = transform.position;
+            p.x = (maxMoveStart.x + maxMoveEnd.x) / 2f;
+            p.z = (maxMoveStart.y + maxMoveEnd.y) / 2f;
+            Debug.Log(p.x);
+            Debug.Log(p.z);
+            transform.position = p;
         }
-
+        
         // Update is called once per frame
         void FixedUpdate()
         {
@@ -58,22 +49,25 @@ namespace __ProjectMain.Scripts.Objects
 
             if (!isVertical)
             {
-                if (transform.position.x <= (transform.position.x - Mathf.Abs(transform.position.x - maxMoveStart.x)))
+                if (transform.position.x >= maxMoveEnd.x)
                 {
-                    this._direction = Vector3.right;
-                } else if (transform.position.x >= (transform.position.x + Mathf.Abs(transform.position.x - maxMoveEnd.x)))
+                    _direction = Vector3.left;
+                }
+                else if (transform.position.x <= maxMoveStart.x)
                 {
-                    this._direction = Vector3.left;
-                }     
-            } else if (isVertical)
+                    _direction = Vector3.right;
+                }
+            }
+            else
             {
-                if (transform.position.z <= (transform.position.y - Mathf.Abs(transform.position.z - this.maxMoveStart.z)))
+                if (transform.position.y >= maxMoveEnd.y)
                 {
-                    this._direction = Vector3.left;
-                } else if (transform.position.z >= (transform.position.y + Mathf.Abs(this.transform.position.z - this.maxMoveEnd.z)))
+                    _direction = Vector3.left;
+                }
+                else if (transform.position.y <= maxMoveStart.y)
                 {
-                    this._direction = Vector3.right;
-                }     
+                    _direction = Vector3.right;
+                }
             }
            
         }

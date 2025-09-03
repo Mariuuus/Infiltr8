@@ -10,7 +10,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
     [Serializable]
     public class LaserWallComponent : TwoPointsLevelComponent, IAdjustableComponent
     {
-        public float speed = 0f;
+        public float speed = 2f;
 
         public LaserWallComponent()
         {

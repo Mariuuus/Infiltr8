@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745b5f39839b46039f398486c595d86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallbackLevelName: Level07
+  fallbackLevelName: level07
   levelTimeTrackerObserver: {fileID: 44931859}
   floorObject: {fileID: 1997971157313656597, guid: 38c62ee730210170997af7209e2c19b1, type: 3}
   wallObject: {fileID: 4166579851043906467, guid: cd41d262d624ed3b5be2f57a0a489aea, type: 3}
@@ -1946,6 +1946,7 @@ MonoBehaviour:
   onlyPlayerWall: {fileID: 6517213825380564000, guid: 6121a3d212d373187ade67fc7372e3ec, type: 3}
   dialogAreaObject: {fileID: 975221173853667902, guid: e6e82542a99a87249a4b09f02f5adca7, type: 3}
   collectableObject: {fileID: 5673836159074100161, guid: 6a5bb0439e8e10362953c67087a9f968, type: 3}
+  laserWallObject: {fileID: 5259807664971751951, guid: 1cfa287368108864ab9cf4f8e80105b3, type: 3}
   playerObject: {fileID: 1569329882}
 --- !u!1 &924692230
 GameObject:

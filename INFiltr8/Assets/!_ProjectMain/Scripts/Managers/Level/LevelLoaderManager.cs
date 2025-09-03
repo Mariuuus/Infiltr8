@@ -32,6 +32,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public /*IPlaceable<LaptopComponent>*/ GameObject onlyPlayerWall;
         public GameObject dialogAreaObject;
         public GameObject collectableObject;
+        public GameObject laserWallObject;
         
         [Header("Player")]
         public GameObject playerObject;
@@ -151,6 +152,12 @@ namespace __ProjectMain.Scripts.Managers.Level
                     {
                         var newObj = Instantiate(dialogAreaObject);
                         newObj.GetComponent<DialogAreaPlacer>().Place(dialogAreaComponent);
+                        break;
+                    }
+                    case LaserWallComponent laserWallComponent:
+                    {
+                        var newObj = Instantiate(laserWallObject);
+                        newObj.GetComponent<LaserWallPlacer>().Place(laserWallComponent);
                         break;
                     }
                 }

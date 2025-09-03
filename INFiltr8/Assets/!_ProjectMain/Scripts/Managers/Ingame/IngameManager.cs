@@ -27,7 +27,7 @@ namespace __ProjectMain.Scripts.Managers.Ingame
 
         private void Start()
         {
-            MusicManager.Instance.PlayInGameMusic();
+            MusicManager.Instance?.PlayInGameMusic();
         }
 
         public void Pause() {
