@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 3d2ad07d01ed29c4292cd8d637425ca2, type: 3}
+  - {fileID: 2100000, guid: 76fb92ebf130afb4eb722364c1c5c213, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,9 +127,8 @@ MonoBehaviour:
   speed: 2
   maxMoveStart: {x: 3, y: 0, z: -13.09}
   maxMoveEnd: {x: -3, y: 0, z: -13.09}
-  isVertical: 0
   cooldownTime: 3
-  normalMaterial: {fileID: -876546973899608171, guid: 3d2ad07d01ed29c4292cd8d637425ca2, type: 3}
+  normalMaterial: {fileID: 2100000, guid: 76fb92ebf130afb4eb722364c1c5c213, type: 2}
   transparentMaterial: {fileID: 2100000, guid: 8fab4339a7e521f4b951b652a32b6e7d, type: 2}
 --- !u!114 &8736805116661082473
 MonoBehaviour:
