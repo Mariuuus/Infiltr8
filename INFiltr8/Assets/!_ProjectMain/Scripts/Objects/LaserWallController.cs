@@ -14,13 +14,11 @@ namespace __ProjectMain.Scripts.Objects
         public float speed = 2f;
         public Vector3 maxMoveStart;
         public Vector3 maxMoveEnd;
-        public bool isVertical = false;
         [SerializeField] private int cooldownTime = 3;
         [SerializeField] private Material normalMaterial;
         [SerializeField] private Material transparentMaterial;
         
-       
-        private Vector3 _direction = Vector3.right;
+        private bool _moveToEndPoint = true;
         private bool _onCooldown = false;
         private MeshRenderer _meshRenderer;
   
@@ -33,43 +31,16 @@ namespace __ProjectMain.Scripts.Objects
 
         public void Init()
         {
-            Debug.Log("emil");
-            Vector3 p = transform.position;
-            p.x = (maxMoveStart.x + maxMoveEnd.x) / 2f;
-            p.z = (maxMoveStart.y + maxMoveEnd.y) / 2f;
-            Debug.Log(p.x);
-            Debug.Log(p.z);
-            transform.position = p;
+            transform.position = (maxMoveStart + maxMoveEnd)/ 2f;
         }
         
         // Update is called once per frame
         void FixedUpdate()
         {
-            transform.Translate(_direction * speed * Time.deltaTime);
-
-            if (!isVertical)
-            {
-                if (transform.position.x >= maxMoveEnd.x)
-                {
-                    _direction = Vector3.left;
-                }
-                else if (transform.position.x <= maxMoveStart.x)
-                {
-                    _direction = Vector3.right;
-                }
-            }
-            else
-            {
-                if (transform.position.y >= maxMoveEnd.y)
-                {
-                    _direction = Vector3.left;
-                }
-                else if (transform.position.y <= maxMoveStart.y)
-                {
-                    _direction = Vector3.right;
-                }
-            }
-           
+            Vector3 moveTo = _moveToEndPoint ?  maxMoveEnd : maxMoveStart;
+            Vector3 direction = moveTo - transform.position;
+            transform.Translate(direction.normalized * speed * Time.deltaTime);
+            if(Vector3.Distance(transform.position, moveTo) < 0.1f) _moveToEndPoint = !_moveToEndPoint;
         }
 
         private void OnTriggerEnter(Collider other)

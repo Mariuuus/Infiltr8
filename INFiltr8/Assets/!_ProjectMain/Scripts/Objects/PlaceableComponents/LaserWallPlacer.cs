@@ -10,10 +10,9 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
         public void Place(LaserWallComponent component, params object[] args)
         {
             var laserWallController = GetComponent<LaserWallController>();
-            laserWallController.maxMoveStart = LevelEditorUtils.ExpandToThreeDimensions(component.startPosition);
-            laserWallController.maxMoveEnd = LevelEditorUtils.ExpandToThreeDimensions(component.endPosition);
+            laserWallController.maxMoveStart = new Vector3(component.startPosition.y, 0f, component.startPosition.x);
+            laserWallController.maxMoveEnd = new Vector3(component.endPosition.y, 0f, component.endPosition.x);
             laserWallController.speed = component.speed;
-            laserWallController.isVertical = component.startPosition.x != component.endPosition.x;
             laserWallController.Init();
         }
     }
