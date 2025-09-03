@@ -92,30 +92,11 @@ namespace __ProjectMain.Scripts.Objects
             SfxManager.instance.PlaySfxClip(hackSound,.4f);
 
             StartCoroutine(Cooldown());
-            StartCoroutine(UpdateUIPos());
             StartCoroutine(UpdateUIFill()); 
             SetMaterial(color);
             hackColor = color;
         }
-
-        IEnumerator UpdateUIPos()
-        {
-            while (_onCooldown)
-            {
-                if (_countDownUIInstance != null)
-                {
-                    _countDownUIInstance.transform.position = transform.position + new Vector3(0, 3, 0);
-                }
-                else
-                {
-                    yield break;
-                }
-            
-                yield return null;
-            }
         
-        }
-
         IEnumerator UpdateUIFill()
         {
             if (_countDownUIInstance != null)
@@ -139,6 +120,7 @@ namespace __ProjectMain.Scripts.Objects
             _onCooldown = true;
             int remaining = cooldownTime;
             _countDownUIInstance = Instantiate(countdownUI, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            _countDownUIInstance.transform.SetParent(transform);
 
             while (remaining > 0)
             {
