@@ -1736,5 +1736,7 @@
         "sqrMagnitude": 3744
       }
     }
-  ]
+  ],
+  "levelType": 0,
+  "availableTime": 0.0
 }

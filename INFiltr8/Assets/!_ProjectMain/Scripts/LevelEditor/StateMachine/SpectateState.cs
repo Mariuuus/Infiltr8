@@ -12,11 +12,14 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine
         {
             LevelEditorManager.Instance.currentStateText.text = "Current Mode:" + GetType().Name;
             LevelEditorManager.Instance.isSpecting = true;
+            LevelEditorManager.Instance.levelSettings.Show(LevelEditorFileManager.Instance.levelData);
         }
 
         public void Exit()
         {
             LevelEditorManager.Instance.isSpecting = false;
+            LevelEditorManager.Instance.levelSettings.Hide();
+
         }
 
         public void HandleInput()

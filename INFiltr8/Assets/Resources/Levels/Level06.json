@@ -1538,5 +1538,7 @@
         "sqrMagnitude": 281
       }
     }
-  ]
+  ],
+  "levelType": 0,
+  "availableTime": 0.0
 }

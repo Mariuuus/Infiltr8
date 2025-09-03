@@ -173,8 +173,26 @@ namespace __ProjectMain.Scripts.Managers
                                         characters.USBStick,
                                         lines), () =>
                                     {
-                                        if(GameDataManager.Instance) GameDataManager.Instance.WatchedIntro();
-                                        SceneManager.LoadScene("!_ProjectMain/Scenes/LevelSelection");
+                                        usbStickObject.OnSpeak(true);
+                                        schlappyObject.OnSpeak(false);
+                                        var lines = new List<string>();
+                                        lines.AddRange(
+                                            new string[]
+                                            {
+                                                "BTW...",
+                                                "We strongly recommend using a controller for this game.",
+                                                "We think the controls make much more sense then!",
+                                            }
+                                        );
+                                        DialogManager.Instance.StartDialoque(new DialogData(
+                                            characters.Schlappy.ToString(),
+                                            DialoqType.NPC,
+                                            characters.Schlappy,
+                                            lines), () =>
+                                        {
+                                            if(GameDataManager.Instance) GameDataManager.Instance.WatchedIntro();
+                                            SceneManager.LoadScene("!_ProjectMain/Scenes/LevelSelection");
+                                        });
                                     });
                                 });
                             });

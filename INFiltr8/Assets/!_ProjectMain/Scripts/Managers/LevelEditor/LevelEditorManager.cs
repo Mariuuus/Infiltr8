@@ -36,6 +36,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public DialogAreaSettings dialogAreaSettings;
         public LaserWallSettings laserWallSettings;
         public ErrorToastController errorToastController;
+        public LevelEditorLevelSettings levelSettings;
         
         [Header("Tiles")]
         public Tile hoverTile;

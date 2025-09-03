@@ -27,27 +27,17 @@ public class DialogController : MonoBehaviour
     [SerializeField] private Sprite laptopSprite;
     [SerializeField] private AudioClip soundEffect;
     
-    private bool isInDialogue = false;
-    private bool isInLine = false;
+    [SerializeField] private Image previousButton;
+    [SerializeField] private Image nextButton;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    { 
-        //gameObject.SetActive(false);
-        //dialogText.SetText(string.Empty);
-        //dialogName.SetText("hackermax");
-        // startDialogueLines();
-    }
+    private bool _isInDialogue = false;
+    private bool _isInLine = false;
 
     public bool LoadNewDialogue(DialogData d)
     {
-        
-        Debug.Log("LoadNewDialogue");
-        if (isInDialogue) return false;
-        
-        // gameObject.SetActive(true);
+        if (_isInDialogue) return false;
         dialogImage.SetActive(false);
-        isInDialogue = true;
+        _isInDialogue = true;
         if(IngameManager.Instance) IngameManager.Instance.Pause();
         index = 0;
         dialogText.SetText(String.Empty);
@@ -55,23 +45,23 @@ public class DialogController : MonoBehaviour
         lines = d.lines;
         dialogName.SetText(d.dialogName);
         SetDialogSprite(d.character);
-        startDialogueLines();
+        StartDialogueLines();
         return true;
     }
     
     public void OnLeftClick(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && isInDialogue)
+        if (ctx.performed && _isInDialogue)
         {
-            nextLine();      
+            NextLine();      
         }
     }
 
     public void OnRightClick(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && isInDialogue)
+        if (ctx.performed && _isInDialogue)
         {
-            previousLine();
+            PreviousLine();
         }
     }
 
@@ -95,53 +85,48 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    private void nextLine()
+    private void NextLine()
     {
-        if (isInLine) return;
+        if (_isInLine)
+        {
+            StopCoroutine(nameof(WriteLine));
+            dialogText.SetText(lines[index]);
+            SfxManager.instance.PlaySfxClip(soundEffect, .6f, false);
+            _isInLine = false;
+            return;
+        }
         
         if (index < lines.Count - 1)
         {
             index++;
-            startDialogueLines();
+            StartDialogueLines();
         }
         else
         {
             gameObject.SetActive(false);
             if(IngameManager.Instance) IngameManager.Instance.Resume();
-            isInDialogue = false;
+            _isInDialogue = false;
             DialogManager.Instance.OnEnd();
         }
     }
 
-    private void previousLine()
+    private void PreviousLine()
     {
-        if (isInLine) return;
-
         if (index > 0)
         {
+            if (_isInLine) StopCoroutine(nameof(WriteLine));
             index--;
-            startDialogueLines();
+            StartDialogueLines();
         }
     }
-
-    public void skipDialogue()
+    private void StartDialogueLines()
     {
-        if(IngameManager.Instance) IngameManager.Instance.Resume();
-        dialogName.SetText("Character Name/Scene Name");
-        dialogueAmountText.SetText("0 / 0");
-        dialogText.SetText(String.Empty);
-        gameObject.SetActive(false);
-        isInDialogue = false;
-        DialogManager.Instance.OnEnd();
+        previousButton.color = index == 0 ? Color.clear : Color.white;
+        StartCoroutine(nameof(WriteLine));
     }
-
-    private void startDialogueLines()
+    IEnumerator WriteLine()
     {
-        StartCoroutine(writeLine());
-    }
-    IEnumerator writeLine()
-    {
-        isInLine = true;
+        _isInLine = true;
         dialogText.SetText(String.Empty);
         dialogueAmountText.SetText(index + 1 + "/" + lines.Count);
         string temp = "";
@@ -149,11 +134,10 @@ public class DialogController : MonoBehaviour
         {
             temp += c;
             dialogText.SetText(temp);
-            //var inNum = (int)c;
             SfxManager.instance.PlaySfxClip(soundEffect, .3f, true);
             yield return new WaitForSeconds(textSpeed);
         }
 
-        isInLine = false;
+        _isInLine = false;
     }
 }

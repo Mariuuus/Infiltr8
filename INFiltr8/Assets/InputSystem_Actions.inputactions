@@ -368,7 +368,7 @@
                 {
                     "name": "",
                     "id": "9c49483b-7eda-496c-96a7-979dade22987",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -379,7 +379,7 @@
                 {
                     "name": "",
                     "id": "023010c5-662c-4fe0-ade1-edfad6708993",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using __ProjectMain.Scripts.LevelEditor;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
+using __ProjectMain.Scripts.Managers.TimeTracker;
 using __ProjectMain.Scripts.Objects;
 using __ProjectMain.Scripts.Objects.PlaceableComponents;
 using __ProjectMain.Scripts.Utilities.Files;
@@ -17,6 +18,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public static LevelLoaderManager Instance { get; private set; }
 
         [SerializeField] private string fallbackLevelName;
+        [SerializeField] private LevelTimeTrackerObserver levelTimeTrackerObserver;
 
         [Header("GameObjects")]
         public GameObject floorObject;
@@ -46,6 +48,8 @@ namespace __ProjectMain.Scripts.Managers.Level
             Instance = this;
             Init();
         }
+        
+        private LevelData _levelData;
 
         private void Init()
         {
@@ -58,6 +62,7 @@ namespace __ProjectMain.Scripts.Managers.Level
                     lvlData = LevelDataUtils.LoadFile(fallbackLevelName);
                 }
             }
+            _levelData = lvlData;
             
             // place ground
             var floor = Instantiate(floorObject);
@@ -191,8 +196,15 @@ namespace __ProjectMain.Scripts.Managers.Level
             {
                 throw new ApplicationException("LevelLoaderManager: SpawnPoint not found");
             }
-            
+        }
 
+        private void Start()
+        {
+            // time setup
+            LevelTimeTracker.Instance.SetMaxTime(_levelData.availableTime);
+            LevelTimeTracker.Instance.ResetTime();
+            LevelTimeTracker.Instance.ResumeTime();
+            levelTimeTrackerObserver.Init(_levelData.levelType == LevelType.TimeBased || _levelData.levelType == LevelType.SilentAndTimeBased);
         }
     }
 }   

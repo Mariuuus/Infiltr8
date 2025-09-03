@@ -2182,5 +2182,7 @@
         "sqrMagnitude": 937
       }
     }
-  ]
+  ],
+  "levelType": 1,
+  "availableTime": 120.0
 }

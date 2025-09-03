@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace __ProjectMain.Scripts.LevelEditor
 {
+    public enum LevelType
+    {
+        GetData, TimeBased, Silent, SilentAndTimeBased
+    }
     [System.Serializable]
     public class LevelData
     {
@@ -12,6 +16,8 @@ namespace __ProjectMain.Scripts.LevelEditor
         [JsonProperty(Order = 2)] public Vector2Int wallPointOne;
         [JsonProperty(Order = 3)] public Vector2Int wallPointTwo;
         [JsonProperty(Order = 4)] public List<LevelComponent> components;
+        [JsonProperty(Order = 5)] public LevelType levelType =  LevelType.GetData;
+        [JsonProperty(Order = 6)] public float availableTime = 0f;
         
 
         public LevelData () {
