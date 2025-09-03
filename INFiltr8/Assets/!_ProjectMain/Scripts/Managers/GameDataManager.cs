@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using __ProjectMain.Data;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.Managers.MainMenu;
 using __ProjectMain.Scripts.Objects;
 using __ProjectMain.Scripts.Utilities.Files;
@@ -40,7 +41,6 @@ namespace __ProjectMain.Scripts.Managers
             {
                 SceneManager.LoadScene("!_ProjectMain/Scenes/Intro");
             }
-
             GameDataUtils.QuickSave(gameData);
         }
 

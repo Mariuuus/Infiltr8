@@ -33,7 +33,7 @@ namespace __ProjectMain.Scripts.Utilities.Files
         /// <returns>game data of the user!</returns>
         public static GameData LoadData()
         {
-            return File.Exists(Path) ? JsonConvert.DeserializeObject<GameData>(File.ReadAllText(Path), JsonSettings) : new GameData();
+            return File.Exists(Path) ? JsonConvert.DeserializeObject<GameData>(File.ReadAllText(Path), JsonSettings) : new GameData("no_name");
         }
 
         /// <summary>

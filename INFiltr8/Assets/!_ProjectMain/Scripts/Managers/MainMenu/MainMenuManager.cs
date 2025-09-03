@@ -45,12 +45,11 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
 
             Instance = this;
-            
         }
 
         private void Start()
         {
-            MusicManager.Instance.PlayMainMenuMusic();
+            if(GameDataManager.Instance.gameData.introDone) MusicManager.Instance.PlayMainMenuMusic();
         }
 
         public void SetHitObj(GameObject hitObject) =>  _hitObject = hitObject;
