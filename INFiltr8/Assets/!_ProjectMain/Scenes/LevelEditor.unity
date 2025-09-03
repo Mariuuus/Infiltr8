@@ -5579,9 +5579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d08501595ed4517bd097df15e431a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: level07
+  levelName: level08
   levelData:
-    levelName: level07
+    levelName: level08
     wallPointOne: {x: 0, y: 0}
     wallPointTwo: {x: 0, y: 0}
     components: []
@@ -8026,14 +8026,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 3
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -8058,10 +8058,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.DialogAreaSettings, Assembly-CSharp
-        m_MethodName: OnDialogNameChange
-        m_Mode: 0
+      - m_Target: {fileID: 1745897829}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.UI.LaserWallSettings, Assembly-CSharp
+        m_MethodName: OnSetLaserWallSpeed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

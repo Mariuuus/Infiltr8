@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745b5f39839b46039f398486c595d86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallbackLevelName: level07
+  fallbackLevelName: level08
   levelTimeTrackerObserver: {fileID: 44931859}
   floorObject: {fileID: 1997971157313656597, guid: 38c62ee730210170997af7209e2c19b1, type: 3}
   wallObject: {fileID: 4166579851043906467, guid: cd41d262d624ed3b5be2f57a0a489aea, type: 3}
@@ -3766,6 +3766,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3994702834877615828, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: slowdownUI
+      value: 
+      objectReference: {fileID: 3990558358595682961, guid: 38e8e7c7d2c5ab44699c4edf11c86279, type: 3}
     - target: {fileID: 3994702834877615828, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: rotationSpeed
       value: 620

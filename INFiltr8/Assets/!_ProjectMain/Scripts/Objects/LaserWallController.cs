@@ -51,6 +51,7 @@ namespace __ProjectMain.Scripts.Objects
             {
                 GrabController grabController = other.GetComponent<GrabController>();
                 StartCoroutine(Cooldown());
+                other.GetComponent<PlayerController>().SlowPlayer();
 
                 if (grabController.IsGrabbing)
                 {

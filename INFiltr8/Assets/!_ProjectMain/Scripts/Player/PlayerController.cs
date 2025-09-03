@@ -1,7 +1,9 @@
+using System.Collections;
 using __ProjectMain.Scripts.Managers.Ingame;
 using __ProjectMain.Scripts.Objects;
 using __ProjectMain.Scripts.UI.Controls;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace __ProjectMain.Scripts.Player
 {
@@ -11,9 +13,15 @@ namespace __ProjectMain.Scripts.Player
         //[SerializeField] private float rotationSpeed = 2;
         [SerializeField] public float playerRange = 3f;
         [SerializeField] private GameObject interactionImage;
+        [SerializeField] private int slowdownTime = 5;
+        [SerializeField] private float slowdownFactor = 2;
+        [SerializeField] private Canvas slowdownUI;
 
         private GameObject _interactionInstance;
-    
+        private bool _inSlowdown = false;
+        private Coroutine _uiFillRoutine;
+        private int _remainingTime = 0;
+        private Canvas _slowdownUIInstance;
         public GameObject ClosestObject { get; private set; }
     
         [SerializeField] 
@@ -101,6 +109,64 @@ namespace __ProjectMain.Scripts.Player
         public void UnFreeze()
         {
             GetComponent<Rigidbody>().isKinematic = false;
+        }
+
+        public void SlowPlayer()
+        {
+            if (!_inSlowdown)
+            {
+                _remainingTime = slowdownTime;
+                StartCoroutine(slowdownForSeconds());
+                _uiFillRoutine = StartCoroutine(UpdateUIFill());
+            }
+            else
+            {
+                // if we retrigger the slowdown while we are in a slowdown already
+                if (_uiFillRoutine != null)
+                {
+                    StopCoroutine(_uiFillRoutine);
+                    _uiFillRoutine = null;
+                }
+                _uiFillRoutine = StartCoroutine(UpdateUIFill());
+                _remainingTime = slowdownTime;
+            }
+        }
+
+        IEnumerator slowdownForSeconds()
+        {
+            _inSlowdown = true;
+            _slowdownUIInstance =
+                Instantiate(slowdownUI, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            _slowdownUIInstance.transform.SetParent(transform);
+            moveSpeed /= slowdownFactor;
+            while (_remainingTime > 0)
+            {
+                yield return new WaitForSeconds(1); 
+                _remainingTime--;
+            }
+            moveSpeed *= slowdownFactor;
+            Destroy(_slowdownUIInstance.gameObject);
+            _inSlowdown = false;
+            yield return null;
+        }
+
+        IEnumerator UpdateUIFill()
+        {
+            if (_slowdownUIInstance != null)
+            {
+                float elapsed = 0f;
+                Image image = _slowdownUIInstance.GetComponentInChildren<Image>();
+                
+                while (elapsed < slowdownTime && _inSlowdown)
+                {
+                    elapsed += Time.deltaTime;
+                    image.fillAmount = Mathf.Lerp(1f, 0f, elapsed / slowdownTime);
+                    yield return null; 
+                }
+            
+                image.fillAmount = 0f;
+                _uiFillRoutine = null;
+            }
         }
     
         public void UpdateInteractionUI()
