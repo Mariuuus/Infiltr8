@@ -37,6 +37,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public LaserWallSettings laserWallSettings;
         public ErrorToastController errorToastController;
         public LevelEditorLevelSettings levelSettings;
+        public DecorationSettings decorationSettings;
         
         [Header("Tiles")]
         public Tile hoverTile;
@@ -50,6 +51,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile dialogAreaTile;
         public Tile laserWallTile;
         public Tile collectableTile;
+        public Tile decorationTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
@@ -64,6 +66,8 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite dialogAreaSprite;
         public Sprite laserWallSprite;
         public Sprite collectableSprite;
+        public Sprite decorationSprite;
+        
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -112,6 +116,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.DialogAreaBuildState,
                 _levelEditorStateMachine.CollectableBuildState,
                 _levelEditorStateMachine.LaserWallBuildState,
+                _levelEditorStateMachine.DecorationBuildState,
             };
             
             foreach (var state in _selectableStates)
@@ -186,6 +191,11 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 {
                     LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), laserWallTile);
                 }
+            }
+            
+            foreach (var decoration in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(DecorationComponent)).Select(component => ((DecorationComponent)component)))
+            {
+                LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(decoration.position), decorationTile);
             }
         }
 

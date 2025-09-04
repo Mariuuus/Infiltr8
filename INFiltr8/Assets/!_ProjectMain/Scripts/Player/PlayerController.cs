@@ -3,6 +3,7 @@ using __ProjectMain.Scripts.Managers.Ingame;
 using __ProjectMain.Scripts.Objects;
 using __ProjectMain.Scripts.UI.Controls;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace __ProjectMain.Scripts.Player
@@ -19,11 +20,11 @@ namespace __ProjectMain.Scripts.Player
         [SerializeField] private Canvas slowdownUI;
 
         private GameObject _interactionInstance;
-        private bool _inSlowdown = false;
         private Coroutine _uiFillRoutine;
         private int _remainingTime = 0;
         private Canvas _slowdownUIInstance;
         public GameObject ClosestObject { get; private set; }
+        public bool inSlowdown = false;
     
         [SerializeField] 
         private Rigidbody rb;
@@ -114,7 +115,7 @@ namespace __ProjectMain.Scripts.Player
 
         public void SlowPlayer()
         {
-            if (!_inSlowdown)
+            if (!inSlowdown)
             {
                 _remainingTime = slowdownTime;
                 StartCoroutine(slowdownForSeconds());
@@ -135,10 +136,11 @@ namespace __ProjectMain.Scripts.Player
 
         IEnumerator slowdownForSeconds()
         {
-            _inSlowdown = true;
+            inSlowdown = true;
             _slowdownUIInstance =
                 Instantiate(slowdownUI, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
             _slowdownUIInstance.transform.SetParent(transform);
+            if (_interactionInstance) Destroy(_interactionInstance);
            // var slowdownParticlesInstance = Instantiate(slowdownParticles, transform.position, Quaternion.identity);
            // slowdownParticlesInstance.transform.SetParent(transform);
             moveSpeed /= slowdownFactor;
@@ -151,7 +153,8 @@ namespace __ProjectMain.Scripts.Player
             moveSpeed *= slowdownFactor;
             Destroy(_slowdownUIInstance.gameObject);
             // Destroy(slowdownParticlesInstance.gameObject);
-            _inSlowdown = false;
+            inSlowdown = false;
+            UpdateInteractionUI();
             yield return null;
         }
 
@@ -162,7 +165,7 @@ namespace __ProjectMain.Scripts.Player
                 float elapsed = 0f;
                 Image image = _slowdownUIInstance.GetComponentInChildren<Image>();
                 
-                while (elapsed < slowdownTime && _inSlowdown)
+                while (elapsed < slowdownTime && inSlowdown)
                 {
                     elapsed += Time.deltaTime;
                     image.fillAmount = Mathf.Lerp(1f, 0f, elapsed / slowdownTime);
@@ -180,8 +183,8 @@ namespace __ProjectMain.Scripts.Player
             {
                 Destroy(_interactionInstance);    
             }
-    
-            if (ClosestObject  == null || GetComponent<GrabController>().IsGrabbing) return;
+            
+            if (ClosestObject  == null || GetComponent<GrabController>().IsGrabbing || inSlowdown) return;
             
             Debug.Log(ClosestObject.name);
             _interactionInstance = Instantiate(interactionImage, ClosestObject .transform.position + new Vector3(0, 1, 0),
