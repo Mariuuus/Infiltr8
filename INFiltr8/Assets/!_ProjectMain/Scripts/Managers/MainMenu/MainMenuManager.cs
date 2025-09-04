@@ -189,8 +189,15 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                 return;
             }
 
-            if (currentState != State.Exit)
+            if (currentState == State.LevelSelect)
             {
+                if ((!_hitObject?.GetComponent<ComputerLevel>()?.levelsScreen.activeSelf) ?? false)
+                {
+                    _hitObject?.GetComponent<ComputerLevel>()?.OnBackClick();
+                    return;
+                }
+            }
+            if (currentState != State.Exit) {
                 _hitObject?.GetComponent<IClickableMenuElement>()?.OnUnclick();
                 CameraManager.Instance.ChangeToCamera(CameraManager.Instance.overviewCamera);
                 currentState = State.Overview;

@@ -18,7 +18,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                 var levelData = level[i];
                 var newObject = Instantiate(prefabButton, levelContainer.transform, false);
                 bool available = cheat ? cheat : GameDataManager.Instance.ProgressLevel() >= i;
-                newObject.GetComponent<LevelStartButton>().Init(levelData, i+1, available);
+                newObject.GetComponent<LevelStartButton>().Init(levelData, i+1, available, i==GameDataManager.Instance.ProgressLevel());
             }
         }
         

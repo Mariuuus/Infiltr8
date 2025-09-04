@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using LevelType = __ProjectMain.Scripts.LevelEditor.LevelType;
 
 namespace __ProjectMain.Scripts.UI.MainMenuElements
 {
@@ -15,14 +16,43 @@ namespace __ProjectMain.Scripts.UI.MainMenuElements
         public int levelNumber;
         public int levelName;
         
-        public void Init(LevelData pLevelData, int pLevelNumber, bool available)
+        public Image iconImage;
+        public Sprite timeSprite;
+        public Sprite tutorialSprite;
+        
+        public void Init(LevelData pLevelData, int pLevelNumber, bool available, bool isNextLevel)
         {
             levelData = pLevelData;
             levelNumber = pLevelNumber;
             buttonText.text = "Level " + levelNumber;
-            buttonImage.color = available
-                ? new Color32(255, 243, 113, 255)
-                : new Color32(255, 243, 113, 90); 
+            if (levelData.isPartOfTutorial)
+            {
+                iconImage.sprite = tutorialSprite;
+                buttonImage.color = available
+                    ? new Color32(138, 248, 255, 255)
+                    : new Color32(138, 248, 255,90); 
+            }
+            else
+            {
+                switch (levelData.levelType)
+                {
+                    case LevelType.GetData:
+                    case LevelType.Silent:
+                        iconImage.sprite = null;
+                        iconImage.color = new Color32(0, 0, 0, 0);
+                        buttonImage.color = available
+                            ? new Color32(255, 243, 113, 255)
+                            : new Color32(255, 243, 113, 90); 
+                        break;
+                    default:
+                        iconImage.sprite = timeSprite;
+                        buttonImage.color = available
+                            ? new Color32(255, 134, 101, 255)
+                            : new Color32(255, 134, 101,  90); 
+                        break;
+                }
+            }
+            if(!isNextLevel) GetComponent<Outline>().enabled = false;
         }
 
         public void OnClick()

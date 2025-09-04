@@ -22,7 +22,7 @@ namespace __ProjectMain.Scripts.Objects
 
         [SerializeField] private ActivationPlateUIController uIController;
 
-        public void Awake()
+        public void Init()
         {
             HacksOnPlate = new Dictionary<HackStatus, int>
             {
@@ -31,10 +31,7 @@ namespace __ProjectMain.Scripts.Objects
                 [HackStatus.GreenHacked] = 0,
                 [HackStatus.YellowHacked] = 0
             };
-        }
-
-        private void Start()
-        {
+            
             if (activationDoor != null)
             {
                 Door = activationDoor.GetComponent<DoorController>();

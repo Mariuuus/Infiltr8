@@ -40,16 +40,8 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
             {
                 _activationController.SetMaxDevices(component.maxDevices);
             }
-            
-            var updateUI = WaitAndUpdateUI();
-            StartCoroutine(updateUI);
-        }
-        
-        //TODO: fix this, this is not a solution
-        IEnumerator WaitAndUpdateUI()
-        {
-            yield return new WaitForSeconds(2);
-            _activationController.UpdateUI();
+
+            _activationController.Init();
         }
     }
 }

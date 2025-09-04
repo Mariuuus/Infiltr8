@@ -15,7 +15,7 @@ namespace __ProjectMain.Scripts.UI
         [SerializeField] private Vector3 hoverScale;
         
         [SerializeField] private GameObject previewLevelScreen;
-        [SerializeField] private GameObject levelsScreen;
+        public GameObject levelsScreen;
         
         [SerializeField] private TMP_Text levelNumber;
         [SerializeField] private TMP_Text levelName;
@@ -29,7 +29,7 @@ namespace __ProjectMain.Scripts.UI
         private void Start()
         {
             previewLevelScreen.SetActive(false);
-            levelsScreen.SetActive(MainMenuManager.Instance.currentState == State.LevelSelect);
+            //levelsScreen.SetActive(MainMenuManager.Instance.currentState == State.LevelSelect);
         }
 
         public void OnHoverStart()
@@ -44,8 +44,9 @@ namespace __ProjectMain.Scripts.UI
 
         public void OnPreview(LevelData levelData,  int levelNumb)
         {
+            if (levelNumb-1 > GameDataManager.Instance.ProgressLevel()) return;
             _selectedLevel = levelData;
-            _levelNumb = levelNumb;
+            _levelNumb = levelNumb-1;
             this.levelNumber.text = "Level " + levelNumb + ":";
             this.levelName.text = levelData.levelName;
             bestTime.SetActive(levelData.levelType != LevelType.GetData);
@@ -63,7 +64,7 @@ namespace __ProjectMain.Scripts.UI
 
         public void OnPlay()
         {
-            LevelLoaderManager.Instance?.LoadLevel(_selectedLevel, _levelNumb-1);
+            LevelLoaderManager.Instance?.LoadLevel(_selectedLevel, _levelNumb);
         }
 
         public void OnClick()

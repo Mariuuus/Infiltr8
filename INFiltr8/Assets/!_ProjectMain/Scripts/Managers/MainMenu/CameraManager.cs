@@ -57,6 +57,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
                     MainMenuManager.Instance.currentState = State.OnlineLevel;
                     break;
                 case LevelType.Regular:
+                    FindFirstObjectByType<ComputerLevel>().levelsScreen.SetActive(true);
+                    MainMenuManager.Instance.SetHitObj(FindFirstObjectByType<ComputerLevel>().gameObject);
                     _currentCamera = levelSelectorCamera;
                     ChangeToCamera(levelSelectorCamera);
                     MainMenuManager.Instance.currentState = State.LevelSelect;

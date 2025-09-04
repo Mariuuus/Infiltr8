@@ -63,7 +63,7 @@ namespace __ProjectMain.Scripts.Objects
         }
 
 
-        void Start()
+        public void Init()
         {
             _activationPlates = new List<ActivationPlateController>();
             ResetHackRequirements();
