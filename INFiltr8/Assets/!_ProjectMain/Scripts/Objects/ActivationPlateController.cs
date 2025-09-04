@@ -39,11 +39,7 @@ namespace __ProjectMain.Scripts.Objects
             {
                 Door = activationDoor.GetComponent<DoorController>();
             }
-            Debug.Log(activationDoor);
-            Debug.Log(Door);
-
             Door.AddActivationPlate(this);
-
             UpdateUI();
         }
         

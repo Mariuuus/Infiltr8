@@ -2821,21 +2821,6 @@
       }
     },
     {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.PortComponent, Assembly-CSharp",
-      "position1": {
-        "x": 48,
-        "y": 18,
-        "magnitude": 51.2640228,
-        "sqrMagnitude": 2628
-      },
-      "position2": {
-        "x": 34,
-        "y": 19,
-        "magnitude": 38.9486847,
-        "sqrMagnitude": 1517
-      }
-    },
-    {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.OnlyPlayerDoorComponent, Assembly-CSharp",
       "startPosition": {
         "x": 44,
@@ -2980,6 +2965,21 @@
         "y": 3,
         "magnitude": 16.27882,
         "sqrMagnitude": 265
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.PortComponent, Assembly-CSharp",
+      "position1": {
+        "x": 35,
+        "y": 19,
+        "magnitude": 39.8246155,
+        "sqrMagnitude": 1586
+      },
+      "position2": {
+        "x": 49,
+        "y": 17,
+        "magnitude": 51.86521,
+        "sqrMagnitude": 2690
       }
     }
   ],

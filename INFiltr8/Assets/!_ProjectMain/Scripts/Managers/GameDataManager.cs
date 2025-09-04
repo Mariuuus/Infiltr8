@@ -37,6 +37,7 @@ namespace __ProjectMain.Scripts.Managers
 
         private void Start()
         {
+            GetCollectables();
             if (!gameData.introDone)
             {
                 SceneManager.LoadScene("!_ProjectMain/Scenes/Intro");
