@@ -86,6 +86,7 @@ namespace __ProjectMain.Scripts.Player
         
         public void OnGrab(InputAction.CallbackContext context)
         {
+            if (gameObject.GetComponent<PlayerController>().inSlowdown) return;
             if (IngameManager.Instance.Paused) return;
             if (!context.started) return;
             if (GetComponent<PlayerController>().ClosestObject == null) return;

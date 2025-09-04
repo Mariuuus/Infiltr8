@@ -33,6 +33,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public GameObject dialogAreaObject;
         public GameObject collectableObject;
         public GameObject laserWallObject;
+        public GameObject decorationObject;
         
         [Header("Player")]
         public GameObject playerObject;
@@ -112,7 +113,7 @@ namespace __ProjectMain.Scripts.Managers.Level
             {
                 switch (component)
                 {
-                    
+
                     case WallComponent wallComponent:
                     {
                         var newObj = Instantiate(wallObject);
@@ -145,7 +146,8 @@ namespace __ProjectMain.Scripts.Managers.Level
                     case OnlyPlayerDoorComponent onlyPlayerWallComponent:
                     {
                         var newObj = Instantiate(onlyPlayerWall);
-                        newObj.GetComponent<OnlyPlayerDoorPlacer>().Place(onlyPlayerWallComponent, playerObject.GetComponent<CapsuleCollider>());
+                        newObj.GetComponent<OnlyPlayerDoorPlacer>().Place(onlyPlayerWallComponent,
+                            playerObject.GetComponent<CapsuleCollider>());
                         break;
                     }
                     case DialogAreaComponent dialogAreaComponent:
@@ -158,6 +160,12 @@ namespace __ProjectMain.Scripts.Managers.Level
                     {
                         var newObj = Instantiate(laserWallObject);
                         newObj.GetComponent<LaserWallPlacer>().Place(laserWallComponent);
+                        break;
+                    }
+                    case DecorationComponent decorationComponent:
+                    {
+                        var newObj = Instantiate(decorationObject);
+                        newObj.GetComponent<DecorationPlacer>().Place(decorationComponent);
                         break;
                     }
                 }
