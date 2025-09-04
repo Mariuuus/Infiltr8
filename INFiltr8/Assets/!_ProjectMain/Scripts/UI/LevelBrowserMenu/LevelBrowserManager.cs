@@ -198,10 +198,10 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
             );
             if (GameDataManager.Instance.loggedIn)
             {
-                GameDataManager.Instance.username = usernameLogin.text;
-                GameDataManager.Instance.password = passwordLogin.text;
-                usernameLogin.text = "";
-                passwordLogin.text = "";
+                GameDataManager.Instance.username = usernameRegister.text;
+                GameDataManager.Instance.password = passwordRegister.text;
+                usernameRegister.text = "";
+                passwordRegister.text = "";
                 registerWindow.SetActive(false);
                 uploadWindow.SetActive(true);   
                 LoadOnlineOwnLevels();
