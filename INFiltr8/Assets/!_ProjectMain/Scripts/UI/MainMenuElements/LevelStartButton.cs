@@ -27,7 +27,8 @@ namespace __ProjectMain.Scripts.UI.MainMenuElements
 
         public void OnClick()
         {
-            LevelLoaderManager.Instance?.LoadLevel(levelData, levelNumber-1);
+            FindFirstObjectByType<ComputerLevel>().OnPreview(
+                levelData, levelNumber);
         }
     }
 }

@@ -1817,7 +1817,7 @@
         "lines": [
           "Oh hello, you seem to be doing fine!",
           "Let's change that haha!",
-          "You will now learn about another elemt!",
+          "You will now learn about another element!",
           "THE PORTAL!!!!1",
           "(Yes, that 1 was on purpose)",
           "I will let you find out how this portal works on your own.",
@@ -1877,5 +1877,6 @@
     }
   ],
   "levelType": 0,
-  "availableTime": 0.0
+  "availableTime": 0.0,
+  "isPartOfTutorial": true
 }

@@ -18,7 +18,7 @@ namespace __ProjectMain.Scripts.LevelEditor
         [JsonProperty(Order = 4)] public List<LevelComponent> components;
         [JsonProperty(Order = 5)] public LevelType levelType =  LevelType.GetData;
         [JsonProperty(Order = 6)] public float availableTime = 0f;
-        
+        [JsonProperty(Order = 7)] public bool isPartOfTutorial = false;
 
         public LevelData () {
             // just for deserialization
