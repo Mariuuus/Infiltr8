@@ -3778,6 +3778,10 @@ PrefabInstance:
       propertyPath: interactionImage
       value: 
       objectReference: {fileID: 142217409823344248, guid: aace6615e7be325448a78081da596a01, type: 3}
+    - target: {fileID: 3994702834877615828, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
+      propertyPath: slowdownParticles
+      value: 
+      objectReference: {fileID: 4832063358605613610, guid: 1cedaa07171b2cd40a756b8dfc8efeaf, type: 3}
     - target: {fileID: 5377559509108124330, guid: 2d017441bccf4bc58b4785258e14dc5f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.06

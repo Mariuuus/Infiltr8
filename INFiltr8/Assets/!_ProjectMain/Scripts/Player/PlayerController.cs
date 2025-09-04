@@ -13,6 +13,7 @@ namespace __ProjectMain.Scripts.Player
         //[SerializeField] private float rotationSpeed = 2;
         [SerializeField] public float playerRange = 3f;
         [SerializeField] private GameObject interactionImage;
+        [SerializeField] private ParticleSystem slowdownParticles;
         [SerializeField] private int slowdownTime = 5;
         [SerializeField] private float slowdownFactor = 2;
         [SerializeField] private Canvas slowdownUI;
@@ -138,14 +139,18 @@ namespace __ProjectMain.Scripts.Player
             _slowdownUIInstance =
                 Instantiate(slowdownUI, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
             _slowdownUIInstance.transform.SetParent(transform);
+           // var slowdownParticlesInstance = Instantiate(slowdownParticles, transform.position, Quaternion.identity);
+           // slowdownParticlesInstance.transform.SetParent(transform);
             moveSpeed /= slowdownFactor;
             while (_remainingTime > 0)
             {
-                yield return new WaitForSeconds(1); 
+               
+                yield return new WaitForSeconds(1);
                 _remainingTime--;
             }
             moveSpeed *= slowdownFactor;
             Destroy(_slowdownUIInstance.gameObject);
+            // Destroy(slowdownParticlesInstance.gameObject);
             _inSlowdown = false;
             yield return null;
         }
