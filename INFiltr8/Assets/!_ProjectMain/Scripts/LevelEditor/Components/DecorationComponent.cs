@@ -7,15 +7,17 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
     public class DecorationComponent: OnePointLevelComponent, IAdjustableComponent
     {
         public Decorations decoration;
+        public float rotation;
 
         public DecorationComponent()
         {
             
         }
-        public DecorationComponent(Vector2Int position, LevelData levelData, Decorations type) : base(position,
+        public DecorationComponent(Vector2Int position, LevelData levelData, Decorations type, float rotation) : base(position,
             levelData)
         {
             this.decoration = type;
+            this.rotation = rotation;
         }
 
         public void OnAdjust()

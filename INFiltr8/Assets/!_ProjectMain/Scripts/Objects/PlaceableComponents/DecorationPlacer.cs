@@ -9,6 +9,7 @@ namespace __ProjectMain.Scripts.Objects.PlaceableComponents
         {
             transform.position = new Vector3(component.position.y, 0f, component.position.x);
             GetComponent<DecorationController>().setDecoration(component.decoration);
+            GetComponent<DecorationController>().rotation = component.rotation;
         }
     }
 }

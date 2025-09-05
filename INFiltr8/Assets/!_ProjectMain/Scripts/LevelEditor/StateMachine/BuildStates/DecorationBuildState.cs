@@ -15,7 +15,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
             var decoration = new DecorationComponent(
                 LevelEditorUtils.ReduceToTwoDimensions(pos),
                 LevelEditorFileManager.Instance.levelData,
-                Decorations.Camera
+                Decorations.Camera,
+                0f
             );
             LevelEditorFileManager.Instance.levelData.components.Add(decoration);
             return base.Build(pos);
