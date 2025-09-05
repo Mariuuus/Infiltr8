@@ -23,6 +23,10 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
             _listeners.Remove(listener);
         }
 
+        public void ManipulateTime(double byTime)
+        {
+            CurrentTime += byTime;
+        }
 
         protected void ForAllListeners(Action<T> action)
         {
