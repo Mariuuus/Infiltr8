@@ -8,7 +8,6 @@ namespace __ProjectMain.Scripts.Objects
     public class DecorationController : MonoBehaviour
     {
         [SerializeField] private List<GameObject> decorations = new List<GameObject>();
-        public float rotation = 0f;
         private GameObject currentDecoration = null;
         private void Start()
         {
@@ -56,7 +55,7 @@ namespace __ProjectMain.Scripts.Objects
             
             if (prefab == null) return;
 
-            currentDecoration = Instantiate(prefab, transform.position, new Quaternion(0f, this.rotation, 0f, 0f));
+            currentDecoration = Instantiate(prefab, transform.position, quaternion.identity);
 
             if (prefab == decorations[0])
             {

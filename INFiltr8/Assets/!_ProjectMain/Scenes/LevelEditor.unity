@@ -6669,6 +6669,7 @@ MonoBehaviour:
   wallObject: {fileID: 8636374853563838326, guid: 0bd132a142531f14e941eb533719208d, type: 3}
   fireWallObject: {fileID: 4384313278463460572, guid: fa97ad4340a5af94e97f256d971b67e4, type: 3}
   groundObject: {fileID: 8636374853563838326, guid: 7a0fb5b8045881243afc6dc77b73ad49, type: 3}
+  decorationObject: {fileID: 7441488910636040914, guid: 70d9adac7c8965941993f577fcc81390, type: 3}
 --- !u!114 &698467854
 MonoBehaviour:
   m_ObjectHideFlags: 0

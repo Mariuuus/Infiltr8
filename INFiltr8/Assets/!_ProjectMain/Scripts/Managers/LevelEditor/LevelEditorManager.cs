@@ -192,11 +192,6 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                     LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(pos), laserWallTile);
                 }
             }
-            
-            foreach (var decoration in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(DecorationComponent)).Select(component => ((DecorationComponent)component)))
-            {
-                LevelManager.Instance.levelEditorRepresentationTilemap.SetTile(LevelEditorUtils.ExpandToThreeDimensions(decoration.position), decorationTile);
-            }
         }
 
         private void Update()
