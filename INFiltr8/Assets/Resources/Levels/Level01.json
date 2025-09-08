@@ -674,7 +674,8 @@
           "This is a linux distro!",
           "You can collect and search for them in each level",
           "(not every level contains one though).",
-          "You can find up to 12 distros in this game! Good Luck!"
+          "You can find up to 12 distros in this game! Good Luck!",
+          "AND VERY IMPORTANT. You will only collect this distro, if you collect it within an successful run!"
         ]
       },
       "startPosition": {

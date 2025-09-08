@@ -2181,8 +2181,38 @@
         "magnitude": 30.6104565,
         "sqrMagnitude": 937
       }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "Schlappy",
+        "trigger": 0,
+        "character": 2,
+        "lines": [
+          "As you have probably noticed...",
+          "There is a timer in the right upper corner.",
+          "This time indicated the seconds you spend in this system!",
+          "if there is a timer there will also be a time limit!",
+          "so you will have to be fast.",
+          "but",
+          "don't worry, if you do not get the data within the time, you can try again. You will probably be faster this time, because you already gained knowlegde about this system!"
+        ]
+      },
+      "startPosition": {
+        "x": 8,
+        "y": 26,
+        "magnitude": 27.2029419,
+        "sqrMagnitude": 740
+      },
+      "endPosition": {
+        "x": 8,
+        "y": 27,
+        "magnitude": 28.1602554,
+        "sqrMagnitude": 793
+      }
     }
   ],
   "levelType": 1,
-  "availableTime": 120.0
+  "availableTime": 120.0,
+  "isPartOfTutorial": false
 }

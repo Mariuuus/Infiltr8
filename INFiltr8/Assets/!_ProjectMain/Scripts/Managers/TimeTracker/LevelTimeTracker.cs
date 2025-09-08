@@ -30,7 +30,7 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
         public void SetMultiplier(float multiplier)
         {
             Multiplier = multiplier;
-            SendUpdateOnMaxChanged();
+            SendUpdateOnMultiplierChanged();
         }
 
         protected override void OnUpdate(double previousTime, double newTime)
