@@ -40,7 +40,7 @@ namespace __ProjectMain.Scripts.UI
             }
             variantDropdown.value = ((Int32) _decorationComponent.variant);
 
-            if (_decorationComponent.decoration == Decorations.Lavalamp)
+            if (_decorationComponent.decoration == Decorations.Lavalamp || _decorationComponent.decoration == Decorations.TubeLamp)
             {
                 this.variantDropdown.gameObject.SetActive(true);
                 this.variantText.gameObject.SetActive(true);
@@ -51,7 +51,7 @@ namespace __ProjectMain.Scripts.UI
         {
             Decorations selectedDecoration = (Decorations) option;
             _decorationComponent.decoration = selectedDecoration;
-            if (selectedDecoration == Decorations.Lavalamp && !variantDropdown.IsActive())
+            if ((selectedDecoration == Decorations.Lavalamp || selectedDecoration == Decorations.TubeLamp) && !variantDropdown.IsActive())
             {
                 variantDropdown.gameObject.SetActive(true);
                 this.variantText.gameObject.SetActive(true);

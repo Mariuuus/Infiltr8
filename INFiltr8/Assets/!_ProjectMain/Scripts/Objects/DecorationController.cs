@@ -62,10 +62,18 @@ namespace __ProjectMain.Scripts.Objects
                 currentDecoration.transform.position = new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z);
             } else if (prefab == decorations[2])
             {
-                // add position for tube_light
+                currentDecoration.GetComponentInChildren<TubeLampVariantController>().SetVariation(variant);
+                currentDecoration.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.4f);
+               // currentDecoration.transform.rotation = new Quaternion(-90.0f, 0f, 0f, 0f);
             }
             
             currentDecoration.transform.SetParent(transform);
+        }
+
+        public void SetYPosition(float offset)
+        {
+            currentDecoration.transform.position = new Vector3(transform.position.x, transform.position.y + offset,
+                transform.position.z);
         }
     }
 }
