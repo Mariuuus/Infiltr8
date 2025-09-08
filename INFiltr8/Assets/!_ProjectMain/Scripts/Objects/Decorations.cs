@@ -4,9 +4,14 @@ namespace __ProjectMain.Scripts.Objects
     {
         Camera,
         Lavalamp,
-        Neonsign,
-        Telephone,
-        Table,
-        Wardrobe,
+        TubeLamp,
+    }
+
+    public enum Variations
+    {
+        Red,
+        Blue,
+        Yellow,
+        Green,
     }
 }

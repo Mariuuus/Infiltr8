@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace __ProjectMain.Scripts.Objects
 {
     public class DecorationController : MonoBehaviour
     {
+        public Variations variant = Variations.Blue;
         [SerializeField] private List<GameObject> decorations = new List<GameObject>();
         private GameObject currentDecoration = null;
         private void Start()
@@ -29,17 +31,8 @@ namespace __ProjectMain.Scripts.Objects
                 case Decorations.Lavalamp:
                     updateMesh(decorations[1]);
                     break;
-                case Decorations.Neonsign:
+                case Decorations.TubeLamp:
                     updateMesh(decorations[2]);
-                    break;
-                case Decorations.Telephone:
-                    updateMesh(decorations[3]);
-                    break;
-                case Decorations.Table:
-                    updateMesh(decorations[4]);
-                    break;
-                case Decorations.Wardrobe:
-                    updateMesh(decorations[5]);
                     break;
                 default:
                     break;
@@ -54,12 +47,22 @@ namespace __ProjectMain.Scripts.Objects
             }
             
             if (prefab == null) return;
-
             currentDecoration = Instantiate(prefab, transform.position, quaternion.identity);
 
+            // decorations[0] = camera
+            // decorations[1] = lavalamp
+            // decorations[2] = tube_lamp
             if (prefab == decorations[0])
             {
-                currentDecoration.transform.position = new Vector3(transform.position.x, 0.25f, transform.position.z);
+                // add position for camera
+            }
+            else if (prefab == decorations[1])
+            {
+                currentDecoration.GetComponentInChildren<VariationController>().SetVariation(variant);
+                currentDecoration.transform.position = new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z);
+            } else if (prefab == decorations[2])
+            {
+                // add position for tube_light
             }
             
             currentDecoration.transform.SetParent(transform);

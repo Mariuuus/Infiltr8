@@ -165,7 +165,7 @@ namespace __ProjectMain.Scripts.Managers.Level
                     case DecorationComponent decorationComponent:
                     {
                         var newObj = Instantiate(decorationObject);
-                        newObj.GetComponent<DecorationPlacer>().Place(decorationComponent);
+                        newObj.GetComponent<DecorationPlacer>().Place(decorationComponent, false);
                         break;
                     }
                 }
