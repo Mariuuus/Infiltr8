@@ -36,8 +36,15 @@ namespace __ProjectMain.Scripts.Objects
         {
             if (other.CompareTag("Player"))
             {
-                GameDataManager.Instance.SwitchToOverview();
-                GameDataManager.Instance.CompletedLevel(LevelLoaderManager.Instance.levelIndex);
+                if (LevelLoaderManager.Instance.speedrunMode)
+                {
+                    LevelLoaderManager.Instance.NextSpeedrunLevel();
+                }
+                else
+                {
+                    GameDataManager.Instance.SwitchToOverview(); 
+                    GameDataManager.Instance.CompletedLevel(LevelLoaderManager.Instance.levelIndex);
+                }
             }
         }
     }

@@ -34,6 +34,7 @@ namespace __ProjectMain.Scripts.Managers.Ingame
             Paused = true;
             LevelLoaderManager.Instance.playerObject.GetComponent<PlayerController>().Freeze();
             LevelTimeTracker.Instance.PauseTime();
+            SpeedrunTimeTracker.Instance?.PauseTime();
         }
 
         public void Resume()
@@ -41,8 +42,16 @@ namespace __ProjectMain.Scripts.Managers.Ingame
             Paused = false;
             LevelLoaderManager.Instance.playerObject.GetComponent<PlayerController>().UnFreeze();
             LevelTimeTracker.Instance.ResumeTime();
+            SpeedrunTimeTracker.Instance?.ResumeTime();
         }
 
-        public void Quit() => GameDataManager.Instance.SwitchToOverview();
+        public void Quit()
+        {
+            if (MainMenu.LevelLoaderManager.Instance?.speedrunMode ?? false)
+            {
+                FindFirstObjectByType<SpeedrunTimeTrackerObserver>().HideTimer();
+            }
+            GameDataManager.Instance.SwitchToOverview();
+        }
     }
 }

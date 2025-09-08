@@ -10,6 +10,7 @@ namespace __ProjectMain.Scripts.Managers.Ingame
         public void OnPause(InputAction.CallbackContext ctx)
         {
             if (!ctx.performed) return;
+            if (IngameManager.Instance.Paused) return;
             IngameManager.Instance.Pause();
             if (ControlsManager.Instance.usedDevice == Device.Gamepad)
             {

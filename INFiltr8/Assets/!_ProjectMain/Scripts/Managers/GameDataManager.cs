@@ -53,6 +53,7 @@ namespace __ProjectMain.Scripts.Managers
         
         public void CompletedLevel(int levelIndex)
         {
+            
             if (!(gameData.progress > levelIndex))
             {
                 gameData.progress = levelIndex + 1;
@@ -62,6 +63,11 @@ namespace __ProjectMain.Scripts.Managers
             if (levelIndex != -1)
             {
                 PersistCollectables();
+            }
+            
+            if (LevelLoaderManager.Instance.speedrunMode)
+            {
+                LevelLoaderManager.Instance.NextSpeedrunLevel();
             }
         }
         

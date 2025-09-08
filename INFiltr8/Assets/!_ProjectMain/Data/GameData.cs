@@ -15,6 +15,19 @@ namespace __ProjectMain.Data
         public DistroType distroType;
         public bool collect;
     }
+
+    [Serializable]
+    public class SpeedrunEntry
+    {
+        public double speedrunTime;
+        public DateTime completionDateTime;
+
+        public SpeedrunEntry(double speedrunTime)
+        {
+            this.speedrunTime = speedrunTime;
+            completionDateTime = DateTime.Now;
+        }
+    }
     
     [Serializable]
     public class GameData
@@ -23,6 +36,7 @@ namespace __ProjectMain.Data
         //just the index of the level that is unlocked!
         public int progress;
         public int playTimeMinutes;
+        public List<SpeedrunEntry> speedrunHistory;
         public bool tutorialDone;
         public float masterVolume;
         public float musicVolume;
@@ -43,11 +57,18 @@ namespace __ProjectMain.Data
             this.sfxVolume = 1;
             this.tutorialDone = false;
             this.introDone = false;
+            this.speedrunHistory = new List<SpeedrunEntry>();
             foreach (var obj in Enum.GetValues(typeof(DistroType)))
             {
                 var distro = (DistroType)obj;
                 collectedDistros.Add(new CollectDistro(distro, false));
             }
+        }
+
+        public void AddSpeedrunEntry(SpeedrunEntry speedrunEntry)
+        {
+            if (speedrunHistory == null) speedrunHistory = new List<SpeedrunEntry>();
+            speedrunHistory.Add(speedrunEntry);
         }
     }
 }

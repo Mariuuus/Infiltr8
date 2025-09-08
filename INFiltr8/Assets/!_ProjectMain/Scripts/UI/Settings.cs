@@ -34,15 +34,20 @@ namespace __ProjectMain.Scripts.UI
     
         }
 
+        public void ShowSettingsMenu()
+        {
+            masterVolumeSlider.value = GameDataManager.Instance.gameData.masterVolume;
+            musicVolumeSlider.value = GameDataManager.Instance.gameData.musicVolume;
+            sfxVolumeSlider.value = GameDataManager.Instance.gameData.sfxVolume;
+            settingsMenu.SetActive(true);
+        }
+        
         public void OnClick()
         {
             MainMenuManager.Instance.currentState = State.Settings;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.settingsCamera);
             
-            masterVolumeSlider.value = GameDataManager.Instance.gameData.masterVolume;
-            musicVolumeSlider.value = GameDataManager.Instance.gameData.musicVolume;
-            sfxVolumeSlider.value = GameDataManager.Instance.gameData.sfxVolume;
-            settingsMenu.SetActive(true);
+            ShowSettingsMenu();
         }
 
         public void OnUnclick()

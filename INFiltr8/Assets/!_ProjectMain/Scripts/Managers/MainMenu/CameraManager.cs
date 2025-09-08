@@ -3,6 +3,7 @@ using __ProjectMain.Scripts.UI;
 using __ProjectMain.Scripts.UI.LevelBrowserMenu;
 using __ProjectMain.Scripts.UI.LevelEditorMenu;
 using Unity.Cinemachine;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -46,6 +47,18 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public void Init()
         {
             DeactivateCameras();
+            
+            if (LevelLoaderManager.Instance.speedrunMode)
+            {
+                Debug.Log("SPEED RUN MODE FALSE");
+                LevelLoaderManager.Instance.speedrunMode = false;
+                FindFirstObjectByType<Settings>().ShowSettingsMenu();
+                MainMenuManager.Instance.SetHitObj(FindFirstObjectByType<Settings>().gameObject);
+                _currentCamera = settingsCamera;
+                ChangeToCamera(settingsCamera);
+                MainMenuManager.Instance.currentState = State.Settings;
+                return;
+            }
 
             switch (LevelLoaderManager.Instance.currentLevelType)
             {

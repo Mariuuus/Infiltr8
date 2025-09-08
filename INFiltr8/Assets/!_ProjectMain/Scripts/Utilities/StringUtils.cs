@@ -29,5 +29,10 @@ namespace __ProjectMain.Scripts.Utilities
 
             return d[a.Length, b.Length];
         }
+
+        public static string ToMinSecMilli(double time)
+        {
+            return string.Format("{0}:{1:00}.{2:000}", (int)time / 60, (int)(time % 60), (time - (int)time) * 1000);
+        }
     }
 }
