@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
+using __ProjectMain.Scripts.Utilities;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = System.Random;
 
 namespace __ProjectMain.Scripts.Managers.Audio
 {
@@ -10,10 +13,13 @@ namespace __ProjectMain.Scripts.Managers.Audio
         [FormerlySerializedAs("audioSource2")] [SerializeField] private AudioSource mainMenuMusicSource;
         [FormerlySerializedAs("audioSource2")] [SerializeField] private AudioSource someMusicSource;
 
-        [SerializeField] private AudioClip mainMenuMusicClip;
-        [SerializeField] private AudioClip inGameMusicClip;
+        //[SerializeField] private AudioClip mainMenuMusicClip;
+        //[SerializeField] private AudioClip inGameMusicClip;
         
         [SerializeField] private float transitionTime = 1.5f;
+        
+        [SerializeField] private AudioClip[] inGameMusicList;
+        [SerializeField] private AudioClip[] mainMenuMusicList;
 
         private enum Source { MainMenu, InGame, Some }
 
@@ -23,21 +29,60 @@ namespace __ProjectMain.Scripts.Managers.Audio
 
         private Coroutine _transitionCoroutine;
 
+        private int _indexMainMusic = 0;
+        private int _indexIngameMusic = 0;
+
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                mainMenuMusicSource.clip = mainMenuMusicClip;
-                inGameSource.clip = inGameMusicClip;
+                ArrayUtils.ShuffleArray(mainMenuMusicList);
+                ArrayUtils.ShuffleArray(inGameMusicList);
+                foreach (AudioClip clip in inGameMusicList)
+                {
+                    clip.LoadAudioData();
+                }
+                foreach (AudioClip clip in mainMenuMusicList)
+                {
+                    clip.LoadAudioData();
+                }
+                mainMenuMusicSource.clip = mainMenuMusicList[_indexMainMusic];
+                inGameSource.clip = inGameMusicList[_indexMainMusic];
             }
             else
             {
                 Destroy(gameObject);
             }
         }
-        
+
+        private void Update()
+        {
+            if (_currentSource == Source.InGame)
+            {
+                if (!inGameSource.isPlaying)
+                {
+                    Debug.Log("inGame song ended!");
+                    _indexIngameMusic++;
+                    if(_indexIngameMusic >= inGameMusicList.Length) _indexIngameMusic = 0;
+                    inGameSource.clip = inGameMusicList[_indexIngameMusic];
+                    inGameSource.Play();
+                }
+            }
+            else if (_currentSource == Source.MainMenu)
+            {
+                if (!mainMenuMusicSource.isPlaying)
+                {
+                    Debug.Log("main menu song ended!");
+                    _indexMainMusic++;
+                    if(_indexMainMusic >= mainMenuMusicList.Length) _indexMainMusic = 0;
+                    mainMenuMusicSource.clip = mainMenuMusicList[_indexMainMusic];
+                    mainMenuMusicSource.Play();
+                }
+            }
+        }
+
         /// <summary>
         /// this methode should be called if music should be played that isn't the main menu music or the in game music
         /// Those music should not be reset and start all over, but rather continue.

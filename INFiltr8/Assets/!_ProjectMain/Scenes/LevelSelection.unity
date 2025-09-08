@@ -2856,7 +2856,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2969,9 +2969,17 @@ MonoBehaviour:
   inGameSource: {fileID: 139898599}
   mainMenuMusicSource: {fileID: 139898596}
   someMusicSource: {fileID: 139898600}
-  mainMenuMusicClip: {fileID: 8300000, guid: 671155d3fd659e54e98453db3f9e8eab, type: 3}
-  inGameMusicClip: {fileID: 8300000, guid: 74e570aca6e4b9ab89ee0978b0b8438b, type: 3}
   transitionTime: 0.75
+  inGameMusicList:
+  - {fileID: 8300000, guid: 949db942180ef9d16a6ad5df2c0a3cc2, type: 3}
+  - {fileID: 8300000, guid: 2856866d62c01143490fd642be189951, type: 3}
+  - {fileID: 8300000, guid: d41a6676401cccb82a2d3e8610b8668e, type: 3}
+  - {fileID: 8300000, guid: 983385ab721017759abb5712582079df, type: 3}
+  - {fileID: 8300000, guid: 5c2a8268e13ff8955b7afa5dfe419609, type: 3}
+  - {fileID: 8300000, guid: da2b49352cca5a57c8d3d9ddcb48b850, type: 3}
+  - {fileID: 8300000, guid: a7f5c73fb6e37eba68702af9aeed556c, type: 3}
+  mainMenuMusicList:
+  - {fileID: 8300000, guid: 18638b76dbda60d6b96371e014d23fe9, type: 3}
 --- !u!82 &139898599
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2987,7 +2995,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3084,7 +3092,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
