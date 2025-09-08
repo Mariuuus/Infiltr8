@@ -10,6 +10,7 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
         [SerializeField] private TMP_Text timeText;
         [SerializeField] private Color defaultColor = Color.white;
         [SerializeField] private Color pausedColor = Color.yellow;
+        [SerializeField] private Color speedUp = new(1f, 0.55f, 0.02f);
         [SerializeField] private Color closeToMaxColor = Color.red;
         [SerializeField] private double closeToMaxColorDistance = 5f;
 
@@ -28,7 +29,7 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
         public void OnTimeChange(double time)
         {
             timeText.text = $"{time:F2}/{LevelTimeTracker.Instance.MaxTime:F2}";
-            timeText.color = LevelTimeTracker.Instance.MaxTime-time < closeToMaxColorDistance ? closeToMaxColor : defaultColor;
+            timeText.color = LevelTimeTracker.Instance.MaxTime-time < closeToMaxColorDistance ? !Mathf.Approximately(LevelTimeTracker.Instance.Multiplier, 1) ? speedUp : closeToMaxColor : defaultColor;
         }
 
         public void OnSecondsChange(int seconds) {}
@@ -41,6 +42,11 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
         public void OnReachedMaxTime()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void OnChangeMultiplier(float newMultiplier)
+        {
+            OnTimeChange(LevelTimeTracker.Instance.CurrentTime);
         }
     }
 }

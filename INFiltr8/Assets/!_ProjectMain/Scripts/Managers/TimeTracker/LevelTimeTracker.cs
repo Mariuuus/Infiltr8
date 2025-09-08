@@ -18,11 +18,18 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
         
         private void SendUpdateOnMaxReached() => ForAllListeners((observer) => observer.OnReachedMaxTime());
         private void SendUpdateOnMaxChanged() => ForAllListeners((observer) => observer.OnChangeMaxTime(MaxTime));
+        private void SendUpdateOnMultiplierChanged() => ForAllListeners((observer) => observer.OnChangeMultiplier(Multiplier));
 
 
         public void SetMaxTime(double newMaxTime)
         {
             MaxTime = newMaxTime;
+            SendUpdateOnMaxChanged();
+        }
+        
+        public void SetMultiplier(float multiplier)
+        {
+            Multiplier = multiplier;
             SendUpdateOnMaxChanged();
         }
 

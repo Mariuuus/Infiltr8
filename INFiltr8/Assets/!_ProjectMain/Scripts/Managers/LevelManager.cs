@@ -2,6 +2,7 @@
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates;
 using __ProjectMain.Scripts.Managers.LevelEditor;
+using __ProjectMain.Scripts.Objects.PlaceableComponents;
 using __ProjectMain.Scripts.Utilities.LevelEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -28,6 +29,7 @@ namespace __ProjectMain.Scripts.Managers
         public GameObject wallObject;
         public GameObject fireWallObject;
         public GameObject groundObject;
+        public GameObject decorationObject;
 
         private void Awake()
         {
@@ -62,6 +64,7 @@ namespace __ProjectMain.Scripts.Managers
             InitiateOuterLevelWalls();
             InitiateWalls();
             InitiateFireWalls();
+            InitiateDecorations();
         }
 
         private void InitiateGround()
@@ -137,11 +140,22 @@ namespace __ProjectMain.Scripts.Managers
             }
         }
 
-        public void PlaceObjectAtTile(Vector3Int cellPosition, Tilemap tilemap, GameObject prefabToPlace)
+        private void InitiateDecorations()
+        {
+            foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(DecorationComponent)))
+            {
+                var component = (DecorationComponent)levelComponent;
+                var obj = PlaceObjectAtTile(LevelEditorUtils.ExpandToThreeDimensions(component.position), wallsTilemap, decorationObject);
+                obj.GetComponent<DecorationPlacer>().Place(component, true);
+            }
+        }
+
+        public GameObject PlaceObjectAtTile(Vector3Int cellPosition, Tilemap tilemap, GameObject prefabToPlace)
         {
             Vector3 worldPos = tilemap.GetCellCenterWorld(cellPosition);
             GameObject instance = Instantiate(prefabToPlace, worldPos, Quaternion.identity);
             instance.transform.SetParent(tilemap.transform);
+            return instance;
         }
         
         public void ClearMap(Tilemap tilemap)

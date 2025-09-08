@@ -8,6 +8,7 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
         where T : ITimeObserver    
     {
         public double CurrentTime { get; private set; }
+        public float Multiplier { get; protected set; } = 1;
         public bool Paused { get; private set; } = true;
         
         private readonly List<T> _listeners = new List<T>();
@@ -49,7 +50,7 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
         private void Update()
         {
             double previousTime = CurrentTime;
-            if(!Paused) CurrentTime += Time.deltaTime;
+            if(!Paused) CurrentTime += Time.deltaTime * Multiplier;
             if((int)(previousTime) != (int)CurrentTime) SendUpdateSeconds();
             SendUpdateTime();
             OnUpdate(previousTime, CurrentTime);

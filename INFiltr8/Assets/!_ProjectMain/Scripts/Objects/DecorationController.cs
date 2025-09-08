@@ -54,8 +54,14 @@ namespace __ProjectMain.Scripts.Objects
             }
             
             if (prefab == null) return;
-            
+
             currentDecoration = Instantiate(prefab, transform.position, quaternion.identity);
+
+            if (prefab == decorations[0])
+            {
+                currentDecoration.transform.position = new Vector3(transform.position.x, 0.25f, transform.position.z);
+            }
+            
             currentDecoration.transform.SetParent(transform);
         }
     }
