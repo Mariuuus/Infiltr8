@@ -16,7 +16,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
                 LevelEditorUtils.ReduceToTwoDimensions(pos),
                 LevelEditorFileManager.Instance.levelData,
                 Decorations.Camera,
-                0f
+                0f,
+                Variations.Blue
             );
             LevelEditorFileManager.Instance.levelData.components.Add(decoration);
             return base.Build(pos);

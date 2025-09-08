@@ -14,12 +14,16 @@ namespace __ProjectMain.Scripts.UI
     {
         private DecorationComponent _decorationComponent;
         [SerializeField] private TMP_Dropdown decorationDropdown;
+        [SerializeField] private TMP_Dropdown variantDropdown;
         [SerializeField] private Slider rotationSlider;
         [SerializeField] private TMP_InputField rotationInput;
+        [SerializeField] private TMP_Text variantText;
         
         public void Show(DecorationComponent decorationComponent)
         {
             this.gameObject.SetActive(true);
+            this.variantDropdown.gameObject.SetActive(false);
+            this.variantText.gameObject.SetActive(false);
             this._decorationComponent = decorationComponent;
             decorationDropdown.options.Clear();
             foreach (var decoration in Enum.GetValues(typeof(Decorations)))
@@ -29,11 +33,41 @@ namespace __ProjectMain.Scripts.UI
             decorationDropdown.value = ((Int32) _decorationComponent.decoration);
             rotationSlider.value = _decorationComponent.rotation;
             rotationInput.text = _decorationComponent.rotation.ToString("F1", CultureInfo.CurrentCulture);
+            variantDropdown.options.Clear();
+            foreach (var variant in Enum.GetValues(typeof(Variations)))
+            {
+                variantDropdown.options.Add(new TMP_Dropdown.OptionData(variant.ToString()));
+            }
+            variantDropdown.value = ((Int32) _decorationComponent.variant);
+
+            if (_decorationComponent.decoration == Decorations.Lavalamp)
+            {
+                this.variantDropdown.gameObject.SetActive(true);
+                this.variantText.gameObject.SetActive(true);
+            }
         }
 
         public void OnDecorationSelect(Int32 option)
         {
-            _decorationComponent.decoration = (Decorations) option;
+            Decorations selectedDecoration = (Decorations) option;
+            _decorationComponent.decoration = selectedDecoration;
+            if (selectedDecoration == Decorations.Lavalamp && !variantDropdown.IsActive())
+            {
+                variantDropdown.gameObject.SetActive(true);
+                this.variantText.gameObject.SetActive(true);
+            }
+            else
+            {
+                variantDropdown.gameObject.SetActive(false);
+                this.variantText.gameObject.SetActive(false);
+            }
+            LevelEditorManager.Instance.UpdateUI();
+            LevelEditorFileManager.Instance.QuickSave();
+        }
+
+        public void onVariantSelect(Int32 option)
+        {
+            _decorationComponent.variant = (Variations) option;
             LevelEditorManager.Instance.UpdateUI();
             LevelEditorFileManager.Instance.QuickSave();
         }
