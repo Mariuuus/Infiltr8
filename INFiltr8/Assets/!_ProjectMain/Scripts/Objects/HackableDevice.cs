@@ -5,6 +5,7 @@ using __ProjectMain.Scripts.LevelEditor.Types;
 using __ProjectMain.Scripts.Managers.Audio;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 namespace __ProjectMain.Scripts.Objects
@@ -27,7 +28,12 @@ namespace __ProjectMain.Scripts.Objects
         [SerializeField] private Material blueMat;
         [SerializeField] private Material greenMat;
         [SerializeField] private Material yellowMat;
+        [SerializeField] private Color redLightColor;
+        [SerializeField] private Color blueLightColor;
+        [SerializeField] private Color greenLightColor;
+        [SerializeField] private Color yellowLightColor;
         [SerializeField] private Material unHackedMaterial;
+        [SerializeField] private Light light;
         
         
         [SerializeField] private MeshRenderer pRenderer;
@@ -57,6 +63,7 @@ namespace __ProjectMain.Scripts.Objects
         public void ResetHackStatus()
         {
             pRenderer.material = unHackedMaterial;
+            light.color = Color.clear;
             if (UnHacked) return;
             _plate?.RemoveHackStatus(GetHackColor());
             UnHacked = true;
@@ -69,18 +76,21 @@ namespace __ProjectMain.Scripts.Objects
             switch (color) {
                 case HackStatus.BlueHacked:
                     material = blueMat;
+                    light.color = blueLightColor;
                     break;
                 case HackStatus.RedHacked:
                     material = redMat;
+                    light.color = redLightColor;
                     break;
                 case HackStatus.GreenHacked:
                     material = greenMat;
+                    light.color = greenLightColor;
                     break;
                 case HackStatus.YellowHacked:
                     material = yellowMat;
+                    light.color = yellowLightColor;
                     break;
             }
-        
             pRenderer.material = material;
         }
 

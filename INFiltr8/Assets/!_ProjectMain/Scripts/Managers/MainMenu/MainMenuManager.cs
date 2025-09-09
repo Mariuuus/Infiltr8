@@ -19,7 +19,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         Settings,
         Exit,
         OnlineLevel,
-        Achievements
+        Achievements,
+        Credits
     }
 
     public class MainMenuManager : MonoBehaviour

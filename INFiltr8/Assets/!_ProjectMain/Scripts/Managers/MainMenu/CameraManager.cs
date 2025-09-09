@@ -21,6 +21,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public CinemachineCamera exitCamera;
         public CinemachineCamera onlineLevelCamera;
         public CinemachineCamera achievementCamera;
+        public CinemachineCamera creditsCamera;
         public PlayableDirector introDirector;
         
         private CinemachineCamera _currentCamera;
