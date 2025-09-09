@@ -1,14 +1,19 @@
+using System;
 using UnityEngine;
 
 namespace __ProjectMain.Scripts.Objects
 {
     public class TubeLampVariantController : MonoBehaviour
     {
+        private bool isRainbow = false;
+
         public void SetVariation(Variations variant)
         {
-            MeshRenderer renderer = GetComponent<MeshRenderer>();
             Light light = GetComponentInChildren<Light>();
+            MeshRenderer renderer = GetComponent<MeshRenderer>();
             renderer.material.EnableKeyword("_EMISSION");
+            light.gameObject.SetActive(true);
+            isRainbow = false;
             
             switch (variant)
             {
@@ -28,9 +33,23 @@ namespace __ProjectMain.Scripts.Objects
                     renderer.material.SetColor("_EmissionColor", new Color(0, 1, 0.3326967f, 1) * 32f);
                     light.color = new Color(0, 1, 0.3326967f, 1);
                     break;
+                case Variations.Rainbow:
+                    this.isRainbow = true;
+                    light.gameObject.SetActive(false);
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void Update()
+        {
+            if (!isRainbow) return;
+
+            MeshRenderer renderer = GetComponent<MeshRenderer>();
+            float hue = Mathf.Repeat(Time.time * 0.35f, 1f);
+            Color rainbow = Color.HSVToRGB(hue, 1f, 1f);
+            renderer.material.SetColor("_EmissionColor", rainbow * 32f);
         }
     }
 }
