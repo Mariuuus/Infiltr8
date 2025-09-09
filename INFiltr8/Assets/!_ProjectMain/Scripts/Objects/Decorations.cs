@@ -13,5 +13,6 @@ namespace __ProjectMain.Scripts.Objects
         Blue,
         Yellow,
         Green,
+        Rainbow,
     }
 }

@@ -4,6 +4,7 @@ using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.Managers;
 using __ProjectMain.Scripts.Managers.LevelEditor;
 using __ProjectMain.Scripts.Objects;
+using __ProjectMain.Scripts.Utilities.Exceptions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,7 +41,7 @@ namespace __ProjectMain.Scripts.UI
             }
             variantDropdown.value = ((Int32) _decorationComponent.variant);
 
-            if (_decorationComponent.decoration == Decorations.Lavalamp)
+            if (_decorationComponent.decoration == Decorations.Lavalamp || _decorationComponent.decoration == Decorations.TubeLamp)
             {
                 this.variantDropdown.gameObject.SetActive(true);
                 this.variantText.gameObject.SetActive(true);
@@ -51,7 +52,7 @@ namespace __ProjectMain.Scripts.UI
         {
             Decorations selectedDecoration = (Decorations) option;
             _decorationComponent.decoration = selectedDecoration;
-            if (selectedDecoration == Decorations.Lavalamp && !variantDropdown.IsActive())
+            if (selectedDecoration == Decorations.Lavalamp || selectedDecoration == Decorations.TubeLamp)
             {
                 variantDropdown.gameObject.SetActive(true);
                 this.variantText.gameObject.SetActive(true);
@@ -67,7 +68,12 @@ namespace __ProjectMain.Scripts.UI
 
         public void onVariantSelect(Int32 option)
         {
-            _decorationComponent.variant = (Variations) option;
+            Variations variant = (Variations) option;
+            if (_decorationComponent.decoration == Decorations.Lavalamp && variant == Variations.Rainbow)
+            {
+                throw new InvalidLevelEditorActionException("Lavalamp does not have rainbow variant!");
+            }
+            _decorationComponent.variant = variant;
             LevelEditorManager.Instance.UpdateUI();
             LevelEditorFileManager.Instance.QuickSave();
         }

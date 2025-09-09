@@ -122,12 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6b0cd373304fff8e4154973e52c779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  variant: 1
   decorations:
   - {fileID: 8630247908573024603, guid: 812b5e96635ea524c98dd329fee82028, type: 3}
   - {fileID: 821329451530153071, guid: 39a471213eb07ec4c8b5cc1d1bd91a94, type: 3}
-  - {fileID: 8636374853563838326, guid: 7a0fb5b8045881243afc6dc77b73ad49, type: 3}
-  - {fileID: 8636374853563838326, guid: 7a0fb5b8045881243afc6dc77b73ad49, type: 3}
-  - {fileID: 8636374853563838326, guid: 7a0fb5b8045881243afc6dc77b73ad49, type: 3}
+  - {fileID: 7957789880674583829, guid: 668f6033255919a4fb036f08c2221ae2, type: 3}
 --- !u!114 &-3615306718959774513
 MonoBehaviour:
   m_ObjectHideFlags: 0
