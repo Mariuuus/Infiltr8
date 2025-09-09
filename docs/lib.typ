@@ -11,9 +11,7 @@
 ) = {
   set text(lang: "de", 
       region: "DE", 
-      font: "Carlito",
       size: 11pt,
-      weight: "thin"
   )
   set page(paper: "a4", 
       margin: (x: 0.98in, 
@@ -22,6 +20,10 @@
       bottom: 0.79in)
   )
   set align(center)
+  set par(justify: true)
+  show link: it => underline(text(it, fill: blue.darken(30%),), offset: 1.3pt)
+  show figure: set block(breakable: true)
+
 
   text([#title], size: 48pt, fill: color_gray, weight: "thin")
   v(-40pt)
