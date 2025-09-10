@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Wall
+  - grabbable
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 
