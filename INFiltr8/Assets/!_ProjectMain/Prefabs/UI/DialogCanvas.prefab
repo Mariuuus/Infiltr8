@@ -198,7 +198,7 @@ MonoBehaviour:
   dialogName: {fileID: 7008730762243449154}
   dialogueAmountText: {fileID: 6396124124909530278}
   dialogImage: {fileID: 8581375969912390120}
-  usbSprite: {fileID: 21300000, guid: dd02090c80bf90749963dcd89664e036, type: 3}
+  usbSprite: {fileID: 21300000, guid: a445c31798748abedba5a87c691cb054, type: 3}
   laptopSprite: {fileID: 21300000, guid: b815fcbcaf64d8683b9978964603bab8, type: 3}
   soundEffect: {fileID: 8300000, guid: 2ad608c8d896dd8b1b412c951b804665, type: 3}
   previousButton: {fileID: 2320340610262119674}
