@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
       
     [SerializeField] private float maxDistance = 5.0f;
     [SerializeField] private GameObject FOV;
-    [SerializeField] private int rotationCooldownTime = 2;
+    public int rotationCooldownTime = 2;
     public float rotationSpeed = 3.0f;
     public bool rotateRight = true;
     private int mask;

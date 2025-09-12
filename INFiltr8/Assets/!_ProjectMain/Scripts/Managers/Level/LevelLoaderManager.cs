@@ -34,6 +34,7 @@ namespace __ProjectMain.Scripts.Managers.Level
         public GameObject collectableObject;
         public GameObject laserWallObject;
         public GameObject decorationObject;
+        public GameObject cameraObject;
         
         [Header("Player")]
         public GameObject playerObject;
@@ -166,6 +167,12 @@ namespace __ProjectMain.Scripts.Managers.Level
                     {
                         var newObj = Instantiate(decorationObject);
                         newObj.GetComponent<DecorationPlacer>().Place(decorationComponent, false);
+                        break;
+                    }
+                    case CameraComponent cameraComponent:
+                    {
+                        var newObj = Instantiate(cameraObject);
+                        newObj.GetComponent<CameraPlacer>().Place(cameraComponent);
                         break;
                     }
                 }

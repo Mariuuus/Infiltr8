@@ -30,6 +30,7 @@ namespace __ProjectMain.Scripts.Managers
         public GameObject fireWallObject;
         public GameObject groundObject;
         public GameObject decorationObject;
+        public GameObject cameraObject;
 
         private void Awake()
         {
@@ -65,6 +66,7 @@ namespace __ProjectMain.Scripts.Managers
             InitiateWalls();
             InitiateFireWalls();
             InitiateDecorations();
+            InitiateCameras();
         }
 
         private void InitiateGround()
@@ -147,6 +149,16 @@ namespace __ProjectMain.Scripts.Managers
                 var component = (DecorationComponent)levelComponent;
                 var obj = PlaceObjectAtTile(LevelEditorUtils.ExpandToThreeDimensions(component.position), wallsTilemap, decorationObject);
                 obj.GetComponent<DecorationPlacer>().Place(component, true);
+            }
+        }
+
+        private void InitiateCameras()
+        {
+            foreach (var levelComponent in LevelEditorUtils.FilterComponents(LevelEditorFileManager.Instance.levelData.components, typeof(CameraComponent)))
+            {
+                var component = (CameraComponent)levelComponent;
+                var obj = PlaceObjectAtTile(LevelEditorUtils.ExpandToThreeDimensions(component.position), wallsTilemap, cameraObject);
+                obj.GetComponent<CameraPlacer>().Place(component, true);
             }
         }
 

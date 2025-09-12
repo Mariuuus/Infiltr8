@@ -38,6 +38,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public ErrorToastController errorToastController;
         public LevelEditorLevelSettings levelSettings;
         public DecorationSettings decorationSettings;
+        public CameraSettings cameraSettings;
         
         [Header("Tiles")]
         public Tile hoverTile;
@@ -51,7 +52,6 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Tile dialogAreaTile;
         public Tile laserWallTile;
         public Tile collectableTile;
-        public Tile decorationTile;
 
         [Header("Build Menu Sprites")]
         public Sprite wallBuildSprite;
@@ -67,6 +67,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
         public Sprite laserWallSprite;
         public Sprite collectableSprite;
         public Sprite decorationSprite;
+        public Sprite cameraSprite;
         
         private void Awake()
         {
@@ -117,6 +118,7 @@ namespace __ProjectMain.Scripts.Managers.LevelEditor
                 _levelEditorStateMachine.CollectableBuildState,
                 _levelEditorStateMachine.LaserWallBuildState,
                 _levelEditorStateMachine.DecorationBuildState,
+                _levelEditorStateMachine.CameraBuildState
             };
             
             foreach (var state in _selectableStates)

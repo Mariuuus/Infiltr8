@@ -287,6 +287,7 @@ MonoBehaviour:
   timeText: {fileID: 1824113148}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   pausedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  speedUp: {r: 1, g: 0.55, b: 0.02, a: 1}
   closeToMaxColor: {r: 1, g: 0, b: 0, a: 1}
   closeToMaxColorDistance: 5
 --- !u!4 &44931860
@@ -1948,6 +1949,7 @@ MonoBehaviour:
   collectableObject: {fileID: 5673836159074100161, guid: 6a5bb0439e8e10362953c67087a9f968, type: 3}
   laserWallObject: {fileID: 5259807664971751951, guid: 1cfa287368108864ab9cf4f8e80105b3, type: 3}
   decorationObject: {fileID: 7441488910636040914, guid: 70d9adac7c8965941993f577fcc81390, type: 3}
+  cameraObject: {fileID: 7976646866665565855, guid: 2eee082d8123cb94db8710aff50ea481, type: 3}
   playerObject: {fileID: 1569329882}
 --- !u!1 &924692230
 GameObject:
