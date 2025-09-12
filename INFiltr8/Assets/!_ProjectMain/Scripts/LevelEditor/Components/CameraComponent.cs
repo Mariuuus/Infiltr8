@@ -8,6 +8,7 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
         public float rotation;
         public float rotationSpeed;
         public int turnaroundTime;
+        public bool disableRotation;
         
         // ADD range for camera fov
         
@@ -16,12 +17,13 @@ namespace __ProjectMain.Scripts.LevelEditor.Components
             
         }
 
-        public CameraComponent(Vector2Int position, LevelData levelData, float rotation, int rotationSpeed, int turnaroundTime) : base(position,
+        public CameraComponent(Vector2Int position, LevelData levelData, float rotation, int rotationSpeed, int turnaroundTime, bool disableRotation) : base(position,
             levelData)
         {
             this.rotation = rotation;
             this.rotationSpeed = rotationSpeed;
             this.turnaroundTime = turnaroundTime;
+            this.disableRotation = disableRotation;
         }
         public void OnAdjust()
         {

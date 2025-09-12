@@ -16,7 +16,8 @@ namespace __ProjectMain.Scripts.LevelEditor.StateMachine.BuildStates
                 LevelEditorFileManager.Instance.levelData,
                 0f,
                 25,
-                2
+                2,
+                false
             );
             LevelEditorFileManager.Instance.levelData.components.Add(decoration);
             return base.Build(pos);

@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     public int rotationCooldownTime = 2;
     public float rotationSpeed = 3.0f;
     public bool rotateRight = true;
+    public bool disableRotation = false;
     private int mask;
 
     private bool rotationCoolDown = false;
@@ -48,7 +49,7 @@ public class CameraController : MonoBehaviour
         drawRayCast(origin, directionLeft, out HitLeftMiddle, maxDistance * 0.9f, mask, true);
         drawRayCast(origin, directionRight, out hitRightMiddle, maxDistance * 0.9f, mask, true);
 
-        
+        if (disableRotation) return;
         float rotateDirection = rotateRight ? 1f : -1f;
         transform.Rotate(0f, rotateDirection * rotationSpeed * Time.deltaTime, 0f);
     }

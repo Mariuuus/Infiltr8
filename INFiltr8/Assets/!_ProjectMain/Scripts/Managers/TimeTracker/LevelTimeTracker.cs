@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace __ProjectMain.Scripts.Managers.TimeTracker
 {
     public class LevelTimeTracker : TimeTracker<ILevelTimeObserver>

@@ -172,7 +172,7 @@ namespace __ProjectMain.Scripts.Managers.Level
                     case CameraComponent cameraComponent:
                     {
                         var newObj = Instantiate(cameraObject);
-                        newObj.GetComponent<CameraPlacer>().Place(cameraComponent);
+                        newObj.GetComponent<CameraPlacer>().Place(cameraComponent, false);
                         break;
                     }
                 }
