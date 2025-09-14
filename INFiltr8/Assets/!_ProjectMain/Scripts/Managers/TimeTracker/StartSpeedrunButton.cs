@@ -20,13 +20,21 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
 
         private void Start()
         {
-            double min = GameDataManager.Instance.gameData.speedrunHistory.Min(x => x.speedrunTime);
-            var bestTime = GameDataManager.Instance.gameData.speedrunHistory.Where(x => x.speedrunTime == min).OrderByDescending(x => x.completionDateTime).FirstOrDefault();
-            if (bestTime != null)
+            try
             {
-                text.text = "PB: " + StringUtils.ToMinSecMilli(bestTime.speedrunTime);
+                double min = GameDataManager.Instance.gameData.speedrunHistory.Min(x => x.speedrunTime);
+                var bestTime = GameDataManager.Instance.gameData.speedrunHistory.Where(x => x.speedrunTime == min)
+                    .OrderByDescending(x => x.completionDateTime).FirstOrDefault();
+                if (bestTime != null)
+                {
+                    text.text = "PB: " + StringUtils.ToMinSecMilli(bestTime.speedrunTime);
+                }
+                else
+                {
+                    text.text = "No speedrun completed yet.";
+                }
             }
-            else
+            catch (Exception e)
             {
                 text.text = "No speedrun completed yet.";
             }

@@ -2026,6 +2026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 51751831}
+  skipButton: {fileID: 1188118332}
 --- !u!114 &1044489292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,7 +2318,7 @@ GameObject:
   - component: {fileID: 1188118335}
   - component: {fileID: 1188118334}
   m_Layer: 5
-  m_Name: Settings Button
+  m_Name: Skip Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2386,7 +2387,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1188118335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1044489291}
+        m_TargetAssemblyTypeName: __ProjectMain.Scripts.Managers.Ingame.IngameInputManager,
+          Assembly-CSharp
+        m_MethodName: OnSkipLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1188118335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2482,7 +2496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: SKIP LVL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfecea3b06d23a245b18a0d377700903, type: 2}
   m_sharedMaterial: {fileID: -3860683770155146142, guid: dfecea3b06d23a245b18a0d377700903, type: 2}

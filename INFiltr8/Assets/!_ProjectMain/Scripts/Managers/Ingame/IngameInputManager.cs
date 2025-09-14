@@ -1,11 +1,15 @@
+using System;
+using __ProjectMain.Scripts.Managers.MainMenu;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace __ProjectMain.Scripts.Managers.Ingame
 {
     public class IngameInputManager : MonoBehaviour
     {
         public GameObject pauseScreen;
+        public GameObject skipButton;
         
         public void OnPause(InputAction.CallbackContext ctx)
         {
@@ -24,6 +28,22 @@ namespace __ProjectMain.Scripts.Managers.Ingame
             IngameManager.Instance.Resume();
             pauseScreen.gameObject.SetActive(false);
             ControlsManager.Instance.DeactivateVirtualMouse();
+        }
+
+        private void Start()
+        {
+            if (LevelLoaderManager.Instance.speedrunMode)
+            {
+                pauseScreen.GetComponent<Button>().interactable = false;
+            }
+
+        }
+
+        public void OnSkipLevel()
+        {
+            if (LevelLoaderManager.Instance.speedrunMode) return;
+            GameDataManager.Instance.SwitchToOverview(); 
+            GameDataManager.Instance.CompletedLevel(LevelLoaderManager.Instance.levelIndex);
         }
     }
 }
