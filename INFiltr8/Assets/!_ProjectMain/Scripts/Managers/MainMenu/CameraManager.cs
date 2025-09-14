@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.UI;
 using __ProjectMain.Scripts.UI.LevelBrowserMenu;
 using __ProjectMain.Scripts.UI.LevelEditorMenu;
@@ -24,8 +26,13 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public CinemachineCamera creditsCamera;
         public PlayableDirector introDirector;
         
-        private CinemachineCamera _currentCamera;
+        [SerializeField] private CinemachineCamera endSceneCamera;
+        [SerializeField] private LerpBetweenToPoints lerpBetweenToPointsCar;
+        [SerializeField] private AudioClip policeSound;
         
+        private CinemachineCamera _currentCamera;
+
+        public bool inOutro = false;
         
         public bool Playing { get; private set; }
 
@@ -42,7 +49,42 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
 
         public void Start()
         {
-            Init();
+            if (GameDataManager.Instance.playEndSequence)
+            {
+                PlayEndScene();
+                GameDataManager.Instance.playEndSequence = false;
+            }
+            else
+            {
+                Init();
+            }
+        }
+
+
+        public void PlayEndScene()
+        {
+            inOutro = true;
+            _currentCamera = overviewCamera;
+            ChangeToCamera(overviewCamera);
+            MainMenuManager.Instance.currentState = State.Overview;
+            StartCoroutine(DelayCameraSwitch());
+            
+        }
+
+        IEnumerator DelayCameraSwitch()
+        {
+            yield return new WaitForSeconds(1);
+            SfxManager.instance.PlaySfxClip(policeSound, .7f);
+            ChangeToCamera(endSceneCamera);
+            lerpBetweenToPointsCar.StartLerp();
+            StartCoroutine(DelayBackButton());
+        }
+        
+        IEnumerator DelayBackButton()
+        {
+            yield return new WaitForSeconds(5);
+            MainMenuManager.Instance.backButtonInMainMenuRef.Show();
+            inOutro = false;
         }
         
         public void Init()

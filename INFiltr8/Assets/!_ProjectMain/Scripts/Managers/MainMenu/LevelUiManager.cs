@@ -13,6 +13,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public void Start()
         {
             var level = LevelDataUtils.GetAvailableLevels().ToArray();
+            GameDataManager.Instance.lastLevel = level.Length;
             for (int i = 0; i < level.Length; i++)
             {
                 var levelData = level[i];

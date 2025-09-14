@@ -36,7 +36,6 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
 
             Instance = this;
-            
             DontDestroyOnLoad(gameObject);
         }
 

@@ -17,6 +17,12 @@ namespace __ProjectMain.Scripts.Managers
         public string username = "";
         public string password = "";
         public bool loggedIn = false;
+        public int lastLevel;
+
+        
+        
+        public bool playEndSequence = false;
+        
         
         [FormerlySerializedAs("_gameData")] public GameData gameData;
         
@@ -53,6 +59,12 @@ namespace __ProjectMain.Scripts.Managers
         
         public void CompletedLevel(int levelIndex)
         {
+            Debug.Log("CompletedLevel called with "+ levelIndex + " last level is " + lastLevel);
+            if (levelIndex+1 == lastLevel)
+            {
+                Debug.Log("Completed level");
+                PlayEndSequence();
+            }
             
             if (!(gameData.progress > levelIndex))
             {
@@ -120,6 +132,11 @@ namespace __ProjectMain.Scripts.Managers
         public void SwitchToOverview()
         {
             SceneManager.LoadScene("LevelSelection");
+        }
+        
+        public void PlayEndSequence()
+        {
+            playEndSequence = true;
         }
     }
 }

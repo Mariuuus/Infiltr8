@@ -185,7 +185,13 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         public void OnBack(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            if (currentState == State.Overview) return;
+            if (CameraManager.Instance.inOutro) return;
+            if (currentState == State.Overview)
+            {
+                CameraManager.Instance.ChangeToCamera(CameraManager.Instance.overviewCamera);
+                backButtonInMainMenuRef.Hide();
+                return;
+            }
             if (currentState == State.Intro)
             {
                 CameraManager.Instance.StopIntro();
