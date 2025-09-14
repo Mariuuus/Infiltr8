@@ -1,6 +1,7 @@
 using System;
 using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.UI;
+using __ProjectMain.Scripts.UI.Controls;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,6 +28,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
     {
         public static MainMenuManager Instance { get; private set; }
         public State currentState = State.Overview;
+        public BackButtonInMainMenu backButtonInMainMenuRef;
         
         private GameObject _hitObject;
         private GameObject _hitObjectDecoration;
@@ -200,6 +202,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             }
             if (currentState != State.Exit) {
                 _hitObject?.GetComponent<IClickableMenuElement>()?.OnUnclick();
+                backButtonInMainMenuRef.Hide();
                 CameraManager.Instance.ChangeToCamera(CameraManager.Instance.overviewCamera);
                 currentState = State.Overview;
             }

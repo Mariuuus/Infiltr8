@@ -46,7 +46,7 @@ namespace __ProjectMain.Scripts.UI
         {
             MainMenuManager.Instance.currentState = State.Settings;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.settingsCamera);
-            
+            MainMenuManager.Instance.backButtonInMainMenuRef.Show();
             ShowSettingsMenu();
         }
 

@@ -25,6 +25,7 @@ namespace __ProjectMain.Scripts.UI
             Debug.Log("AchievementsState.OnClick()");
             MainMenuManager.Instance.currentState = State.Achievements;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.achievementCamera);
+            MainMenuManager.Instance.backButtonInMainMenuRef.Show();
         }
 
         public void OnUnclick()

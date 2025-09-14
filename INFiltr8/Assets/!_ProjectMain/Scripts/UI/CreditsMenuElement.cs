@@ -27,6 +27,7 @@ namespace __ProjectMain.Scripts.UI
             MainMenuManager.Instance.currentState = State.Credits;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.creditsCamera);
             ui.SetActive(true);
+            MainMenuManager.Instance.backButtonInMainMenuRef.Show();
         }
 
         private IEnumerator DelayExit()

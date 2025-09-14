@@ -27,6 +27,7 @@ namespace __ProjectMain.Scripts.UI
             MainMenuManager.Instance.currentState = State.LevelEditor;
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.levelEditorCamera);
             StartCoroutine(nameof(DelayUI));
+            MainMenuManager.Instance.backButtonInMainMenuRef.Show();
         }
 
         IEnumerator DelayUI()

@@ -72,6 +72,7 @@ namespace __ProjectMain.Scripts.UI
             MainMenuManager.Instance.currentState = State.LevelSelect;
             levelsScreen.SetActive(MainMenuManager.Instance.currentState == State.LevelSelect);
             CameraManager.Instance.ChangeToCamera(CameraManager.Instance.levelSelectorCamera);
+            MainMenuManager.Instance.backButtonInMainMenuRef.Show();
         }
 
         public void OnUnclick()
