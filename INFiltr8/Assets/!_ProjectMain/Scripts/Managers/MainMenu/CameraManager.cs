@@ -49,7 +49,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
 
         public void Start()
         {
-            if (GameDataManager.Instance.playEndSequence)
+            if (GameDataManager.Instance.playEndSequence && !GameDataManager.Instance.gameData.outroDone) 
             {
                 PlayEndScene();
                 GameDataManager.Instance.playEndSequence = false;
@@ -68,7 +68,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             ChangeToCamera(overviewCamera);
             MainMenuManager.Instance.currentState = State.Overview;
             StartCoroutine(DelayCameraSwitch());
-            
+            GameDataManager.Instance.gameData.outroDone = true;
         }
 
         IEnumerator DelayCameraSwitch()

@@ -38,6 +38,7 @@ namespace __ProjectMain.Data
         public int playTimeMinutes;
         public List<SpeedrunEntry> speedrunHistory;
         public bool tutorialDone;
+        public bool outroDone;
         public float masterVolume;
         public float musicVolume;
         public float sfxVolume;
@@ -57,6 +58,7 @@ namespace __ProjectMain.Data
             this.sfxVolume = 1;
             this.tutorialDone = false;
             this.introDone = false;
+            this.outroDone = true;
             this.speedrunHistory = new List<SpeedrunEntry>();
             foreach (var obj in Enum.GetValues(typeof(DistroType)))
             {
