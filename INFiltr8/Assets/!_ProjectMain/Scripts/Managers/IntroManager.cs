@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -191,7 +192,9 @@ namespace __ProjectMain.Scripts.Managers
                                             lines), () =>
                                         {
                                             if(GameDataManager.Instance) GameDataManager.Instance.WatchedIntro();
+                                            // MusicManager.Instance.Unmute();
                                             SceneManager.LoadScene("!_ProjectMain/Scenes/LevelSelection");
+                                            MusicManager.Instance.Unmute();
                                         });
                                     });
                                 });

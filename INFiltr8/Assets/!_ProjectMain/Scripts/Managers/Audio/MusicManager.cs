@@ -137,5 +137,19 @@ namespace __ProjectMain.Scripts.Managers.Audio
 
         public void PlayMainMenuMusic() => SwitchMusicTo(Source.MainMenu);
         public void PlayInGameMusic() => SwitchMusicTo(Source.InGame);
+
+        public void Mute()
+        {
+            someMusicSource.volume = 0f;
+            inGameSource.volume = 0f;
+            mainMenuMusicSource.volume = 0f;
+        }
+
+        public void Unmute()
+        {
+            someMusicSource.volume = 1f;
+            inGameSource.volume = 1f;
+            mainMenuMusicSource.volume = 1f;
+        }
     }
 }

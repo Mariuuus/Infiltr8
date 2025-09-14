@@ -52,8 +52,8 @@ namespace __ProjectMain.Data
             this.playerName = playerName;
             this.progress = 0;
             this.playTimeMinutes = 0;
-            this.masterVolume = 1;
-            this.musicVolume = 1;
+            this.masterVolume = 0.75f;
+            this.musicVolume = 0.2f;
             this.sfxVolume = 1;
             this.tutorialDone = false;
             this.introDone = false;

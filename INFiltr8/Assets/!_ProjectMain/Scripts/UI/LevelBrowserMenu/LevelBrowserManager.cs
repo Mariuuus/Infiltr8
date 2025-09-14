@@ -172,7 +172,7 @@ namespace __ProjectMain.Scripts.UI.LevelBrowserMenu
         public async void OnLogin()
         {
             GameDataManager.Instance.loggedIn = await LevelApi.GetAuthState(
-                username: passwordLogin.text,
+                username: usernameLogin.text,
                 password: passwordLogin.text
             );
             if (GameDataManager.Instance.loggedIn)
