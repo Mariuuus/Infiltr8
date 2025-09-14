@@ -47,7 +47,7 @@ namespace __ProjectMain.Scripts.UI
         public void OnAddDialogLine()
         {
             string newLine = newLineField.text;
-            if (newLine.Length == 0) throw new InvalidLevelEditorActionException("new Dialog Line cant be empty");
+            if (newLine.Length == 0) throw new InvalidLevelEditorActionException("Dialog line cannot be empty!");
             _dialogAreaComponent.dialog.lines.Add(newLine);
             UpdateDialogLinesList();
             LevelEditorFileManager.Instance.QuickSave();
