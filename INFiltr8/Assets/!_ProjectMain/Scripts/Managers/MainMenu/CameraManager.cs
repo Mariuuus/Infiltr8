@@ -28,6 +28,8 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         
         [SerializeField] private CinemachineCamera endSceneCamera;
         [SerializeField] private LerpBetweenToPoints lerpBetweenToPointsCar;
+        [SerializeField] private LerpBetweenToPoints lerpBetweenToPointsCharacter;
+        [SerializeField] public GameObject wastedScreen;
         [SerializeField] private AudioClip policeSound;
         
         private CinemachineCamera _currentCamera;
@@ -61,23 +63,47 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
         }
 
 
+        public void HideWastedScreen()
+        {
+            StopCoroutine(nameof(DelayWastedScreen));
+            wastedScreen.SetActive(false);
+        }
+
+
         public void PlayEndScene()
         {
             inOutro = true;
             _currentCamera = overviewCamera;
+            _waitTime = 0;
             ChangeToCamera(overviewCamera);
             MainMenuManager.Instance.currentState = State.Overview;
             StartCoroutine(DelayCameraSwitch());
+            StartCoroutine(DelayWastedScreen());
+
             GameDataManager.Instance.gameData.outroDone = true;
         }
 
         IEnumerator DelayCameraSwitch()
         {
-            yield return new WaitForSeconds(1);
+            lerpBetweenToPointsCharacter.StartLerp();
+            yield return new WaitForSeconds(.5f);
             SfxManager.instance.PlaySfxClip(policeSound, .7f);
             ChangeToCamera(endSceneCamera);
             lerpBetweenToPointsCar.StartLerp();
-            StartCoroutine(DelayBackButton());
+            StartCoroutine(nameof(DelayBackButton));
+        }
+
+        private int _waitTime = 0;
+        IEnumerator DelayWastedScreen()
+        {
+            yield return new WaitForSeconds(2f); 
+            wastedScreen.SetActive(true);
+            while (_waitTime < 100)
+            {
+                wastedScreen.GetComponent<CanvasGroup>().alpha = _waitTime / 100f;
+                _waitTime += 1;
+                yield return null;
+            }
         }
         
         IEnumerator DelayBackButton()

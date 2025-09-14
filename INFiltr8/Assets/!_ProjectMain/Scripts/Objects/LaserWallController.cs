@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Numerics;
+using __ProjectMain.Scripts.Managers.Ingame;
 using __ProjectMain.Scripts.Player;
 using Unity.Mathematics;
 using UnityEngine;
@@ -37,6 +38,7 @@ namespace __ProjectMain.Scripts.Objects
         // Update is called once per frame
         void FixedUpdate()
         {
+            if (IngameManager.Instance.Paused) return;
             Vector3 moveTo = _moveToEndPoint ?  maxMoveEnd : maxMoveStart;
             Vector3 direction = moveTo - transform.position;
             transform.Translate(direction.normalized * speed * Time.deltaTime);

@@ -190,6 +190,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             {
                 CameraManager.Instance.ChangeToCamera(CameraManager.Instance.overviewCamera);
                 backButtonInMainMenuRef.Hide();
+                CameraManager.Instance.HideWastedScreen();
                 return;
             }
             if (currentState == State.Intro)
