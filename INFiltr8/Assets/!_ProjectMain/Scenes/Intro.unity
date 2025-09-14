@@ -750,7 +750,9 @@ PrefabInstance:
       value: usb_stick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - {fileID: 5050422055867433376, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
