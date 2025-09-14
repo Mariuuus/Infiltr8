@@ -26,7 +26,6 @@ namespace __ProjectMain.Scripts.Player
         private Rigidbody HeldObjRb { set; get;}
         
         [SerializeField] private Transform grabPos;
-        
 
 
         private void FixedUpdate()
@@ -56,6 +55,7 @@ namespace __ProjectMain.Scripts.Player
                 HeldObjRb = obj.GetComponent<Rigidbody>();
                 HeldObjRb.useGravity = false;
                 HeldObjRb.linearDamping = 10;
+                HeldObjRb.transform.rotation = Quaternion.identity;
                 HeldObjRb.constraints = RigidbodyConstraints.FreezeRotation;
                 
                 HeldObjRb.transform.SetParent(grabPos);
