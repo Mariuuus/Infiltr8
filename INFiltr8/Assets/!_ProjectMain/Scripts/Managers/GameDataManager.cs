@@ -4,6 +4,7 @@ using __ProjectMain.Data;
 using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.Managers.MainMenu;
 using __ProjectMain.Scripts.Objects;
+using __ProjectMain.Scripts.UI.Slots;
 using __ProjectMain.Scripts.Utilities.Files;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,11 +19,12 @@ namespace __ProjectMain.Scripts.Managers
         public string password = "";
         public bool loggedIn = false;
         public int lastLevel;
-
-        
-        
         public bool playEndSequence = false;
         
+        public string postFix = "_temp";
+
+        
+        [SerializeField] private GameSlotsManager gameSlotsManager;
         
         [FormerlySerializedAs("_gameData")] public GameData gameData;
         
@@ -38,28 +40,24 @@ namespace __ProjectMain.Scripts.Managers
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            gameData = GameDataUtils.LoadData();
+            if(gameSlotsManager == null) gameData = GameDataUtils.LoadData(postFix);
         }
+        
 
         private void Start()
         {
             GetCollectables();
-            if (!gameData.introDone)
-            {
-                SceneManager.LoadScene("!_ProjectMain/Scenes/Intro");
-            }
-            GameDataUtils.QuickSave(gameData);
         }
 
         public void WatchedIntro()
         {
             gameData.introDone = true;
-            GameDataUtils.QuickSave(gameData);
+            QuickSave();
         }
         
         public void CompletedLevel(int levelIndex)
         {
-            Debug.Log("CompletedLevel called with "+ levelIndex + " last level is " + lastLevel);
+            Debug.Log("CompletedLevel called with "+ (levelIndex + 1) + " last level is " + lastLevel);
             if (levelIndex+1 == lastLevel)
             {
                 Debug.Log("Completed level");
@@ -69,7 +67,7 @@ namespace __ProjectMain.Scripts.Managers
             if (!(gameData.progress > levelIndex))
             {
                 gameData.progress = levelIndex + 1;
-                GameDataUtils.QuickSave(gameData);
+                QuickSave();
             }
 
             if (levelIndex != -1)
@@ -83,6 +81,7 @@ namespace __ProjectMain.Scripts.Managers
             }
         }
         
+        public void QuickSave() => GameDataUtils.QuickSave(gameData, postFix);
         
 
         private void PersistCollectables()
@@ -92,7 +91,8 @@ namespace __ProjectMain.Scripts.Managers
                 var element = gameData.collectedDistros.Find(collectDistro => collectDistro.distroType == distro);
                 element.collect = true;
             }
-            GameDataUtils.QuickSave(gameData);
+
+            QuickSave();
             _collectInLevel.Clear();
             
         }
@@ -101,7 +101,7 @@ namespace __ProjectMain.Scripts.Managers
         {
             CheckCollectables();
             _collectInLevel.Add(distro);
-            GameDataUtils.QuickSave(gameData);
+            QuickSave();
         }
 
         public List<CollectDistro> GetCollectables()

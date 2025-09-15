@@ -14,8 +14,11 @@ namespace __ProjectMain.Scripts.Utilities.Files
         {
             Formatting = Formatting.Indented,
         };
-        
-        private static readonly string Path;
+
+        private static string GetPath(string postFix = "")
+        {
+            return Application.persistentDataPath + "/game/" + "progress"+postFix+".json";
+        }
         
         /// <summary>
         /// will dynamically (not at compile time) load the path to a "const like" variable
@@ -23,26 +26,37 @@ namespace __ProjectMain.Scripts.Utilities.Files
         static GameDataUtils()
         {
             Directory.CreateDirectory(Application.persistentDataPath + "/game/");
-            Path = Application.persistentDataPath + "/game/" + "progress.json";
-            Debug.Log(Path);
         }
         
         /// <summary>
         /// will create a new game data file or load if exists the previous game data
         /// </summary>
         /// <returns>game data of the user!</returns>
-        public static GameData LoadData()
+        public static GameData LoadData(string postFix)
         {
-            return File.Exists(Path) ? JsonConvert.DeserializeObject<GameData>(File.ReadAllText(Path), JsonSettings) : new GameData("no_name");
+            return File.Exists(GetPath(postFix)) ? JsonConvert.DeserializeObject<GameData>(File.ReadAllText(GetPath(postFix)), JsonSettings) : new GameData("no_name");
+        }
+        
+        public static bool Exists(string postFix)
+        {
+            return File.Exists(GetPath(postFix));
+        }
+        
+        public static void DeleteData(string postFix)
+        {
+            if (Exists(postFix))
+            {
+                File.Delete(GetPath(postFix));
+            }
         }
 
         /// <summary>
         /// Quick Saves (overrides the users game data file)
         /// </summary>
-        public static void QuickSave(GameData data)
+        public static void QuickSave(GameData data, string postFix="_temp")
         {
             string jsonString = JsonConvert.SerializeObject(data, JsonSettings);
-            File.WriteAllText(Path, jsonString);
+            File.WriteAllText(GetPath(postFix), jsonString);
         }
     }
 }

@@ -51,6 +51,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
 
         public void Start()
         {
+            Debug.Log("Outro Done:" + GameDataManager.Instance.gameData.outroDone);
             if (GameDataManager.Instance.playEndSequence && !GameDataManager.Instance.gameData.outroDone) 
             {
                 PlayEndScene();

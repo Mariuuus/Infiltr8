@@ -53,7 +53,7 @@ namespace __ProjectMain.Scripts.UI
         public void OnUnclick()
         {
             StartCoroutine(DelayHide());
-            GameDataUtils.QuickSave(GameDataManager.Instance.gameData);
+            GameDataManager.Instance.QuickSave();
         }
 
         private IEnumerator DelayHide()

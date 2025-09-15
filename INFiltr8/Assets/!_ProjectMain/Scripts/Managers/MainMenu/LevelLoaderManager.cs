@@ -64,7 +64,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             {
                 Debug.Log("last level completed (Speedrun finished!)");
                 GameDataManager.Instance.gameData.AddSpeedrunEntry(new SpeedrunEntry(SpeedrunTimeTracker.Instance.CurrentTime));
-                GameDataUtils.QuickSave(GameDataManager.Instance.gameData);
+                GameDataManager.Instance.QuickSave();
                 GameDataManager.Instance.SwitchToOverview();
                 SpeedrunTimeTracker.Instance.PauseTime();
                 return;
