@@ -103,6 +103,15 @@ namespace __ProjectMain.Scripts.Managers
             _collectInLevel.Add(distro);
             QuickSave();
         }
+        
+        public bool HasBeenCollected(DistroType distroT)
+        {
+            foreach (var distro in gameData.collectedDistros)
+            {
+                if (distro.distroType == distroT) return true;
+            }
+            return false;
+        }
 
         public List<CollectDistro> GetCollectables()
         {

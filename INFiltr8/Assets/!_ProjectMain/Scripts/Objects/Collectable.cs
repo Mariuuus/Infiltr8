@@ -36,6 +36,11 @@ namespace __ProjectMain.Scripts.Objects
         public void Init(DistroType distroType)
         {
             _distro = DistroDataUtils.GetDistroByType(distroType);
+            if (GameDataManager.Instance.HasBeenCollected(distroType))
+            {
+                Destroy(gameObject);
+                return;
+            }
             var rend = GetComponent<Renderer>();
             Material mat = rend.material;
             mat.SetTexture("_Distro", DistroDataUtils.TextureFromSprite(_distro.distroSprite));  
