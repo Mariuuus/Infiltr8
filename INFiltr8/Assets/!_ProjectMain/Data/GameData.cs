@@ -58,7 +58,7 @@ namespace __ProjectMain.Data
             this.sfxVolume = 1;
             this.tutorialDone = false;
             this.introDone = false;
-            this.outroDone = true;
+            this.outroDone = false;
             this.speedrunHistory = new List<SpeedrunEntry>();
             foreach (var obj in Enum.GetValues(typeof(DistroType)))
             {

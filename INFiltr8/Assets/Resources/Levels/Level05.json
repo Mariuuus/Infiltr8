@@ -753,16 +753,6 @@
       }
     },
     {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.CollectableComponent, Assembly-CSharp",
-      "type": 2,
-      "position": {
-        "x": 8,
-        "y": 1,
-        "magnitude": 8.062258,
-        "sqrMagnitude": 65
-      }
-    },
-    {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.SpawnPointComponent, Assembly-CSharp",
       "position": {
         "x": 2,
@@ -814,6 +804,21 @@
         "y": 3,
         "magnitude": 5.83095169,
         "sqrMagnitude": 34
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.WallComponent, Assembly-CSharp",
+      "startPosition": {
+        "x": 2,
+        "y": 1,
+        "magnitude": 2.236068,
+        "sqrMagnitude": 5
+      },
+      "endPosition": {
+        "x": 8,
+        "y": 1,
+        "magnitude": 8.062258,
+        "sqrMagnitude": 65
       }
     }
   ],

@@ -4,6 +4,7 @@ using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.UI;
 using __ProjectMain.Scripts.UI.LevelBrowserMenu;
 using __ProjectMain.Scripts.UI.LevelEditorMenu;
+using __ProjectMain.Scripts.Utilities.Files;
 using Unity.Cinemachine;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
@@ -82,6 +83,7 @@ namespace __ProjectMain.Scripts.Managers.MainMenu
             StartCoroutine(DelayWastedScreen());
 
             GameDataManager.Instance.gameData.outroDone = true;
+            GameDataManager.Instance.QuickSave();
         }
 
         IEnumerator DelayCameraSwitch()
