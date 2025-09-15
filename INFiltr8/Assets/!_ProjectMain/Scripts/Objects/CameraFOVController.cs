@@ -28,7 +28,7 @@ public class CameraFOVController : MonoBehaviour
         isInactive = true;
         var renderer = GetComponent<Renderer>();
         Material mat = renderer.material;
-        mat.SetColor("_Color", new Color(0.74901f, 0.15686f, 0.00784f, 1f) * 2f);
+        mat.SetColor("_Color", new Color(0.74901f, 0.15686f, 0.00784f, 1f) * 1f);
     }
 
     public void DisableInactiveMode()
