@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using __ProjectMain.Scripts.Managers.Ingame;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -30,6 +31,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (IngameManager.Instance?.Paused ?? false) return;
         Vector3 origin = transform.position + new Vector3(0f, 0.30f, 0f);
         Vector3 direction = transform.TransformDirection(Vector3.forward);
         Vector3 directionLeft = Quaternion.AngleAxis(-30f, Vector3.up) * transform.forward;
