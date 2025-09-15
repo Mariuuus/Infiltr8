@@ -34,7 +34,7 @@ namespace __ProjectMain.Scripts.UI
         private int _waitTime = 0;
         IEnumerator FadeCredits()
         {
-            yield return new WaitForSeconds(1f); 
+            yield return new WaitForSeconds(.6f); 
             ui.SetActive(true);
             while (_waitTime < 100)
             {
