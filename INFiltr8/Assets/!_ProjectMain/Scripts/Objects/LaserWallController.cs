@@ -38,7 +38,7 @@ namespace __ProjectMain.Scripts.Objects
         // Update is called once per frame
         void FixedUpdate()
         {
-            if (IngameManager.Instance.Paused) return;
+            if (IngameManager.Instance?.Paused ?? false) return;
             Vector3 moveTo = _moveToEndPoint ?  maxMoveEnd : maxMoveStart;
             Vector3 direction = moveTo - transform.position;
             transform.Translate(direction.normalized * speed * Time.deltaTime);
