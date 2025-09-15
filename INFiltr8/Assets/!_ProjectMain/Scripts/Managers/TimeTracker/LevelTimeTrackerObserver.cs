@@ -28,7 +28,7 @@ namespace __ProjectMain.Scripts.Managers.TimeTracker
 
         public void OnTimeChange(double time)
         {
-            timeText.text = $"{time:F2}/{LevelTimeTracker.Instance.MaxTime:F2}";
+            timeText.text = $"{time:F2}/{LevelTimeTracker.Instance.MaxTime:F2}\n{(!Mathf.Approximately(LevelTimeTracker.Instance.Multiplier, 1) ? "2x " : "")}";
             timeText.color = LevelTimeTracker.Instance.MaxTime-time < closeToMaxColorDistance ? closeToMaxColor : !Mathf.Approximately(LevelTimeTracker.Instance.Multiplier, 1) ? speedUp : defaultColor;
         }
 
