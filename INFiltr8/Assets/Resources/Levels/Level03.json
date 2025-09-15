@@ -1,5 +1,6 @@
 {
-  "levelName": "Actually not that complicated!",
+  "levelTitle": "Actually not that complicated!",
+  "levelName": "Level03",
   "wallPointOne": {
     "x": 0,
     "y": 0,
@@ -1212,14 +1213,15 @@
         "trigger": 0,
         "character": 1,
         "lines": [
-          "As you will see in this level,",
-          "Networks can be quite big and complicated",
-          "BUT",
-          "you will need to focus on the import thing...",
+          "As you will see in this level..",
+          "Networks can be quite big and complicated..",
+          "BUT.",
+          "you will need to focus on the important thing...",
           "get the data!",
           "you should try to find the easiest route.",
-          "AND btw...",
-          "if you see multiple USB-Sticks, you will only need to get one, as all sticks are just copies of each other!"
+          "AND by the way...",
+          "if you see multiple USB-Sticks, you will only need to get one..",
+          "as all sticks are just copies of each other!"
         ]
       },
       "startPosition": {

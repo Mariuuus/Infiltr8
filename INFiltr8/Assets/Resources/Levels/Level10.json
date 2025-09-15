@@ -1,5 +1,6 @@
 {
-  "levelName": "Ping to Pong",
+  "levelTitle": "Ping to Pong",
+  "levelName": "Level10",
   "wallPointOne": {
     "x": 0,
     "y": 0,

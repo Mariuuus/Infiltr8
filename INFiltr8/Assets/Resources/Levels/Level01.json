@@ -1,5 +1,6 @@
 {
-  "levelName": "The First Puzzle",
+  "levelTitle": "The First Puzzle",
+  "levelName": "Level01",
   "wallPointOne": {
     "x": 0,
     "y": 0,
@@ -620,16 +621,16 @@
         {
           "maxDevices": 0,
           "startPosition": {
-            "x": 9,
-            "y": 9,
-            "magnitude": 12.7279224,
-            "sqrMagnitude": 162
+            "x": 10,
+            "y": 10,
+            "magnitude": 14.1421356,
+            "sqrMagnitude": 200
           },
           "endPosition": {
-            "x": 10,
-            "y": 8,
-            "magnitude": 12.8062487,
-            "sqrMagnitude": 164
+            "x": 11,
+            "y": 9,
+            "magnitude": 14.21267,
+            "sqrMagnitude": 202
           }
         }
       ],
@@ -700,10 +701,33 @@
         "magnitude": 11.4017544,
         "sqrMagnitude": 130
       }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DecorationComponent, Assembly-CSharp",
+      "decoration": 1,
+      "rotation": 0.0,
+      "variant": 2,
+      "position": {
+        "x": 6,
+        "y": 6,
+        "magnitude": 8.485281,
+        "sqrMagnitude": 72
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DecorationComponent, Assembly-CSharp",
+      "decoration": 1,
+      "rotation": 0.0,
+      "variant": 1,
+      "position": {
+        "x": 3,
+        "y": 2,
+        "magnitude": 3.60555124,
+        "sqrMagnitude": 13
+      }
     }
   ],
   "levelType": 0,
   "availableTime": 0.0,
   "isPartOfTutorial": true
-
 }

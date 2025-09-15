@@ -1,5 +1,6 @@
 {
-  "levelName": "Schlappy's Welcome",
+  "levelTitle": "Schlappy's Welcome",
+  "levelName": "0_TurorialLevel01",
   "wallPointOne": {
     "x": 0,
     "y": 0,
@@ -1279,7 +1280,8 @@
           "This is a FIREWALL!",
           "With an infiltrated laptop, you can CRACK Firewalls!",
           "To do this, grab the laptop from before, hack it to the right color, and place it on this activation plate.",
-          "Tip: You can even see which Firewalls belong to which activation plates by stepping on them!"
+          "Tip: You can even see which Firewalls belong to which activation plates by stepping on them!",
+          "Hugging the firewall will also reveal its connection to the activation plate!"
         ]
       },
       "startPosition": {

@@ -108,7 +108,7 @@ namespace __ProjectMain.Scripts.Managers
         {
             foreach (var distro in gameData.collectedDistros)
             {
-                if (distro.distroType == distroT) return true;
+                if (distro.distroType == distroT && distro.collect) return true;
             }
             return false;
         }

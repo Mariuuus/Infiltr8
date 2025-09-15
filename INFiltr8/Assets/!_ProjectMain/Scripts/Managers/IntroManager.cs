@@ -44,8 +44,8 @@ namespace __ProjectMain.Scripts.Managers
                 {
                     "HELLOOO!!!",
                     "Welcome to INFILTR8, rookie!",
-                    "so... you don’t know what this is yet...",
-                    "you’re here to learn, right?!",
+                    "so... you don't know what this is yet...",
+                    "you're here to learn, right?!",
                     "ABOUT THE DARK AND SHINY ART OF HACKING!",
                     "breaking laptops, infiltrating networks, stealing DATA!",
                     "and it all starts... right here.",
@@ -70,8 +70,8 @@ namespace __ProjectMain.Scripts.Managers
                         "...",
                         "alright, you seem ready now.",
                         "this is the start of your journey to become the greatest hacker out there.",
-                        "don’t worry, we’ll guide you.",
-                        ".",
+                        "don't worry, we'll guide you.",
+                        "..",
                     }
                 );
                 DialogManager.Instance.StartDialoque(new DialogData(
@@ -88,8 +88,8 @@ namespace __ProjectMain.Scripts.Managers
                         {
                             "YES, YES, YES!",
                             "the first battlefield is not some skyscraper or secret bunker...",
-                            "it’s something WAY scarier...",
-                            "A CHILD’S ROOM!",
+                            "it's something WAY scarier...",
+                            "A CHILD'S ROOM!",
                             "messy cables, sticky keyboards, forgotten computers—",
                             "the perfect cover for infiltration!",
                         }
@@ -106,10 +106,10 @@ namespace __ProjectMain.Scripts.Managers
                         lines.AddRange(
                             new string[]
                             {
-                                "don’t be too dramatic, USB.",
-                                "it’s just a normal room... with toys, paintings, and a dusty old computer waiting for us.",
+                                "don't be too dramatic, USB.",
+                                "it's just a normal room... with toys, paintings, and a dusty old computer waiting for us.",
                                 "but behind that laptop hides a whole network of secrets.",
-                                "you’ll learn how to sneak in, stay hidden, and extract data like a ghost.",
+                                "you'll learn how to sneak in, stay hidden, and extract data like a ghost.",
                             }
                         );
                         DialogManager.Instance.StartDialoque(new DialogData(
@@ -125,8 +125,8 @@ namespace __ProjectMain.Scripts.Managers
                                 new string[]
                                 {
                                     "YES! A GHOST WITH WIRES!",
-                                    "you won’t just be clicking buttons...!",
-                                    "you’ll be breaking through firewalls like they’re made of paper!",
+                                    "you won't just be clicking buttons...!",
+                                    "you'll be breaking through firewalls like they're made of paper!",
                                     "and if you mess up... BOOM—",
                                     "...okay, maybe not boom, but you get the point!",
                                 }
@@ -144,8 +144,8 @@ namespace __ProjectMain.Scripts.Managers
                                     new string[]
                                     {
                                         "what USB means is: mistakes happen.",
-                                        "but that’s why we’re here.",
-                                        "we’ll support you, teach you the tricks, and make sure you grow stronger with each hack.",
+                                        "but that's why we're here.",
+                                        "we'll support you, teach you the tricks, and make sure you grow stronger with each hack.",
                                         "remember, patience and focus are just as powerful as speed and noise.",
                                     }
                                 );
@@ -162,9 +162,9 @@ namespace __ProjectMain.Scripts.Managers
                                         new string[]
                                         {
                                             "fine, fine, patience... blah blah blah.",
-                                            "BUT ALSO ENERGY!!!",
-                                            "alright, rookie—take a deep breath.",
-                                            "we’re stepping into the child’s room next.",
+                                            "BUT ALSO POWER!!!",
+                                            "alright, rookie — take a deep breath.",
+                                            "we're stepping into the child's room next.",
                                             "ready to see where your first hack begins?",
                                         }
                                     );
@@ -180,9 +180,9 @@ namespace __ProjectMain.Scripts.Managers
                                         lines.AddRange(
                                             new string[]
                                             {
-                                                "BTW...",
-                                                "We strongly recommend using a controller for this game.",
-                                                "We think the controls make much more sense then!",
+                                                "By The Way...",
+                                                "We recommend using a controller for this game.",
+                                                "The controls make much more sense then i think!",
                                             }
                                         );
                                         DialogManager.Instance.StartDialoque(new DialogData(

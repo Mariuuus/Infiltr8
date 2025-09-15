@@ -1,5 +1,6 @@
 {
-  "levelName": "Think fast!",
+  "levelTitle": "Think fast!",
+  "levelName": "Level14",
   "wallPointOne": {
     "x": 0,
     "y": 0,
@@ -1673,21 +1674,6 @@
             "magnitude": 15.0,
             "sqrMagnitude": 225
           }
-        },
-        {
-          "maxDevices": 0,
-          "startPosition": {
-            "x": 24,
-            "y": 14,
-            "magnitude": 27.7848873,
-            "sqrMagnitude": 772
-          },
-          "endPosition": {
-            "x": 27,
-            "y": 11,
-            "magnitude": 29.15476,
-            "sqrMagnitude": 850
-          }
         }
       ],
       "doorUnlockRequirements": [
@@ -2264,8 +2250,33 @@
         "magnitude": 43.56604,
         "sqrMagnitude": 1898
       }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DecorationComponent, Assembly-CSharp",
+      "decoration": 2,
+      "rotation": 0.0,
+      "variant": 4,
+      "position": {
+        "x": 27,
+        "y": 17,
+        "magnitude": 31.9061127,
+        "sqrMagnitude": 1018
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DecorationComponent, Assembly-CSharp",
+      "decoration": 1,
+      "rotation": 0.0,
+      "variant": 3,
+      "position": {
+        "x": 9,
+        "y": 38,
+        "magnitude": 39.0512466,
+        "sqrMagnitude": 1525
+      }
     }
   ],
   "levelType": 1,
-  "availableTime": 180.0
+  "availableTime": 180.0,
+  "isPartOfTutorial": false
 }

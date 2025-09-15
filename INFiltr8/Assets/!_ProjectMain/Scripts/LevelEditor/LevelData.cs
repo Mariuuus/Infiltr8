@@ -12,6 +12,7 @@ namespace __ProjectMain.Scripts.LevelEditor
     [System.Serializable]
     public class LevelData
     {
+        [JsonProperty(Order = 0)] public string levelTitle = "";
         [JsonProperty(Order = 1)] public string levelName;
         [JsonProperty(Order = 2)] public Vector2Int wallPointOne;
         [JsonProperty(Order = 3)] public Vector2Int wallPointTwo;

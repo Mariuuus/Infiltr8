@@ -1,5 +1,6 @@
 {
-  "levelName": "Sneak up fast!",
+  "levelTitle": "Sneak up fast!",
+  "levelName": "Level16",
   "wallPointOne": {
     "x": 0,
     "y": 0,

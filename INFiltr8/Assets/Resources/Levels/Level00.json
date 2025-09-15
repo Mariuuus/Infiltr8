@@ -1,5 +1,6 @@
 {
-  "levelName": "USB-Stick's WeLCoME?!",
+  "levelTitle": "USB-Stick's WeLCoME?!",
+  "levelName": "Level00",
   "wallPointOne": {
     "x": 0,
     "y": 0,
@@ -208,39 +209,15 @@
       }
     },
     {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
-      "possibleHacks": [
-        2
-      ],
-      "position": {
-        "x": 21,
-        "y": 4,
-        "magnitude": 21.3775578,
-        "sqrMagnitude": 457
-      }
-    },
-    {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
-      "possibleHacks": [
-        3
-      ],
-      "position": {
-        "x": 21,
-        "y": 16,
-        "magnitude": 26.4007568,
-        "sqrMagnitude": 697
-      }
-    },
-    {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
           "maxDevices": 0,
           "startPosition": {
-            "x": 23,
+            "x": 22,
             "y": 5,
-            "magnitude": 23.5372047,
-            "sqrMagnitude": 554
+            "magnitude": 22.5610275,
+            "sqrMagnitude": 509
           },
           "endPosition": {
             "x": 23,
@@ -275,10 +252,10 @@
         {
           "maxDevices": 0,
           "startPosition": {
-            "x": 23,
+            "x": 22,
             "y": 17,
-            "magnitude": 28.6006985,
-            "sqrMagnitude": 818
+            "magnitude": 27.8028774,
+            "sqrMagnitude": 773
           },
           "endPosition": {
             "x": 23,
@@ -313,10 +290,10 @@
         {
           "maxDevices": 0,
           "startPosition": {
-            "x": 23,
+            "x": 22,
             "y": 11,
-            "magnitude": 25.4950981,
-            "sqrMagnitude": 650
+            "magnitude": 24.5967484,
+            "sqrMagnitude": 605
           },
           "endPosition": {
             "x": 23,
@@ -403,18 +380,6 @@
         "y": 18,
         "magnitude": 30.8058434,
         "sqrMagnitude": 949
-      }
-    },
-    {
-      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
-      "possibleHacks": [
-        1
-      ],
-      "position": {
-        "x": 21,
-        "y": 10,
-        "magnitude": 23.259407,
-        "sqrMagnitude": 541
       }
     },
     {
@@ -988,16 +953,16 @@
         "dialogName": "USBStick",
         "trigger": 0,
         "character": 1,
-	"lines": [
-	  "Hello there, I am the US(B)EVIL!",
-	  "I'm here to help you learn deeper techniques of hacking!",
-	  "In front of you is, again, a laptop!",
-	  "Laptops can be hacked into certain colors.",
-	  "But not all laptops can be hacked into every color!",
-	  "The laptop in front of you can only be hacked into the RED color!",
-	  "A Firewall can even have multiple activation plates, as you can see here!",
-	  "Go ahead, open the Firewall! I'll meet you at the next one!"
-	]
+        "lines": [
+          "Hello there, I am the US(B)EVIL!",
+          "I'm here to help you learn deeper techniques of hacking!",
+          "In front of you is, again, a laptop!",
+          "Laptops can be hacked into certain colors.",
+          "But not all laptops can be hacked into every color!",
+          "The laptop in front of you can only be hacked into the RED color!",
+          "A Firewall can even have multiple activation plates, as you can see here!",
+          "Go ahead, open the Firewall! I'll meet you at the next one!"
+        ]
       },
       "startPosition": {
         "x": 3,
@@ -1018,16 +983,15 @@
         "dialogName": "USBStick",
         "trigger": 0,
         "character": 1,
-	"lines": [
-	  "There you go!",
-	  "Here you can see multiple activation plates and Firewall.",
-	  "As you can see, Firewall can require different amounts of laptops.",
-	  "And sometimes even different colors!",
-	  "By the way, the amount of laptops on a plate, can differ too. the numbers on the plates indicated the maximum.",
-	  "Go ahead, try it out!",
-	  "I'll meet you once you've managed to open the door behind the three Firewall!"
-	]
-
+        "lines": [
+          "There you go!",
+          "Here you can see multiple activation plates and Firewalls.",
+          "As you can see, a Firewall can require different amounts of laptops.",
+          "And sometimes even different colors!",
+          "By the way, the amount of laptops on a plate can differ too. The numbers on the plates indicate the maximum.",
+          "Go ahead, try it out!",
+          "I'll meet you once you've managed to open the door behind the three Firewalls!"
+        ]
       },
       "startPosition": {
         "x": 16,
@@ -1048,13 +1012,13 @@
         "dialogName": "USBStick",
         "trigger": 0,
         "character": 1,
-	"lines": [
-	  "Wow, congrats! I didn't think something so...",
+        "lines": [
+          "Wow, congrats! I didn't think something so...",
           "huMaN...",
           "could pull this off!",
-	  "Grab the data and get out of here!",
-	  "I'll meet you at your next training!"
-	]
+          "Grab the data and get out of here!",
+          "I'll meet you at your next training!"
+        ]
       },
       "startPosition": {
         "x": 37,
@@ -1067,6 +1031,42 @@
         "y": 12,
         "magnitude": 39.8497162,
         "sqrMagnitude": 1588
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
+      "possibleHacks": [
+        3
+      ],
+      "position": {
+        "x": 20,
+        "y": 16,
+        "magnitude": 25.6124973,
+        "sqrMagnitude": 656
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
+      "possibleHacks": [
+        1
+      ],
+      "position": {
+        "x": 20,
+        "y": 10,
+        "magnitude": 22.36068,
+        "sqrMagnitude": 500
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.LaptopComponent, Assembly-CSharp",
+      "possibleHacks": [
+        2
+      ],
+      "position": {
+        "x": 20,
+        "y": 4,
+        "magnitude": 20.3960781,
+        "sqrMagnitude": 416
       }
     }
   ],

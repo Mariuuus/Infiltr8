@@ -1,5 +1,6 @@
 {
-  "levelName": "Misleading PATHs",
+  "levelTitle": "Misleading PATHs",
+  "levelName": "Level07",
   "wallPointOne": {
     "x": 0,
     "y": 0,
@@ -2191,11 +2192,14 @@
         "lines": [
           "As you have probably noticed...",
           "There is a timer in the right upper corner.",
-          "This time indicated the seconds you spend in this system!",
-          "if there is a timer there will also be a time limit!",
+          "This time indicates the seconds you spend in this system!",
+          "if there is a timer, there will also be a time limit!",
           "so you will have to be fast.",
-          "but",
-          "don't worry, if you do not get the data within the time, you can try again. You will probably be faster this time, because you already gained knowlegde about this system!"
+          "but.",
+          "don't worry, if you don't retrieve the data within the time limit,",
+          "you gotta try again.",
+          "You will probably be faster next time though,",
+          "because you have already gained knowledge about the system!"
         ]
       },
       "startPosition": {

@@ -1,5 +1,6 @@
 {
-  "levelName": "Portals do Portal",
+  "levelTitle": "Portals do Portal",
+  "levelName": "Level05",
   "wallPointOne": {
     "x": 0,
     "y": 0,
@@ -190,10 +191,10 @@
             "sqrMagnitude": 136
           },
           "endPosition": {
-            "x": 11,
-            "y": 3,
-            "magnitude": 11.4017544,
-            "sqrMagnitude": 130
+            "x": 12,
+            "y": 4,
+            "magnitude": 12.6491108,
+            "sqrMagnitude": 160
           }
         }
       ],
@@ -817,5 +818,6 @@
     }
   ],
   "levelType": 0,
-  "availableTime": 0.0
+  "availableTime": 0.0,
+  "isPartOfTutorial": false
 }

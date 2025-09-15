@@ -1,5 +1,6 @@
 {
-  "levelName": "Watch OUT!",
+  "levelTitle": "Watch OUT!",
+  "levelName": "Level13",
   "wallPointOne": {
     "x": 0,
     "y": 0,
@@ -89,16 +90,17 @@
         "trigger": 0,
         "character": 1,
         "lines": [
-          "ohhh, you already here?",
+          "ohhh, you're already here?",
           "You will now learn about a new element!",
           "The DEFENDERS!",
-          "As you wiill see, the defenders are just elements that will guard a system.",
-          "you should learn to avoid them. because they can be quite annoying, especially in systems with a time limit!",
+          "As you will see, the defenders are just elements that will guard a system.",
+          "you should learn to avoid them, because they can be quite annoying - especially in systems with a time limit!",
           "As you will see, touching them will cause you to walk slower!",
           "and on top of it...",
-          "if you hold a laptop they will make you drop the laptop and reset its hackcolor.",
-          "This  will lead to situations where you have to be fast, in order to reach a door.",
-          "i will now let you find out about them yourself"
+          "if you hold a laptop they will make you drop the laptop and reset its hack color!",
+          "This will lead to situations where you have to be extra cautious when going fast, in order to reach the data in time.",
+          "i will now let you find out about them yourself.",
+          "have fun!"
         ]
       },
       "startPosition": {
