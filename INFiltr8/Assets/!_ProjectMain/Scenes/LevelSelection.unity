@@ -3035,7 +3035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.249}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 630.15, y: -376.695}
+  m_AnchoredPosition: {x: 630.15, y: -375.87}
   m_SizeDelta: {x: 242.75, y: 4.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &136839553
@@ -8770,6 +8770,7 @@ GameObject:
   - component: {fileID: 420719199}
   - component: {fileID: 420719198}
   - component: {fileID: 420719197}
+  - component: {fileID: 420719201}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8892,6 +8893,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &420719201
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420719195}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &431495659
 GameObject:
   m_ObjectHideFlags: 0
@@ -8926,6 +8939,7 @@ MonoBehaviour:
   loggedIn: 0
   lastLevel: 0
   playEndSequence: 0
+  postFix: _temp
   gameSlotsManager: {fileID: 0}
   gameData:
     playerName: 
@@ -11208,7 +11222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.249}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 630.15, y: -362.59503}
+  m_AnchoredPosition: {x: 630.15, y: -361.77002}
   m_SizeDelta: {x: 242.75, y: 4.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611999056
@@ -13676,7 +13690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.249}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 630.15, y: -412.32498}
+  m_AnchoredPosition: {x: 630.15, y: -413.14996}
   m_SizeDelta: {x: 242.75, y: 9.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769803642
@@ -13699,7 +13713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- syntwave 80s retro music
+  m_text: '- synthwave 80s retro music
 
     - cosmic drift
 
@@ -13871,7 +13885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.249}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 630.15, y: -405.275}
+  m_AnchoredPosition: {x: 630.15, y: -406.09998}
   m_SizeDelta: {x: 242.75, y: 4.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783790100
@@ -16667,7 +16681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.249}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 630.15, y: -369.64502}
+  m_AnchoredPosition: {x: 630.15, y: -368.82}
   m_SizeDelta: {x: 242.75, y: 9.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937319561
@@ -16695,7 +16709,7 @@ MonoBehaviour:
     - Maximilian Carl Ferdinand Schmitt
 
     -
-    Thomas Eichman'
+    Thomas Eichmann'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfecea3b06d23a245b18a0d377700903, type: 2}
   m_sharedMaterial: {fileID: -3860683770155146142, guid: dfecea3b06d23a245b18a0d377700903, type: 2}
@@ -17154,7 +17168,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 64.343185
+    FieldOfView: 47.8
     OrthographicSize: 10
     NearClipPlane: 0.01
     FarClipPlane: 5000
@@ -24009,7 +24023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.249}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 630.15, y: -355.61002}
+  m_AnchoredPosition: {x: 630.15, y: -354.785}
   m_SizeDelta: {x: 242.75, y: 9.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1375234788
@@ -24904,6 +24918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedLevelData:
+    levelTitle: 
     levelName: 
     wallPointOne: {x: 0, y: 0}
     wallPointTwo: {x: 0, y: 0}
@@ -25616,7 +25631,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 630.15, y: -390.985}
-  m_SizeDelta: {x: 242.75, y: 24.31}
+  m_SizeDelta: {x: 242.75, y: 25.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1452571753
 MonoBehaviour:
@@ -25638,16 +25653,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Guilherme F.
+  m_text: '- Lilly A.
+
+    - Guilherme F.
 
     - Per J.
 
     - Sarah K.
 
-    - Moritz K.
-
-    - Lilly
-    L.
+    - Moritz
+    K.
 
     - Emil P.
 
@@ -25656,6 +25671,9 @@ MonoBehaviour:
     - Jonathan S.
 
     - Markus S.
+
+    -
+    Michel S.
 
 '
   m_isRightToLeft: 0
