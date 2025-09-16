@@ -723,7 +723,7 @@
     },
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.CollectableComponent, Assembly-CSharp",
-      "type": 11,
+      "type": 8,
       "position": {
         "x": 3,
         "y": 2,
@@ -2838,9 +2838,62 @@
         "magnitude": 25.0,
         "sqrMagnitude": 625
       }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "Schlappy",
+        "trigger": 0,
+        "character": 2,
+        "lines": [
+          "Hello!",
+          "It's been some time...",
+          "You will now learn that:",
+          "Networks can contain cameras!",
+          "Cameras will rotate and if you get to closely...",
+          "the time you have will pass faster (x3,33)."
+        ]
+      },
+      "startPosition": {
+        "x": 22,
+        "y": 9,
+        "magnitude": 23.7697277,
+        "sqrMagnitude": 565
+      },
+      "endPosition": {
+        "x": 22,
+        "y": 2,
+        "magnitude": 22.0907211,
+        "sqrMagnitude": 488
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "USBStick",
+        "trigger": 0,
+        "character": 1,
+        "lines": [
+          "BE CAREFULLY",
+          "This network is already a part of a much bigger network, we will attack later.",
+          "We need this data to access the next networks!!!"
+        ]
+      },
+      "startPosition": {
+        "x": 19,
+        "y": 9,
+        "magnitude": 21.0237961,
+        "sqrMagnitude": 442
+      },
+      "endPosition": {
+        "x": 19,
+        "y": 1,
+        "magnitude": 19.0262985,
+        "sqrMagnitude": 362
+      }
     }
   ],
   "levelType": 1,
-  "availableTime": 400.0,
+  "availableTime": 180.0,
   "isPartOfTutorial": true
 }

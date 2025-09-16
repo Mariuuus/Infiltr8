@@ -1454,7 +1454,7 @@
     },
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.CollectableComponent, Assembly-CSharp",
-      "type": 8,
+      "type": 7,
       "position": {
         "x": 40,
         "y": 37,

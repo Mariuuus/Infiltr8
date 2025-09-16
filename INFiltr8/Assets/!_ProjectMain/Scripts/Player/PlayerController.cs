@@ -144,7 +144,7 @@ namespace __ProjectMain.Scripts.Player
             if (ClosestObject  == null || GetComponent<GrabController>().IsGrabbing || inSlowdown) return;
             
             Debug.Log(ClosestObject.name);
-            _interactionInstance = Instantiate(interactionImage, ClosestObject .transform.position + new Vector3(0, 1, 0),
+            _interactionInstance = Instantiate(interactionImage, ClosestObject .transform.position + new Vector3(0, 1.25f, 0),
                 Quaternion.Euler(40, 0, 0));
             _interactionInstance.transform.SetParent(ClosestObject.transform);
             _interactionInstance.GetComponentInChildren<LaptopUI>().Init(ClosestObject.GetComponent<HackableDevice>() ?? null );

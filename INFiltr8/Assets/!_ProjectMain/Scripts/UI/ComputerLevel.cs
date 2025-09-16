@@ -49,7 +49,7 @@ namespace __ProjectMain.Scripts.UI
             _levelNumb = levelNumb-1;
             this.levelNumber.text = "Level " + levelNumb + ":";
             this.levelName.text = levelData.levelTitle;
-            bestTime.SetActive(levelData.levelType != LevelType.GetData);
+            //bestTime.SetActive(levelData.levelType != LevelType.GetData);
             timeIcon.SetActive(levelData.levelType != LevelType.GetData);
             bestTimeObj.text = $"";
             levelsScreen.SetActive(false);

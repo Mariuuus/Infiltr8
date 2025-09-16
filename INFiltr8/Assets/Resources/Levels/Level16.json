@@ -1633,7 +1633,7 @@
     },
     {
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.CollectableComponent, Assembly-CSharp",
-      "type": 9,
+      "type": 10,
       "position": {
         "x": 29,
         "y": 30,
@@ -3788,5 +3788,6 @@
     }
   ],
   "levelType": 1,
-  "availableTime": 170.0
+  "availableTime": 170.0,
+  "isPartOfTutorial": false
 }

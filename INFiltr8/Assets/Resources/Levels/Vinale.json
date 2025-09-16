@@ -6594,7 +6594,12 @@
           }
         }
       ],
-      "doorUnlockRequirements": [],
+      "doorUnlockRequirements": [
+        {
+          "hackStatus": 2,
+          "amount": 1
+        }
+      ],
       "startPosition": {
         "x": 17,
         "y": 55,
@@ -10143,6 +10148,64 @@
         "y": 10,
         "magnitude": 50.9901962,
         "sqrMagnitude": 2600
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "USBStick",
+        "trigger": 0,
+        "character": 1,
+        "lines": [
+          "There we are.",
+          "Everything you have been training for...",
+          "The holy network of the university!!!",
+          "The data we will receive today will be very relevant for us!",
+          "THE SOLUTIONS TO THE UPCOMING EXAMS!",
+          "This will be quite complicated, as the network is huge, but you will need to obtain the solutions!",
+          "i wish you good luck!",
+          "bah, i dont like this motivational speech D;"
+        ]
+      },
+      "startPosition": {
+        "x": 57,
+        "y": 47,
+        "magnitude": 73.87828,
+        "sqrMagnitude": 5458
+      },
+      "endPosition": {
+        "x": 58,
+        "y": 51,
+        "magnitude": 77.23341,
+        "sqrMagnitude": 5965
+      }
+    },
+    {
+      "$type": "__ProjectMain.Scripts.LevelEditor.Components.DialogAreaComponent, Assembly-CSharp",
+      "dialog": {
+        "dialogName": "Schlappy",
+        "trigger": 0,
+        "character": 2,
+        "lines": [
+          "YEEEEAAAAH!!!",
+          "you did it!",
+          "go get the data!",
+          "but keep in mind to be careful",
+          "Otherwise the police might be on their way.",
+          "This is very unlikely though!"
+        ]
+      },
+      "startPosition": {
+        "x": 76,
+        "y": 99,
+        "magnitude": 124.807854,
+        "sqrMagnitude": 15577
+      },
+      "endPosition": {
+        "x": 76,
+        "y": 93,
+        "magnitude": 120.104118,
+        "sqrMagnitude": 14425
       }
     }
   ],
