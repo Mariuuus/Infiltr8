@@ -364,6 +364,7 @@ MonoBehaviour:
   buttonText: {fileID: 1479966520422420317}
   buttonImage: {fileID: 8534480946186405675}
   levelData:
+    levelTitle: 
     levelName: 
     wallPointOne: {x: 0, y: 0}
     wallPointTwo: {x: 0, y: 0}
@@ -375,6 +376,7 @@ MonoBehaviour:
   levelName: 0
   iconImage: {fileID: 357358362490696982}
   timeSprite: {fileID: 21300000, guid: 9d3253caab58656c3900b96880d44d85, type: 3}
+  goalSprite: {fileID: 21300000, guid: b609ac0f78303e99daf217c8000894d5, type: 3}
   tutorialSprite: {fileID: 21300000, guid: d270649187a92ea929e2c501a7615e22, type: 3}
 --- !u!114 &8039642571856776524
 MonoBehaviour:

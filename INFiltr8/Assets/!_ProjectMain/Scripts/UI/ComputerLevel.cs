@@ -51,7 +51,7 @@ namespace __ProjectMain.Scripts.UI
             this.levelName.text = levelData.levelTitle;
             bestTime.SetActive(levelData.levelType != LevelType.GetData);
             timeIcon.SetActive(levelData.levelType != LevelType.GetData);
-            bestTimeObj.text = $"todo";
+            bestTimeObj.text = $"";
             levelsScreen.SetActive(false);
             previewLevelScreen.SetActive(true);
         }
