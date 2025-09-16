@@ -18,13 +18,19 @@ namespace __ProjectMain.Scripts.UI.MainMenuElements
         
         public Image iconImage;
         public Sprite timeSprite;
+        public Sprite goalSprite;
         public Sprite tutorialSprite;
         
-        public void Init(LevelData pLevelData, int pLevelNumber, bool available, bool isNextLevel)
+        public void Init(LevelData pLevelData, int pLevelNumber, bool available, bool isNextLevel, bool isGoal)
         {
             levelData = pLevelData;
             levelNumber = pLevelNumber;
             buttonText.text = "Level " + levelNumber;
+            if(isGoal)
+            {
+                iconImage.sprite = goalSprite;
+                return;
+            }
             if (levelData.isPartOfTutorial)
             {
                 iconImage.sprite = tutorialSprite;
@@ -38,7 +44,7 @@ namespace __ProjectMain.Scripts.UI.MainMenuElements
                 {
                     case LevelType.GetData:
                     case LevelType.Silent:
-                        iconImage.sprite = null;
+                        iconImage.sprite = goalSprite;
                         iconImage.color = new Color32(0, 0, 0, 0);
                         buttonImage.color = available
                             ? new Color32(255, 243, 113, 255)
@@ -52,6 +58,7 @@ namespace __ProjectMain.Scripts.UI.MainMenuElements
                         break;
                 }
             }
+
             if(!isNextLevel) GetComponent<Outline>().enabled = false;
         }
 

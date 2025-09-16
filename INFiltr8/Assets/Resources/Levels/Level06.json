@@ -1323,7 +1323,7 @@
       "$type": "__ProjectMain.Scripts.LevelEditor.Components.FireWallComponent, Assembly-CSharp",
       "activationPlates": [
         {
-          "maxDevices": 0,
+          "maxDevices": 2,
           "startPosition": {
             "x": 19,
             "y": 13,
@@ -1338,7 +1338,7 @@
           }
         },
         {
-          "maxDevices": 0,
+          "maxDevices": 1,
           "startPosition": {
             "x": 7,
             "y": 5,
@@ -1355,11 +1355,15 @@
       ],
       "doorUnlockRequirements": [
         {
+          "hackStatus": 0,
+          "amount": 1
+        },
+        {
           "hackStatus": 3,
           "amount": 1
         },
         {
-          "hackStatus": 1,
+          "hackStatus": 2,
           "amount": 1
         }
       ],
@@ -1541,5 +1545,6 @@
     }
   ],
   "levelType": 0,
-  "availableTime": 0.0
+  "availableTime": 0.0,
+  "isPartOfTutorial": false
 }
