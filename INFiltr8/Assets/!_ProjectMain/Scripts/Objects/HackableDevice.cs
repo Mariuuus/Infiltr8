@@ -3,6 +3,7 @@ using System.Collections;
 using __ProjectMain.Scripts.LevelEditor.Components;
 using __ProjectMain.Scripts.LevelEditor.Types;
 using __ProjectMain.Scripts.Managers.Audio;
+using __ProjectMain.Scripts.Managers.Ingame;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -117,6 +118,10 @@ namespace __ProjectMain.Scripts.Objects
             
                 while (elapsed < cooldownTime && _onCooldown)
                 {
+                    while (IngameManager.Instance?.Paused ?? false)
+                    {
+                        yield return null;
+                    }
                     elapsed += Time.deltaTime;
                     image.fillAmount = Mathf.Lerp(1f, 0f, elapsed / cooldownTime);
                     yield return null; 
@@ -127,16 +132,20 @@ namespace __ProjectMain.Scripts.Objects
         }
     
         IEnumerator Cooldown()
-        {   
+        {
+            float elapsed = 0f;
             _onCooldown = true;
-            int remaining = cooldownTime;
             _countDownUIInstance = Instantiate(countdownUI, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
             _countDownUIInstance.transform.SetParent(transform);
 
-            while (remaining > 0)
+            while (elapsed < cooldownTime)
             {
-                yield return new WaitForSeconds (1);
-                remaining--;
+                yield return null;
+                while (IngameManager.Instance?.Paused ?? false)
+                {
+                    yield return null;
+                }
+                elapsed += Time.deltaTime;
             }
         
             Destroy(_countDownUIInstance.GameObject());

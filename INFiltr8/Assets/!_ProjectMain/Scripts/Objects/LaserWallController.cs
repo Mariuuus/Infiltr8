@@ -78,13 +78,17 @@ namespace __ProjectMain.Scripts.Objects
         IEnumerator Cooldown()
         {
             _onCooldown = true;
-            int remainingTime = cooldownTime;
+            float elapsed = 0f;
             this._meshRenderer.material = transparentMaterial;
             
-            while (remainingTime > 0)
+            while (elapsed < cooldownTime)
             {
-                yield return new WaitForSeconds(1);
-                remainingTime--;
+                yield return null;
+                while (IngameManager.Instance?.Paused ?? false)
+                {
+                    yield return null;
+                }
+                elapsed += Time.deltaTime;
             }
 
             this._meshRenderer.material = normalMaterial;

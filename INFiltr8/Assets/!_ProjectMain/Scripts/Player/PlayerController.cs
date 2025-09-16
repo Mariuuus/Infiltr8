@@ -146,7 +146,10 @@ namespace __ProjectMain.Scripts.Player
             moveSpeed /= slowdownFactor;
             while (_remainingTime > 0)
             {
-               
+                while (IngameManager.Instance?.Paused ?? false)
+                {
+                    yield return null;
+                }
                 yield return new WaitForSeconds(1);
                 _remainingTime--;
             }
@@ -167,6 +170,11 @@ namespace __ProjectMain.Scripts.Player
                 
                 while (elapsed < slowdownTime && inSlowdown)
                 {
+                    while (IngameManager.Instance?.Paused ?? false)
+                    {
+                        yield return null;
+                    }
+                    
                     elapsed += Time.deltaTime;
                     image.fillAmount = Mathf.Lerp(1f, 0f, elapsed / slowdownTime);
                     yield return null; 
