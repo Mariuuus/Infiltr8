@@ -13,7 +13,7 @@ public class CameraFOVController : MonoBehaviour
     {
         if (isInactive) return;
         Debug.Log("caught player");
-        LevelTimeTracker.Instance?.SetMultiplier(2f);
+        LevelTimeTracker.Instance?.SetMultiplier(3.3f);
     }
 
     private void OnTriggerExit(Collider other)
