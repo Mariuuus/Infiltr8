@@ -15,7 +15,6 @@ namespace __ProjectMain.Scripts.UI
         [SerializeField] private TMP_InputField turnaroundTimeInput;
         [SerializeField] private Slider rotationSlider;
         [SerializeField] private TMP_InputField rotationInput;
-        [SerializeField] private Toggle rotationToggle;
         public void Show(CameraComponent cameraComponent)
         {
             _cameraComponent = cameraComponent;
@@ -28,8 +27,6 @@ namespace __ProjectMain.Scripts.UI
 
         public void Hide()
         {
-            _cameraComponent.disableRotation = true;
-            LevelEditorFileManager.Instance.QuickSave();
             gameObject.SetActive(false);
         }
 
@@ -71,12 +68,6 @@ namespace __ProjectMain.Scripts.UI
                 previousMappedValue = (int) (value / 13);
                 LevelEditorManager.Instance.UpdateUI();           
             }
-            LevelEditorFileManager.Instance.QuickSave();
-        }
-
-        public void OnToggleRotation(bool state)
-        {
-            _cameraComponent.disableRotation = !state;
             LevelEditorFileManager.Instance.QuickSave();
         }
     }
