@@ -104,53 +104,35 @@ namespace __ProjectMain.Scripts.Objects
             SfxManager.instance.PlaySfxClip(hackSound,.4f);
 
             StartCoroutine(Cooldown());
-            StartCoroutine(UpdateUIFill()); 
             SetMaterial(color);
             hackColor = color;
         }
         
-        IEnumerator UpdateUIFill()
-        {
-            if (_countDownUIInstance != null)
-            {
-                float elapsed = 0f;
-                Image image = _countDownUIInstance.GetComponentInChildren<Image>();
-            
-                while (elapsed < cooldownTime && _onCooldown)
-                {
-                    while (IngameManager.Instance?.Paused ?? false)
-                    {
-                        yield return null;
-                    }
-                    elapsed += Time.deltaTime;
-                    image.fillAmount = Mathf.Lerp(1f, 0f, elapsed / cooldownTime);
-                    yield return null; 
-                }
-            
-                image.fillAmount = 0f;
-            }
-        }
-    
         IEnumerator Cooldown()
         {
-            float elapsed = 0f;
+            // instantiate ui, set bool
             _onCooldown = true;
             _countDownUIInstance = Instantiate(countdownUI, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
             _countDownUIInstance.transform.SetParent(transform);
-
-            while (elapsed < cooldownTime)
+            
+            float elapsed = 0f;
+            Image image = _countDownUIInstance.GetComponentInChildren<Image>();
+        
+            while (elapsed < cooldownTime && _onCooldown)
             {
-                yield return null;
                 while (IngameManager.Instance?.Paused ?? false)
                 {
                     yield return null;
                 }
                 elapsed += Time.deltaTime;
+                image.fillAmount = Mathf.Lerp(1f, 0f, elapsed / cooldownTime);
+                yield return null; 
             }
-        
+            image.fillAmount = 0f;
+            
+            // cleanup
             Destroy(_countDownUIInstance.GameObject());
             _onCooldown = false;
-            yield return null;
-        } 
+        }
     }
 }

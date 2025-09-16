@@ -93,7 +93,6 @@ namespace __ProjectMain.Scripts.Objects
 
             this._meshRenderer.material = normalMaterial;
             _onCooldown = false;
-            yield return null;
         }
     }
 }

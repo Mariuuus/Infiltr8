@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using __ProjectMain.Scripts.Managers.Ingame;
 using __ProjectMain.Scripts.Objects;
@@ -16,19 +17,25 @@ namespace __ProjectMain.Scripts.Player
         [SerializeField] private GameObject interactionImage;
         [SerializeField] private ParticleSystem slowdownParticles;
         [SerializeField] private int slowdownTime = 5;
-        [SerializeField] private float slowdownFactor = 2;
+        [SerializeField] private float slowdownSpeed = 1;
         [SerializeField] private Canvas slowdownUI;
 
         private GameObject _interactionInstance;
         private Coroutine _uiFillRoutine;
-        private int _remainingTime = 0;
         private Canvas _slowdownUIInstance;
         public GameObject ClosestObject { get; private set; }
         public bool inSlowdown = false;
+        private float _currentSpeed;
     
         [SerializeField] 
         private Rigidbody rb;
         private Vector3 _input;
+
+
+        private void Start()
+        {
+            _currentSpeed = moveSpeed;
+        }
 
         void Update()
         {
@@ -44,7 +51,7 @@ namespace __ProjectMain.Scripts.Player
             {
                 Quaternion targetRotation = Quaternion.LookRotation(_input, Vector3.up);
                 rb.MoveRotation(targetRotation);
-                rb.linearVelocity = transform.forward * moveSpeed;
+                rb.linearVelocity = transform.forward * _currentSpeed;
             }
             else
             {
@@ -117,74 +124,16 @@ namespace __ProjectMain.Scripts.Player
         {
             if (!inSlowdown)
             {
-                _remainingTime = slowdownTime;
-                StartCoroutine(slowdownForSeconds());
-                _uiFillRoutine = StartCoroutine(UpdateUIFill());
+                StartCoroutine(nameof(SlowdownCooldown));
             }
             else
             {
-                // if we retrigger the slowdown while we are in a slowdown already
-                if (_uiFillRoutine != null)
-                {
-                    StopCoroutine(_uiFillRoutine);
-                    _uiFillRoutine = null;
-                }
-                _uiFillRoutine = StartCoroutine(UpdateUIFill());
-                _remainingTime = slowdownTime;
+                StopCoroutine(nameof(SlowdownCooldown));
+                Destroy(_slowdownUIInstance.gameObject);
+                StartCoroutine(nameof(SlowdownCooldown));
             }
         }
 
-        IEnumerator slowdownForSeconds()
-        {
-            inSlowdown = true;
-            _slowdownUIInstance =
-                Instantiate(slowdownUI, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
-            _slowdownUIInstance.transform.SetParent(transform);
-            if (_interactionInstance) Destroy(_interactionInstance);
-           // var slowdownParticlesInstance = Instantiate(slowdownParticles, transform.position, Quaternion.identity);
-           // slowdownParticlesInstance.transform.SetParent(transform);
-            moveSpeed /= slowdownFactor;
-            while (_remainingTime > 0)
-            {
-                while (IngameManager.Instance?.Paused ?? false)
-                {
-                    yield return null;
-                }
-                yield return new WaitForSeconds(1);
-                _remainingTime--;
-            }
-            moveSpeed *= slowdownFactor;
-            Destroy(_slowdownUIInstance.gameObject);
-            // Destroy(slowdownParticlesInstance.gameObject);
-            inSlowdown = false;
-            UpdateInteractionUI();
-            yield return null;
-        }
-
-        IEnumerator UpdateUIFill()
-        {
-            if (_slowdownUIInstance != null)
-            {
-                float elapsed = 0f;
-                Image image = _slowdownUIInstance.GetComponentInChildren<Image>();
-                
-                while (elapsed < slowdownTime && inSlowdown)
-                {
-                    while (IngameManager.Instance?.Paused ?? false)
-                    {
-                        yield return null;
-                    }
-                    
-                    elapsed += Time.deltaTime;
-                    image.fillAmount = Mathf.Lerp(1f, 0f, elapsed / slowdownTime);
-                    yield return null; 
-                }
-            
-                image.fillAmount = 0f;
-                _uiFillRoutine = null;
-            }
-        }
-    
         public void UpdateInteractionUI()
         {
             if (_interactionInstance)
@@ -199,6 +148,40 @@ namespace __ProjectMain.Scripts.Player
                 Quaternion.Euler(40, 0, 0));
             _interactionInstance.transform.SetParent(ClosestObject.transform);
             _interactionInstance.GetComponentInChildren<LaptopUI>().Init(ClosestObject.GetComponent<HackableDevice>() ?? null );
+        }
+
+        IEnumerator SlowdownCooldown()
+        {
+            inSlowdown = true;
+            _slowdownUIInstance =
+                Instantiate(slowdownUI, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            _slowdownUIInstance.transform.SetParent(transform);
+            _currentSpeed = slowdownSpeed;
+            
+            if (_interactionInstance) Destroy(_interactionInstance);
+            float elapsed = 0f;
+            Image image = _slowdownUIInstance.GetComponentInChildren<Image>();
+
+            while (elapsed < slowdownTime && inSlowdown)
+            {
+                while (IngameManager.Instance?.Paused ?? false)
+                {
+                    yield return null;
+                }
+
+                elapsed += Time.deltaTime;
+                image.fillAmount = Mathf.Lerp(1f, 0f, elapsed / slowdownTime);
+                yield return null;
+            }
+
+            image.fillAmount = 0f;
+            _uiFillRoutine = null;
+            _currentSpeed = moveSpeed;
+            Destroy(_slowdownUIInstance.gameObject);
+            // Destroy(slowdownParticlesInstance.gameObject);
+            inSlowdown = false;
+            UpdateInteractionUI();
+            yield return null;
         }
     }
 }
