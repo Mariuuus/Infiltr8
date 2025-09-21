@@ -68,6 +68,9 @@ namespace __ProjectMain.Scripts.Managers
             Instance = this;
             //DontDestroyOnLoad(gameObject);
             _listeners = new List<IControlsListener>();
+            Debug.developerConsoleVisible = true;
+            Debug.Log("HELLOOO");
+
         }
 
         public void OnControlsChanged(PlayerInput input)

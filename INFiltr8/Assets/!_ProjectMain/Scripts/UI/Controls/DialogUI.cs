@@ -17,15 +17,19 @@ namespace __ProjectMain.Scripts.UI.Controls
         private void Start()
         {
             ControlsManager.Instance.AddSubscriber(this);
+            Debug.Log("is Sub");
         }
 
         private void OnDestroy()
         {
             ControlsManager.Instance.RemoveSubscriber(this);
+            Debug.Log("is no Sub");
+
         }
 
         public void OnChange()
         {
+            Debug.Log("Changed Controls!");
             switch (ControlsManager.Instance.usedDevice)
             {
                 case Device.Gamepad:

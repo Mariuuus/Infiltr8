@@ -24,7 +24,7 @@ namespace __ProjectMain.Scripts.UI.Controls
             switch (ControlsManager.Instance.usedDevice)
             {
                 case Device.Gamepad:
-                    if (IngameManager.Instance.Paused) ControlsManager.Instance.ActivateVirtualMouse();
+                    if (IngameManager.Instance?.Paused??false) ControlsManager.Instance.ActivateVirtualMouse();
                     break;
                 case Device.Keyboard:
                     ControlsManager.Instance.DeactivateVirtualMouse();
