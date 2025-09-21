@@ -8,15 +8,21 @@ using UnityEngine.UI;
 
 namespace __ProjectMain.Scripts.UI
 {
+    public enum Setting
+    {
+        Graphics, Audio
+    }
     public class Settings : MonoBehaviour, IClickableMenuElement
     { 
         [SerializeField] private Vector3 normalScale; 
         [SerializeField] private Vector3 hoverScale;
+        [SerializeField] private AudioSettings audioSettings;
+        [SerializeField] private GraphicsSettings graphicsSettings;
 
         public GameObject settingsMenu;
-        public Slider masterVolumeSlider;
-        public Slider musicVolumeSlider;
-        public Slider sfxVolumeSlider;
+        
+        private Setting _currentSetting = Setting.Audio;
+        
         
         public void Awake()
         {
@@ -34,11 +40,27 @@ namespace __ProjectMain.Scripts.UI
     
         }
 
+        public void ChangeToAudioSettings() {
+            _currentSetting = Setting.Audio;
+            ShowSettingsMenu();
+        }
+        public void ChangeToGraphicsSettings() {
+            _currentSetting = Setting.Graphics;
+            ShowSettingsMenu();
+        }
+
         public void ShowSettingsMenu()
         {
-            masterVolumeSlider.value = GameDataManager.Instance.gameData.masterVolume;
-            musicVolumeSlider.value = GameDataManager.Instance.gameData.musicVolume;
-            sfxVolumeSlider.value = GameDataManager.Instance.gameData.sfxVolume;
+            if (_currentSetting == Setting.Audio)
+            {
+                graphicsSettings.Hide();
+                audioSettings.Show();
+            }
+            else
+            {
+                graphicsSettings.Show();
+                audioSettings.Hide();
+            }
             settingsMenu.SetActive(true);
         }
         
