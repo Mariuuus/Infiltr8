@@ -1,9 +1,12 @@
 # INFiltr8
 
+> A small puzzle game about hacking made by Marius, Max and Thomas.
+
 ## Prequisites
 
-- `Unity`, version `6000.0.48f1` `LTS`
-
+- `Unity`, version `6000.0.75f1` `LTS`
+- Open the `Infiltr8` folder as a project
+<!-- 
 ## Adding a new Component to the Game
 
 ### LevelEditor Presents
@@ -118,4 +121,4 @@ For the highest possible modularity of this system you will need to add a `Compo
 1. (Optional) Create a the PlacerClass. This may only be necessary if the Component requires scaling etc. for performance or if it  needs connection with other components.
 
 2. Within the `Init()` methode of the `LevelLoaderManager` class add a new case in the switch statement add the end of the  methode. You can see how to call the Placer there. In our case we do not need a Placer. We just Instantiate the Object and change the position
-    > keep in mind that you need to create this Object as a field in this class
+    > keep in mind that you need to create this Object as a field in this class -->
