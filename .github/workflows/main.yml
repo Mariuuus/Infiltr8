@@ -22,11 +22,11 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
-          path: Infiltr8/Library
-          key: Library-Infiltr8-${{ matrix.targetPlatform }}-${{ hashFiles('Infiltr8') }}
+          path: INFiltr8/Library
+          key: Library-INFiltr8-${{ matrix.targetPlatform }}-${{ hashFiles('INFiltr8') }}
           restore-keys: |
-            Library-Infiltr8-${{ matrix.targetPlatform }}-
-            Library-Infiltr8-
+            Library-INFiltr8-${{ matrix.targetPlatform }}-
+            Library-INFiltr8-
             Library-
       - uses: game-ci/unity-builder@v4
         env:
@@ -34,7 +34,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          projectPath: Infiltr8
+          projectPath: INFiltr8
           unityVersion: 6000.0.75f1
           targetPlatform: ${{ matrix.targetPlatform }}
       - name: Zip build
@@ -59,11 +59,11 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
-          path: Infiltr8/Library
-          key: Library-Infiltr8-${{ matrix.targetPlatform }}-${{ hashFiles('Infiltr8') }}
+          path: INFiltr8/Library
+          key: Library-INFiltr8-${{ matrix.targetPlatform }}-${{ hashFiles('INFiltr8') }}
           restore-keys: |
-            Library-Infiltr8-${{ matrix.targetPlatform }}-
-            Library-Infiltr8-
+            Library-INFiltr8-${{ matrix.targetPlatform }}-
+            Library-INFiltr8-
             Library-
       - uses: game-ci/unity-builder@v4
         env:
@@ -71,7 +71,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          projectPath: Infiltr8
+          projectPath: INFiltr8
           unityVersion: 6000.0.75f1
           targetPlatform: ${{ matrix.targetPlatform }}
       - name: Zip build
