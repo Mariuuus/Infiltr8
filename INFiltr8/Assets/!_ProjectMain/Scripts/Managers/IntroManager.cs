@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using __ProjectMain.Scripts.Managers.Audio;
 using __ProjectMain.Scripts.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace __ProjectMain.Scripts.Managers
@@ -189,13 +190,7 @@ namespace __ProjectMain.Scripts.Managers
                                             characters.Schlappy.ToString(),
                                             DialoqType.NPC,
                                             characters.Schlappy,
-                                            lines), () =>
-                                        {
-                                            if(GameDataManager.Instance) GameDataManager.Instance.WatchedIntro();
-                                            // MusicManager.Instance.Unmute();
-                                            SceneManager.LoadScene("!_ProjectMain/Scenes/LevelSelection");
-                                            MusicManager.Instance.Unmute();
-                                        });
+                                            lines), SwitchScene);
                                     });
                                 });
                             });
@@ -227,6 +222,21 @@ namespace __ProjectMain.Scripts.Managers
         {
             elapsed = 0f;
             moving = true;
+        }
+
+        private void SwitchScene()
+        {
+            if(GameDataManager.Instance) GameDataManager.Instance.WatchedIntro();
+            // MusicManager.Instance.Unmute();
+            SceneManager.LoadScene("!_ProjectMain/Scenes/LevelSelection");
+            MusicManager.Instance.Unmute();
+        }
+        
+        
+        public void SkipIntro(InputAction.CallbackContext ctx)
+        {
+            if (!ctx.performed) return;
+            SwitchScene();
         }
     }
 }

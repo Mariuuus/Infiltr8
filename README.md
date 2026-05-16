@@ -23,3 +23,7 @@
 ### Interactive 3D Game Menu
 
 ![](res/2_Screenshot_MainMenu.png)
+
+### Intro
+
+![](res/1_Screenshot_Intro.png)
