@@ -377,6 +377,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -615,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34991e6cd5ae4586a40a7e56099632fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usbStickObject: {fileID: 2084076413}
+  usbStickObject: {fileID: 0}
   schlappyObject: {fileID: 1713177311}
   startPositionUsb: {fileID: 2106649078}
   endPositionUsb: {fileID: 45500038}
@@ -800,60 +801,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1317899537}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.48
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.81
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.88
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.85316366
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.52164346
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 62.885
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    - target: {fileID: 919132149155446097, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
       propertyPath: m_Name
       value: usb_stick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 65702495048144492, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
-    - {fileID: 5050422055867433376, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2084076413}
-  m_SourcePrefab: {fileID: 100100000, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
 --- !u!1 &407966285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,6 +1451,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7526,6 +7523,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -12671,33 +12669,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 220e47d344a3239d9b9097257f54c060, type: 3}
---- !u!1 &2084076411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
-  m_PrefabInstance: {fileID: 349777136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2084076412 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3e046d59e1c0a8c43b41d8bd5258ee9d, type: 3}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5947f469e032e82c7ac0c9abfded2c2b, type: 3}
   m_PrefabInstance: {fileID: 349777136}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2084076413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084076411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dead969f9ab4ce2b7df1b036bc696f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
-  moveRadius: 0.2
-  moveSpeed: 5
-  rotationAmount: 18
-  changeInterval: 0.3
 --- !u!1 &2106649077
 GameObject:
   m_ObjectHideFlags: 0
